@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6108D893293A48F500E3CFF8 /* G023NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D892293A48F500E3CFF8 /* G023NSMutableAttributedString+Extension.swift */; };
+		6108D893293A48F500E3CFF8 /* Go23NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D892293A48F500E3CFF8 /* Go23NSMutableAttributedString+Extension.swift */; };
 		6108D897293A4CB900E3CFF8 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D896293A4CB900E3CFF8 /* HomeHeaderView.swift */; };
-		6108D899293AE10D00E3CFF8 /* G023Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D898293AE10D00E3CFF8 /* G023Button+Extension.swift */; };
+		6108D899293AE10D00E3CFF8 /* Go23Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D898293AE10D00E3CFF8 /* Go23Button+Extension.swift */; };
 		6108D89C293CC68C00E3CFF8 /* Go23TokenListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D89B293CC68C00E3CFF8 /* Go23TokenListViewController.swift */; };
 		6108D89E293CC6B500E3CFF8 /* Go23TokenListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D89D293CC6B500E3CFF8 /* Go23TokenListTableViewCell.swift */; };
 		6108D8A0293CCBCB00E3CFF8 /* Go23NFTListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108D89F293CCBCB00E3CFF8 /* Go23NFTListViewController.swift */; };
@@ -51,9 +51,9 @@
 		613D640329544AFD009A9973 /* BarlowCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 613D63FE29544AFD009A9973 /* BarlowCondensed-SemiBold.ttf */; };
 		613D6A1A295B08BE009A9973 /* Go23NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6A19295B08BE009A9973 /* Go23NetworkManager.swift */; };
 		6187E1B1293D92A0002EE854 /* BarlowCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6187E1B0293D92A0002EE854 /* BarlowCondensed-Regular.ttf */; };
-		6187E1B7293DBA98002EE854 /* G023String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1B6293DBA98002EE854 /* G023String+Extension.swift */; };
+		6187E1B7293DBA98002EE854 /* Go23String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1B6293DBA98002EE854 /* Go23String+Extension.swift */; };
 		6187E1B9293DC590002EE854 /* Go23ChooseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1B8293DC590002EE854 /* Go23ChooseAlertView.swift */; };
-		6187E1BD293DD502002EE854 /* G023UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1BC293DD502002EE854 /* G023UIView+Extension.swift */; };
+		6187E1BD293DD502002EE854 /* Go23UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1BC293DD502002EE854 /* Go23UIView+Extension.swift */; };
 		6187E1C1293DDC81002EE854 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1C0293DDC81002EE854 /* SceneDelegate.swift */; };
 		6187E1C9293DFCB7002EE854 /* BarlowCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6187E1C4293DFCB7002EE854 /* BarlowCondensed-SemiBold.ttf */; };
 		6187E1CA293DFCB7002EE854 /* BarlowCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6187E1C5293DFCB7002EE854 /* BarlowCondensed-Medium.ttf */; };
@@ -122,8 +122,8 @@
 		61A20767296C48B5006E10FA /* UIViewController+Husky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A20760296C48B5006E10FA /* UIViewController+Husky.swift */; };
 		61A20769296C5547006E10FA /* Go23NetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A20768296C5547006E10FA /* Go23NetStatus.swift */; };
 		61A2076B296C5BF2006E10FA /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 61A2076A296C5BF2006E10FA /* loading.gif */; };
-		61A20777296D4869006E10FA /* Go23WalletSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20776296D4869006E10FA /* Go23WalletSDK.framework */; };
-		61A20779296D500B006E10FA /* Client.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20778296D500B006E10FA /* Client.xcframework */; };
+		61A20791296D65E5006E10FA /* Go23WalletSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20790296D65E5006E10FA /* Go23WalletSDK.framework */; };
+		61A20793296D6616006E10FA /* Client.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20792296D6616006E10FA /* Client.xcframework */; };
 		61C12FCA294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */; };
 		61FFE36A2939E91700139B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE3692939E91700139B1B /* AppDelegate.swift */; };
 		61FFE36E2939E91700139B1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE36D2939E91700139B1B /* ViewController.swift */; };
@@ -132,16 +132,29 @@
 		61FFE3762939E91A00139B1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61FFE3742939E91A00139B1B /* LaunchScreen.storyboard */; };
 		61FFE3802939F62500139B1B /* OverlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE37F2939F62500139B1B /* OverlayController.swift */; };
 		61FFE3822939FA7C00139B1B /* Go23ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE3812939FA7C00139B1B /* Go23ReceiveView.swift */; };
-		61FFE386293A081E00139B1B /* G023Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE385293A081E00139B1B /* G023Color+Extension.swift */; };
+		61FFE386293A081E00139B1B /* Go23Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE385293A081E00139B1B /* Go23Color+Extension.swift */; };
 		61FFE388293A106C00139B1B /* go23Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE387293A106C00139B1B /* go23Constants.swift */; };
 		EF027EA106427A797E4969EB /* Pods_Go23WalletSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724DAA943473C0A3CC169364 /* Pods_Go23WalletSDKDemo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		61A2078F296D65B2006E10FA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2AB0794DE82A02E102A85592 /* Pods-Go23WalletSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23WalletSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-Go23WalletSDKDemo/Pods-Go23WalletSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		6108D892293A48F500E3CFF8 /* G023NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "G023NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		6108D892293A48F500E3CFF8 /* Go23NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Go23NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		6108D896293A4CB900E3CFF8 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
-		6108D898293AE10D00E3CFF8 /* G023Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "G023Button+Extension.swift"; sourceTree = "<group>"; };
+		6108D898293AE10D00E3CFF8 /* Go23Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Go23Button+Extension.swift"; sourceTree = "<group>"; };
 		6108D89B293CC68C00E3CFF8 /* Go23TokenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23TokenListViewController.swift; sourceTree = "<group>"; };
 		6108D89D293CC6B500E3CFF8 /* Go23TokenListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23TokenListTableViewCell.swift; sourceTree = "<group>"; };
 		6108D89F293CCBCB00E3CFF8 /* Go23NFTListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NFTListViewController.swift; sourceTree = "<group>"; };
@@ -185,9 +198,9 @@
 		613D63FE29544AFD009A9973 /* BarlowCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
 		613D6A19295B08BE009A9973 /* Go23NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NetworkManager.swift; sourceTree = "<group>"; };
 		6187E1B0293D92A0002EE854 /* BarlowCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Regular.ttf"; sourceTree = "<group>"; };
-		6187E1B6293DBA98002EE854 /* G023String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "G023String+Extension.swift"; sourceTree = "<group>"; };
+		6187E1B6293DBA98002EE854 /* Go23String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Go23String+Extension.swift"; sourceTree = "<group>"; };
 		6187E1B8293DC590002EE854 /* Go23ChooseAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23ChooseAlertView.swift; sourceTree = "<group>"; };
-		6187E1BC293DD502002EE854 /* G023UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "G023UIView+Extension.swift"; sourceTree = "<group>"; };
+		6187E1BC293DD502002EE854 /* Go23UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Go23UIView+Extension.swift"; sourceTree = "<group>"; };
 		6187E1C0293DDC81002EE854 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6187E1C4293DFCB7002EE854 /* BarlowCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
 		6187E1C5293DFCB7002EE854 /* BarlowCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Medium.ttf"; sourceTree = "<group>"; };
@@ -257,8 +270,8 @@
 		61A20760296C48B5006E10FA /* UIViewController+Husky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Husky.swift"; sourceTree = "<group>"; };
 		61A20768296C5547006E10FA /* Go23NetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NetStatus.swift; sourceTree = "<group>"; };
 		61A2076A296C5BF2006E10FA /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
-		61A20776296D4869006E10FA /* Go23WalletSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Go23WalletSDK.framework; sourceTree = "<group>"; };
-		61A20778296D500B006E10FA /* Client.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Client.xcframework; sourceTree = "<group>"; };
+		61A20790296D65E5006E10FA /* Go23WalletSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Go23WalletSDK.framework; sourceTree = "<group>"; };
+		61A20792296D6616006E10FA /* Client.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Client.xcframework; sourceTree = "<group>"; };
 		61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NFTDetailResultViewController.swift; sourceTree = "<group>"; };
 		61FFE3662939E91700139B1B /* Go23WalletSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Go23WalletSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FFE3692939E91700139B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -269,7 +282,7 @@
 		61FFE3772939E91A00139B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61FFE37F2939F62500139B1B /* OverlayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayController.swift; sourceTree = "<group>"; };
 		61FFE3812939FA7C00139B1B /* Go23ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23ReceiveView.swift; sourceTree = "<group>"; };
-		61FFE385293A081E00139B1B /* G023Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "G023Color+Extension.swift"; sourceTree = "<group>"; };
+		61FFE385293A081E00139B1B /* Go23Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Go23Color+Extension.swift"; sourceTree = "<group>"; };
 		61FFE387293A106C00139B1B /* go23Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = go23Constants.swift; sourceTree = "<group>"; };
 		724DAA943473C0A3CC169364 /* Pods_Go23WalletSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Go23WalletSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35F0F90283441389AE393A2 /* Pods-Go23WalletSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Go23WalletSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-Go23WalletSDKDemo/Pods-Go23WalletSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -280,9 +293,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61A20777296D4869006E10FA /* Go23WalletSDK.framework in Frameworks */,
+				61A20791296D65E5006E10FA /* Go23WalletSDK.framework in Frameworks */,
 				EF027EA106427A797E4969EB /* Pods_Go23WalletSDKDemo.framework in Frameworks */,
-				61A20779296D500B006E10FA /* Client.xcframework in Frameworks */,
+				61A20793296D6616006E10FA /* Client.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +374,7 @@
 			path = swiftScan;
 			sourceTree = "<group>";
 		};
-		613D63F929544AFD009A9973 /* font */ = {
+		613D63F929544AFD009A9973 /* Font */ = {
 			isa = PBXGroup;
 			children = (
 				6187E1CE293E0020002EE854 /* NotoSans-Regular.ttf */,
@@ -376,7 +389,7 @@
 				613D63FD29544AFD009A9973 /* BarlowCondensed-Regular.ttf */,
 				613D63FE29544AFD009A9973 /* BarlowCondensed-SemiBold.ttf */,
 			);
-			path = font;
+			path = Font;
 			sourceTree = "<group>";
 		};
 		6187E1DF293F182F002EE854 /* JXPagingView */ = {
@@ -535,11 +548,18 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		61A2078C296D6433006E10FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61A20792296D6616006E10FA /* Client.xcframework */,
+				61A20790296D65E5006E10FA /* Go23WalletSDK.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		61FFE35D2939E91700139B1B = {
 			isa = PBXGroup;
 			children = (
-				61A20776296D4869006E10FA /* Go23WalletSDK.framework */,
-				61A20778296D500B006E10FA /* Client.xcframework */,
 				61FFE3682939E91700139B1B /* Go23WalletSDKDemo */,
 				61FFE3672939E91700139B1B /* Products */,
 				A84C1758E4CEF0DFD3E98E32 /* Pods */,
@@ -558,7 +578,8 @@
 		61FFE3682939E91700139B1B /* Go23WalletSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				613D63F929544AFD009A9973 /* font */,
+				61A2078C296D6433006E10FA /* Frameworks */,
+				613D63F929544AFD009A9973 /* Font */,
 				61FFE384293A080400139B1B /* Extensions */,
 				61FFE37D2939F62500139B1B /* Tools */,
 				6108D894293A4C8700E3CFF8 /* Home */,
@@ -603,11 +624,11 @@
 		61FFE384293A080400139B1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				61FFE385293A081E00139B1B /* G023Color+Extension.swift */,
-				6108D892293A48F500E3CFF8 /* G023NSMutableAttributedString+Extension.swift */,
-				6108D898293AE10D00E3CFF8 /* G023Button+Extension.swift */,
-				6187E1B6293DBA98002EE854 /* G023String+Extension.swift */,
-				6187E1BC293DD502002EE854 /* G023UIView+Extension.swift */,
+				61FFE385293A081E00139B1B /* Go23Color+Extension.swift */,
+				6108D892293A48F500E3CFF8 /* Go23NSMutableAttributedString+Extension.swift */,
+				6108D898293AE10D00E3CFF8 /* Go23Button+Extension.swift */,
+				6187E1B6293DBA98002EE854 /* Go23String+Extension.swift */,
+				6187E1BC293DD502002EE854 /* Go23UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -641,6 +662,7 @@
 				61FFE3632939E91700139B1B /* Frameworks */,
 				61FFE3642939E91700139B1B /* Resources */,
 				073D7DB0BD604AC4DE9E9339 /* [CP] Embed Pods Frameworks */,
+				61A2078F296D65B2006E10FA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -779,7 +801,7 @@
 				61142E94293F3113000E320E /* Go23TokenDetailListViewController.swift in Sources */,
 				6187E291293F18C3002EE854 /* JXSegmentedIndicatorBaseView.swift in Sources */,
 				61FFE3802939F62500139B1B /* OverlayController.swift in Sources */,
-				6187E1B7293DBA98002EE854 /* G023String+Extension.swift in Sources */,
+				6187E1B7293DBA98002EE854 /* Go23String+Extension.swift in Sources */,
 				61C12FCA294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift in Sources */,
 				6187E28E293F18C3002EE854 /* JXSegmentedIndicatorDotLineView.swift in Sources */,
 				61142ECB2941938B000E320E /* Go23NFTMessageView.swift in Sources */,
@@ -815,7 +837,7 @@
 				6187E2AD293F18C3002EE854 /* JXSegmentedViewTool.swift in Sources */,
 				61FFE3822939FA7C00139B1B /* Go23ReceiveView.swift in Sources */,
 				61142E98293F372B000E320E /* Go23TokenDetailResultViewController.swift in Sources */,
-				6187E1BD293DD502002EE854 /* G023UIView+Extension.swift in Sources */,
+				6187E1BD293DD502002EE854 /* Go23UIView+Extension.swift in Sources */,
 				61A20762296C48B5006E10FA /* HConfig.swift in Sources */,
 				6187E2A1293F18C3002EE854 /* JXSegmentedTitleCell.swift in Sources */,
 				61A20756296BF900006E10FA /* Go23Toast.swift in Sources */,
@@ -847,9 +869,9 @@
 				6187E1C1293DDC81002EE854 /* SceneDelegate.swift in Sources */,
 				6187E29E293F18C3002EE854 /* JXSegmentedTitleImageCell.swift in Sources */,
 				61A20765296C48B5006E10FA /* HNavgationBar.swift in Sources */,
-				61FFE386293A081E00139B1B /* G023Color+Extension.swift in Sources */,
+				61FFE386293A081E00139B1B /* Go23Color+Extension.swift in Sources */,
 				6187E29B293F18C3002EE854 /* JXSegmentedDotCell.swift in Sources */,
-				6108D893293A48F500E3CFF8 /* G023NSMutableAttributedString+Extension.swift in Sources */,
+				6108D893293A48F500E3CFF8 /* Go23NSMutableAttributedString+Extension.swift in Sources */,
 				61142EC5294095F1000E320E /* Go23ScanViewController.swift in Sources */,
 				6187E2AA293F18C3002EE854 /* JXSegmentedListContainerView.swift in Sources */,
 				61A20764296C48B5006E10FA /* UIView+Frame.swift in Sources */,
@@ -861,7 +883,7 @@
 				61FFE388293A106C00139B1B /* go23Constants.swift in Sources */,
 				6187E2A6293F18C3002EE854 /* JXSegmentedTitleGradientItemModel.swift in Sources */,
 				61142EC72940A987000E320E /* Go23NFTDetailViewController.swift in Sources */,
-				6108D899293AE10D00E3CFF8 /* G023Button+Extension.swift in Sources */,
+				6108D899293AE10D00E3CFF8 /* Go23Button+Extension.swift in Sources */,
 				6108D8A0293CCBCB00E3CFF8 /* Go23NFTListViewController.swift in Sources */,
 				6187E289293F18C3002EE854 /* JXSegmentedBaseDataSource.swift in Sources */,
 				61FFE36A2939E91700139B1B /* AppDelegate.swift in Sources */,
@@ -1019,12 +1041,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2N2X94J685;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Go23WalletSDKDemo/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Go23WalletSDKDemo/Info.plist;
@@ -1063,12 +1086,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2N2X94J685;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Go23WalletSDKDemo/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Go23WalletSDKDemo/Info.plist;

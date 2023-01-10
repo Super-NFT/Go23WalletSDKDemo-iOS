@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         IQKeyboardManager.shared().previousNextDisplayMode = .alwaysHide
         IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
-        //key ：j9ASxn5REHG8akytevRYZwCp
-        //secret ：QHXFT28Nu1u4R7IiGBlFCVXF
-//        netStatus()
-        Go23WalletSDK.auth(appKey: "j9ASxn5REHG8akytevRYZwCp", secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { result in
+
+        // Replace yout appKey and secretKey here.
+        Go23WalletSDK.auth(appKey: "j9ASxn5REHG8akytevRYZwCp",
+                           secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { result in
             if result {
                 NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
                                                 object: nil,
