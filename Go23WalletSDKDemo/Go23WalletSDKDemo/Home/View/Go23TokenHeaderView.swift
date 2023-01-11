@@ -61,15 +61,15 @@ class Go23TokenHeaderView: UIView {
         }
         receiveBtn.snp.makeConstraints { make in
             make.top.equalTo(moneyLabel.snp.bottom).offset(26)
-            make.width.equalTo(72)
-            make.height.equalTo(70)
+            make.width.equalTo(82.5)
+            make.height.equalTo(77)
             make.left.equalTo(numLabel.snp.centerX).offset(-100)
         }
         
         sendBtn.snp.makeConstraints { make in
             make.top.equalTo(moneyLabel.snp.bottom).offset(26)
-            make.width.equalTo(72)
-            make.height.equalTo(70)
+            make.width.equalTo(82.5)
+            make.height.equalTo(77)
             make.right.equalTo(numLabel.snp.centerX).offset(100)
         }
         
@@ -167,7 +167,8 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 14)
+//        label.font = UIFont(name: BarlowCondensed, size: 14)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
         return label
@@ -183,7 +184,8 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 20)
+//        label.font = UIFont(name: NotoSans, size: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
         return label

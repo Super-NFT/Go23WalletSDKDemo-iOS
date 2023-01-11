@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23AddCustomTokenViewController: UIViewController {
 
@@ -165,7 +165,8 @@ class Go23AddCustomTokenViewController: UIViewController {
     private lazy var tipsLabel: UILabel = {
         let label = UILabel()
         label.text = "Anyone can create a token, including creating \nfake version of existing tokens."
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 2
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
@@ -173,7 +174,8 @@ class Go23AddCustomTokenViewController: UIViewController {
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Token Contract"
         return label
@@ -184,10 +186,12 @@ class Go23AddCustomTokenViewController: UIViewController {
         let textplace = "Enter Contract Address"
         let placeholder = NSMutableAttributedString()
         placeholder.add(text: textplace) { (attributes) in
-            attributes.customFont(12.0, NotoSans)
+//            attributes.customFont(12.0, NotoSans)
+            attributes.font(12)
         }
         textfield.attributedPlaceholder = placeholder
-        textfield.font = UIFont(name: NotoSans, size: 14)
+//        textfield.font = UIFont(name: NotoSans, size: 14)
+        textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
@@ -203,7 +207,8 @@ class Go23AddCustomTokenViewController: UIViewController {
     
     private lazy var symbolLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Token Symbol"
         return label
@@ -215,10 +220,12 @@ class Go23AddCustomTokenViewController: UIViewController {
         let textplace = "Enter Token Symbol"
         let placeholder = NSMutableAttributedString()
         placeholder.add(text: textplace) { (attributes) in
-            attributes.customFont(12.0, NotoSans)
+//            attributes.customFont(12.0, NotoSans)
+            attributes.font(12)
         }
         textfield.attributedPlaceholder = placeholder
-        textfield.font = UIFont(name: NotoSans, size: 14)
+//        textfield.font = UIFont(name: NotoSans, size: 14)
+        textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
@@ -233,7 +240,8 @@ class Go23AddCustomTokenViewController: UIViewController {
     
     private lazy var precisionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Token of Precision"
         return label
@@ -245,10 +253,12 @@ class Go23AddCustomTokenViewController: UIViewController {
         let textplace = "Enter Token of Precision"
         let placeholder = NSMutableAttributedString()
         placeholder.add(text: textplace) { (attributes) in
-            attributes.customFont(12.0, NotoSans)
+//            attributes.customFont(12.0, NotoSans)
+            attributes.font(12)
         }
         textfield.attributedPlaceholder = placeholder
-        textfield.font = UIFont(name: NotoSans, size: 14)
+//        textfield.font = UIFont(name: NotoSans, size: 14)
+        textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
@@ -264,7 +274,7 @@ class Go23AddCustomTokenViewController: UIViewController {
     private lazy var confirmBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Confirm", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -337,7 +347,7 @@ extension Go23AddCustomTokenViewController {
 //            hud.hide(animated: true, afterDelay: 1)
             
             let totast = Go23Toast.init(frame: .zero)
-            totast.show("Add token success!", after: 1)
+            totast.show("Add success!", after: 1)
         }
         
     }

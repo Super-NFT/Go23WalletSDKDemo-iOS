@@ -265,14 +265,16 @@ class Go23NFTMessageView: UIView {
     
     private lazy var programLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 16)
+//        label.font = UIFont(name: NotoSans, size: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     
     private lazy var chainLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -284,21 +286,24 @@ class Go23NFTMessageView: UIView {
     }()
     private lazy var nftLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 16)
+//        label.font = UIFont(name: NotoSans, size: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     
     private lazy var nftTokenLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
     
     private lazy var contractTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Contract:"
         return label
@@ -306,82 +311,94 @@ class Go23NFTMessageView: UIView {
     
     private lazy var contractLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 2
         return label
     }()
     private lazy var fromTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "From"
         return label
     }()
     private lazy var fromLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 2
         return label
     }()
     private lazy var toTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "To"
         return label
     }()
     private lazy var toLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 2
         return label
     }()
     private lazy var tokenTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "TokenID"
         return label
     }()
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     private lazy var valueTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Value"
         return label
     }()
     private lazy var valueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     private lazy var gasTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Gas Fee"
         return label
     }()
     private lazy var gasLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -389,7 +406,7 @@ class Go23NFTMessageView: UIView {
     private lazy var signBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Confirm", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)

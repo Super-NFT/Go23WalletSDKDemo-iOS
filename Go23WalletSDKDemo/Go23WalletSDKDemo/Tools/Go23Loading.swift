@@ -11,30 +11,39 @@ import MBProgressHUD
 
 class Go23Loading: UIView {
     static func loading() {
-        let window = UIApplication.shared.keyWindow
-        if let _ = window?.viewWithTag(6873) {
+        let window = UIApplication.shared.windows.first
+        window?.makeKeyAndVisible()
+        if let loadingV = window?.viewWithTag(6874) {
+            window?.bringSubviewToFront(loadingV)
             return
         }
         let loading = Go23Loading()
         loading.tag = 6873
+        let blockView = UIView(frame: UIScreen.main.bounds)
+        blockView.backgroundColor = .clear
+        blockView.tag = 6874
+        blockView.addSubview(loading)
         if let launchView = window?.viewWithTag(6982) {
             window?.insertSubview(loading, belowSubview: launchView)
         }else {
-            window?.addSubview(loading)
+            window?.addSubview(blockView)
         }
         
         loading.loadingAnimate()
     }
     
     @objc static func blockActionLoading(bgColor: UIColor = .clear) {
-        let window = UIApplication.shared.keyWindow
-        if let _ = window?.viewWithTag(6873) {
+        let window = UIApplication.shared.windows.first
+        window?.makeKeyAndVisible()
+        if let loadingV = window?.viewWithTag(6873) as? Go23Loading {
+            window?.bringSubviewToFront(loadingV)
             return
         }
         let loading = Go23Loading()
         loading.tag = 6873
         let blockView = UIView(frame: UIScreen.main.bounds)
         blockView.backgroundColor = bgColor
+        blockView.alpha = 0.4
         blockView.tag = 6874
         blockView.addSubview(loading)
         if let launchView = window?.viewWithTag(6982) {
@@ -46,8 +55,10 @@ class Go23Loading: UIView {
     }
     
     @objc static func blockActionADLoading() {
-        let window = UIApplication.shared.keyWindow
-        if let _ = window?.viewWithTag(6873) {
+        let window = UIApplication.shared.windows.first
+        window?.makeKeyAndVisible()
+        if let loadingV = window?.viewWithTag(6873) as? Go23Loading {
+            window?.bringSubviewToFront(loadingV)
             return
         }
         let loading = Go23Loading()
@@ -65,39 +76,51 @@ class Go23Loading: UIView {
     
     @objc static func clear() {
         if Thread.isMainThread == true {
-            if let window = UIApplication.shared.keyWindow,
+            if let window = UIApplication.shared.windows.first,
                let loading = window.viewWithTag(6873) as? Go23Loading {
                 loading.removeAnimate()
                 loading.removeFromSuperview()
             }
-            if let window = UIApplication.shared.keyWindow,
+            if let window = UIApplication.shared.windows.first,
                let blockView = window.viewWithTag(6874) {
                 blockView.removeFromSuperview()
             }
+            if let window = UIApplication.shared.windows.first,
+               let launchView = window.viewWithTag(6982) {
+                launchView.removeFromSuperview()
+            }
         }else {
             DispatchQueue.main.async {
-                if let window = UIApplication.shared.keyWindow,
+                if let window = UIApplication.shared.windows.first,
                    let loading = window.viewWithTag(6873) as? Go23Loading {
                     loading.removeAnimate()
                     loading.removeFromSuperview()
                 }
-                if let window = UIApplication.shared.keyWindow,
+                if let window = UIApplication.shared.windows.first,
                    let blockView = window.viewWithTag(6874) {
                     blockView.removeFromSuperview()
+                }
+                if let window = UIApplication.shared.windows.first,
+                   let launchView = window.viewWithTag(6982) {
+                    launchView.removeFromSuperview()
                 }
             }
         }
     }
     
     @objc static func adLoadingclear() {
-        if let window = UIApplication.shared.keyWindow,
+        if let window = UIApplication.shared.windows.first,
             let loading = window.viewWithTag(6873) as? Go23Loading {
             loading.removeAnimate()
             loading.removeFromSuperview()
         }
-        if let window = UIApplication.shared.keyWindow,
+        if let window = UIApplication.shared.windows.first,
             let blockView = window.viewWithTag(6874) {
             blockView.removeFromSuperview()
+        }
+        if let window = UIApplication.shared.windows.first,
+           let launchView = window.viewWithTag(6982) {
+            launchView.removeFromSuperview()
         }
     }
     
@@ -144,7 +167,7 @@ class Go23Loading: UIView {
             let image = UIImage.sd_image(withGIFData: gifData as Data)
             iv.image = image
         }
-        iv.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        iv.frame = CGRect(x: 0, y: -60, width: 40, height: 40)
         return iv
     }()
 }

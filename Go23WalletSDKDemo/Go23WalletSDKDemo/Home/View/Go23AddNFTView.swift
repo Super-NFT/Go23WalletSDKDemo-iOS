@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import IQKeyboardManager
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23AddNFTView: UIView {
     
@@ -117,7 +117,8 @@ class Go23AddNFTView: UIView {
     private lazy var nftsLabel: UILabel = {
         let label = UILabel()
         label.text = "NFT Contract Address"
-        label.font = UIFont.init(name: NotoSans, size: 14)
+//        label.font = UIFont.init(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -127,10 +128,12 @@ class Go23AddNFTView: UIView {
         let textplace = "0x"
         let placeholder = NSMutableAttributedString()
         placeholder.add(text: textplace) { (attributes) in
-            attributes.customFont(12.0, NotoSans)
+//            attributes.customFont(12.0, NotoSans)
+            attributes.font(12)
         }
         textfield.attributedPlaceholder = placeholder
-        textfield.font = UIFont(name: NotoSans, size: 14)
+//        textfield.font = UIFont(name: NotoSans, size: 14)
+        textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
@@ -146,7 +149,8 @@ class Go23AddNFTView: UIView {
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
         label.text = "Token ID"
-        label.font = UIFont.init(name: NotoSans, size: 14)
+//        label.font = UIFont.init(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -159,7 +163,8 @@ class Go23AddNFTView: UIView {
             attributes.customFont(12.0, NotoSans)
         }
         textfield.attributedPlaceholder = placeholder
-        textfield.font = UIFont(name: NotoSans, size: 14)
+//        textfield.font = UIFont(name: NotoSans, size: 14)
+        textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
@@ -175,7 +180,7 @@ class Go23AddNFTView: UIView {
     private lazy var importBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Import", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -209,7 +214,7 @@ extension Go23AddNFTView {
 //                hud.label.font = UIFont(name: NotoSans, size: 16)
 //                hud.hide(animated: true, afterDelay: 1)
                 let totast = Go23Toast.init(frame: .zero)
-                totast.show("add NFT Success!", after: 1)
+                totast.show("Add Success!", after: 1)
 //                self?.closeBtnClick()
                 return
             } else {
@@ -220,7 +225,7 @@ extension Go23AddNFTView {
 //                hud.hide(animated: true, afterDelay: 1)
 //                let totast = Go23Toast.init(frame: .zero)
                 let totast = Go23Toast.init(frame: .zero)
-                totast.show("add NFT failed!", after: 1)
+                totast.show("Add failed!", after: 1)
                 return
             }
         }

@@ -96,15 +96,15 @@ class HomeHeaderView: UIView {
         
         receiveBtn.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(25)
-            make.width.equalTo(72)
-            make.height.equalTo(72)
+            make.width.equalTo(82.5)
+            make.height.equalTo(77)
             make.left.equalTo(numLabel.snp.centerX).offset(-100)
         }
         
         sendBtn.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(25)
-            make.width.equalTo(72)
-            make.height.equalTo(72)
+            make.width.equalTo(82.5)
+            make.height.equalTo(77)
             make.right.equalTo(numLabel.snp.centerX).offset(100)
         }
         
@@ -117,7 +117,9 @@ class HomeHeaderView: UIView {
     }
     
     func filled(cover: String, email: String) {
-        iconImgv.image = UIImage.init(named: "emailIcon")
+//        iconImgv.image = UIImage.init(named: "emailIcon")
+        iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
+        iconImgv.layer.cornerRadius = 14
 //        emailLabel.text = email
         let arr = email.components(separatedBy: "@")
         var ee = email
@@ -137,7 +139,7 @@ class HomeHeaderView: UIView {
         var mon = money
         var bal = balanceU
         if let ss = Double(money), ss <= 0 {
-            mon = "0.0"
+            mon = "0.00"
         }
         numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
         chooseV.isHidden = false
@@ -148,7 +150,7 @@ class HomeHeaderView: UIView {
             make.width.equalTo(getRowWidth(desc: chainName))
         }
         if let bb = Double(balanceU), bb <= 0 {
-            bal = "0.0"
+            bal = "0.00"
         }
         titleLabel.text = "$"+bal
     }
@@ -177,7 +179,8 @@ class HomeHeaderView: UIView {
         
         let attri = NSMutableAttributedString()
         attri.add(text: str) { attr in
-            attr.customFont(14, NotoSans)
+//            attr.customFont(14, NotoSans)
+            attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
         }.add(text: " ") { att in
             
@@ -202,7 +205,7 @@ class HomeHeaderView: UIView {
 //        hud.hide(animated: true, afterDelay: 1)
         
         let toast = Go23Toast.init(frame: .zero)
-        toast.show("address has copy to pasteboard!", after: 1)
+        toast.show("Copied!", after: 1)
     }
     
     @objc private func receiveBtnClick() {
@@ -252,7 +255,8 @@ class HomeHeaderView: UIView {
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.layer.cornerRadius = 17.5
         label.layer.masksToBounds = true
         label.textAlignment = .center
@@ -266,8 +270,9 @@ class HomeHeaderView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "$0.0"
-        label.font = UIFont(name: NotoSans, size: 20)
+        label.text = "$0.00"
+//        label.font = UIFont(name: NotoSans, size: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -276,7 +281,7 @@ class HomeHeaderView: UIView {
         label.textAlignment = .center
         label.font = UIFont(name: BarlowCondensed, size: 32)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        label.text = "0.0"
+        label.text = "0.00"
         label.adjustsFontSizeToFitWidth = true
         return label
     }()

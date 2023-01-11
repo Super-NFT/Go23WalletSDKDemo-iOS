@@ -113,7 +113,7 @@ class Go23PwdSuccessView: UIView {
     private lazy var confirmBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Confirm", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)

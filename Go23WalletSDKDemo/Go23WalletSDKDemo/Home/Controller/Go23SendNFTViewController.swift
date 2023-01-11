@@ -7,7 +7,7 @@
 
 import UIKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23SendNFTViewController: UIViewController {
 
@@ -102,7 +102,7 @@ class Go23SendNFTViewController: UIViewController {
     private func changeSendBtnStatus(status: Bool) {
         if status {
             self.sendBtn.isUserInteractionEnabled = true
-            self.sendBtn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+            self.sendBtn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         } else {
             self.sendBtn.isUserInteractionEnabled = false
             self.sendBtn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#E1F4F5")
@@ -242,7 +242,7 @@ class Go23SendNFTViewController: UIViewController {
         vc.scanStyle = style
         vc.qrcodeBlock = { [weak self] code  in
             self?.qrcode = code
-            self?.addressTxtView.textContainerInset = UIEdgeInsets(top: 12, left: 10, bottom: 8, right: 50)
+            self?.addressTxtView.textContainerInset = UIEdgeInsets(top: (64-(self?.getHeight(content: code) ?? 0) )/2.0, left: 10, bottom: 8, right: 50)
             self?.addressTxtView.text = code
             self?.addressHoldLabel.isHidden = true
             if let addressHold = self?.addressHoldLabel, addressHold.isHidden, let obj = self?.transactionModel ,Go23WalletMangager.shared.balance > obj.gas {
@@ -258,11 +258,13 @@ class Go23SendNFTViewController: UIViewController {
     
     @objc func pasteBtnClick() {
         addressTxtView.text = UIPasteboard.general.string
-        addressTxtView.textContainerInset = UIEdgeInsets(top: 12, left: 10, bottom: 8, right: 50)
         if addressTxtView.text.count > 0 {
             addressHoldLabel.isHidden = true
+        } else {
+            return
         }
-        
+        addressTxtView.textContainerInset = UIEdgeInsets(top: (64-getHeight(content: UIPasteboard.general.string!))/2.0, left: 10, bottom: 8, right: 50)
+
         guard let obj = self.transactionModel else {
             return
             
@@ -274,6 +276,15 @@ class Go23SendNFTViewController: UIViewController {
             changeSendBtnStatus(status: false)
             lossGassLabel.isHidden = false
         }
+    }
+    
+    private func getHeight(content: String) -> CGFloat {
+        let paraph = NSMutableParagraphStyle()
+        paraph.alignment = .left
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
+
+        let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: ScreenWidth-102.0, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.height
+         return rowHeight
     }
     
     @objc private func sendBtnClick() {
@@ -315,7 +326,8 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var toTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "To"
         return label
@@ -363,15 +375,17 @@ class Go23SendNFTViewController: UIViewController {
 //    }()
     private lazy var addressHoldLabel: UILabel = {
         let label = UILabel()
-        label.text = "Receving Address"
-        label.font = UIFont(name: NotoSans, size: 16)
+        label.text = "Receiving Address"
+//        label.font = UIFont(name: NotoSans, size: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
     }()
     private lazy var addressTxtView: UITextView = {
         let txt = UITextView()
-        txt.textContainerInset = UIEdgeInsets(top: 20, left: 10, bottom: 8, right: 50)
-        txt.font = UIFont(name: NotoSans, size: 14)
+        txt.textContainerInset = UIEdgeInsets(top: 22, left: 10, bottom: 8, right: 50)
+//        txt.font = UIFont(name: NotoSans, size: 14)
+        txt.font = UIFont.systemFont(ofSize: 14)
         txt.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         txt.tintColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         txt.layer.cornerRadius = 8
@@ -392,7 +406,7 @@ class Go23SendNFTViewController: UIViewController {
     private lazy var pasteBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Paste", for: .normal)
-        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#35C1D8"), for: .normal)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 16)
         btn.addTarget(self, action: #selector(pasteBtnClick), for: .touchUpInside)
         return btn
@@ -400,7 +414,8 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var gasTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Gas Fee"
         return label
@@ -416,21 +431,24 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var gasAmoutLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     
     private lazy var gasNumLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
     
     private lazy var gasDescLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
     }()
@@ -439,7 +457,7 @@ class Go23SendNFTViewController: UIViewController {
     private lazy var sendBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Send", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -450,12 +468,12 @@ class Go23SendNFTViewController: UIViewController {
     private lazy var cancelBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Cancel", for: .normal)
-        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#35C1D8"), for: .normal)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
         btn.backgroundColor = .white
         btn.layer.cornerRadius = 8
-        btn.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8").cgColor
+        btn.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1").cgColor
         btn.layer.borderWidth = 1
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
         btn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
@@ -464,7 +482,8 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var lossGassLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 16)
+//        label.font = UIFont(name: NotoSans, size: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#D83548")
         label.text = "Insufficient Gas Fee"
         return label
@@ -481,7 +500,7 @@ extension Go23SendNFTViewController : UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        addressTxtView.textContainerInset = UIEdgeInsets(top: 15, left: 10, bottom: 8, right: 50)
+        addressTxtView.textContainerInset = UIEdgeInsets(top: 22, left: 10, bottom: 8, right: 50)
         addressHoldLabel.isHidden = !textView.text.isEmpty
         guard let obj = self.transactionModel else {
             return

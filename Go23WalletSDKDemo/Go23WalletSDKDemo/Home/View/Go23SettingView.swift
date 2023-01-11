@@ -7,7 +7,7 @@
 
 import UIKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23SettingView: UIView {
 

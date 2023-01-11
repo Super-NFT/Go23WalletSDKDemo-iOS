@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Go23WalletSDK
+import Go23SDK
 
 class Go23TokenDetailTableViewCell: UITableViewCell {
 
@@ -98,7 +98,7 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
             if model.type == "Receive" {
                 coverImgv.image = UIImage.init(named: "in")
                 tokenLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#595959"),alignment: .left, title: model.type+" "+String.getSubSecretString(string: model.fromAddr))
-                moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#35C1D8"),alignment: .right, title: "+\(model.value) "+model.symbol)
+                moneyLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#00D6E1"),alignment: .right, title: "+\(model.value) "+model.symbol)
 //                tokenLabel.text = model.type+" "+String.getSubSecretString(string: model.fromAddr)
 //                moneyLabel.text = "+\(model.value) "+model.symbol
 //                moneyLabel.textColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
@@ -184,7 +184,8 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
     
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -199,7 +200,8 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
     
     private lazy var dLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         return label

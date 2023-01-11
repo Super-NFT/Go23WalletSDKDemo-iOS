@@ -7,7 +7,7 @@
 
 import UIKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23EmailViewController: UIViewController {
 
@@ -96,7 +96,7 @@ class Go23EmailViewController: UIViewController {
 //        label.textColor = UIColor.init(named: "#8C8C8C")
 //        label.textAlignment = .center
 //        label.text = "Verify your account"
-        label.attributedText = String.getAttributeString(font: UIFont(name: NotoSans, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#8C8C8C"),alignment: .center, title: "Verify your account")
+        label.attributedText = String.getAttributeString(font: UIFont.systemFont(ofSize: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#8C8C8C"),alignment: .center, title: "Verify your account")
         return label
     }()
     
@@ -111,7 +111,8 @@ class Go23EmailViewController: UIViewController {
     private lazy var sendDescLabel: UILabel = {
         let label = UILabel()
         label.text = "Send a code to your email to verify"
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
         return label
@@ -121,7 +122,7 @@ class Go23EmailViewController: UIViewController {
     private lazy var verifyBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Send", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)

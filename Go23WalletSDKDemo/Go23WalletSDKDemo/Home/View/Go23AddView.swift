@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import Go23WalletSDK
+import Go23SDK
 
 class Go23AddView: UIView {
     
@@ -119,7 +119,8 @@ class Go23AddView: UIView {
         }
         control.addTarget(self, action: #selector(tokenClick), for: .touchUpInside)
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Tokens"
         view.addSubview(label)

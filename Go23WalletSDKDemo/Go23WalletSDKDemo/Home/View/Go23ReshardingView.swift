@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Go23WalletSDK
+import Go23SDK
 import Client
 
 public enum SettingType: Int {
@@ -17,7 +17,9 @@ public enum SettingType: Int {
 class Go23ReshardingView: UIView {
     
     private var settingType: SettingType
-    init(frame: CGRect, type: SettingType = .resharding) {
+    private var isShowBack = true
+    init(frame: CGRect, type: SettingType = .resharding, isShow: Bool = true) {
+        isShowBack = isShow
         self.settingType = type
         super.init(frame: frame)
         initSubviews()
@@ -34,6 +36,9 @@ class Go23ReshardingView: UIView {
         backgroundColor = .white
         addSubview(titleLabel)
         addSubview(closeBtn)
+        if !isShowBack {
+            closeBtn.isHidden = true
+        }
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(14)
             make.centerX.equalToSuperview()

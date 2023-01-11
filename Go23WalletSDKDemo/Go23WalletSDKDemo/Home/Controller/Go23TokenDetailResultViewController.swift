@@ -7,7 +7,7 @@
 
 import UIKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23TokenDetailResultViewController: UIViewController {
     
@@ -302,7 +302,8 @@ class Go23TokenDetailResultViewController: UIViewController {
         
         let attri = NSMutableAttributedString()
         attri.add(text: str) { attr in
-            attr.customFont(14, NotoSans)
+//            attr.customFont(14, NotoSans)
+            attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
             attr.alignment(.right)
         }.add(text: " ") { att in
@@ -322,7 +323,7 @@ class Go23TokenDetailResultViewController: UIViewController {
 //        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
-        totast.show("From Address has copy to pasteboard!", after: 1)
+        totast.show("Copied!", after: 1)
     }
     
     @objc private func toBtnClick() {
@@ -334,7 +335,7 @@ class Go23TokenDetailResultViewController: UIViewController {
 //        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
-        totast.show("To Address has copy to pasteboard!", after: 1)
+        totast.show("Copied!", after: 1)
     }
     
     @objc private func txidBtnClick() {
@@ -346,7 +347,7 @@ class Go23TokenDetailResultViewController: UIViewController {
 //        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
-        totast.show("TXid has copy to pasteboard!", after: 1)
+        totast.show("Copied!", after: 1)
     }
     
     private lazy var statusImgv: UIImageView = {
@@ -363,7 +364,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -417,7 +419,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var amountTxt: UILabel = {
         let label = UILabel()
         label.text = "Amount"
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -425,7 +428,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var gasTxt: UILabel = {
         let label = UILabel()
         label.text = "Gas Fee"
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -441,7 +445,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var fromTxt: UILabel = {
         let label = UILabel()
         label.text = "From"
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -457,14 +462,16 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var txidTxt: UILabel = {
         let label = UILabel()
         label.text = "TxID"
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
     
     private lazy var amountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         return label
@@ -472,7 +479,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var gasLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         return label
@@ -480,7 +488,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         return label
@@ -496,7 +505,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var fromBtn: UIButton = {
         let btn = UIButton()
-        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .right
         btn.addTarget(self, action: #selector(fromBtnClick), for: .touchUpInside)
@@ -505,7 +515,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var toBtn: UIButton = {
         let btn = UIButton()
-        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .right
         btn.addTarget(self, action: #selector(toBtnClick), for: .touchUpInside)
@@ -514,7 +525,8 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var txidBtn: UIButton = {
         let btn = UIButton()
-        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .right
         btn.addTarget(self, action: #selector(txidBtnClick), for: .touchUpInside)
@@ -539,14 +551,16 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var netTxt: UILabel = {
         let label = UILabel()
         label.text = "Network"
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
     
     private lazy var netLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         return label
@@ -555,14 +569,16 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var lendingGasTxt: UILabel = {
         let label = UILabel()
         label.text = "lending gas fee"
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
     
     private lazy var lendingGasLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         return label

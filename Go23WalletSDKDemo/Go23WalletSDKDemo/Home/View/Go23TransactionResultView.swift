@@ -171,7 +171,8 @@ class Go23TransactionResultView: UIView {
     
     private lazy var tipsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -181,7 +182,7 @@ class Go23TransactionResultView: UIView {
     private lazy var gotBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.setTitle("Got it", for: .normal)
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
         btn.layer.cornerRadius = 8
@@ -192,7 +193,7 @@ class Go23TransactionResultView: UIView {
     private lazy var signBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("OK", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -203,12 +204,12 @@ class Go23TransactionResultView: UIView {
     private lazy var cancelBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("View Details", for: .normal)
-        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#35C1D8"), for: .normal)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
         btn.backgroundColor = .white
         btn.layer.cornerRadius = 8
-        btn.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8").cgColor
+        btn.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1").cgColor
         btn.layer.borderWidth = 1
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
         btn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)

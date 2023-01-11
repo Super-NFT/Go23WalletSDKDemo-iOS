@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 import SDWebImage
-import Go23WalletSDK
+import Go23SDK
 
 class Go23ChooseAlertView: UIView {
     
@@ -207,7 +207,8 @@ class Go23ChooseAlertViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        label.font = UIFont(name: NotoSans, size: 16)
+//        label.font = UIFont(name: NotoSans, size: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     

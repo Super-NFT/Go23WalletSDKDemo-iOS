@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Go23WalletSDK
+import Go23SDK
 
 class Go23TokenDetailViewController: UIViewController {
 
@@ -103,7 +103,7 @@ class Go23TokenDetailViewController: UIViewController {
         dataSource.titles = ["All", "Out", "In", "Failed"]
         dataSource.titleNormalFont = UIFont(name: BarlowCondensed, size: 16)!
         dataSource.titleSelectedFont = UIFont(name: BarlowCondensed, size: 16)!
-        dataSource.titleSelectedColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        dataSource.titleSelectedColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         dataSource.titleNormalColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         dataSource.kern = 1
         dataSource.widthForTitleClosure = { _ in
@@ -140,7 +140,7 @@ class Go23TokenDetailViewController: UIViewController {
         indicator.indicatorWidth = 50
         indicator.indicatorHeight = 3
         indicator.verticalOffset = 1
-        indicator.indicatorColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        indicator.indicatorColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         segmentedView.indicators = [indicator]
         
         return segmentedView

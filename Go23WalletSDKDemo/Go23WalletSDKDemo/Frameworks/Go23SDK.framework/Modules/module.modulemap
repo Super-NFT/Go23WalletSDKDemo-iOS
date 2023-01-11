@@ -1,0 +1,4 @@
+framework module Go23SDK {
+  header "Go23SDK-Swift.h"
+  requires objc
+}

@@ -7,7 +7,7 @@
 
 import UIKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23NFTDetailViewController: UIViewController {
         
@@ -265,7 +265,8 @@ class NFTDetailHeaderView: UIView {
     
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -314,7 +315,7 @@ class NFTDetailFooterView: UIView {
     private lazy var transferBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
 //        btn.setTitle("Transfer", for: .normal)
 //        btn.setTitleColor(.white, for: .normal)
 //        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -365,7 +366,7 @@ class NFTDetailDescCell: UITableViewCell {
     }
     
     func getRowHeight(desc: String) -> CGFloat {
-        return getStringHeight(desc, lineHeight:  17.0, font: UIFont(name: NotoSans, size: 14) ?? UIFont.systemFont(ofSize: 14))  + 66.0
+        return getStringHeight(desc, lineHeight:  17.0, font: UIFont.systemFont(ofSize: 14))  + 66.0
     }
     
     private func getStringHeight(_ content: String,
@@ -393,7 +394,8 @@ class NFTDetailDescCell: UITableViewCell {
     
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.numberOfLines = 0
         return label
@@ -687,7 +689,8 @@ class NFTDetailDetailsCell: UITableViewCell {
         
         let attri = NSMutableAttributedString()
         attri.add(text: str) { attr in
-            attr.customFont(14, NotoSans)
+//            attr.customFont(14, NotoSans)
+            attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
             attr.alignment(.right)
         }.add(text: "  ") { att in
@@ -707,7 +710,7 @@ class NFTDetailDetailsCell: UITableViewCell {
 //        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
-        totast.show("address has copy to pasteboard!", after: 1)
+        totast.show("Copied!", after: 1)
     }
     
     @objc private func tokenIdClick() {
@@ -719,7 +722,7 @@ class NFTDetailDetailsCell: UITableViewCell {
 //        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
-        totast.show("Token ID has copy to pasteboard!", after: 1)
+        totast.show("Copied!", after: 1)
     }
     
     private lazy var titleLabel: UILabel = {
@@ -758,7 +761,8 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var tokenIdTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Token ID"
         return label
@@ -782,7 +786,8 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var webTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Website"
         return label
@@ -790,7 +795,8 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var webLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label
@@ -798,7 +804,8 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var chainTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Blockchain"
         return label
@@ -806,7 +813,8 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var chainLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label

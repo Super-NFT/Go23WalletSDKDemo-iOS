@@ -1,4 +1,0 @@
-framework module Go23WalletSDK {
-  header "Go23WalletSDK-Swift.h"
-  requires objc
-}

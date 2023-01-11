@@ -9,7 +9,7 @@ import UIKit
 import IQKeyboardManager
 import SDWebImageWebPCoder
 import CoreTelephony
-import Go23WalletSDK
+import Go23SDK
 
 @main
 
@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
 
         // Replace yout appKey and secretKey here.
-        Go23WalletSDK.auth(appKey: "j9ASxn5REHG8akytevRYZwCp",
-                           secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { result in
+        Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
+                           secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
             if result {
                 NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
                                                 object: nil,
@@ -42,29 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func netStatus() {
-        
-        let ct = CTCellularData.init()
-        ct.cellularDataRestrictionDidUpdateNotifier = {status in
-            switch status {
-            case .restricted, .restrictedStateUnknown:
-                break
-            case .notRestricted:
-                Go23WalletSDK.auth(appKey: "j9ASxn5REHG8akytevRYZwCp", secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { [weak self] result in
-                    if result {
-                        NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
-                                                        object: nil,
-                                                        userInfo: nil)
-                    }
-                    print("Go23WalletSDK.auth === \(result)")
-                }
-
-            default:
-                break
-            }
-        }
-    }
-
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

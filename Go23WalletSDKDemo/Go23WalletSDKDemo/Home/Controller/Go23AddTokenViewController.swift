@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 
 class Go23AddTokenViewController: UIViewController {
@@ -228,7 +228,8 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         private lazy var titleLabel: UILabel = {
             let label = UILabel()
             label.text = "Add Custom Token"
-            label.font = UIFont(name: NotoSans, size: 16)
+//            label.font = UIFont(name: NotoSans, size: 16)
+            label.font = UIFont.systemFont(ofSize: 16)
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label
         }()
@@ -344,14 +345,16 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         
         private lazy var titleLabel: UILabel = {
             let label = UILabel()
-            label.font = UIFont(name: NotoSans, size: 16)
+//            label.font = UIFont(name: NotoSans, size: 16)
+            label.font = UIFont.systemFont(ofSize: 16)
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label
         }()
         
         private lazy var numLabel: UILabel = {
             let label = UILabel()
-            label.font = UIFont(name: NotoSans, size: 16)
+//            label.font = UIFont(name: NotoSans, size: 16)
+            label.font = UIFont.systemFont(ofSize: 16)
             label.textAlignment = .right
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23ReceiveView: UIView {
     
@@ -48,13 +48,13 @@ class Go23ReceiveView: UIView {
             make.height.equalTo(40)
         }
         descLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.width.equalTo(200)
             make.height.equalTo(48)
             make.centerX.equalToSuperview()
         }
         qrCodeImgv.snp.makeConstraints { make in
-            make.top.equalTo(descLabel.snp.bottom).offset(28)
+            make.top.equalTo(descLabel.snp.bottom).offset(24)
             make.width.height.equalTo(174)
             make.centerX.equalToSuperview()
         }
@@ -77,14 +77,14 @@ class Go23ReceiveView: UIView {
             make.height.equalTo(1)
         }
         noticeLabel.snp.makeConstraints { make in
-            make.top.equalTo(lineV.snp.bottom).offset(15)
+            make.top.equalTo(lineV.snp.bottom).offset(14)
             make.left.equalToSuperview().offset(12)
             make.right.equalToSuperview().offset(-12)
             make.height.equalTo(32)
         }
         
         imgV.snp.makeConstraints { make in
-            make.top.equalTo(noticeLabel.snp.bottom).offset(22)
+            make.top.equalTo(noticeLabel.snp.bottom).offset(26)
             make.centerX.equalToSuperview()
         }
         
@@ -95,9 +95,11 @@ class Go23ReceiveView: UIView {
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
         let attri = NSMutableAttributedString()
         attri.add(text: token) { attr in
-            attr.customFont(12, NotoSans)
+//            attr.customFont(12, NotoSans)
+            attr.font(12)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
             attr.alignment(.center)
+            attr.lineSpacing(3)
             
         }.add(text: " ") { att in
             
@@ -157,7 +159,7 @@ class Go23ReceiveView: UIView {
 //        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
-        totast.show("address has copy to pasteboard!", after: 1)
+        totast.show("Copied!", after: 1)
     }
     
     
@@ -170,11 +172,21 @@ class Go23ReceiveView: UIView {
     
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-        label.text = "Scan the QR code to pay \n Mainnet ERC-20"
-        label.textAlignment = .center
-        label.font = UIFont(name: NotoSans, size: 14)
-        label.numberOfLines = 2
-        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+//        label.text = "Scan the QR code to pay \n Mainnet ERC-20"
+//        label.textAlignment = .center
+////        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
+//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        let paraph = NSMutableParagraphStyle()
+        paraph.lineSpacing = 0
+        paraph.alignment = .center
+        paraph.lineSpacing = 6
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph,
+                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+                          NSAttributedString.Key.foregroundColor:UIColor.rdt_HexOfColor(hexString: "#262626")]
+        let attri = NSAttributedString(string: "Scan the QR code to pay \n Mainnet ERC-20", attributes: attributes as [NSAttributedString.Key : Any])
+        label.attributedText = attri
         return label
     }()
     
@@ -185,7 +197,8 @@ class Go23ReceiveView: UIView {
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 0
         return label
@@ -211,10 +224,11 @@ class Go23ReceiveView: UIView {
     
     private lazy var noticeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 12.0)
+//        label.font = UIFont(name: NotoSans, size: 12.0)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
-        label.textColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         label.numberOfLines = 0
         return label
     }()

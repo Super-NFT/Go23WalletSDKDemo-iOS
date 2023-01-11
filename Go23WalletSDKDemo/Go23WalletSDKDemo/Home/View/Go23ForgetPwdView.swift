@@ -7,7 +7,7 @@
 
 import UIKit
 import MBProgressHUD
-import Go23WalletSDK
+import Go23SDK
 
 class Go23ForgetPwdView: UIView {
 
@@ -108,15 +108,15 @@ class Go23ForgetPwdView: UIView {
     }
     
     @objc private func verifyBtnClick() {
-        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
-        
         guard let shared = Go23WalletSDK.shared, pinCode.count == 6 else {
             return
         }
+        
+
         if settingType == .resharding {
             
             shared.forgetShardPincode(with: Go23WalletMangager.shared.address, shard: self.pk, verifyCode: self.pinCode, delegate: self) { [weak self] status in
-                DispatchQueue.main.async {
+
                     switch status {
                     case .success(let str):
                         UserDefaults.standard.set(str, forKey: kPrivateKeygenKey)
@@ -136,28 +136,23 @@ class Go23ForgetPwdView: UIView {
                         ovc.isDismissOnMaskTouched = false
                         ovc.isPanGestureEnabled = true
                         UIApplication.shared.keyWindow?.present(overlay: ovc)
-                    case .failure:
-//                        let hud = MBProgressHUD.showAdded(to: currentViewController()?.view ?? UIView(), animated: true)
-//                        hud.mode = .text
-//                        hud.label.font = UIFont(name: NotoSans, size: 16)
-//                        hud.label.text = "Resharding failed, please try again!"
-//                        hud.hide(animated: true, afterDelay: 1)
-                        
-                        let totast = Go23Toast.init(frame: .zero)
-                        totast.show("Resharding failed, please try again!", after: 1)
+                    case .failure(let result):
+                        switch result {
+                        case .networkError(let msg):
+                            let totast = Go23Toast.init(frame: .zero)
+                            totast.show(msg, after: 1)
+                        default:
+                            let totast = Go23Toast.init(frame: .zero)
+                            totast.show("Resharding failed, please try again!", after: 1)
+                        }
+                    
                         
                     }
                     
-                }
             }
 
         } else {
-//            let hud = MBProgressHUD.showAdded(to: currentViewController()?.view ?? UIView(), animated: true)
-//            Go23Loading.loading()
             shared.restoreWallet(with: Go23WalletMangager.shared.address, verifyCode: self.pinCode, delegate: self) { [weak self]status in
-//                DispatchQueue.main.async {
-//                    hud.hide(animated: true)
-//                Go23Loading.clear()
                     switch status {
                     case .success:
                         let alert = Go23PwdSuccessView(frame: CGRectMake(0, 0, ScreenWidth, 720))
@@ -181,21 +176,17 @@ class Go23ForgetPwdView: UIView {
                             
                             UIApplication.shared.keyWindow?.present(overlay: ovc)
                         case .errorPincode:
-//                            let hud = MBProgressHUD.showAdded(to: currentViewController()?.view ?? UIView(), animated: true)
-//                            hud.mode = .text
-//                            hud.label.text = "Pincode error, please try again!"
-//                            hud.label.font = UIFont(name: NotoSans, size: 16)
-//                            hud.hide(animated: true, afterDelay: 1)
-                            
                             let totast = Go23Toast.init(frame: .zero)
                             totast.show("Pincode error, please try again!", after: 1)
+                        case .networkError(let msg):
+                            let totast = Go23Toast.init(frame: .zero)
+                            totast.show(msg, after: 1)
                         default:
                             break
                             
                         }
                     }
                     
-//                }
                 
             }
         }
@@ -227,7 +218,7 @@ class Go23ForgetPwdView: UIView {
 //        label.textColor = UIColor.init(named: "#8C8C8C")
 //        label.textAlignment = .center
 //        label.text = "Verify"
-        label.attributedText = String.getAttributeString(font: UIFont(name: NotoSans, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#8C8C8C"),alignment: .center, title: "Verify your account")
+        label.attributedText = String.getAttributeString(font: UIFont.systemFont(ofSize: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#8C8C8C"),alignment: .center, title: "Verify your account")
         return label
     }()
     
@@ -242,7 +233,7 @@ class Go23ForgetPwdView: UIView {
     lazy var emailVerifyBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         btn.setTitle("Verify", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -253,7 +244,8 @@ class Go23ForgetPwdView: UIView {
     lazy var emailTipsLabel: UILabel = {
         let label = UILabel()
         label.text = "An email with code has been sent to your email."
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
         return label
@@ -262,7 +254,8 @@ class Go23ForgetPwdView: UIView {
     lazy var notReceiveLabel: UILabel = {
         let label = UILabel()
         label.text = "Didn't receive it?"
-        label.font = UIFont(name: NotoSans, size: 12)
+//        label.font = UIFont(name: NotoSans, size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -270,8 +263,8 @@ class Go23ForgetPwdView: UIView {
     lazy var notReceiveBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Please click resend.", for: .normal)
-        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#35C1D8"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: NotoSans, size: 12)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         btn.addTarget(self, action: #selector(notReceiveClick), for: .touchUpInside)
         return btn
     }()
@@ -332,10 +325,12 @@ extension Go23ForgetPwdView: Go23RestoreDelegate {
 extension Go23ForgetPwdView: Go23SetPincodeDelegate {
     func setPincodePageWillShow() {
         print("=========setPincodePageWillShow")
+        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         Go23Loading.loading()
     }
     
     func setPincodePageWillDismiss() {
+        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         print("=========setPincodePageWillDismiss")
         Go23Loading.clear()
     }

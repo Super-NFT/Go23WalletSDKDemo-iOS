@@ -167,7 +167,8 @@ class Go23SettingEmailView: UIView {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email"
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -182,7 +183,8 @@ class Go23SettingEmailView: UIView {
 //        textfield.attributedPlaceholder = placeholder
         textfield.autocapitalizationType = .none
         textfield.autocorrectionType = .no
-        textfield.font = UIFont(name: NotoSans, size: 14)
+//        textfield.font = UIFont(name: NotoSans, size: 14)
+        textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
@@ -201,7 +203,8 @@ class Go23SettingEmailView: UIView {
     private lazy var codeLabel: UILabel = {
         let label = UILabel()
         label.text = "Verification code"
-        label.font = UIFont(name: NotoSans, size: 14)
+//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
@@ -214,7 +217,8 @@ class Go23SettingEmailView: UIView {
 //            attributes.customFont(12.0, NotoSans)
 //        }
 //        textfield.attributedPlaceholder = placeholder
-        textfield.font = UIFont(name: NotoSans, size: 14)
+//        textfield.font = UIFont(name: NotoSans, size: 14)
+        textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
 //        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
@@ -232,7 +236,7 @@ class Go23SettingEmailView: UIView {
     private lazy var confirmBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
 //        btn.setTitle("Confirm", for: .normal)
 //        btn.setTitleColor(.white, for: .normal)
 //        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -244,8 +248,9 @@ class Go23SettingEmailView: UIView {
     private lazy var sendBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.setTitle("Send", for: .normal)
-        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#35C1D8"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
+//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(sendClick), for: .touchUpInside)
         return btn
     }()
@@ -268,7 +273,7 @@ extension Go23SettingEmailView {
     private func changeSendBtnStatus(status: Bool) {
         if status {
             self.confirmBtn.isUserInteractionEnabled = true
-            self.confirmBtn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+            self.confirmBtn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         } else {
             self.confirmBtn.isUserInteractionEnabled = false
             self.confirmBtn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#E1F4F5")

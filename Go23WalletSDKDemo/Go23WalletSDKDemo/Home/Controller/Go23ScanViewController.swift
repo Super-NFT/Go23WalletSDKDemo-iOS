@@ -73,13 +73,14 @@ class Go23ScanViewController: LBXScanViewController {
         let imgv = UIImageView()
         imgv.image = UIImage.init(named: "scanBg")
         view.addSubview(imgv)
+
         imgv.snp.makeConstraints { make in
-            make.top.equalTo((ScreenHeight-ScreenWidth-60)/2.0)
+            make.top.equalTo(ScreenHeight/2.0-(ScreenWidth-120.0)/2.0-88.0)
             make.centerX.equalToSuperview()
-            make.width.equalTo((ScreenWidth-120))
-            make.height.equalTo(ScreenWidth-120)
+            make.width.equalTo(ScreenWidth-120.0)
+            make.height.equalTo(ScreenWidth-120.0)
         }
-        
+                
         let qrCodelLabel = UILabel()
         qrCodelLabel.text = "Scan QR-CODE"
         qrCodelLabel.textColor = .white
@@ -95,13 +96,15 @@ class Go23ScanViewController: LBXScanViewController {
         descLabel.text = "Transfer or Connect Wallet"
         descLabel.textColor = .white
         descLabel.textAlignment = .center
-        descLabel.font = UIFont(name: NotoSans, size: 14)
+//        descLabel.font = UIFont(name: NotoSans, size: 14)
+        descLabel.font = UIFont.systemFont(ofSize: 14)
         view.addSubview(descLabel)
         descLabel.snp.makeConstraints { make in
             make.top.equalTo(qrCodelLabel.snp.bottom).offset(0)
             make.centerX.equalToSuperview()
             make.height.equalTo(25)
         }
+        
     }
     
     @objc private func backBtnDidClick() {

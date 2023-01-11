@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Go23WalletSDK
+import Go23SDK
 
 class Go23SendTokenListView: UIView {
     
@@ -22,6 +22,8 @@ class Go23SendTokenListView: UIView {
     var clickBlock: ((_ model: Go23WalletTokenModel)->())?
     
     var addBtnBlock:(()->())?
+    
+    var closeBlock:(()->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,12 +76,13 @@ class Go23SendTokenListView: UIView {
         
         
     @objc private func closeBtnClick() {
-        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
+        self.closeBlock?()
+//        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         
     }
     
     @objc private func addBtnClick() {
-        closeBtnClick()
+//        closeBtnClick()
         addBtnBlock?()
     }
         
@@ -109,7 +112,7 @@ class Go23SendTokenListView: UIView {
     private lazy var addBtn: UIButton = {
         let btn = UIButton()
         btn.layer.cornerRadius = 8
-        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
 //        btn.setTitle("Confirm", for: .normal)
 //        btn.setTitleColor(.white, for: .normal)
 //        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
@@ -246,14 +249,16 @@ class SendTokenListCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 16)
+//        label.font = UIFont(name: NotoSans, size: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
     
     private lazy var numLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 16)
+//        label.font = UIFont(name: NotoSans, size: 16)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
         return label

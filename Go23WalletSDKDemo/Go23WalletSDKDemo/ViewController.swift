@@ -10,7 +10,7 @@ import SnapKit
 import MBProgressHUD
 import BigInt
 import Alamofire
-import Go23WalletSDK
+import Go23SDK
 
 class Go23WalletMangager {
     static let shared = Go23WalletMangager()
@@ -22,7 +22,7 @@ class Go23WalletMangager {
     
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Go23NetStatusProtocol {
     
 
     private var tokenListTimer: Timer?
@@ -37,7 +37,6 @@ class ViewController: UIViewController {
     var tokenList: [Go23WalletTokenModel]?
     
     var hud: MBProgressHUD?
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -213,7 +212,6 @@ class ViewController: UIViewController {
                 case .success(let str):
                     self?.view.dissmiss(overlay: .last)
                     UserDefaults.standard.set(str, forKey: kPrivateKeygenKey)
-                    ///v1/merchant/update_keygen
                     if  let keygen = UserDefaults.standard.value(forKey: kPrivateKeygenKey) as? String, keygen.count > 0 {
                         Go23Net.updateServerShard(with: keygen, address: Go23WalletMangager.shared.address) { status in
                             if status {
@@ -305,7 +303,7 @@ class ViewController: UIViewController {
         indicator.indicatorHeight = 30
         indicator.indicatorCornerRadius = 6.0
         indicator.verticalOffset = 1
-        indicator.indicatorColor = UIColor.rdt_HexOfColor(hexString: "#35C1D8")
+        indicator.indicatorColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         indicator.layer.shadowColor = UIColor.black.cgColor
         indicator.layer.shadowOffset = CGSize(width:1, height:1)
         indicator.layer.shadowRadius = 6
@@ -422,7 +420,7 @@ extension ViewController {
         guard walletlist.count > 0 else {return}
         let wallet = walletlist[0]
         Go23WalletMangager.shared.address = wallet.address
-        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, 720),type: .recover)
+        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, 720),type: .recover, isShow: false)
         let ovc = OverlayController(view: alert)
         ovc.maskStyle = .black(opacity: 0.4)
         ovc.layoutPosition = .bottom
