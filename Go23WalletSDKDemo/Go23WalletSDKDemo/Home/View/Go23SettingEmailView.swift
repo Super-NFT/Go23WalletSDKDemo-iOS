@@ -121,7 +121,6 @@ class Go23SettingEmailView: UIView, Go23NetStatusProtocol {
                 }
                 print("Go23WalletSDK.auth === \(result)")
             }
-            self.confirmBlock?()
             return
         }
 //        let hud = MBProgressHUD.showAdded(to: self, animated: true)
