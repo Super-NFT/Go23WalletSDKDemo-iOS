@@ -94,12 +94,12 @@ public struct Go23TokenTransactionModel : Swift.Codable {
     set
     _modify
   }
-  @Go23SDK.DecodableDefault.ZeroDouble public var fee: Swift.Double {
+  @Go23SDK.DecodableDefault.Zero public var decimal: Swift.Int {
     get
     set
     _modify
   }
-  @Go23SDK.DecodableDefault.Zero public var decimal: Swift.Int {
+  @Go23SDK.DecodableDefault.EmptyString public var tokenMinimum: Swift.String {
     get
     set
     _modify
