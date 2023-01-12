@@ -348,6 +348,7 @@ extension Go23AddCustomTokenViewController {
             
             let totast = Go23Toast.init(frame: .zero)
             totast.show("Add success!", after: 1)
+            self?.navigationController?.popViewController(animated: true)
         }
         
     }

@@ -141,6 +141,7 @@ class Go23ForgetPwdView: UIView {
                         case .networkError(let msg):
                             let totast = Go23Toast.init(frame: .zero)
                             totast.show(msg, after: 1)
+                            self?.codeView.clear()
                         default:
                             let totast = Go23Toast.init(frame: .zero)
                             totast.show("Resharding failed, please try again!", after: 1)
@@ -181,6 +182,7 @@ class Go23ForgetPwdView: UIView {
                         case .networkError(let msg):
                             let totast = Go23Toast.init(frame: .zero)
                             totast.show(msg, after: 1)
+                            self?.codeView.clear()
                         default:
                             break
                             

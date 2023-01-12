@@ -79,6 +79,9 @@ class PinCodeInputView: UIView {
     func clear() {
         for label in pincodeViews {
             label.text = ""
+            label.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
+            label.layer.borderWidth = 1
+            label.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
         }
         textField.text = ""
     }
@@ -130,7 +133,8 @@ extension PinCodeInputView: UITextFieldDelegate {
             let label = pincodeViews[location]
             
             if string.count > 0 {
-                label.text = "●"
+//                label.text = "●"
+                label.text = string
                 label.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
                 label.layer.borderWidth = 1
                 label.layer.borderColor = UIColor.black.cgColor

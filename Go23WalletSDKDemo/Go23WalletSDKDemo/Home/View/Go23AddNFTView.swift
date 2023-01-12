@@ -14,6 +14,8 @@ import Go23SDK
 class Go23AddNFTView: UIView {
     
     private var hud: MBProgressHUD?
+    
+    var closeBlock: (()->())?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -215,6 +217,7 @@ extension Go23AddNFTView {
 //                hud.hide(animated: true, afterDelay: 1)
                 let totast = Go23Toast.init(frame: .zero)
                 totast.show("Add Success!", after: 1)
+                self?.closeBlock?()
 //                self?.closeBtnClick()
                 return
             } else {
