@@ -109,6 +109,7 @@ class Go23SendViewController: UIViewController {
         gasView.addSubview(gasNumLabel)
 //        gasView.addSubview(gasDescLabel)
         scrollContentView.addSubview(supportGasBtn)
+        scrollContentView.addSubview(minTokenLabel)
         scrollContentView.addSubview(sendBtn)
 //        scrollContentView.addSubview(totalTxt)
 //        scrollContentView.addSubview(totalLabel)
@@ -262,6 +263,12 @@ class Go23SendViewController: UIViewController {
             make.trailing.equalTo(-20)
             make.height.equalTo(25)
         }
+        minTokenLabel.snp.makeConstraints { make in
+            make.top.equalTo(supportGasBtn.snp.bottom).offset(3)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
+            make.height.equalTo(18)
+        }
         
         sendBtn.snp.makeConstraints { make in
             if #available(iOS 11.0, *) {
@@ -364,9 +371,11 @@ class Go23SendViewController: UIViewController {
     }
     
     @objc private func allBtnClick() {
-        guard let obj = self.transactionModel,let gas = Double(obj.gas), let platB = Double(obj.platformBalanceSort), let platU = Double(obj.platformUPer), let tokenS = Double(obj.tokenBalanceSort), let tokenU = Double(obj.tokenUPer) else {
+        guard let obj = self.transactionModel,let gas = Double(obj.gas), let platB = Double(obj.platformBalanceSort), let platU = Double(obj.platformUPer), let tokenS = Double(obj.tokenBalanceSort), let tokenU = Double(obj.tokenUPer),let fee = Double(obj.tokenMinimum)  else {
             return
         }
+        
+        
         
         var amout = 0.0
         var money = 0.0
@@ -374,6 +383,9 @@ class Go23SendViewController: UIViewController {
 
         if self.contract.count == 0 {
             amout = platB-gas
+            if amout <= fee {
+                return
+            }
             if amout <= 0 {
                 changeSendBtnStatus(status: false)
 //                let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -385,6 +397,7 @@ class Go23SendViewController: UIViewController {
                 toast.show("Insufficient Gas Fee", after: 1)
                 return
             }
+            clearBtn.isHidden = false
             money = amout * platU
             totalLabel.text = "\(platB) "+symbol
             
@@ -395,12 +408,16 @@ class Go23SendViewController: UIViewController {
             }
         } else {
             amout = tokenS
+            if amout <= fee {
+                return
+            }
             money = amout * tokenU
             if amout == 0 || amout > tokenS || obj.transType == 0 {
                 isGray = false
             } else {
                 isGray = true
             }
+            clearBtn.isHidden = false
             totalLabel.text = "\(tokenS) "+symbol
 
         }
@@ -456,7 +473,12 @@ class Go23SendViewController: UIViewController {
         attri.add(text: "  ") { att in
             
         }
-        attri.add(text: "\(self.chainName) support to lend users gas for trading") { attr in
+        attri.add(text: "\(self.chainName)") { attr in
+            attr.font(14)
+            attr.color(UIColor.rdt_HexOfColor(hexString: "#00D6E1"))
+            attr.alignment(.center)
+        }
+        attri.add(text: " support to lend users gas for trading") { attr in
 //            attr.customFont(14, NotoSans)
             attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
@@ -801,6 +823,13 @@ class Go23SendViewController: UIViewController {
         label.addTarget(self, action: #selector(supportGasBtnClick), for: .touchUpInside)
         return label
     }()
+    private lazy var minTokenLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.isHidden = true
+        label.textAlignment = .center
+        return label
+    }()
     
 }
 
@@ -939,6 +968,22 @@ extension Go23SendViewController {
                 self?.supportGasBtn.isUserInteractionEnabled = true
                 self?.isSupportSel = obj.isLendingGas
                 self?.supportClick(selected: self?.isSupportSel ?? false)
+                self?.minTokenLabel.isHidden = false
+                let attri = NSMutableAttributedString()
+                attri.add(text: "Minimum transfer amount: ") { attribute in
+                    attribute.font(14)
+                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
+                    attribute.alignment(.center)
+                }.add(text: obj.tokenMinimum) { attribute in
+                    attribute.font(14)
+                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#00D6E1"))
+                    attribute.alignment(.center)
+                }.add(text: " \(symbol)") { attribute in
+                    attribute.font(14)
+                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
+                    attribute.alignment(.center)
+                }
+                self?.minTokenLabel.attributedText = attri
             }
 
             self?.totalLabel.text = "0.0 "+symbol
@@ -1171,9 +1216,6 @@ extension Go23SendViewController {
             guard let obj = self.transactionModel else {
                 return
             }
-            if let dTxt = Double(txt), let gas = Double(obj.gas) {
-             changeStatus(dTxt: dTxt, gas: gas)
-            }
             
             if txt.count > 0 {
                 clearBtn.isHidden = false
@@ -1181,10 +1223,21 @@ extension Go23SendViewController {
                 clearBtn.isHidden = true
             }
             
+            if let dTxt = Double(txt), let gas = Double(obj.gas), let fee = Double(obj.tokenMinimum) {
+                if dTxt <= fee {
+                    changeSendBtnStatus(status: false)
+                    return
+                }
+             changeStatus(dTxt: dTxt, gas: gas)
+            }
+            
+
+            
             
             
         }
     }
+
     
     private func getAttri(str: String)->NSMutableAttributedString {
         

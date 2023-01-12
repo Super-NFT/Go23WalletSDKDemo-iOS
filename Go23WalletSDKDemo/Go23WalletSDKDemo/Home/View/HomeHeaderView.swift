@@ -133,7 +133,7 @@ class HomeHeaderView: UIView {
 //            ee += "@"+arr[1]
 //        }
         var ee = email
-        if email.count > 20 {
+        if email.count > 17 {
             ee = email.substring(to: 15) + "..."
         }
         
