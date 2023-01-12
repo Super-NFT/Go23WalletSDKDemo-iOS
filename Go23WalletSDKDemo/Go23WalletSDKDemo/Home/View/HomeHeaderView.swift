@@ -121,17 +121,22 @@ class HomeHeaderView: UIView {
         iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         iconImgv.layer.cornerRadius = 14
 //        emailLabel.text = email
-        let arr = email.components(separatedBy: "@")
+//        let arr = email.components(separatedBy: "@")
+//        var ee = email
+//        if arr.count == 2, ee.count > 18, arr[1].count > 10 {
+//
+//            if email.count > 20, arr[0].count > 5 {
+//                ee = email.substring(to: 3)+"..."
+//            } else {
+//                ee = arr[0]
+//            }
+//            ee += "@"+arr[1]
+//        }
         var ee = email
-        if arr.count == 2, ee.count > 20, arr[1].count > 11 {
-                        
-            if email.count > 20, arr[0].count > 6 {
-                ee = email.substring(to: 4)+"..."
-            } else {
-                ee = arr[0]
-            }
-            ee += "@"+arr[1]
+        if email.count > 20 {
+            ee = email.substring(to: 15) + "..."
         }
+        
         emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: ee)
     }
     
@@ -289,23 +294,23 @@ class HomeHeaderView: UIView {
     private lazy var receiveBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage.init(named: "scan"), for: .normal)
-//        btn.setTitle("Receive", for: .normal)
+        btn.setTitle("Receive", for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .center
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-//        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
+        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
         btn.addTarget(self, action: #selector(receiveBtnClick), for: .touchUpInside)
         return btn
     }()
     
     private lazy var sendBtn: UIButton = {
         let btn = UIButton()
-//        btn.setTitle("Send", for: .normal)
+        btn.setTitle("Send", for: .normal)
         btn.setImage(UIImage.init(named: "send"), for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .center
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-//        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
+        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
         btn.addTarget(self, action: #selector(sendBtnClick), for: .touchUpInside)
         return btn
     }()

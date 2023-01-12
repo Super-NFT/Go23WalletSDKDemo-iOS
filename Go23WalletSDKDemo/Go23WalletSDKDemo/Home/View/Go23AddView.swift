@@ -82,7 +82,9 @@ class Go23AddView: UIView {
         ovc.isPanGestureEnabled = true
         ovc.shouldKeyboardChangeFollow = true
         ovc.keyboardRelativeOffset = -200
-
+        alert.closeBlock = {
+            UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
+        }
         UIApplication.shared.keyWindow?.present(overlay: ovc)
     }
     

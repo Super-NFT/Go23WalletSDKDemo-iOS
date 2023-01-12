@@ -194,23 +194,23 @@ class Go23TokenHeaderView: UIView {
     private lazy var receiveBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage.init(named: "scan"), for: .normal)
-//        btn.setTitle("Receive", for: .normal)
+        btn.setTitle("Receive", for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#848484"), for: .normal)
         btn.titleLabel?.textAlignment = .center
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-//        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
+        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
         btn.addTarget(self, action: #selector(receiveBtnClick), for: .touchUpInside)
         return btn
     }()
     
     private lazy var sendBtn: UIButton = {
         let btn = UIButton()
-//        btn.setTitle("Send", for: .normal)
+        btn.setTitle("Send", for: .normal)
         btn.setImage(UIImage.init(named: "send"), for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#848484"), for: .normal)
         btn.titleLabel?.textAlignment = .center
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-//        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
+        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
         btn.addTarget(self, action: #selector(sendBtnClick), for: .touchUpInside)
         return btn
     }()
