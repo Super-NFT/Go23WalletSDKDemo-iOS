@@ -432,13 +432,13 @@ extension ViewController {
     }
     
     @objc private func registerUser() {
+        popSettingEmail()
+
         guard let shared = Go23WalletSDK.shared else {
             return
         }
         print("registerUser")
         
-        popSettingEmail()
-
         guard let kEmail = UserDefaults.standard.string(forKey: kEmailPrivateKey), kEmail.count > 0 else  {
             return
         }

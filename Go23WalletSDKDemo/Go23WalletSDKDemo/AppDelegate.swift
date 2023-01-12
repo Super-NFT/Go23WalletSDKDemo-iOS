@@ -31,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Replace yout appKey and secretKey here.
         Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
                            secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
-            if result {
+//            if result {
                 NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
                                                 object: nil,
                                                 userInfo: nil)
-            }
+//            }
             print("Go23WalletSDK.auth === \(result)")
         }
         

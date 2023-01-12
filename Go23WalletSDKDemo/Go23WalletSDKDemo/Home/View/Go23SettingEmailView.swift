@@ -6,8 +6,9 @@
 //
 import UIKit
 import MBProgressHUD
+import Go23SDK
 
-class Go23SettingEmailView: UIView {
+class Go23SettingEmailView: UIView, Go23NetStatusProtocol {
     
     var confirmBlock:(()->())?
     var closeBlock: (()->())?
@@ -92,6 +93,11 @@ class Go23SettingEmailView: UIView {
     
     
     @objc private func confirmBtnClick() {
+        if !isReachable() {
+            let toast = Go23Toast.init(frame: .zero)
+            toast.show("Network is lost, check and try again!", after: 1)
+            return
+        }
         
         if let emailT = emailTxtFiled.text, !validateEmail(email: emailT) {
 //            let hud = MBProgressHUD.showAdded(to: self, animated: true)
@@ -106,6 +112,15 @@ class Go23SettingEmailView: UIView {
         
         if let emailT = emailTxtFiled.text, emailT.count > 0 {
             UserDefaults.standard.set(emailT, forKey: kEmailPrivateKey)
+            Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e", secretKey: "KX6OquHkkKQmzLSncmnmNt2q") {[weak self] result in
+                if result {
+                    self?.confirmBlock?()
+                } else {
+                    let toast = Go23Toast.init(frame: .zero)
+                    toast.show("Go23WalletSDK auth failed!", after: 1)
+                }
+                print("Go23WalletSDK.auth === \(result)")
+            }
             self.confirmBlock?()
             return
         }
