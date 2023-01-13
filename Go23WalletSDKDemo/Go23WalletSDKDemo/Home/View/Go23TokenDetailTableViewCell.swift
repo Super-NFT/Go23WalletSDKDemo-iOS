@@ -59,7 +59,7 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
             make.left.equalTo(coverImgv.snp.right).offset(9)
             make.top.equalTo(12)
             make.height.equalTo(22)
-            make.width.equalTo(120)
+            make.width.equalTo(150)
         }
         
         timeLabel.snp.makeConstraints { make in
@@ -71,7 +71,8 @@ class Go23TokenDetailTableViewCell: UITableViewCell {
         moneyLabel.snp.makeConstraints { make in
             make.trailing.equalTo(-9)
             make.centerY.equalToSuperview()
-            make.width.equalTo(ScreenWidth/3.0)
+//            make.width.equalTo(ScreenWidth-160.0)
+            make.left.equalTo(tokenLabel.snp.right).offset(20)
             make.height.equalTo(22)
         }
         
