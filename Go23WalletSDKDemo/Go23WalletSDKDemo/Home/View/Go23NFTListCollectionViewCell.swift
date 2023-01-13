@@ -29,7 +29,7 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
         }
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(coverImgv.snp.bottom).offset(8)
-            make.leading.equalTo(20)
+            make.leading.equalTo(00)
             make.trailing.equalTo(-20)
             make.height.equalTo(24)
         }
@@ -38,7 +38,7 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
     
     func filled(cover: String, title: String) {
         coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: UIImage(named: "holder"))
-        titleLabel.text = title
+        titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#000000"),alignment: .left, title: title)
     }
     
     private lazy var coverImgv: UIImageView = {

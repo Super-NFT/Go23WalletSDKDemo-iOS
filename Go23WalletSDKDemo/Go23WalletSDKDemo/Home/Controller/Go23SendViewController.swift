@@ -263,13 +263,6 @@ class Go23SendViewController: UIViewController {
             make.trailing.equalTo(-20)
             make.height.equalTo(25)
         }
-        minTokenLabel.snp.makeConstraints { make in
-            make.top.equalTo(supportGasBtn.snp.bottom).offset(3)
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
-            make.height.equalTo(18)
-        }
-        
         sendBtn.snp.makeConstraints { make in
             if #available(iOS 11.0, *) {
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -324,7 +317,11 @@ class Go23SendViewController: UIViewController {
             self?.addressTxtView.textContainerInset = UIEdgeInsets(top: (64-(self?.getHeight(content: code) ?? 0) )/2.0, left: 10, bottom: 8, right: 50)
             self?.addressTxtView.text = code
             self?.addressHoldLabel.isHidden = true
-            if let addressHold = self?.addressHoldLabel, let transInfo = self?.transactionModel, addressHold.isHidden, let amountT = self?.amoutTxtFiled.text, amountT.count > 0, transInfo.transType != 0 {
+            if let addressHold = self?.addressHoldLabel, let transInfo = self?.transactionModel, addressHold.isHidden, let amountT = self?.amoutTxtFiled.text, amountT.count > 0, transInfo.transType != 0,let dTxt = Double(amountT), let fee = Double(transInfo.tokenMinimum) {
+                if dTxt <= fee {
+                    self?.changeSendBtnStatus(status: false)
+                    return
+                }
                 self?.changeSendBtnStatus(status: true)
             }
         }
@@ -345,7 +342,11 @@ class Go23SendViewController: UIViewController {
         }
         
         addressTxtView.textContainerInset = UIEdgeInsets(top: (64-getHeight(content: UIPasteboard.general.string!))/2.0, left: 10, bottom: 8, right: 50)
-        if let obj = self.transactionModel, let gas = Double(obj.gas), let txt = amoutTxtFiled.text, let dTxt = Double(txt) {
+        if let obj = self.transactionModel, let gas = Double(obj.gas), let txt = amoutTxtFiled.text, let dTxt = Double(txt), let fee = Double(obj.tokenMinimum) {
+            if dTxt <= fee {
+                changeSendBtnStatus(status: false)
+                return
+            }
             changeStatus(dTxt: dTxt, gas: gas)
         }
     }
@@ -466,11 +467,11 @@ class Go23SendViewController: UIViewController {
     private func supportClick(selected: Bool) {
         let attri = NSMutableAttributedString()
         if selected {
-            attri.addImage("blueSel", CGRectMake(0, 0, 12, 12))
+            attri.addImage("blueSel", CGRectMake(0, -2, 16, 16))
         } else {
-            attri.addImage("graySel", CGRectMake(0, 0, 12, 12))
+            attri.addImage("graySel", CGRectMake(0, -2, 16, 16))
         }
-        attri.add(text: "  ") { att in
+        attri.add(text: " ") { att in
             
         }
         attri.add(text: "\(self.chainName)") { attr in
@@ -827,6 +828,7 @@ class Go23SendViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.isHidden = true
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
@@ -968,22 +970,36 @@ extension Go23SendViewController {
                 self?.supportGasBtn.isUserInteractionEnabled = true
                 self?.isSupportSel = obj.isLendingGas
                 self?.supportClick(selected: self?.isSupportSel ?? false)
-                self?.minTokenLabel.isHidden = false
-                let attri = NSMutableAttributedString()
-                attri.add(text: "Minimum transfer amount: ") { attribute in
-                    attribute.font(14)
-                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
-                    attribute.alignment(.center)
-                }.add(text: obj.tokenMinimum) { attribute in
-                    attribute.font(14)
-                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#00D6E1"))
-                    attribute.alignment(.center)
-                }.add(text: " \(symbol)") { attribute in
-                    attribute.font(14)
-                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
-                    attribute.alignment(.center)
+                let paraph = NSMutableParagraphStyle()
+                paraph.alignment = .left
+                paraph.lineSpacing = 3
+                let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+
+                let rowHeight = ("Minimum transfer amount: \(obj.tokenMinimum) \(symbol)".trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: ScreenWidth-40.0, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.height
+                if let label = self?.minTokenLabel, let supportBtn = self?.supportGasBtn {
+                    label.snp.makeConstraints { make in
+                        make.top.equalTo(supportBtn.snp.bottom).offset(3)
+                        make.leading.equalTo(20)
+                        make.trailing.equalTo(-20)
+                        make.height.equalTo(rowHeight)
+                    }
+                    self?.minTokenLabel.isHidden = false
+                    let attri = NSMutableAttributedString()
+                    attri.add(text: "Minimum transfer amount: ") { attribute in
+                        attribute.font(14)
+                        attribute.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
+                        attribute.alignment(.center)
+                    }.add(text: obj.tokenMinimum) { attribute in
+                        attribute.font(14)
+                        attribute.color(UIColor.rdt_HexOfColor(hexString: "#00D6E1"))
+                        attribute.alignment(.center)
+                    }.add(text: " \(symbol)") { attribute in
+                        attribute.font(14)
+                        attribute.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
+                        attribute.alignment(.center)
+                    }
+                    self?.minTokenLabel.attributedText = attri
                 }
-                self?.minTokenLabel.attributedText = attri
             }
 
             self?.totalLabel.text = "0.0 "+symbol

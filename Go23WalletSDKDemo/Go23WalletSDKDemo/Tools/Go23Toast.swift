@@ -83,6 +83,8 @@ extension Go23Toast {
     
     func show(_ content: String, after delay: Double) {
         
+        var delay = delay
+        delay += 0.5
         setViewSize(with: content)
         
         if let window = UIApplication.shared.windows.first {

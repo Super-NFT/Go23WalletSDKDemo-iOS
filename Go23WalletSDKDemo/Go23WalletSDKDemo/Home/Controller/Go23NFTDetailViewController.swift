@@ -681,7 +681,11 @@ class NFTDetailDetailsCell: UITableViewCell {
         else {
             webLabel.text = "none"
         }
-        tokenIdBtn.setAttributedTitle(getAttri(str: tokenId), for: .normal)
+        var token = tokenId
+        if tokenId.count > 16 {
+            token = tokenId.substring(to: 16)+"..."
+        }
+        tokenIdBtn.setAttributedTitle(getAttri(str: token), for: .normal)
         chainLabel.text = "\(chain)"
     }
     
