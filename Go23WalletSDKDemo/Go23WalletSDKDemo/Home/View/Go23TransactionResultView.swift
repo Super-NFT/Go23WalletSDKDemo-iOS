@@ -117,12 +117,12 @@ class Go23TransactionResultView: UIView {
     
     @objc private func closeBtnClick() {
         UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
-        currentViewController()?.navigationController?.popToRootViewController(animated: true)
+        currentViewController()?.navigationController?.popViewController(animated: true)
     }
     
     @objc private func signBtnClick() {
         UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
-        currentViewController()?.navigationController?.popToRootViewController(animated: true)
+        currentViewController()?.navigationController?.popViewController(animated: true)
     }
     
     @objc private func cancelBtnClick() {

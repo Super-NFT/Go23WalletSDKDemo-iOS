@@ -25,6 +25,9 @@ class Go23SendViewController: UIViewController {
     
     private var imageData = Data()
     
+    private var isAmountAll = false
+    private var isShowBalance = false
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -111,6 +114,7 @@ class Go23SendViewController: UIViewController {
         scrollContentView.addSubview(supportGasBtn)
         scrollContentView.addSubview(minTokenLabel)
         scrollContentView.addSubview(sendBtn)
+        scrollContentView.addSubview(noGasfeeLabel)
 //        scrollContentView.addSubview(totalTxt)
 //        scrollContentView.addSubview(totalLabel)
         
@@ -263,6 +267,12 @@ class Go23SendViewController: UIViewController {
             make.trailing.equalTo(-20)
             make.height.equalTo(25)
         }
+        noGasfeeLabel.snp.makeConstraints { make in
+            make.top.equalTo(gasView.snp.bottom).offset(12)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
+            make.height.equalTo(36)
+        }
         sendBtn.snp.makeConstraints { make in
             if #available(iOS 11.0, *) {
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -385,6 +395,8 @@ class Go23SendViewController: UIViewController {
         if self.contract.count == 0 {
             amout = platB-gas
             if amout <= fee {
+                let toast = Go23Toast.init(frame: .zero)
+                toast.show("Insufficient balance", after: 1)
                 return
             }
             if amout <= 0 {
@@ -410,6 +422,8 @@ class Go23SendViewController: UIViewController {
         } else {
             amout = tokenS
             if amout <= fee {
+                let toast = Go23Toast.init(frame: .zero)
+                toast.show("Insufficient balance", after: 1)
                 return
             }
             money = amout * tokenU
@@ -423,6 +437,7 @@ class Go23SendViewController: UIViewController {
 
         }
         amoutTxtFiled.text = "\(amout)"
+        self.isAmountAll = true
         if !numLabel.isHidden {
             numLabel.text = "$\(money)"
             amoutTxtFiled.snp.remakeConstraints { make in
@@ -700,6 +715,7 @@ class Go23SendViewController: UIViewController {
         textfield.leftView = UIView(frame: CGRectMake(0, 0, 8, 0))
         textfield.attributedPlaceholder = attri
         textfield.addTarget(self, action: #selector(textDidChange(_ :)), for: .editingChanged)
+        textfield.addTarget(self, action: #selector(textDidEnd(_ :)), for: .editingDidEnd)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         textfield.keyboardType = UIKeyboardType.decimalPad
         return textfield
@@ -825,6 +841,15 @@ class Go23SendViewController: UIViewController {
         return label
     }()
     private lazy var minTokenLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.isHidden = true
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var noGasfeeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.isHidden = true
@@ -966,7 +991,21 @@ extension Go23SendViewController {
             if !obj.isLendingGas {
                 self?.supportGasBtn.isHidden = false
                 self?.supportGasBtn.isUserInteractionEnabled = false
+                self?.noGasfeeLabel.isHidden = false
+                let attri = NSMutableAttributedString()
+                attri.add(text: symbol) { attribute in
+                    attribute.font(14)
+                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#00D6E1"))
+                    attribute.alignment(.center)
+                }.add(text: " doesn’t support lending gas to users for transaction.") { attribute in
+                    attribute.font(14)
+                    attribute.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
+                    attribute.alignment(.center)
+                }
+                self?.noGasfeeLabel.attributedText = attri
+                
             } else {
+                self?.noGasfeeLabel.isHidden = true
                 self?.supportGasBtn.isUserInteractionEnabled = true
                 self?.isSupportSel = obj.isLendingGas
                 self?.supportClick(selected: self?.isSupportSel ?? false)
@@ -1070,6 +1109,17 @@ extension Go23SendViewController {
         }
         
         
+        var amoutStr = ""
+        if isAmountAll {
+            if self.contract.count > 0 {
+                amoutStr = obj.tokenBalanceSort
+            } else {
+                amoutStr = obj.platformBalanceSort
+            }
+        } else {
+            amoutStr = amoutTxtFiled.text ?? ""
+        }
+        
         let sign = Go23SendTransactionModel(type: 1,
                                             rpc: Go23WalletMangager.shared.walletModel?.rpc ?? "",
                                             chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0,
@@ -1077,7 +1127,7 @@ extension Go23SendViewController {
                                             toAddr: addressTxtView.text,
                                             transType: obj.transType,
                                             contractAddress: self.contract,
-                                            tokenId: "", value: amoutTxtFiled.text ?? "",
+                                            tokenId: "", value: amoutStr,
                                             middleContractAddress: Go23WalletMangager.shared.walletModel?.middleContractAddress ?? "",
                                             decimal: obj.decimal,
                                             nftName: "",
@@ -1228,7 +1278,7 @@ extension Go23SendViewController {
     @objc func textDidChange(_ textField:UITextField) {
         print("event:\(textField.text)")
         if let txt = textField.text {
-            
+            isAmountAll = false
             guard let obj = self.transactionModel else {
                 return
             }
@@ -1247,13 +1297,29 @@ extension Go23SendViewController {
              changeStatus(dTxt: dTxt, gas: gas)
             }
             
-
-            
-            
+        }
+    }
+    
+    @objc func textDidEnd(_ textField:UITextField) {
+        print("event:\(textField.text)")
+        if let txt = textField.text {
+            guard let obj = self.transactionModel else {
+                return
+            }
+            if let dTxt = Double(txt), let gas = Double(obj.gas), let fee = Double(obj.tokenMinimum) {
+                if dTxt <= fee, !isShowBalance {
+                    isShowBalance = true
+                    let toast = Go23Toast.init(frame: .zero)
+                    toast.show("Insufficient balance", after: 1)
+                    changeSendBtnStatus(status: false)
+                    return
+                }
+                isShowBalance = false
+             changeStatus(dTxt: dTxt, gas: gas)
+            }
             
         }
     }
-
     
     private func getAttri(str: String)->NSMutableAttributedString {
         

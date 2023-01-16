@@ -21,6 +21,7 @@ protocol HomeHeaderViewDelegate: AnyObject {
 class HomeHeaderView: UIView {
     
     static var cellHight = 420.0
+    private var email = ""
     weak var delegate: HomeHeaderViewDelegate?
     
     var token = ""
@@ -70,6 +71,7 @@ class HomeHeaderView: UIView {
             make.left.equalTo(iconImgv.snp.right).offset(4)
             make.centerY.equalTo(iconImgv.snp.centerY)
         }
+        emailLabel.isHidden = true
         tokenLabel.snp.makeConstraints { make in
             make.top.equalTo(iconImgv.snp.bottom).offset(36)
             make.centerX.equalToSuperview()
@@ -120,6 +122,7 @@ class HomeHeaderView: UIView {
 //        iconImgv.image = UIImage.init(named: "emailIcon")
         iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         iconImgv.layer.cornerRadius = 14
+        self.email = email
 //        emailLabel.text = email
 //        let arr = email.components(separatedBy: "@")
 //        var ee = email
@@ -132,15 +135,22 @@ class HomeHeaderView: UIView {
 //            }
 //            ee += "@"+arr[1]
 //        }
+
+    }
+    
+    func filled(money: String, symbol: String, chainName: String, balanceU: String) {
         var ee = email
         if email.count > 17 {
             ee = email.substring(to: 15) + "..."
         }
         
+        let emailWidth = ScreenWidth-getRowWidth(desc: chainName)-20-52
+        if getStringWidth(email, lineHeight:  16.0, font: UIFont(name: BarlowCondensed, size: 14) ?? UIFont.systemFont(ofSize: 14)) <= emailWidth {
+            ee = email
+        }
+        emailLabel.isHidden = false
+        
         emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: ee)
-    }
-    
-    func filled(money: String, symbol: String, chainName: String, balanceU: String) {
         var mon = money
         var bal = balanceU
         if let ss = Double(money), ss <= 0 {
@@ -153,6 +163,11 @@ class HomeHeaderView: UIView {
             make.top.equalTo(rightBtn.snp.bottom).offset(10)
             make.height.equalTo(40)
             make.width.equalTo(getRowWidth(desc: chainName))
+        }
+        emailLabel.snp.remakeConstraints() { make in
+            make.left.equalTo(iconImgv.snp.right).offset(4)
+            make.centerY.equalTo(iconImgv.snp.centerY)
+            make.width.equalTo(emailWidth)
         }
         if let bb = Double(balanceU), bb <= 0 {
             bal = "0.00"

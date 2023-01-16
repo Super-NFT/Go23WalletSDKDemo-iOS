@@ -123,7 +123,7 @@
 		61A20769296C5547006E10FA /* Go23NetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A20768296C5547006E10FA /* Go23NetStatus.swift */; };
 		61A2076B296C5BF2006E10FA /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 61A2076A296C5BF2006E10FA /* loading.gif */; };
 		61A20793296D6616006E10FA /* Client.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20792296D6616006E10FA /* Client.xcframework */; };
-		61A20C5329729110006E10FA /* Go23SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20C5229729110006E10FA /* Go23SDK.framework */; };
+		61A20C552974F932006E10FA /* Go23SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20C542974F932006E10FA /* Go23SDK.framework */; };
 		61C12FCA294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */; };
 		61FFE36A2939E91700139B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE3692939E91700139B1B /* AppDelegate.swift */; };
 		61FFE36E2939E91700139B1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE36D2939E91700139B1B /* ViewController.swift */; };
@@ -271,7 +271,7 @@
 		61A20768296C5547006E10FA /* Go23NetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NetStatus.swift; sourceTree = "<group>"; };
 		61A2076A296C5BF2006E10FA /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		61A20792296D6616006E10FA /* Client.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Client.xcframework; sourceTree = "<group>"; };
-		61A20C5229729110006E10FA /* Go23SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Go23SDK.framework; sourceTree = "<group>"; };
+		61A20C542974F932006E10FA /* Go23SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Go23SDK.framework; sourceTree = "<group>"; };
 		61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NFTDetailResultViewController.swift; sourceTree = "<group>"; };
 		61FFE3662939E91700139B1B /* Go23WalletSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Go23WalletSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FFE3692939E91700139B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 			files = (
 				EF027EA106427A797E4969EB /* Pods_Go23WalletSDKDemo.framework in Frameworks */,
 				61A20793296D6616006E10FA /* Client.xcframework in Frameworks */,
-				61A20C5329729110006E10FA /* Go23SDK.framework in Frameworks */,
+				61A20C552974F932006E10FA /* Go23SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,7 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				61A20792296D6616006E10FA /* Client.xcframework */,
-				61A20C5229729110006E10FA /* Go23SDK.framework */,
+				61A20C542974F932006E10FA /* Go23SDK.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
