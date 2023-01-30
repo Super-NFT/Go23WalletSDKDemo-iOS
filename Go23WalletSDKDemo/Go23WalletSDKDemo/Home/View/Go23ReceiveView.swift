@@ -95,7 +95,6 @@ class Go23ReceiveView: UIView {
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
         let attri = NSMutableAttributedString()
         attri.add(text: token) { attr in
-//            attr.customFont(12, NotoSans)
             attr.font(12)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
             attr.alignment(.center)
@@ -151,13 +150,6 @@ class Go23ReceiveView: UIView {
     
     @objc func controlClick() {
         UIPasteboard.general.string = self.token
-        
-//        let hud = MBProgressHUD.showAdded(to: self, animated: true)
-//        hud.mode = .text
-//        hud.label.text = "address has copy to pasteboard!"
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.hide(animated: true, afterDelay: 1)
-        
         let totast = Go23Toast.init(frame: .zero)
         totast.show("Copied!", after: 1)
     }
@@ -165,19 +157,12 @@ class Go23ReceiveView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 32)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
     }()
     
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Scan the QR code to pay \n Mainnet ERC-20"
-//        label.textAlignment = .center
-////        label.font = UIFont(name: NotoSans, size: 14)
-//        label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         let paraph = NSMutableParagraphStyle()
         paraph.lineSpacing = 0
         paraph.alignment = .center
@@ -197,7 +182,6 @@ class Go23ReceiveView: UIView {
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 0
@@ -224,7 +208,6 @@ class Go23ReceiveView: UIView {
     
     private lazy var noticeLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12.0)
         label.font = UIFont.systemFont(ofSize: 12)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center

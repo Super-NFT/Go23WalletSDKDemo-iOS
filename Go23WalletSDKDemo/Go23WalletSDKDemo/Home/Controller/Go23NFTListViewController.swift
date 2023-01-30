@@ -59,7 +59,6 @@ class Go23NFTListViewController: UIViewController {
         let view = UIView()
         let label = UILabel()
         label.text = "No records"
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center

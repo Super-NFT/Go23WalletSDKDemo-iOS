@@ -77,12 +77,10 @@ class Go23SendTokenListView: UIView {
         
     @objc private func closeBtnClick() {
         self.closeBlock?()
-//        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         
     }
     
     @objc private func addBtnClick() {
-//        closeBtnClick()
         addBtnBlock?()
     }
         
@@ -102,9 +100,6 @@ class Go23SendTokenListView: UIView {
         
     private lazy var titleLabel: UILabel = {
             let label = UILabel()
-//            label.text = "Select a token to send"
-//            label.font = UIFont.init(name: BarlowCondensed, size: 20)
-//            label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Select a token to send")
             return label
         }()
@@ -113,9 +108,6 @@ class Go23SendTokenListView: UIView {
         let btn = UIButton()
         btn.layer.cornerRadius = 8
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
-//        btn.setTitle("Confirm", for: .normal)
-//        btn.setTitleColor(.white, for: .normal)
-//        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
         btn.setAttributedTitle(String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 24), wordspace: 0.5, color: UIColor.white, alignment: .center, title: "Add a token"), for: .normal)
         btn.addTarget(self, action: #selector(addBtnClick), for: .touchUpInside)
         return btn
@@ -249,7 +241,6 @@ class SendTokenListCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 16)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
@@ -257,7 +248,6 @@ class SendTokenListCell: UITableViewCell {
     
     private lazy var numLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 16)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right

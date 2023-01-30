@@ -81,9 +81,7 @@ class Go23TokenHeaderView: UIView {
         let paraph = NSMutableParagraphStyle()
         let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 24), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
         let rowWidth = (type.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: ScreenWidth, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.width
-        
-//        print("width ====  \(rowWidth)")
-        
+                
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(54)
             make.centerX.equalToSuperview().offset(16)
@@ -167,7 +165,6 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 14)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
@@ -184,7 +181,6 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 20)
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center

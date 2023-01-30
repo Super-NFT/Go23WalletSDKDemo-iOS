@@ -123,11 +123,10 @@
 		61A20769296C5547006E10FA /* Go23NetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A20768296C5547006E10FA /* Go23NetStatus.swift */; };
 		61A2076B296C5BF2006E10FA /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 61A2076A296C5BF2006E10FA /* loading.gif */; };
 		61A20793296D6616006E10FA /* Client.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20792296D6616006E10FA /* Client.xcframework */; };
-		61A20C552974F932006E10FA /* Go23SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A20C542974F932006E10FA /* Go23SDK.framework */; };
 		61C12FCA294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */; };
+		61E786552987A03600919356 /* Go23SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E786542987A03600919356 /* Go23SDK.framework */; };
 		61FFE36A2939E91700139B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE3692939E91700139B1B /* AppDelegate.swift */; };
-		61FFE36E2939E91700139B1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE36D2939E91700139B1B /* ViewController.swift */; };
-		61FFE3712939E91700139B1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61FFE36F2939E91700139B1B /* Main.storyboard */; };
+		61FFE36E2939E91700139B1B /* Go23HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE36D2939E91700139B1B /* Go23HomeViewController.swift */; };
 		61FFE3732939E91A00139B1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61FFE3722939E91A00139B1B /* Assets.xcassets */; };
 		61FFE3762939E91A00139B1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61FFE3742939E91A00139B1B /* LaunchScreen.storyboard */; };
 		61FFE3802939F62500139B1B /* OverlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFE37F2939F62500139B1B /* OverlayController.swift */; };
@@ -189,7 +188,6 @@
 		611D0984295B1619005222D4 /* Go23Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23Net.swift; sourceTree = "<group>"; };
 		611D0ABE295C25F9005222D4 /* PinCodeInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeInputView.swift; sourceTree = "<group>"; };
 		6126662C2965506E00602059 /* Go23SettingEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23SettingEmailView.swift; sourceTree = "<group>"; };
-		6126662E29656CD800602059 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Main.strings"; sourceTree = "<group>"; };
 		6126662F29656CD900602059 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		613D63FA29544AFD009A9973 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		613D63FB29544AFD009A9973 /* BarlowCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Medium.ttf"; sourceTree = "<group>"; };
@@ -271,12 +269,11 @@
 		61A20768296C5547006E10FA /* Go23NetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NetStatus.swift; sourceTree = "<group>"; };
 		61A2076A296C5BF2006E10FA /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		61A20792296D6616006E10FA /* Client.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Client.xcframework; sourceTree = "<group>"; };
-		61A20C542974F932006E10FA /* Go23SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Go23SDK.framework; sourceTree = "<group>"; };
 		61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NFTDetailResultViewController.swift; sourceTree = "<group>"; };
+		61E786542987A03600919356 /* Go23SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Go23SDK.framework; sourceTree = "<group>"; };
 		61FFE3662939E91700139B1B /* Go23WalletSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Go23WalletSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FFE3692939E91700139B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		61FFE36D2939E91700139B1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		61FFE3702939E91700139B1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		61FFE36D2939E91700139B1B /* Go23HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23HomeViewController.swift; sourceTree = "<group>"; };
 		61FFE3722939E91A00139B1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61FFE3752939E91A00139B1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61FFE3772939E91A00139B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -295,7 +292,7 @@
 			files = (
 				EF027EA106427A797E4969EB /* Pods_Go23WalletSDKDemo.framework in Frameworks */,
 				61A20793296D6616006E10FA /* Client.xcframework in Frameworks */,
-				61A20C552974F932006E10FA /* Go23SDK.framework in Frameworks */,
+				61E786552987A03600919356 /* Go23SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +340,7 @@
 		6108D89A293CC64F00E3CFF8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				61FFE36D2939E91700139B1B /* Go23HomeViewController.swift */,
 				6108D89B293CC68C00E3CFF8 /* Go23TokenListViewController.swift */,
 				6108D89F293CCBCB00E3CFF8 /* Go23NFTListViewController.swift */,
 				6187E1D9293E27A3002EE854 /* Go23AddTokenViewController.swift */,
@@ -552,7 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				61A20792296D6616006E10FA /* Client.xcframework */,
-				61A20C542974F932006E10FA /* Go23SDK.framework */,
+				61E786542987A03600919356 /* Go23SDK.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -585,8 +583,6 @@
 				6108D894293A4C8700E3CFF8 /* Home */,
 				61FFE3692939E91700139B1B /* AppDelegate.swift */,
 				6187E1C0293DDC81002EE854 /* SceneDelegate.swift */,
-				61FFE36D2939E91700139B1B /* ViewController.swift */,
-				61FFE36F2939E91700139B1B /* Main.storyboard */,
 				61FFE3722939E91A00139B1B /* Assets.xcassets */,
 				61FFE3742939E91A00139B1B /* LaunchScreen.storyboard */,
 				61FFE3772939E91A00139B1B /* Info.plist */,
@@ -726,7 +722,6 @@
 				61FFE3762939E91A00139B1B /* LaunchScreen.storyboard in Resources */,
 				61A2076B296C5BF2006E10FA /* loading.gif in Resources */,
 				61FFE3732939E91A00139B1B /* Assets.xcassets in Resources */,
-				61FFE3712939E91700139B1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,7 +808,7 @@
 				6187E2AF293F18C3002EE854 /* JXSegmentedTitleAttributeItemModel.swift in Sources */,
 				61142EA82940342E000E320E /* Go23PwdSuccessView.swift in Sources */,
 				6187E28D293F18C3002EE854 /* JXSegmentedView.swift in Sources */,
-				61FFE36E2939E91700139B1B /* ViewController.swift in Sources */,
+				61FFE36E2939E91700139B1B /* Go23HomeViewController.swift in Sources */,
 				61142EB429408008000E320E /* Go23SendTokenListView.swift in Sources */,
 				61142EA4293F8EF2000E320E /* VerifyCodeView.swift in Sources */,
 				61A20761296C48B5006E10FA /* UIView+Constaint.swift in Sources */,
@@ -896,15 +891,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		61FFE36F2939E91700139B1B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				61FFE3702939E91700139B1B /* Base */,
-				6126662E29656CD800602059 /* en-GB */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		61FFE3742939E91A00139B1B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1060,7 +1046,7 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sending QR Code to your contacts";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1104,7 +1090,7 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sending QR Code to your contacts";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (

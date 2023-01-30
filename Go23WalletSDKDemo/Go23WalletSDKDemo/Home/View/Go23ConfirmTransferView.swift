@@ -221,7 +221,6 @@ class Go23ConfirmTransferView: UIView {
     
     private lazy var contractTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Contract:"
@@ -230,7 +229,6 @@ class Go23ConfirmTransferView: UIView {
     
     private lazy var contractLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 2
@@ -238,7 +236,6 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var fromTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "From"
@@ -246,7 +243,6 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var fromLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 2
@@ -254,7 +250,6 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var toTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "To"
@@ -262,7 +257,6 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var toLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         label.numberOfLines = 2
@@ -270,7 +264,6 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var tokenTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "TokenID"
@@ -278,14 +271,12 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     private lazy var valueTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Value"
@@ -293,14 +284,12 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var valueLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
     }()
     private lazy var gasTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Gas Fee"
@@ -308,7 +297,6 @@ class Go23ConfirmTransferView: UIView {
     }()
     private lazy var gasLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
@@ -316,7 +304,6 @@ class Go23ConfirmTransferView: UIView {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label

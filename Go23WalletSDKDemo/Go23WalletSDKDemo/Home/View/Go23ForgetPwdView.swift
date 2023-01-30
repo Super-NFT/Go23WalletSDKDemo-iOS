@@ -34,7 +34,6 @@ class Go23ForgetPwdView: UIView {
         addSubview(titleLabel)
         addSubview(emailLabel)
         addSubview(codeView)
-//        addSubview(sendBtn)
         addSubview(emailVerifyBtn)
         addSubview(emailTipsLabel)
         addSubview(notReceiveLabel)
@@ -68,23 +67,13 @@ class Go23ForgetPwdView: UIView {
         notReceiveLabel.snp.makeConstraints { make in
             make.top.equalTo(emailTipsLabel.snp.bottom).offset(3)
             make.height.equalTo(16)
-            make.centerX.equalToSuperview().offset(-45)
+            make.centerX.equalToSuperview().offset(-30)
         }
-        
-//        let attri = NSMutableAttributedString()
-//        attri.add(text: "Didn‘t receive?") { attr in
-//            attr.customFont(12, NotoSans)
-//            attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
-//        }.add(text: "Please click resend") { attr in
-//            attr.customFont(12, NotoSans)
-//            attr.color(UIColor.rdt_HexOfColor(hexString: "#35C1D8"))
-//        }
-//        notReceiveLabel.attributedText = attri
         
         notReceiveBtn.snp.makeConstraints { make in
             make.top.equalTo(emailTipsLabel.snp.bottom).offset(3)
             make.height.equalTo(16)
-            make.centerX.equalToSuperview().offset(65)
+            make.centerX.equalToSuperview().offset(45)
         }
         
         emailLabel.text = Go23WalletMangager.shared.email
@@ -93,7 +82,6 @@ class Go23ForgetPwdView: UIView {
     }
     
     func filled(email: String){
-//        emailLabel.text = Go23WalletMangager.shared.email
         emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
     }
     
@@ -216,10 +204,6 @@ class Go23ForgetPwdView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
-//        label.textColor = UIColor.init(named: "#8C8C8C")
-//        label.textAlignment = .center
-//        label.text = "Verify"
         label.attributedText = String.getAttributeString(font: UIFont.systemFont(ofSize: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#8C8C8C"),alignment: .center, title: "Verify your account")
         return label
     }()
@@ -245,8 +229,7 @@ class Go23ForgetPwdView: UIView {
     
     lazy var emailTipsLabel: UILabel = {
         let label = UILabel()
-        label.text = "An email with code has been sent to your email."
-//        label.font = UIFont(name: NotoSans, size: 12)
+        label.text = "Enter the 6-digit code sent to your email."
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
@@ -256,7 +239,6 @@ class Go23ForgetPwdView: UIView {
     lazy var notReceiveLabel: UILabel = {
         let label = UILabel()
         label.text = "Didn't receive it?"
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -264,30 +246,14 @@ class Go23ForgetPwdView: UIView {
     
     lazy var notReceiveBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Please click resend.", for: .normal)
+        btn.setTitle("Resend.", for: .normal)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         btn.addTarget(self, action: #selector(notReceiveClick), for: .touchUpInside)
         return btn
     }()
     
-//    lazy var codeView: VerifyCodeView = {
-//        let count = 6
-//        let spacing: CGFloat = 18
-//        let height: CGFloat = 33
-//        let width: CGFloat = 33 * CGFloat(count) + spacing * CGFloat(count - 1)
-//        let verifyCodeView = VerifyCodeView(frame: CGRect(x: (UIScreen.main.bounds.width - width) / 2, y: 90 , width: width, height: height))
-//        verifyCodeView.verifyCount = count
-//        verifyCodeView.txtBackgroundColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9")
-//        verifyCodeView.cornerRadius = 2.0
-//        verifyCodeView.spacing = spacing
-//        verifyCodeView.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//
-//
-//        return verifyCodeView
-//    }()
-    
-        lazy var codeView: PinCodeInputView = {
+    lazy var codeView: PinCodeInputView = {
         let eachWidth = 44.0
         let config = PincodConfig(eachHeight: 48.0, eachWidth: eachWidth, margin: 12.0)
         let view = PinCodeInputView(frame: CGRect(x: (UIScreen.main.bounds.size.width - 44*6 - 12*5)/2.0, y: 100.0, width: UIScreen.main.bounds.size.width, height: 60.0), with: 6, config: config)
@@ -296,7 +262,7 @@ class Go23ForgetPwdView: UIView {
         }
         
         return view
-      }()
+    }()
     
 }
 

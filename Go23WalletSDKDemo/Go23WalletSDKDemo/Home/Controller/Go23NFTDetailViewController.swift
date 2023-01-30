@@ -35,13 +35,6 @@ class Go23NFTDetailViewController: UIViewController {
     }
     private func setNav() {
         
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//        if #available(iOS 13.0, *) {
-//            let style = UINavigationBarAppearance()
-//            style.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//            navigationController?.navigationBar.scrollEdgeAppearance = style
-//        }
-//        self.title = "Details"
         let backBtn = UIButton()
         backBtn.frame = CGRectMake(0, 0, 44, 44)
         let imgv = UIImageView()
@@ -60,7 +53,6 @@ class Go23NFTDetailViewController: UIViewController {
             navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backBtn)
     }
     
     @objc private func backBtnDidClick() {
@@ -70,9 +62,20 @@ class Go23NFTDetailViewController: UIViewController {
     private func initSubviews() {
         view.backgroundColor = .white
         view.addSubview(tableView)
+        view.addSubview(footerView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(navgationBar!.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        footerView.snp.makeConstraints { make in
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(0)
+             } else {
+                 make.bottom.equalTo(0)
+            }
+            make.left.right.equalToSuperview()
+            make.height.equalTo(NFTDetailFooterView.cellHeight)
         }
                 
 
@@ -86,6 +89,7 @@ class Go23NFTDetailViewController: UIViewController {
     
     private lazy var footerView: NFTDetailFooterView = {
         let view = NFTDetailFooterView()
+        view.backgroundColor = .clear
         view.frame = CGRectMake(0, 0, ScreenWidth, NFTDetailFooterView.cellHeight)
         view.transferBlock = { [weak self] in
             let vc = Go23SendNFTViewController()
@@ -104,7 +108,7 @@ class Go23NFTDetailViewController: UIViewController {
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
         tableView.tableHeaderView = headerView
-        tableView.tableFooterView = footerView
+//        tableView.tableFooterView = footerView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.contentInsetAdjustmentBehavior = .never
@@ -157,7 +161,7 @@ extension Go23NFTDetailViewController: UITableViewDelegate, UITableViewDataSourc
                 return UITableViewCell()
             }
             
-            cell.filled(address: self.nftDetailModel?.contractAddress ?? "", url: self.nftDetailModel?.externalUrl ?? "none", tokenId: self.nftDetailModel?.tokenId ?? "", chain: self.nftDetailModel?.chainName ?? "")
+            cell.filled(address: self.nftDetailModel?.contractAddress ?? "", url: self.nftDetailModel?.externalUrl ?? "none", tokenId: self.nftDetailModel?.tokenId ?? "", chain: self.nftDetailModel?.chainName ?? "", stand: self.nftDetailModel?.tokenStandard ?? "")
             return cell
         } else {
             return UITableViewCell()
@@ -220,11 +224,17 @@ class NFTDetailHeaderView: UIView {
         addSubview(titleLabel)
         addSubview(descLabel)
         addSubview(lineV)
+        coverImgv.addSubview(numLabel)
         coverImgv.snp.makeConstraints { make in
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
             make.top.equalToSuperview()
             make.width.height.equalTo(ScreenWidth-40)
+        }
+        numLabel.snp.makeConstraints { make in
+            make.right.equalTo(-20)
+            make.bottom.equalTo(-10)
+            make.height.equalTo(18)
         }
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(coverImgv.snp.bottom).offset(20)
@@ -244,9 +254,15 @@ class NFTDetailHeaderView: UIView {
         }
     }
     
-    func filled(cover: String, title: String, desc: String) {
+    func filled(cover: String, title: String, desc: String, num: Int) {
         coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
         descLabel.text = desc
+        numLabel.text = "x\(num)"
+        if num <= 1 {
+            numLabel.isHidden = true
+        } else {
+            numLabel.isHidden = false
+        }
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
     }
     
@@ -265,7 +281,6 @@ class NFTDetailHeaderView: UIView {
     
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -277,12 +292,20 @@ class NFTDetailHeaderView: UIView {
         return view
     }()
     
+    private lazy var numLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#ffffff")
+        label.textAlignment = .right
+        return label
+    }()
+    
 }
 
 class NFTDetailFooterView: UIView {
     
     static var cellHeight: CGFloat {
-        return 80.0
+        return 46.0
     }
     
     var transferBlock: (()->())?
@@ -316,9 +339,6 @@ class NFTDetailFooterView: UIView {
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 8
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
-//        btn.setTitle("Transfer", for: .normal)
-//        btn.setTitleColor(.white, for: .normal)
-//        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 24)
         btn.setAttributedTitle(String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.white,alignment: .left, title: "Transfer"), for: .normal)
         btn.addTarget(self, action: #selector(transferBtnClick), for: .touchUpInside)
         return btn
@@ -376,7 +396,6 @@ class NFTDetailDescCell: UITableViewCell {
         let paraph = NSMutableParagraphStyle()
         paraph.maximumLineHeight = lineHeight
         paraph.minimumLineHeight = lineHeight
-//            paraph.alignment = .justified
         let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: font]
 
         let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: wordWidth, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.height
@@ -385,16 +404,12 @@ class NFTDetailDescCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        label.text = "Description"
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: "Description")
         return label
     }()
     
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.numberOfLines = 0
@@ -576,7 +591,7 @@ class NFTDetailAttributesCollectionCell: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
         return label
@@ -596,7 +611,7 @@ class NFTDetailAttributesCollectionCell: UICollectionViewCell {
 
 class NFTDetailDetailsCell: UITableViewCell {
     static var cellHeight: CGFloat {
-        return 190.0
+        return 220.0
     }
     
     private var address = ""
@@ -621,6 +636,8 @@ class NFTDetailDetailsCell: UITableViewCell {
         contentView.addSubview(tokenIdBtn)
         contentView.addSubview(webTxt)
         contentView.addSubview(webLabel)
+        contentView.addSubview(standTxt)
+        contentView.addSubview(standLabel)
         contentView.addSubview(chainTxt)
         contentView.addSubview(chainLabel)
         titleLabel.snp.makeConstraints { make in
@@ -659,9 +676,18 @@ class NFTDetailDetailsCell: UITableViewCell {
             make.trailing.equalTo(-20)
             make.centerY.equalTo(webTxt.snp.centerY).offset(0)
         }
-        chainTxt.snp.makeConstraints { make in
+        standTxt.snp.makeConstraints { make in
             make.leading.equalTo(20)
             make.top.equalTo(webTxt.snp.bottom).offset(12)
+            make.height.equalTo(20)
+        }
+        standLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(-20)
+            make.centerY.equalTo(standTxt.snp.centerY).offset(0)
+        }
+        chainTxt.snp.makeConstraints { make in
+            make.leading.equalTo(20)
+            make.top.equalTo(standTxt.snp.bottom).offset(12)
             make.height.equalTo(20)
         }
         chainLabel.snp.makeConstraints { make in
@@ -671,7 +697,7 @@ class NFTDetailDetailsCell: UITableViewCell {
         
     }
     
-    func filled(address: String, url: String, tokenId: String, chain: String) {
+    func filled(address: String, url: String, tokenId: String, chain: String, stand: String) {
         self.address = address
         self.tokenId = tokenId
         addressBtn.setAttributedTitle(getAttri(str: String.getSubSecretString(string: address)), for: .normal)
@@ -687,13 +713,13 @@ class NFTDetailDetailsCell: UITableViewCell {
         }
         tokenIdBtn.setAttributedTitle(getAttri(str: token), for: .normal)
         chainLabel.text = "\(chain)"
+        standLabel.text = stand
     }
     
     private func getAttri(str: String)->NSMutableAttributedString {
         
         let attri = NSMutableAttributedString()
         attri.add(text: str) { attr in
-//            attr.customFont(14, NotoSans)
             attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
             attr.alignment(.right)
@@ -707,11 +733,6 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     @objc private func addressClick() {
         UIPasteboard.general.string = self.address
-//        let hud = MBProgressHUD.showAdded(to: self, animated: true)
-//        hud.mode = .text
-//        hud.label.text = "address has copy to pasteboard!"
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
         totast.show("Copied!", after: 1)
@@ -719,11 +740,6 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     @objc private func tokenIdClick() {
         UIPasteboard.general.string = self.tokenId
-//        let hud = MBProgressHUD.showAdded(to: self, animated: true)
-//        hud.mode = .text
-//        hud.label.text = "Token ID has copy to pasteboard!"
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
         totast.show("Copied!", after: 1)
@@ -731,28 +747,18 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        label.text = "Details"
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: "Details")
         return label
     }()
     
     private lazy var addressTxt: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Contract address"
         return label
     }()
     
-//    private lazy var addressLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 16)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        label.textAlignment = .right
-//        return label
-//    }()
     
     private lazy var addressBtn: UIButton = {
         let btn = UIButton()
@@ -765,7 +771,6 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var tokenIdTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Token ID"
@@ -780,17 +785,9 @@ class NFTDetailDetailsCell: UITableViewCell {
         btn.addTarget(self, action: #selector(tokenIdClick), for: .touchUpInside)
         return btn
     }()
-//    private lazy var tokenIdLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        label.textAlignment = .right
-//        return label
-//    }()
     
     private lazy var webTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Website"
@@ -799,7 +796,22 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var webLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.textAlignment = .right
+        return label
+    }()
+    
+    private lazy var standTxt: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
+        label.text = "Token Standard"
+        return label
+    }()
+    
+    private lazy var standLabel: UILabel = {
+        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
@@ -808,7 +820,6 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var chainTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.text = "Blockchain"
@@ -817,7 +828,6 @@ class NFTDetailDetailsCell: UITableViewCell {
     
     private lazy var chainLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .right
@@ -832,17 +842,15 @@ extension Go23NFTDetailViewController {
         else {
             return
         }
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         guard let obj = self.nftModel else {
             return
         }
         shared.getNftDetail(for: obj.tokenId, contractAddress: obj.contractAddress, walletAddress: obj.walletAddress , chainId: obj.chainId) { [weak self] model in
-//            hud.hide(animated: true)
             Go23Loading.clear()
             self?.nftDetailModel = model
             if let obj = model {
-                self?.headerView.filled(cover: obj.image, title: obj.name, desc: obj.series)
+                self?.headerView.filled(cover: obj.image, title: obj.name, desc: obj.series, num: obj.value)
                 self?.tableView.reloadData()
             }
         }

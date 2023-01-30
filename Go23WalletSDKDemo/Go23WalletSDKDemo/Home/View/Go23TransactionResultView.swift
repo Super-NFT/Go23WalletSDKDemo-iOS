@@ -99,8 +99,8 @@ class Go23TransactionResultView: UIView {
     func filled(status: Bool, msg: String, tips: String) {
         if status {
             statusImgv.image = UIImage.init(named: "waiting")
-            statusLabel.text = "The request is sent"
-            tipsLabel.text = "Pending block validation. Please go to Detail page to view details of this transaction."
+            statusLabel.text = "Request is sent"
+            tipsLabel.text = "Pending block validation..."
             gotBtn.isHidden = true
             cancelBtn.isHidden = false
             signBtn.isHidden = false
@@ -148,9 +148,6 @@ class Go23TransactionResultView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Transaction Result"
-//        label.font = UIFont.init(name: BarlowCondensed, size: 24)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Transaction Result")
         return label
     }()
@@ -171,7 +168,6 @@ class Go23TransactionResultView: UIView {
     
     private lazy var tipsLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center

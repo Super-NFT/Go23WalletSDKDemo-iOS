@@ -119,23 +119,9 @@ class HomeHeaderView: UIView {
     }
     
     func filled(cover: String, email: String) {
-//        iconImgv.image = UIImage.init(named: "emailIcon")
         iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         iconImgv.layer.cornerRadius = 14
         self.email = email
-//        emailLabel.text = email
-//        let arr = email.components(separatedBy: "@")
-//        var ee = email
-//        if arr.count == 2, ee.count > 18, arr[1].count > 10 {
-//
-//            if email.count > 20, arr[0].count > 5 {
-//                ee = email.substring(to: 3)+"..."
-//            } else {
-//                ee = arr[0]
-//            }
-//            ee += "@"+arr[1]
-//        }
-
     }
     
     func filled(money: String, symbol: String, chainName: String, balanceU: String) {
@@ -186,7 +172,6 @@ class HomeHeaderView: UIView {
         let paraph = NSMutableParagraphStyle()
         paraph.maximumLineHeight = lineHeight
         paraph.minimumLineHeight = lineHeight
-//            paraph.alignment = .justified
         let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: font, NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
 
         let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: wordWidth, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.width
@@ -199,7 +184,6 @@ class HomeHeaderView: UIView {
         
         let attri = NSMutableAttributedString()
         attri.add(text: str) { attr in
-//            attr.customFont(14, NotoSans)
             attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
         }.add(text: " ") { att in
@@ -218,12 +202,6 @@ class HomeHeaderView: UIView {
     
     @objc private func controlClick() {
         UIPasteboard.general.string = self.token
-//        let hud = MBProgressHUD.showAdded(to: self, animated: true)
-//        hud.mode = .text
-//        hud.label.text = "address has copy to pasteboard!"
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.hide(animated: true, afterDelay: 1)
-        
         let toast = Go23Toast.init(frame: .zero)
         toast.show("Copied!", after: 1)
     }
@@ -275,7 +253,6 @@ class HomeHeaderView: UIView {
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.layer.cornerRadius = 17.5
         label.layer.masksToBounds = true
@@ -291,7 +268,6 @@ class HomeHeaderView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "$0.00"
-//        label.font = UIFont(name: NotoSans, size: 20)
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -357,7 +333,6 @@ class ChooseView: UIView {
         
         addSubview(iconImgv)
         addSubview(titleLabel)
-//        addSubview(downImgv)
         addSubview(control)
         
         iconImgv.snp.makeConstraints { make in
@@ -370,12 +345,6 @@ class ChooseView: UIView {
             make.left.equalTo(iconImgv.snp.right).offset(0)
             make.trailing.equalTo(-10)
         }
-//        downImgv.snp.makeConstraints { make in
-//            make.centerY.equalToSuperview()
-//            make.left.equalTo(titleLabel.snp.right).offset(4)
-//            make.width.equalTo(16)
-//            make.height.equalTo(10)
-//        }
         
         control.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()

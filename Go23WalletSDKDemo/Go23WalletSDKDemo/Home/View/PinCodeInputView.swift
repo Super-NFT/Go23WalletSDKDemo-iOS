@@ -49,7 +49,6 @@ class PinCodeInputView: UIView {
     // Pincode count
     init(frame: CGRect, with count: Int, config: PincodConfig) {
         super.init(frame: frame)
-//        backgroundColor = .init(hex: "131B26")
         backgroundColor = .white
         pincodeCount = count
         pincodeConfig = config
@@ -97,7 +96,6 @@ class PinCodeInputView: UIView {
     
     private lazy var coverView: UIView = {
         let view = UIView()
-//        view.backgroundColor = .init(hex: "131B26")
         view.backgroundColor = .white
         view.isUserInteractionEnabled = false
         

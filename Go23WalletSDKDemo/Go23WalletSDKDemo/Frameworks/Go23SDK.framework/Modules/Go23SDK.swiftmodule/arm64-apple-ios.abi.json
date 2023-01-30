@@ -17791,6 +17791,174 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "tokenStandard",
+            "printedName": "tokenStandard",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A14WalletNFTModelV13tokenStandardSSvp",
+            "mangledName": "$s7Go23SDK0A14WalletNFTModelV13tokenStandardSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14WalletNFTModelV13tokenStandardSSvg",
+                "mangledName": "$s7Go23SDK0A14WalletNFTModelV13tokenStandardSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14WalletNFTModelV13tokenStandardSSvs",
+                "mangledName": "$s7Go23SDK0A14WalletNFTModelV13tokenStandardSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14WalletNFTModelV13tokenStandardSSvM",
+                "mangledName": "$s7Go23SDK0A14WalletNFTModelV13tokenStandardSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A14WalletNFTModelV5valueSivp",
+            "mangledName": "$s7Go23SDK0A14WalletNFTModelV5valueSivp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14WalletNFTModelV5valueSivg",
+                "mangledName": "$s7Go23SDK0A14WalletNFTModelV5valueSivg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14WalletNFTModelV5valueSivs",
+                "mangledName": "$s7Go23SDK0A14WalletNFTModelV5valueSivs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14WalletNFTModelV5valueSivM",
+                "mangledName": "$s7Go23SDK0A14WalletNFTModelV5valueSivM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(from:)",
@@ -23740,6 +23908,174 @@
                 "declKind": "Accessor",
                 "usr": "s:7Go23SDK0A14NFTDetailModelV6seriesSSvM",
                 "mangledName": "$s7Go23SDK0A14NFTDetailModelV6seriesSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "tokenStandard",
+            "printedName": "tokenStandard",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A14NFTDetailModelV13tokenStandardSSvp",
+            "mangledName": "$s7Go23SDK0A14NFTDetailModelV13tokenStandardSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14NFTDetailModelV13tokenStandardSSvg",
+                "mangledName": "$s7Go23SDK0A14NFTDetailModelV13tokenStandardSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14NFTDetailModelV13tokenStandardSSvs",
+                "mangledName": "$s7Go23SDK0A14NFTDetailModelV13tokenStandardSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14NFTDetailModelV13tokenStandardSSvM",
+                "mangledName": "$s7Go23SDK0A14NFTDetailModelV13tokenStandardSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A14NFTDetailModelV5valueSivp",
+            "mangledName": "$s7Go23SDK0A14NFTDetailModelV5valueSivp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14NFTDetailModelV5valueSivg",
+                "mangledName": "$s7Go23SDK0A14NFTDetailModelV5valueSivg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14NFTDetailModelV5valueSivs",
+                "mangledName": "$s7Go23SDK0A14NFTDetailModelV5valueSivs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A14NFTDetailModelV5valueSivM",
+                "mangledName": "$s7Go23SDK0A14NFTDetailModelV5valueSivM",
                 "moduleName": "Go23SDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -31493,195 +31829,195 @@
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
       "offset": 8766,
-      "length": 128,
-      "value": "\"Pincode can restore your private key and protect your private safety. Only users can hold pincode, please store them properly.\""
+      "length": 111,
+      "value": "\"Pincode can be used to restore your private key. Store them securely and ensure only you have access to them.\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 8942,
+      "offset": 8925,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 8987,
+      "offset": 8970,
       "length": 8,
       "value": "\"BFBFBF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9027,
+      "offset": 9010,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9097,
+      "offset": 9080,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9143,
+      "offset": 9126,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9180,
+      "offset": 9163,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9194,
+      "offset": 9177,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9358,
+      "offset": 9341,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9394,
+      "offset": 9377,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9456,
+      "offset": 9439,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9492,
+      "offset": 9475,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9533,
+      "offset": 9516,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9570,
+      "offset": 9553,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9584,
+      "offset": 9567,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9745,
+      "offset": 9728,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 9790,
+      "offset": 9773,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9974,
+      "offset": 9957,
       "length": 4,
       "value": "24.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9992,
+      "offset": 9975,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 10045,
+      "offset": 10028,
       "length": 9,
       "value": "\"Confirm\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10168,
+      "offset": 10151,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10216,
+      "offset": 10199,
       "length": 4,
       "value": "46.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10254,
+      "offset": 10237,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10268,
+      "offset": 10251,
       "length": 4,
       "value": "46.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "BooleanLiteral",
-      "offset": 11069,
+      "offset": 11052,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 11112,
+      "offset": 11095,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 11164,
+      "offset": 11147,
       "length": 3,
       "value": "0.1"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 11210,
+      "offset": 11193,
       "length": 1,
       "value": "2"
     },
@@ -32451,114 +32787,128 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 829,
+      "offset": 952,
       "length": 10,
       "value": "\"token_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 869,
+      "offset": 992,
       "length": 21,
       "value": "\"user_wallet_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 922,
+      "offset": 1045,
       "length": 18,
       "value": "\"contract_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 964,
+      "offset": 1087,
       "length": 10,
       "value": "\"chain_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1000,
+      "offset": 1123,
       "length": 18,
       "value": "\"block_chain_name\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1046,
+      "offset": 1169,
       "length": 14,
       "value": "\"external_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1126,
+      "offset": 1249,
       "length": 15,
       "value": "\"animation_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1162,
+      "offset": 1285,
       "length": 13,
       "value": "\"description\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 829,
+      "offset": 1328,
+      "length": 16,
+      "value": "\"token_standard\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
+      "kind": "StringLiteral",
+      "offset": 952,
       "length": 10,
       "value": "\"token_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 869,
+      "offset": 992,
       "length": 21,
       "value": "\"user_wallet_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 922,
+      "offset": 1045,
       "length": 18,
       "value": "\"contract_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 964,
+      "offset": 1087,
       "length": 10,
       "value": "\"chain_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1000,
+      "offset": 1123,
       "length": 18,
       "value": "\"block_chain_name\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1046,
+      "offset": 1169,
       "length": 14,
       "value": "\"external_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1126,
+      "offset": 1249,
       "length": 15,
       "value": "\"animation_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
       "kind": "StringLiteral",
-      "offset": 1162,
+      "offset": 1285,
       "length": 13,
       "value": "\"description\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23WalletNFTModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1328,
+      "length": 16,
+      "value": "\"token_standard\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Internal\/FunctionManager\/MPCManager\/MPCManager.swift",
@@ -33221,114 +33571,128 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 966,
+      "offset": 1089,
       "length": 10,
       "value": "\"token_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1006,
+      "offset": 1129,
       "length": 21,
       "value": "\"user_wallet_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1059,
+      "offset": 1182,
       "length": 18,
       "value": "\"contract_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1101,
+      "offset": 1224,
       "length": 10,
       "value": "\"chain_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1137,
+      "offset": 1260,
       "length": 18,
       "value": "\"block_chain_name\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1183,
+      "offset": 1306,
       "length": 14,
       "value": "\"external_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1263,
+      "offset": 1386,
       "length": 15,
       "value": "\"animation_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1299,
+      "offset": 1422,
       "length": 13,
       "value": "\"description\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 966,
+      "offset": 1509,
+      "length": 16,
+      "value": "\"token_standard\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1089,
       "length": 10,
       "value": "\"token_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1006,
+      "offset": 1129,
       "length": 21,
       "value": "\"user_wallet_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1059,
+      "offset": 1182,
       "length": 18,
       "value": "\"contract_address\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1101,
+      "offset": 1224,
       "length": 10,
       "value": "\"chain_id\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1137,
+      "offset": 1260,
       "length": 18,
       "value": "\"block_chain_name\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1183,
+      "offset": 1306,
       "length": 14,
       "value": "\"external_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1263,
+      "offset": 1386,
       "length": 15,
       "value": "\"animation_url\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
       "kind": "StringLiteral",
-      "offset": 1299,
+      "offset": 1422,
       "length": 13,
       "value": "\"description\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1509,
+      "length": 16,
+      "value": "\"token_standard\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/Go23SDK\/Go23SDK\/PrivateModule\/Vendor\/Alamofire\/TaskDelegate.swift",

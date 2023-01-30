@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 let BarlowCondensed = "BarlowCondensed-Medium"
-let BarlowCondensedRegular = "BarlowCondensed-Regular"
+//let BarlowCondensedRegular = "BarlowCondensed-Regular"
 let BarlowCondensedBold = "BarlowCondensed-SemiBold"
-let NotoSans = "NotoSans"
-let NotoSansBold = "NotoSans-Bold"
+//let NotoSans = "NotoSans"
+//let NotoSansBold = "NotoSans-Bold"
 
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height

@@ -51,14 +51,6 @@ class Go23SendViewController: UIViewController {
     
     
     private func setNav() {
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//        if #available(iOS 13.0, *) {
-//            let style = UINavigationBarAppearance()
-//            style.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//            navigationController?.navigationBar.scrollEdgeAppearance = style
-//
-//        }
-//        navigationItem.title = "Send"
         
         let backBtn = UIButton()
         backBtn.frame = CGRectMake(0, 0, 44, 44)
@@ -77,7 +69,6 @@ class Go23SendViewController: UIViewController {
             navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backBtn)
     }
     
     @objc private func backBtnDidClick() {
@@ -110,20 +101,13 @@ class Go23SendViewController: UIViewController {
         scrollContentView.addSubview(gasView)
         gasView.addSubview(gasAmoutLabel)
         gasView.addSubview(gasNumLabel)
-//        gasView.addSubview(gasDescLabel)
         scrollContentView.addSubview(supportGasBtn)
         scrollContentView.addSubview(minTokenLabel)
         scrollContentView.addSubview(sendBtn)
         scrollContentView.addSubview(noGasfeeLabel)
-//        scrollContentView.addSubview(totalTxt)
-//        scrollContentView.addSubview(totalLabel)
-        
         scrollView.snp.makeConstraints { make in
-//            if #available(iOS 11.0, *) {
-//                make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
-//            } else {
+
             make.top.equalTo(navgationBar!.snp.bottom)
-//            }
             make.leading.trailing.bottom.equalToSuperview()
         }
         scrollContentView.snp.makeConstraints { make in
@@ -202,7 +186,6 @@ class Go23SendViewController: UIViewController {
         amoutTxtFiled.snp.makeConstraints { make in
             make.leading.equalTo(8)
             make.top.equalTo(12)
-//            make.centerY.equalTo(amoutView.snp.centerY)
             make.width.equalTo(150)
             make.height.equalTo(28)
         }
@@ -255,11 +238,6 @@ class Go23SendViewController: UIViewController {
             make.leading.equalTo(12)
             make.height.equalTo(20)
         }
-//        gasDescLabel.snp.makeConstraints { make in
-//            make.trailing.equalTo(-8)
-//            make.height.equalTo(22)
-//            make.centerY.equalToSuperview()
-//        }
         
         supportGasBtn.snp.makeConstraints { make in
             make.top.equalTo(gasView.snp.bottom).offset(12)
@@ -283,17 +261,6 @@ class Go23SendViewController: UIViewController {
             make.trailing.equalTo(-20)
             make.height.equalTo(46)
         }
-//        totalTxt.snp.makeConstraints { make in
-//            make.bottom.equalTo(sendBtn.snp.top).offset(-8)
-//            make.leading.equalTo(20)
-//            make.height.equalTo(26)
-//        }
-//
-//        totalLabel.snp.makeConstraints { make in
-//            make.trailing.equalTo(-20)
-//            make.height.equalTo(26)
-//            make.centerY.equalTo(totalTxt)
-//        }
         
         changeSendBtnStatus(status: false)
         clearBtn.isHidden = true
@@ -302,11 +269,6 @@ class Go23SendViewController: UIViewController {
     
     @objc private func fromBtnClick() {
         UIPasteboard.general.string = Go23WalletMangager.shared.address
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//        hud.mode = .text
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.label.text = "From Address has copy to pasteboard!"
-//        hud.hide(animated: true, afterDelay: 1)
         let toast = Go23Toast.init(frame: .zero)
         toast.show("Copied!", after: 1)
         
@@ -401,11 +363,6 @@ class Go23SendViewController: UIViewController {
             }
             if amout <= 0 {
                 changeSendBtnStatus(status: false)
-//                let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//                hud.mode = .text
-//                hud.label.text = "Insufficient Gas Fee"
-//                hud.label.font = UIFont(name: NotoSans, size: 16)
-//                hud.hide(animated: true, afterDelay: 1)
                 let toast = Go23Toast.init(frame: .zero)
                 toast.show("Insufficient Gas Fee", after: 1)
                 return
@@ -443,7 +400,6 @@ class Go23SendViewController: UIViewController {
             amoutTxtFiled.snp.remakeConstraints { make in
                 make.leading.equalTo(8)
                     make.top.equalTo(12)
-//                make.centerY.equalTo(amoutView.snp.centerY)
                 make.width.equalTo(150)
                 make.height.equalTo(28)
             }
@@ -494,8 +450,7 @@ class Go23SendViewController: UIViewController {
             attr.color(UIColor.rdt_HexOfColor(hexString: "#00D6E1"))
             attr.alignment(.center)
         }
-        attri.add(text: " support to lend users gas for trading") { attr in
-//            attr.customFont(14, NotoSans)
+        attri.add(text: " support lending gas to users for trading") { attr in
             attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
             attr.alignment(.center)
@@ -562,7 +517,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var fromTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "From"
@@ -579,7 +533,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var typeLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -587,7 +540,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var fromBtn: UIButton = {
         let btn = UIButton()
-//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .right
@@ -597,7 +549,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var toTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "To"
@@ -616,33 +567,10 @@ class Go23SendViewController: UIViewController {
         btn.addTarget(self, action: #selector(scanBtnClick), for: .touchUpInside)
         return btn
     }()
-//    private lazy var addressTxtFiled: UITextField = {
-//        let textfield = UITextField()
-//        let textplace = "Receving Address"
-//        let placeholder = NSMutableAttributedString()
-//        placeholder.add(text: textplace) { (attributes) in
-//            attributes.customFont(12.0, NotoSans)
-//        }
-//        textfield.attributedPlaceholder = placeholder
-//        textfield.font = UIFont(name: NotoSans, size: 14)
-//        textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-////        textfield.becomeFirstResponder()
-//        textfield.leftViewMode = .always
-//        textfield.leftView = UIView.init(frame: CGRectMake(0, 0, 15, 0))
-//        textfield.rightView = UIView.init(frame: CGRectMake(0, 0, 50, 0))
-//        textfield.rightViewMode = .always
-////        textfield.clearButtonMode = .always
-//        textfield.layer.cornerRadius = 8
-//        textfield.layer.masksToBounds = true
-//        textfield.layer.borderWidth = 1
-//        textfield.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
-//        textfield.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
-//        return textfield
-//    }()
+
     private lazy var addressHoldLabel: UILabel = {
         let label = UILabel()
         label.text = "Receiving Address"
-//        label.font = UIFont(name: NotoSans, size: 16)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
@@ -650,7 +578,6 @@ class Go23SendViewController: UIViewController {
     private lazy var addressTxtView: UITextView = {
         let txt = UITextView()
         txt.textContainerInset = UIEdgeInsets(top: 22, left: 12, bottom: 8, right: 50)
-//        txt.font = UIFont(name: NotoSans, size: 14)
         txt.font = UIFont.systemFont(ofSize: 14)
         txt.tintColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         txt.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
@@ -680,7 +607,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var amoutTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Amount"
@@ -689,7 +615,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var amoutLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
@@ -707,7 +632,6 @@ class Go23SendViewController: UIViewController {
     private lazy var amoutTxtFiled: UITextField = {
         let textfield = UITextField()
         textfield.text = ""
-//        textfield.placeholder = "Enter Amount"
         textfield.font = UIFont(name: BarlowCondensed, size: 20)
         let attributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16) as Any,  NSAttributedString.Key.foregroundColor:UIColor.rdt_HexOfColor(hexString: "#BFBFBF")] as [NSAttributedString.Key : Any]
         let attri = NSAttributedString(string: "Enter Amount", attributes: attributes as [NSAttributedString.Key : Any])
@@ -723,7 +647,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var numLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
@@ -768,7 +691,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var gasTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Gas Fee"
@@ -785,7 +707,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var gasAmoutLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
@@ -793,7 +714,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var gasNumLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -801,7 +721,6 @@ class Go23SendViewController: UIViewController {
     
     private lazy var gasDescLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
@@ -917,7 +836,6 @@ class SendHeaderView: UIView {
     
     func filled(cover: String, name: String) {
         self.coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
-//        self.titleLabel.text = name
         self.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 18), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: name)
     }
     
@@ -940,9 +858,8 @@ class SendHeaderView: UIView {
     
     private lazy var descLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Standard:ERC-20"
+        label.text = "Standard: ERC-20"
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         label.textAlignment = .right
         return label
@@ -977,12 +894,9 @@ extension Go23SendViewController {
         guard let shared = Go23WalletSDK.shared else {
             return
         }
-        
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        
+                
         Go23Loading.loading()
         shared.getTokenTransactionInfo(for: self.contract, chainId: self.chainId, from: Go23WalletMangager.shared.address) { [weak self]model in
-//            hud.hide(animated: true)
             Go23Loading.clear()
             guard let obj = model, let symbol = self?.symbol else {
                 return
@@ -1047,7 +961,6 @@ extension Go23SendViewController {
             self?.typeLabel.text = symbol
             self?.amoutTxtFiled.snp.remakeConstraints { make in
                 make.leading.equalTo(8)
-//                    make.top.equalTo(12)
                 make.centerY.equalToSuperview()
                 make.width.equalTo(150)
                 make.height.equalTo(28)
@@ -1150,18 +1063,9 @@ extension Go23SendViewController {
 //        let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         shared.sendTransaction(with: sign) { (status, hash) in
-//            let queue = DispatchQueue.main
-//            queue.async {
-//            hub.hide(animated:true)
             Go23Loading.clear()
             if !status {
-//                let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//                hud.mode = .text
-////                hud.label.font = UIFont
-//                hud.layer.cornerRadius = 12
-//                hud.label.text = "Transaction failed!"
-//                hud.label.font = UIFont(name: NotoSans, size: 16)
-//                hud.hide(animated: true, afterDelay: 1)
+
                 let toast = Go23Toast.init(frame: .zero)
                 toast.show("Transaction failed!", after: 1)
                 return
@@ -1180,7 +1084,6 @@ extension Go23SendViewController {
                 ovc.isDismissOnMaskTouched = false
                 ovc.isPanGestureEnabled = true
                 UIApplication.shared.keyWindow?.present(overlay: ovc)
-//            }
             
         }
     }
@@ -1204,7 +1107,6 @@ extension Go23SendViewController {
                 self.gasNumLabel.isHidden = true
                 amoutTxtFiled.snp.remakeConstraints { make in
                     make.leading.equalTo(8)
-//                    make.top.equalTo(12)
                     make.centerY.equalTo(amoutView.snp.centerY)
                     make.width.equalTo(150)
                     make.height.equalTo(28)
@@ -1215,7 +1117,6 @@ extension Go23SendViewController {
                 amoutTxtFiled.snp.remakeConstraints { make in
                     make.leading.equalTo(8)
                     make.top.equalTo(12)
-        //            make.centerY.equalTo(amoutView.snp.centerY)
                     make.width.equalTo(150)
                     make.height.equalTo(28)
                 }
@@ -1239,7 +1140,6 @@ extension Go23SendViewController {
                 self.gasNumLabel.isHidden = true
                 amoutTxtFiled.snp.remakeConstraints { make in
                     make.leading.equalTo(8)
-//                    make.top.equalTo(12)
                     make.centerY.equalTo(amoutView.snp.centerY)
                     make.width.equalTo(150)
                     make.height.equalTo(28)
@@ -1248,7 +1148,6 @@ extension Go23SendViewController {
                 amoutTxtFiled.snp.remakeConstraints { make in
                     make.leading.equalTo(8)
                     make.top.equalTo(12)
-        //            make.centerY.equalTo(amoutView.snp.centerY)
                     make.width.equalTo(150)
                     make.height.equalTo(28)
                 }
@@ -1325,7 +1224,6 @@ extension Go23SendViewController {
         
         let attri = NSMutableAttributedString()
         attri.add(text: str) { attr in
-//            attr.customFont(14, NotoSans)
             attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
             attr.alignment(.right)

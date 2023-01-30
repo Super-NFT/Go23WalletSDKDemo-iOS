@@ -974,6 +974,16 @@ public struct Go23WalletNFTModel : Swift.Codable {
     set
     _modify
   }
+  @Go23SDK.DecodableDefault.EmptyString public var tokenStandard: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.Zero public var value: Swift.Int {
+    get
+    set
+    _modify
+  }
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -1339,6 +1349,16 @@ public struct Go23NFTDetailModel : Swift.Codable {
     _modify
   }
   @Go23SDK.DecodableDefault.EmptyString public var series: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var tokenStandard: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.Zero public var value: Swift.Int {
     get
     set
     _modify

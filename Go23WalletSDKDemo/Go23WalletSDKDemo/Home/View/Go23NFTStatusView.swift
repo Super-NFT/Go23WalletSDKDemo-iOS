@@ -148,9 +148,6 @@ class Go23NFTStatusView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Transaction Result"
-//        label.font = UIFont.init(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Transaction Result")
         return label
     }()
@@ -171,7 +168,6 @@ class Go23NFTStatusView: UIView {
     
     private lazy var tipsLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#000000")
         label.numberOfLines = 0

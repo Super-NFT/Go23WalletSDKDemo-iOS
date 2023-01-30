@@ -11,7 +11,7 @@ import Go23SDK
 
 class Go23SettingView: UIView {
 
-    var dataArray: [String] = ["Resharding Private Key", "Remove email"]
+    var dataArray: [String] = ["Reshard Private Key", "Remove Email"]
     var email = ""
     var pk = ""
     var cancelBlock: (()->())?
@@ -71,9 +71,6 @@ class Go23SettingView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Setting"
-//        label.font = UIFont.init(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Setting")
         return label
     }()
@@ -138,11 +135,6 @@ extension Go23SettingView: UITableViewDelegate, UITableViewDataSource {
             self.reshardingBlock?(self.pk)
         } else {
             UserDefaults.standard.set("", forKey: kEmailPrivateKey)
-//            let hud = MBProgressHUD.showAdded(to: self, animated: true)
-//            hud.mode = .text
-//            hud.label.text = "Remove email success!"
-//            hud.label.font = UIFont(name: NotoSans, size: 16)
-//            hud.hide(animated: true, afterDelay: 1)
             let totast = Go23Toast.init(frame: .zero)
             totast.show("Remove email success!", after: 1)
         }
@@ -204,7 +196,6 @@ class SettingViewCell: UITableViewCell {
     
     func filled(title: String) {
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
-//        titleLabel.text = title
     }
     
     private lazy var titleLabel: UILabel = {

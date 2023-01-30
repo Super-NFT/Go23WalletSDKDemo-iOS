@@ -70,11 +70,7 @@ class Go23TokenDetailViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(headerView)
         headerView.snp.makeConstraints { make in
-//            if #available(iOS 11.0, *) {
-//                make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-//            } else {
-                make.top.equalTo(0)
-//            }
+            make.top.equalTo(0)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(Go23TokenHeaderView.cellHeight)
         }
@@ -131,8 +127,6 @@ class Go23TokenDetailViewController: UIViewController {
         let segmentedView = JXSegmentedView()
         segmentedView.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
 
-//        segmentedView.contentEdgeInsetLeft = 20
-//        segmentedView.contentEdgeInsetRight = 20
         segmentedView.delegate = self
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
         
@@ -183,12 +177,8 @@ extension Go23TokenDetailViewController: TokenHeaderViewDelegate {
 extension Go23TokenDetailViewController: JXSegmentedViewDelegate {
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (self.segmentedView.selectedIndex == 0)
-//        guard let model = dataArray?[index] else {
-//            return
-//        }
             segmentedView.dataSource = dataSource
             segmentedView.reloadItem(at: index)
-//        }
     }
 }
 

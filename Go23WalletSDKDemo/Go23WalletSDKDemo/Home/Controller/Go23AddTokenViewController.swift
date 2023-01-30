@@ -51,13 +51,6 @@ class Go23AddTokenViewController: UIViewController {
     
     
     private func setNav() {
-//        navigationItem.title = "Add a Token"
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//        if #available(iOS 13.0, *) {
-//            let style = UINavigationBarAppearance()
-//            style.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//            navigationController?.navigationBar.scrollEdgeAppearance = style
-//        }
         let backBtn = UIButton()
         backBtn.frame = CGRectMake(0, 0, 44, 44)
         let imgv = UIImageView()
@@ -75,7 +68,6 @@ class Go23AddTokenViewController: UIViewController {
             navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backBtn)
     }
     
     @objc private func backBtnDidClick() {
@@ -228,7 +220,6 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         private lazy var titleLabel: UILabel = {
             let label = UILabel()
             label.text = "Add Custom Token"
-//            label.font = UIFont(name: NotoSans, size: 16)
             label.font = UIFont.systemFont(ofSize: 16)
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label
@@ -345,7 +336,6 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         
         private lazy var titleLabel: UILabel = {
             let label = UILabel()
-//            label.font = UIFont(name: NotoSans, size: 16)
             label.font = UIFont.systemFont(ofSize: 16)
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label
@@ -353,7 +343,6 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         
         private lazy var numLabel: UILabel = {
             let label = UILabel()
-//            label.font = UIFont(name: NotoSans, size: 16)
             label.font = UIFont.systemFont(ofSize: 16)
             label.textAlignment = .right
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
@@ -388,10 +377,8 @@ extension Go23AddTokenViewController {
            
        }
 
-//       let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
        Go23Loading.loading()
        shared.getChainTokenList(with: walletObj.chainId, pageSize: 10, pageNumber: 1) { [weak self] model in
-//           hud.hide(animated: true)
            Go23Loading.clear()
            self?.tokenList?.removeAll()
            self?.tokenList = model?.listModel
@@ -406,14 +393,12 @@ extension Go23AddTokenViewController {
             return
         }
         
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         guard let walletObj = Go23WalletMangager.shared.walletModel else {
         return
         }
         shared.hideToken(with: model.chainId, walletAddress: Go23WalletMangager.shared.address, contractAddress: model.contractAddress) { [weak self](data) in
             print(data)
-//            hud.hide(animated: true)
             Go23Loading.clear()
             self?.postNoti()
             self?.getUserTokens()
@@ -427,10 +412,8 @@ extension Go23AddTokenViewController {
         else {
             return
         }
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         shared.addToken(with: model.chainId, walletAddress: Go23WalletMangager.shared.address, contractAddress: model.contractAddress) { [weak self](data) in
-//            hud.hide(animated: true)
             Go23Loading.clear()
             self?.postNoti()
             self?.getUserTokens()

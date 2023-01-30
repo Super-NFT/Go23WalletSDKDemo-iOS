@@ -103,9 +103,6 @@ class Go23AddView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Import assets"
-//        label.font = UIFont.init(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Import assets")
         return label
     }()
@@ -121,7 +118,6 @@ class Go23AddView: UIView {
         }
         control.addTarget(self, action: #selector(tokenClick), for: .touchUpInside)
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Tokens"
@@ -154,7 +150,7 @@ class Go23AddView: UIView {
         }
         control.addTarget(self, action: #selector(nftClick), for: .touchUpInside)
         let label = UILabel()
-        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "NFTs"
         view.addSubview(label)

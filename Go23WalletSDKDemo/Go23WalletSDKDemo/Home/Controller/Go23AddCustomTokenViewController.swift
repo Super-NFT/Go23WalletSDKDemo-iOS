@@ -164,8 +164,7 @@ class Go23AddCustomTokenViewController: UIViewController {
     
     private lazy var tipsLabel: UILabel = {
         let label = UILabel()
-        label.text = "Anyone can create a token, including creating \nfake version of existing tokens."
-//        label.font = UIFont(name: NotoSans, size: 12)
+        label.text = "Anyone can create a fake token. Make sure you trust a token before you import it."
         label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 2
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
@@ -174,10 +173,9 @@ class Go23AddCustomTokenViewController: UIViewController {
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        label.text = "Token Contract"
+        label.text = "Token Contract Address"
         return label
     }()
     
@@ -186,14 +184,11 @@ class Go23AddCustomTokenViewController: UIViewController {
         let textplace = "Enter Contract Address"
         let placeholder = NSMutableAttributedString()
         placeholder.add(text: textplace) { (attributes) in
-//            attributes.customFont(12.0, NotoSans)
             attributes.font(12)
         }
         textfield.attributedPlaceholder = placeholder
-//        textfield.font = UIFont(name: NotoSans, size: 14)
         textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
         textfield.leftView = UIView.init(frame: CGRectMake(0, 0, 15, 0))
         textfield.clearButtonMode = .always
@@ -207,7 +202,6 @@ class Go23AddCustomTokenViewController: UIViewController {
     
     private lazy var symbolLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Token Symbol"
@@ -220,17 +214,13 @@ class Go23AddCustomTokenViewController: UIViewController {
         let textplace = "Enter Token Symbol"
         let placeholder = NSMutableAttributedString()
         placeholder.add(text: textplace) { (attributes) in
-//            attributes.customFont(12.0, NotoSans)
             attributes.font(12)
         }
         textfield.attributedPlaceholder = placeholder
-//        textfield.font = UIFont(name: NotoSans, size: 14)
         textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
         textfield.leftView = UIView.init(frame: CGRectMake(0, 0, 15, 0))
-//        textfield.clearButtonMode = .always
         textfield.layer.cornerRadius = 8
         textfield.layer.masksToBounds = true
         textfield.layer.borderWidth = 1
@@ -240,10 +230,9 @@ class Go23AddCustomTokenViewController: UIViewController {
     
     private lazy var precisionLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        label.text = "Token of Precision"
+        label.text = "Token Decimal"
         return label
     }()
     
@@ -253,17 +242,13 @@ class Go23AddCustomTokenViewController: UIViewController {
         let textplace = "Enter Token of Precision"
         let placeholder = NSMutableAttributedString()
         placeholder.add(text: textplace) { (attributes) in
-//            attributes.customFont(12.0, NotoSans)
             attributes.font(12)
         }
         textfield.attributedPlaceholder = placeholder
-//        textfield.font = UIFont(name: NotoSans, size: 14)
         textfield.font = UIFont.systemFont(ofSize: 14)
         textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-//        textfield.becomeFirstResponder()
         textfield.leftViewMode = .always
         textfield.leftView = UIView.init(frame: CGRectMake(0, 0, 15, 0))
-//        textfield.clearButtonMode = .always
         textfield.layer.cornerRadius = 8
         textfield.layer.masksToBounds = true
         textfield.layer.borderWidth = 1
@@ -305,10 +290,8 @@ extension Go23AddCustomTokenViewController {
             return
         }
         
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         shared.checkToken(with: address, chainId: chainId) { [weak self] model in
-//            hud.hide(animated: true)
             Go23Loading.clear()
             self?.tokenInfo = model
             self?.symbolTxtFiled.text = model?.symbol ?? ""
@@ -331,20 +314,13 @@ extension Go23AddCustomTokenViewController {
         guard let model = self.tokenInfo else {
             return
         }
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         shared.addToken(with: model.chainId, walletAddress: Go23WalletMangager.shared.address, contractAddress: model.contractAddress) {[weak self](data) in
-//            hud.hide(animated: true)
             Go23Loading.clear()
             NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletData),
                                             object: nil,
                                             userInfo: nil)
             print("addToken")
-//            let hud = MBProgressHUD.showAdded(to: self?.view ?? UIView(), animated: true)
-//            hud.mode = .text
-//            hud.label.font = UIFont(name: NotoSans, size: 16)
-//            hud.label.text = "Add token success!"
-//            hud.hide(animated: true, afterDelay: 1)
             
             let totast = Go23Toast.init(frame: .zero)
             totast.show("Add success!", after: 1)

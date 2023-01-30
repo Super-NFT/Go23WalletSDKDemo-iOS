@@ -76,7 +76,6 @@ class Go23TokenDetailListViewController: UIViewController {
         let view = UIView()
         let label = UILabel()
         label.text = "No records"
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
@@ -151,12 +150,10 @@ extension Go23TokenDetailListViewController {
             return
         }
         if isLoading {
-//            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
             Go23Loading.loading()
         }
         shared.getActivityList(with: Go23WalletMangager.shared.walletModel?.chainId ?? 0, contract: obj.contractAddr, walletAddress: Go23WalletMangager.shared.address, type: self.activityType ?? .all, pageNumber: 1, pageSize: 10) {  [weak self]model in
             if isLoading {
-//                self?.hud?.hide(animated: true)
                 Go23Loading.clear()
             }
             self?.tableView.mj_header?.endRefreshing()

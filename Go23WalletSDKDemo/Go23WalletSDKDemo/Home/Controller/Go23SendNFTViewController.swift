@@ -12,7 +12,8 @@ import Go23SDK
 class Go23SendNFTViewController: UIViewController {
 
     var address = ""
-    
+    private var isShowNumView = false
+    private var nftNum = 1
     private var tokenId = ""
     private var chainId = 0
     private var transactionModel: Go23TokenTransactionModel?
@@ -26,10 +27,11 @@ class Go23SendNFTViewController: UIViewController {
             guard let model = nftDetailModel else {
                 return
             }
-            coverImgv.sd_setImage(with: URL(string: model.image), placeholderImage: nil)
             self.tokenId = model.tokenId
             self.chainId = model.chainId
             self.contract = model.contractAddress
+            self.nftNum = model.value
+            self.isShowNumView = model.tokenStandard == "ERC-1155"
             
             guard let url = URL(string: Go23WalletMangager.shared.walletModel?.imageUrl ?? "") else {
                 return
@@ -67,13 +69,7 @@ class Go23SendNFTViewController: UIViewController {
     }
     
     private func setNav() {
-//        navigationItem.title = "Send NFT"
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//        if #available(iOS 13.0, *) {
-//            let style = UINavigationBarAppearance()
-//            style.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-//            navigationController?.navigationBar.scrollEdgeAppearance = style
-//        }
+
         let backBtn = UIButton()
         backBtn.frame = CGRectMake(0, 0, 44, 44)
         let imgv = UIImageView()
@@ -92,7 +88,6 @@ class Go23SendNFTViewController: UIViewController {
             navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backBtn)
     }
     
     @objc private func backBtnDidClick() {
@@ -114,6 +109,9 @@ class Go23SendNFTViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(scrollContentView)
         scrollContentView.addSubview(coverImgv)
+        scrollContentView.addSubview(numTxt)
+        scrollContentView.addSubview(numView)
+        scrollContentView.addSubview(numMaxLabel)
         scrollContentView.addSubview(toTxt)
         scrollContentView.addSubview(scanBtn)
         scrollContentView.addSubview(addressTxtView)
@@ -122,17 +120,13 @@ class Go23SendNFTViewController: UIViewController {
         scrollContentView.addSubview(gasView)
         gasView.addSubview(gasAmoutLabel)
         gasView.addSubview(gasNumLabel)
-//        gasView.addSubview(gasDescLabel)
         scrollContentView.addSubview(sendBtn)
         scrollContentView.addSubview(cancelBtn)
         scrollContentView.addSubview(lossGassLabel)
         lossGassLabel.isHidden = true
         scrollView.snp.makeConstraints { make in
-//            if #available(iOS 11.0, *) {
-//                make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
-//            } else {
+
             make.top.equalTo(navgationBar!.snp.bottom)
-//            }
             make.leading.trailing.bottom.equalToSuperview()
         }
         scrollContentView.snp.makeConstraints { make in
@@ -148,12 +142,44 @@ class Go23SendNFTViewController: UIViewController {
             make.trailing.equalTo(-20)
             make.height.equalTo(ScreenWidth-40)
         }
-        toTxt.snp.makeConstraints { make in
-            make.top.equalTo(coverImgv.snp.bottom).offset(30)
-            make.leading.equalTo(20)
-            make.height.equalTo(22)
+    }
+    
+    private func layout(isNum: Bool) {
+        if isNum {
+            numTxt.isHidden = false
+            numView.isHidden = false
+            numTxt.snp.makeConstraints { make in
+                make.top.equalTo(coverImgv.snp.bottom).offset(30)
+                make.leading.equalTo(20)
+                make.height.equalTo(22)
+            }
+            numView.snp.makeConstraints { make in
+                make.top.equalTo(numTxt.snp.bottom).offset(8)
+                make.leading.equalTo(20)
+                make.trailing.equalTo(-20)
+                make.height.equalTo(48)
+            }
+            numMaxLabel.snp.makeConstraints { make in
+                make.top.equalTo(numView.snp.bottom).offset(4)
+                make.leading.equalTo(20)
+                make.trailing.equalTo(-20)
+                make.height.equalTo(20)
+            }
+            toTxt.snp.makeConstraints { make in
+                make.top.equalTo(numMaxLabel.snp.bottom).offset(4)
+                make.leading.equalTo(20)
+                make.height.equalTo(22)
+            }
+        } else {
+            numTxt.isHidden = true
+            numView.isHidden = true
+            numMaxLabel.isHidden = true
+            toTxt.snp.makeConstraints { make in
+                make.top.equalTo(coverImgv.snp.bottom).offset(30)
+                make.leading.equalTo(20)
+                make.height.equalTo(22)
+            }
         }
-        
         scanBtn.snp.makeConstraints { make in
             make.trailing.equalTo(-10)
             make.centerY.equalTo(toTxt.snp.centerY)
@@ -199,11 +225,6 @@ class Go23SendNFTViewController: UIViewController {
             make.leading.equalTo(20)
             make.height.equalTo(20)
         }
-//        gasDescLabel.snp.makeConstraints { make in
-//            make.trailing.equalTo(-8)
-//            make.height.equalTo(22)
-//            make.centerY.equalToSuperview()
-//        }
         
         sendBtn.snp.makeConstraints { make in
             if #available(iOS 11.0, *) {
@@ -225,12 +246,6 @@ class Go23SendNFTViewController: UIViewController {
             make.leading.equalTo(20)
             make.height.equalTo(46)
         }
-    }
-    
-    func filled() {
-        gasAmoutLabel.text = "0.000227 ETH"
-        gasNumLabel.text = "$0.26468"
-        gasDescLabel.text = "10.84GWEI"
     }
     
     @objc private func scanBtnClick() {
@@ -289,16 +304,6 @@ class Go23SendNFTViewController: UIViewController {
     
     @objc private func sendBtnClick() {
         transactionSign()
-//        let alert = Go23NFTMessageView(frame: CGRectMake(0, 0, ScreenWidth, 724))
-//
-//        let ovc = OverlayController(view: alert)
-//        ovc.maskStyle = .black(opacity: 0.4)
-//        ovc.layoutPosition = .bottom
-//        ovc.presentationStyle = .fromToBottom
-//        ovc.isDismissOnMaskTouched = false
-//        ovc.isPanGestureEnabled = true
-//
-//        UIApplication.shared.keyWindow?.present(overlay: ovc)
     }
     
     @objc private func cancelBtnClick() {
@@ -326,7 +331,6 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var toTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "To"
@@ -345,38 +349,9 @@ class Go23SendNFTViewController: UIViewController {
         btn.addTarget(self, action: #selector(scanBtnClick), for: .touchUpInside)
         return btn
     }()
-//    private lazy var addressTxtFiled: UITextField = {
-//        let textfield = UITextField()
-//        let textplace = "Receving Address"
-//        let placeholder = NSMutableAttributedString()
-//        placeholder.add(text: textplace) { (attributes) in
-//            attributes.customFont(12.0, NotoSans)
-//        }
-//        textfield.attributedPlaceholder = placeholder
-//        textfield.font = UIFont(name: NotoSans, size: 14)
-//        textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-////        textfield.becomeFirstResponder()
-//        textfield.leftViewMode = .always
-//        textfield.leftView = UIView.init(frame: CGRectMake(0, 0, 15, 0))
-////        textfield.clearButtonMode = .always
-//        textfield.layer.cornerRadius = 8
-//        textfield.layer.masksToBounds = true
-//        textfield.layer.borderWidth = 1
-//        textfield.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
-//        textfield.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
-//        return textfield
-//    }()
-//    private lazy var addressHoldLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "Receving Address"
-//        label.font = UIFont(name: NotoSans, size: 16)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
-//        return label
-//    }()
     private lazy var addressHoldLabel: UILabel = {
         let label = UILabel()
         label.text = "Receiving Address"
-//        label.font = UIFont(name: NotoSans, size: 16)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
@@ -384,7 +359,6 @@ class Go23SendNFTViewController: UIViewController {
     private lazy var addressTxtView: UITextView = {
         let txt = UITextView()
         txt.textContainerInset = UIEdgeInsets(top: 22, left: 10, bottom: 8, right: 50)
-//        txt.font = UIFont(name: NotoSans, size: 14)
         txt.font = UIFont.systemFont(ofSize: 14)
         txt.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         txt.tintColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
@@ -414,7 +388,6 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var gasTxt: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.text = "Gas Fee"
@@ -431,7 +404,6 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var gasAmoutLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#595959")
         return label
@@ -439,7 +411,6 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var gasNumLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -447,7 +418,6 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var gasDescLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
         return label
@@ -482,10 +452,54 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var lossGassLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 16)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#D83548")
         label.text = "Insufficient Gas Fee"
+        return label
+    }()
+    
+    private lazy var numTxt: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.text = "Quantity"
+        label.isHidden = true
+        return label
+    }()
+    private lazy var numView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = true
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
+        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
+        view.addSubview(numTxtFiled)
+        numTxtFiled.snp.makeConstraints { make in
+            make.leading.equalTo(10)
+            make.height.equalTo(30)
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(-10)
+        }
+        return view
+    }()
+    private lazy var numTxtFiled: UITextField = {
+        let textfield = UITextField()
+        textfield.text = "1"
+        textfield.font = UIFont.systemFont(ofSize: 14)
+        textfield.leftView = UIView(frame: CGRectMake(0, 0, 8, 0))
+        textfield.addTarget(self, action: #selector(textDidChange(_ :)), for: .editingChanged)
+        textfield.tintColor = UIColor.rdt_HexOfColor(hexString: "#BFBFBF")
+        textfield.keyboardType = UIKeyboardType.decimalPad
+        return textfield
+    }()
+    
+    private lazy var numMaxLabel: UILabel = {
+        let label = UILabel()
+        label.isHidden = true
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#D83548")
+        label.text = "Exceed the maximum number of NFT"
         return label
     }()
 
@@ -494,8 +508,12 @@ class Go23SendNFTViewController: UIViewController {
 extension Go23SendNFTViewController : UITextViewDelegate {
     //textfield
     @objc func textDidChange(_ textField:UITextField) {
-        print("event:\(textField.text)")
-        if let txt = textField.text {
+        if let txt = textField.text, let num = Int(txt) {
+            if num > self.nftNum {
+                numMaxLabel.isHidden = false
+            } else {
+                numMaxLabel.isHidden = true
+            }
         }
     }
     
@@ -522,12 +540,15 @@ extension Go23SendNFTViewController {
         guard let shared = Go23WalletSDK.shared else {
             return
         }
-
+        Go23Loading.loading()
         shared.getNFTTransactionInfo(for: self.chainId, from: Go23WalletMangager.shared.address) { [weak self] model in
+            Go23Loading.clear()
             self?.transactionModel = model
             guard let obj = model else {
                 return
             }
+            self?.coverImgv.sd_setImage(with: URL(string: self?.nftDetailModel?.image ?? ""), placeholderImage: nil)
+            self?.layout(isNum: self?.isShowNumView ?? false)
             
             if obj.gas.count > 0, let walletObj = Go23WalletMangager.shared.walletModel, let holdLabel = self?.addressHoldLabel {
                 self?.gasTxt.isHidden = false
@@ -566,7 +587,7 @@ extension Go23SendNFTViewController {
                                             transType: 3,
                                             contractAddress: self.contract,
                                             tokenId: self.tokenId,
-                                            value: "1",
+                                            value: numTxtFiled.text ?? "1",
                                             middleContractAddress: Go23WalletMangager.shared.walletModel?.middleContractAddress ?? "",
                                             decimal: obj.decimal,
                                             nftName: self.nftDetailModel?.name ?? "",
@@ -586,20 +607,11 @@ extension Go23SendNFTViewController {
 //            value: "1",
 //            middleContract: "0x2185C155d00ca80F9bB09bb21B682D5fa6fF81c9")
     
-//        let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         shared.sendTransaction(with: sign) { (status, hash) in
-//            let queue = DispatchQueue.main
-//            queue.async {
-//            hub.hide(animated:true)
+
             Go23Loading.clear()
             if !status {
-//                let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//                hud.mode = .text
-//                hud.label.text = "Transaction failed!"
-//                hud.label.font = UIFont(name: NotoSans, size: 16)
-//                hud.hide(animated: true, afterDelay: 1)
-                
                 let toast = Go23Toast.init(frame: .zero)
                 toast.show("Transaction failed!", after: 1)
                 return
@@ -618,7 +630,6 @@ extension Go23SendNFTViewController {
                 ovc.isDismissOnMaskTouched = false
                 ovc.isPanGestureEnabled = true
                 UIApplication.shared.keyWindow?.present(overlay: ovc)
-//            }
             
         }
     }

@@ -98,9 +98,6 @@ class Go23ReshardingView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Verify"
-//        label.font = UIFont.init(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Verify")
         return label
     }()
@@ -118,12 +115,6 @@ class Go23ReshardingView: UIView {
         segmentedView.contentEdgeInsetRight = ScreenWidth - 80
         segmentedView.delegate = self
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
-        
-//        let indicator = JXSegmentedIndicatorBackgroundView()
-//        indicator.indicatorHeight = 30
-//        indicator.indicatorCornerRadius = 4.0
-//        indicator.indicatorColor = UIColor.rdt_HexOfColor(hexString: "#E1F4F5")
-//        segmentedView.indicators = [indicator]
         return segmentedView
     }()
     
@@ -149,16 +140,11 @@ extension Go23ReshardingView: JXSegmentedListContainerViewDataSource {
     }
 
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-//        if index == 0 {
-            let vc = Go23EmailViewController()
-            vc.settingType = settingType
+        let vc = Go23EmailViewController()
+        vc.settingType = settingType
         vc.filled(email: Go23WalletMangager.shared.email)
-            return vc
-//        } else {
-//            let vc = Go23EmailViewController()
-//            return vc
-//        }
-
+        return vc
+        
     }
     
 }

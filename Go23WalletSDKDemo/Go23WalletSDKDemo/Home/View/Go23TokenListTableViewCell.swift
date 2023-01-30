@@ -117,7 +117,6 @@ class Go23TokenListTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 16)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
@@ -125,7 +124,6 @@ class Go23TokenListTableViewCell: UITableViewCell {
     
     private lazy var tokenTypeLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 16)
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         return label
@@ -133,7 +131,6 @@ class Go23TokenListTableViewCell: UITableViewCell {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label

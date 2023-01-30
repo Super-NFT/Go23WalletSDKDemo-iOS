@@ -96,7 +96,6 @@ class Go23ScanViewController: LBXScanViewController {
         descLabel.text = "Transfer or Connect Wallet"
         descLabel.textColor = .white
         descLabel.textAlignment = .center
-//        descLabel.font = UIFont(name: NotoSans, size: 14)
         descLabel.font = UIFont.systemFont(ofSize: 14)
         view.addSubview(descLabel)
         descLabel.snp.makeConstraints { make in

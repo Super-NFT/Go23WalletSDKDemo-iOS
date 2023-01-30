@@ -87,9 +87,6 @@ class Go23PwdSuccessView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Set Pincode"
-//        label.font = UIFont.init(name: BarlowCondensed, size: 20)
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Set Pincode")
         return label
     }()
@@ -102,10 +99,7 @@ class Go23PwdSuccessView: UIView {
     
     private lazy var tipLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: BarlowCondensed, size: 24)
-//        label.text = "Successfully"
-//        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Successfully")
+        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Successful")
         label.textAlignment = .center
         return label
     }()

@@ -114,10 +114,6 @@ class Go23TokenDetailResultViewController: UIViewController {
         amountView.addSubview(amountLabel)
         amountView.addSubview(gasTxt)
         amountView.addSubview(gasLabel)
-//        amountView.addSubview(moneyLabel)
-//        amountView.addSubview(lineV)
-//        amountView.addSubview(totalTxt)
-//        amountView.addSubview(totalLabel)
         fromView.addSubview(fromTxt)
         fromView.addSubview(fromBtn)
         toView.addSubview(toTxt)
@@ -270,30 +266,7 @@ class Go23TokenDetailResultViewController: UIViewController {
             make.height.equalTo(22)
         }
         
-//        moneyLabel.snp.makeConstraints { make in
-//            make.top.equalTo(gasLabel.snp.bottom).offset(0)
-//            make.right.equalTo(-18)
-//            make.height.equalTo(20)
-//        }
-//        
-//        lineV.snp.makeConstraints { make in
-//            make.top.equalTo(moneyLabel.snp.bottom).offset(8)
-//            make.left.equalTo(15)
-//            make.right.equalTo(-15)
-//            make.height.equalTo(1)
-//        }
-//
-//        totalTxt.snp.makeConstraints { make in
-//            make.top.equalTo(lineV.snp.bottom).offset(8)
-//            make.left.equalTo(18)
-//            make.height.equalTo(22)
-//        }
-//
-//        totalLabel.snp.makeConstraints { make in
-//            make.top.equalTo(lineV.snp.bottom).offset(8)
-//            make.right.equalTo(-18)
-//            make.height.equalTo(22)
-//        }
+
         
     }
     
@@ -302,7 +275,6 @@ class Go23TokenDetailResultViewController: UIViewController {
         
         let attri = NSMutableAttributedString()
         attri.add(text: str) { attr in
-//            attr.customFont(14, NotoSans)
             attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"))
             attr.alignment(.right)
@@ -316,11 +288,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     @objc private func fromBtnClick() {
         UIPasteboard.general.string = self.detailModel?.fromAddr ?? ""
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//        hud.mode = .text
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.label.text = "From Address has copy to pasteboard!"
-//        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
         totast.show("Copied!", after: 1)
@@ -328,11 +295,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     @objc private func toBtnClick() {
         UIPasteboard.general.string = self.detailModel?.toAddr ?? ""
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//        hud.mode = .text
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.label.text = "To Address has copy to pasteboard!"
-//        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
         totast.show("Copied!", after: 1)
@@ -340,11 +302,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     @objc private func txidBtnClick() {
         UIPasteboard.general.string = self.detailModel?.hash ?? ""
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//        hud.mode = .text
-//        hud.label.font = UIFont(name: NotoSans, size: 16)
-//        hud.label.text = "TXid has copy to pasteboard!"
-//        hud.hide(animated: true, afterDelay: 1)
         
         let totast = Go23Toast.init(frame: .zero)
         totast.show("Copied!", after: 1)
@@ -364,7 +321,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -372,7 +328,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var amountView: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
@@ -381,7 +336,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var fromView: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
@@ -390,7 +344,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var toView: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
@@ -400,7 +353,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var txidView: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
@@ -409,7 +361,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var lendingGasView: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
@@ -419,7 +370,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var amountTxt: UILabel = {
         let label = UILabel()
         label.text = "Amount"
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -428,7 +378,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var gasTxt: UILabel = {
         let label = UILabel()
         label.text = "Gas Fee"
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -445,7 +394,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var fromTxt: UILabel = {
         let label = UILabel()
         label.text = "From"
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -454,7 +402,7 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var toTxt: UILabel = {
         let label = UILabel()
         label.text = "To"
-        label.font = UIFont(name: NotoSans, size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
@@ -462,7 +410,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var txidTxt: UILabel = {
         let label = UILabel()
         label.text = "TxID"
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -470,7 +417,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var amountLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
@@ -479,7 +425,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var gasLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
@@ -488,7 +433,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 12)
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
@@ -505,7 +449,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var fromBtn: UIButton = {
         let btn = UIButton()
-//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .right
@@ -515,7 +458,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var toBtn: UIButton = {
         let btn = UIButton()
-//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .right
@@ -525,7 +467,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var txidBtn: UIButton = {
         let btn = UIButton()
-//        btn.titleLabel?.font = UIFont(name: NotoSans, size: 14)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
         btn.titleLabel?.textAlignment = .right
@@ -541,7 +482,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var netView: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#D9D9D9").cgColor
@@ -551,7 +491,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     private lazy var netTxt: UILabel = {
         let label = UILabel()
         label.text = "Network"
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -559,7 +498,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var netLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
@@ -568,8 +506,7 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var lendingGasTxt: UILabel = {
         let label = UILabel()
-        label.text = "lending gas fee"
-//        label.font = UIFont(name: NotoSans, size: 14)
+        label.text = "Equivalent Gas Fee"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
@@ -577,7 +514,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     private lazy var lendingGasLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
@@ -594,7 +530,6 @@ extension Go23TokenDetailResultViewController {
         }
         
         if isLoading {
-//            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
             Go23Loading.loading()
         }
                 
@@ -602,7 +537,6 @@ extension Go23TokenDetailResultViewController {
         shared.getActivityDetail(with: self.hashStr, walletAddress: Go23WalletMangager.shared.address) { [weak self]model in
             self?.detailModel = model
             if isLoading {
-//                self?.hud?.hide(animated: true)
                 Go23Loading.clear()
             }
             guard let obj = model else {
@@ -611,11 +545,9 @@ extension Go23TokenDetailResultViewController {
             self?.timeLabel.isHidden = false
             if obj.status == 2 {
                 self?.statusImgv.image = UIImage.init(named: "success")
-//                self?.titleLabel.text = "Successfully"
-                self?.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Successfully")
+                self?.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Successful")
             } else if obj.status == 1 {
                 self?.statusImgv.image = UIImage.init(named: "waiting")
-//                self?.titleLabel.text = "Processing..."
                 self?.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Processing...")
 
                 self?.timeLabel.isHidden = true
@@ -623,7 +555,6 @@ extension Go23TokenDetailResultViewController {
                 self?.statusImgv.image = UIImage.init(named: "failed")
                 self?.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Failed")
 
-//                self?.titleLabel.text = "Failed"
 
             }
             
@@ -635,10 +566,6 @@ extension Go23TokenDetailResultViewController {
             }
             self?.timeLabel.text = obj.time
             self?.amountLabel.text = obj.amount+" "+obj.symbol
-//            if obj.type == "Approve" {
-//                self?.amountTxt.isHidden = true
-//                self?.amountLabel.isHidden = true
-//            }
             self?.gasLabel.text = obj.gasFee+" "+obj.gasSymbol
             let from = String.getSubSecretString(string: obj.fromAddr)
             let to = String.getSubSecretString(string: obj.toAddr)

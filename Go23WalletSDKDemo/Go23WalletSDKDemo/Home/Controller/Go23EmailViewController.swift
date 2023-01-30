@@ -57,7 +57,6 @@ class Go23EmailViewController: UIViewController {
     }
     
     func filled(email: String){
-//        emailLabel.text = Go23WalletMangager.shared.email
         emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
         
     }
@@ -73,10 +72,8 @@ class Go23EmailViewController: UIViewController {
             str = "reshare"
         }
         
-//        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         shared.sendVerifyCode(for: .email(str)) { [weak self]status in
-//            hud.hide(animated: true)
             Go23Loading.clear()
             if status {
                 self?.forgetView.isHidden = false
@@ -84,7 +81,6 @@ class Go23EmailViewController: UIViewController {
             }
         }
         
-//        forgetView.isHidden = false
     }
     
  
@@ -92,10 +88,6 @@ class Go23EmailViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: NotoSans, size: 14)
-//        label.textColor = UIColor.init(named: "#8C8C8C")
-//        label.textAlignment = .center
-//        label.text = "Verify your account"
         label.attributedText = String.getAttributeString(font: UIFont.systemFont(ofSize: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#8C8C8C"),alignment: .center, title: "Verify your account")
         return label
     }()
@@ -110,8 +102,7 @@ class Go23EmailViewController: UIViewController {
 
     private lazy var sendDescLabel: UILabel = {
         let label = UILabel()
-        label.text = "Send a code to your email to verify"
-//        label.font = UIFont(name: NotoSans, size: 12)
+        label.text = "Send verification email"
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .center
