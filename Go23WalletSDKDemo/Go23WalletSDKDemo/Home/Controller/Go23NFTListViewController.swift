@@ -101,6 +101,7 @@ extension Go23NFTListViewController : UICollectionViewDelegate, UICollectionView
         collectionView.deselectItem(at: indexPath, animated: true)
         let vc = Go23NFTDetailViewController()
         vc.nftModel = nftList[indexPath.item]
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
         
         

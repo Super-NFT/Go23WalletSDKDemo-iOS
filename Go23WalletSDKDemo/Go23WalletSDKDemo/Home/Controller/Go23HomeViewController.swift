@@ -19,11 +19,17 @@ class Go23WalletMangager {
     var email = ""
     var balance = ""
     var balanceU = ""
+    var scope = ""
+    var clientId = ""
     
 }
 
 class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
+    private var authScope: String?
+    private var authClientId: String?
+    private var isShowAuthed: Bool = false
+    private var hasOauth: Bool = false
 
     private var tokenListTimer: Timer?
     private var timeInterval: Int = 15
@@ -55,6 +61,8 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         NotificationCenter.default.addObserver(self, selector: #selector(registerUser), name: NSNotification.Name(rawValue: kRegisterUser), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(registerUser), name: NSNotification.Name(rawValue: kRefreshWalletData), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getChainBalance), name: Notification.Name(rawValue: kRefreshWalletBalance), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(authMethod), name: NSNotification.Name(rawValue: "oauthPost"), object: nil)
+
 //        creatTimer()
         
         
@@ -334,6 +342,7 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
     func sendBtnClick() {
         let vc = Go23SendViewController()
         vc.filled(cover: Go23WalletMangager.shared.walletModel?.imageUrl ?? "", name: Go23WalletMangager.shared.walletModel?.name ?? "", chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, symbol: Go23WalletMangager.shared.walletModel?.symbol ?? "", contract: "")
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -483,6 +492,34 @@ extension Go23HomeViewController {
         print("Address ========   \(wallet.address)")
         self.headerView.filled(address: wallet.address)
         self.getUserChains(with: wallet.address)
+        
+        authMethod()
+    }
+    
+    private func isHasWallet() -> Bool {
+        if self.walletList == nil {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    @objc private func authMethod() {
+        self.authScope = Go23WalletMangager.shared.scope
+        self.authClientId = Go23WalletMangager.shared.clientId
+        
+        guard let scope = self.authScope,
+              let clientId = self.authClientId,isShowAuthed == false else {
+            // make sure auth info is correct
+            return
+        }
+        hasOauth = true
+        if isHasWallet() {
+            ArcadeOAuthManager.default.scope = scope
+            ArcadeOAuthManager.default.clientId = clientId
+            self.getOAuthClientInfo(with: clientId)
+        }
+        
     }
     
     private func getUserChains(with walletAddress: String) {
@@ -606,6 +643,99 @@ extension Go23HomeViewController: Go23SetPincodeDelegate {
     func verifyPincodePageWillDismiss() {
         print("=========verifyPincodePageWillDismiss")
         Go23Loading.clear()
+    }
+}
+
+extension Go23HomeViewController {
+    private func getOAuthClientInfo(with clientId: String) {
+        ArcadeOAuthNetwork.getThirdAccountInfo(with: clientId) { [weak self] (clientInfo, returnMsg) in
+            guard let info = clientInfo
+            else {
+                self?.authFailed(with: returnMsg)
+                return
+            }
+            
+            self?.showOAuthAlertView(with: info)
+        }
+    }
+    
+    
+    private func showOAuthAlertView(with clientInfo: AuthClientInfo) {
+        if ArcadeOAuthManager.default.isAuthed() == false {
+            showFirstOAuthView(with: clientInfo)
+        } else {
+            showSecondOAuthView(with: clientInfo)
+        }
+    }
+    
+    private func showFirstOAuthView(with clientInfo: AuthClientInfo) {
+        isShowAuthed = true
+        hasOauth = false
+        
+        ArcadeOAuthConfirmView.show(appName: clientInfo.clientName) { [weak self] result in
+            guard let confirmResult = result as? Bool else {
+                self?.cancelAuth()
+                return
+            }
+            
+            if confirmResult {
+                self?.getOAuthCode()
+            } else {
+                self?.cancelAuth()
+            }
+        }
+    }
+    
+    private func showSecondOAuthView(with clientInfo: AuthClientInfo) {
+        isShowAuthed = true
+        hasOauth = false
+        
+        ArcadeOAuthedConfirmView.show(appName: clientInfo.clientName) { [weak self] result in
+            guard let confirmResult = result as? Bool else {
+                self?.cancelAuth()
+                return
+            }
+            
+            if confirmResult {
+                self?.getOAuthCode()
+            } else {
+                self?.cancelAuth()
+            }
+        }
+    }
+    
+    private func getOAuthCode() {
+        guard let scope = authScope else {
+            self.authFailed(with: "Auth scope is need, please need we konw.")
+            return
+        }
+        
+        ArcadeOAuthNetwork.getOAuthCode(with: scope,
+                                        clientId: authClientId!,
+                                        walletClientId: "1",
+                                        walletClientSecret: "40ad7c25",
+                                        uniqueId: "4d50bad18537456998a9270ea7eac077") { [weak self] (codeInfo, returnMsg) in
+            guard let info = codeInfo
+            else {
+                self?.authFailed(with: returnMsg)
+                return
+            }
+            
+            self?.authSuccess(with: info)
+        }
+    }
+    
+    private func cancelAuth() {
+        ArcadeOAuthManager.default.cancelAuthCallback()
+    }
+    
+    
+    private func authFailed(with msg: String) {
+        ArcadeOAuthManager.default.authFailed(with: msg)
+    }
+    
+    private func authSuccess(with model: AuthCodeInfo) {
+        ArcadeOAuthManager.default.authCallback(with: model.code)
     }
 }
 

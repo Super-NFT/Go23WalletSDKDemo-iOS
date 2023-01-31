@@ -4,6 +4,11 @@ PODS:
     - SipHash (~> 1.2)
   - FDFullscreenPopGesture (1.1)
   - IQKeyboardManager (6.5.10)
+  - KeepLayout (1.7.1):
+    - KeepLayout/Swift (= 1.7.1)
+  - KeepLayout/ObjC (1.7.1)
+  - KeepLayout/Swift (1.7.1):
+    - KeepLayout/ObjC
   - libwebp (1.2.4):
     - libwebp/demux (= 1.2.4)
     - libwebp/mux (= 1.2.4)
@@ -23,17 +28,20 @@ PODS:
     - SDWebImage/Core (~> 5.13)
   - SipHash (1.2.2)
   - SnapKit (5.6.0)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
   - BigInt
   - FDFullscreenPopGesture
   - IQKeyboardManager
+  - KeepLayout (from `https://github.com/iMartinKiss/KeepLayout.git`)
   - MBProgressHUD
   - MJRefresh (= 3.7.2)
   - SDWebImage
   - SDWebImageWebPCoder
   - SnapKit
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -48,12 +56,23 @@ SPEC REPOS:
     - SDWebImageWebPCoder
     - SipHash
     - SnapKit
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  KeepLayout:
+    :git: https://github.com/iMartinKiss/KeepLayout.git
+
+CHECKOUT OPTIONS:
+  KeepLayout:
+    :commit: dd176fad6b837776dd6912f61878f426c51473fd
+    :git: https://github.com/iMartinKiss/KeepLayout.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
+  KeepLayout: eac89da90af1c6ac4199d142c24e1c5703d774af
   libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
@@ -61,7 +80,8 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: f287413d5539f86ba07d82a05d9062d982bf356b
+PODFILE CHECKSUM: 3de4ec61748f85f83029abbd0ffeb223983fc799
 
 COCOAPODS: 1.11.3

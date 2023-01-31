@@ -268,6 +268,7 @@ class Go23SendNFTViewController: UIViewController {
                 self?.lossGassLabel.isHidden = false
             }
         }
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: false)
     }
     

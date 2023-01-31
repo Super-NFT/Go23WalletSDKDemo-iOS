@@ -19,7 +19,8 @@ target 'Go23WalletSDKDemo' do
   pod 'BigInt'
   pod 'MBProgressHUD'
   pod 'SnapKit'
-  
+  pod 'KeepLayout', :git => 'https://github.com/iMartinKiss/KeepLayout.git'
+  pod 'SwiftyJSON'
   
 
 end

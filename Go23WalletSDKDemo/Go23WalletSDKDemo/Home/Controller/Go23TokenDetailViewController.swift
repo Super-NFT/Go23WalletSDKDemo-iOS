@@ -164,6 +164,7 @@ extension Go23TokenDetailViewController: TokenHeaderViewDelegate {
     func sendBtnClick() {
         let vc = Go23SendViewController()
         vc.filled(cover: self.model?.imageUrl ?? "", name: self.model?.name ?? "", chainId: self.model?.chainId ?? 0,symbol: self.model?.symbol ?? "", contract: self.model?.contractAddr ?? "")
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

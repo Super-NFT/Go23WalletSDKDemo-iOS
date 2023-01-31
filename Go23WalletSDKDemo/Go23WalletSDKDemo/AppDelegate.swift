@@ -41,16 +41,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        let vc = Go23HomeViewController()
+        let vc = Go23TabBarController()
         vc.view.backgroundColor = .white
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
         
         return true
     }
     
-   
+    
+}
 
+extension AppDelegate {
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if UIApplication.shared.canOpenURL(url) {
+            parseOAuth(with: url)
+            return true
+        }
+        return false
+    }
+    
+    private func parseOAuth(with url: URL) {
+        guard let urlComponents = URLComponents(string: url.absoluteString),
+              let queryItems = urlComponents.queryItems,
+              let parameters = dictFromQueryItems(queryItems),
+              let scope = parameters["scope"],
+              let clientId = parameters["client_id"]
+        else {
+            let totast = Go23Toast.init(frame: .zero)
+            totast.show("Coins Auth failed!", after: 1)
+            return
+        }
+        Go23WalletMangager.shared.scope = scope
+        Go23WalletMangager.shared.clientId = clientId
+        NotificationCenter.default.post(name: NSNotification.Name("oauthPost"),
+                                        object: ["scope": scope, "clientId": clientId],
+                                        userInfo: nil)
+        
+
+        
+    }
+    
+    private func dictFromQueryItems(_ items: [URLQueryItem]) -> [String: String]? {
+        var parameters = [String: String]()
+        items.forEach { item in
+            let key = item.name
+            let value = item.value
+            parameters[key] = value
+        }
+        if parameters.count == 0 { return nil }
+        return parameters
+    }
+    
+    
 }
 

@@ -129,8 +129,8 @@ class Go23TransactionResultView: UIView {
         UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         let vc = Go23TokenDetailResultViewController()
         vc.hashStr = self.hashStr
+        vc.hidesBottomBarWhenPushed = true
         currentViewController()?.navigationController?.pushViewController(vc, animated: true)
-
     }
     
     private lazy var closeBtn: UIButton = {

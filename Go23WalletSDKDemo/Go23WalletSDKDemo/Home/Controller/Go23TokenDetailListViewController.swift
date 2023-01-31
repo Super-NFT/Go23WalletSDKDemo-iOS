@@ -128,6 +128,7 @@ extension Go23TokenDetailListViewController: UITableViewDelegate, UITableViewDat
             vc.hashStr = listModel[indexPath.row].hash
         }
         vc.isPopRoot = false
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

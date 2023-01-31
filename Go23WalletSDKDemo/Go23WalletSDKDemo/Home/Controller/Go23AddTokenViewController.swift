@@ -95,7 +95,7 @@ class Go23AddTokenViewController: UIViewController {
         view.headerBlock = { [weak self] in
             let vc = Go23AddCustomTokenViewController()
             vc.chainId = Go23WalletMangager.shared.walletModel?.chainId ?? 0
-            
+            vc.hidesBottomBarWhenPushed = true
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         return view

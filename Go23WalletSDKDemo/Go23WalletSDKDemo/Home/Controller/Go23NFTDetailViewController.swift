@@ -94,6 +94,7 @@ class Go23NFTDetailViewController: UIViewController {
         view.transferBlock = { [weak self] in
             let vc = Go23SendNFTViewController()
             vc.nftDetailModel = self?.nftDetailModel
+            vc.hidesBottomBarWhenPushed = true
             self?.navigationController?.pushViewController(vc
                                                            , animated: true)
         }
@@ -611,7 +612,7 @@ class NFTDetailAttributesCollectionCell: UICollectionViewCell {
 
 class NFTDetailDetailsCell: UITableViewCell {
     static var cellHeight: CGFloat {
-        return 220.0
+        return 320.0
     }
     
     private var address = ""

@@ -129,6 +129,7 @@ class Go23NFTStatusView: UIView {
         UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         let vc = Go23NFTDetailResultViewController()
         vc.hashStr = self.hashStr
+        vc.hidesBottomBarWhenPushed = true
         currentViewController()?.navigationController?.pushViewController(vc, animated: true)
 
     }

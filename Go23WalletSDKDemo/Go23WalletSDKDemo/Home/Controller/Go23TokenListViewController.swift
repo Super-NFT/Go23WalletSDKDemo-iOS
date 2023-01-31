@@ -110,7 +110,7 @@ extension Go23TokenListViewController: UITableViewDelegate, UITableViewDataSourc
             let model = list[indexPath.row]
             let vc = Go23TokenDetailViewController()
             vc.model = model
-
+            vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

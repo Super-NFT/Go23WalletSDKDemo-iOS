@@ -68,6 +68,7 @@ class Go23AddView: UIView {
         closeBtnClick()
         
         let vc = Go23AddTokenViewController()
+        vc.hidesBottomBarWhenPushed = true
         currentViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
     

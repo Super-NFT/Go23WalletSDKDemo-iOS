@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 
 final class Go23NetworkManager: NSObject {
@@ -57,6 +58,27 @@ extension Go23NetworkManager {
                 callback(.failure(err))
             }
         }
+    }
+    
+    func getUserToken(callback: @escaping () -> Void) {
+        getRequest(URLString: "oauth2/token", parameters: ["grant_type": "client_credentials", "client_id": "DgvdE7R5IHR8ziCi5ZUmOSN9", "scope": "read", "client_secret": "chCfy8pESEpXYACFS5savVF3"]) { [weak self] (response) in
+            switch response {
+            case .success(let data):
+                let jsonData = JSON(data)
+                let data = jsonData["data"].dictionaryValue
+                if let token = data["access_token"]?.stringValue {
+                    self?.setNetworkHeader(with: token)
+                }
+                callback()
+            case .failure:
+                let alert = Go23Toast.init(frame: .zero)
+                alert.show("Get User Token failed!", after: 1)
+            }
+        }
+    }
+    
+    func setNetworkHeader(with token: String) {
+        self.netWorkHeader = ["Authorization": "Bearer " + token, "Content-Type": "application/json"]
     }
 }
 

@@ -297,6 +297,7 @@ class Go23SendViewController: UIViewController {
                 self?.changeSendBtnStatus(status: true)
             }
         }
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
@@ -495,6 +496,7 @@ class Go23SendViewController: UIViewController {
             ovc.isPanGestureEnabled = true
             alert.addBtnBlock = { [weak self] in
                 let vc = Go23AddTokenViewController()
+                vc.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(vc, animated: true)
 
             }
