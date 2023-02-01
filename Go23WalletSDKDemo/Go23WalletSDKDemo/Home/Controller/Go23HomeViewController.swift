@@ -161,7 +161,7 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     @objc private func settingBtnDidClick() {
         
-        let alert = Go23SettingView(frame: CGRectMake(0, 0, ScreenWidth, 720))
+        let alert = Go23SettingView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120))
         let ovc = OverlayController(view: alert)
         ovc.maskStyle = .black(opacity: 0.4)
         ovc.layoutPosition = .bottom

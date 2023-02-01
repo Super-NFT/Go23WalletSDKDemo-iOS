@@ -22,6 +22,7 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = .white
         contentView.addSubview(coverImgv)
         contentView.addSubview(titleLabel)
+        coverImgv.addSubview(numLabel)
         coverImgv.snp.makeConstraints { make in
             make.top.equalTo(10)
             make.width.height.equalTo((ScreenWidth-40-8)/2.0)
@@ -36,13 +37,25 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func filled(cover: String, title: String) {
+    func filled(cover: String, title: String, num: Int) {
         coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: UIImage(named: "holder"))
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#000000"),alignment: .left, title: title)
+        
+        if num > 1 {
+            numLabel.isHidden = false
+            numLabel.text = "x\(num)"
+            numLabel.snp.makeConstraints { make in
+                make.top.left.equalTo(10)
+                make.height.equalTo(28)
+                make.width.equalTo(String.getStringWidth("x\(num)", lineHeight: 16, font: UIFont.systemFont(ofSize: 16), wordWidth: (ScreenWidth-40-8)/2.0)+25.0)
+            }
+        }
+        
     }
     
     private lazy var coverImgv: UIImageView = {
         let imgv = UIImageView()
+        imgv.layer.masksToBounds = true
         imgv.layer.cornerRadius = 8.0
         return imgv
     }()
@@ -51,6 +64,18 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont(name: BarlowCondensed, size: 16)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#000000")
+        return label
+    }()
+    
+    private lazy var numLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 14
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.isHidden = true
+        label.textAlignment = .center
         return label
     }()
     

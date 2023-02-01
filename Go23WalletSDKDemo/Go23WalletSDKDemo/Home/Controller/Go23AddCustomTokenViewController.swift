@@ -89,6 +89,7 @@ class Go23AddCustomTokenViewController: UIViewController {
         
         tipsLabel.snp.makeConstraints { make in
             make.left.equalTo(tipsImgv.snp.right).offset(20)
+            make.right.equalTo(-20)
             make.centerY.equalToSuperview()
             make.height.equalTo(50)
         }

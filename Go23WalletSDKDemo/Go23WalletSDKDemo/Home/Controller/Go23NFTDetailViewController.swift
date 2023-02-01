@@ -116,7 +116,7 @@ class Go23NFTDetailViewController: UIViewController {
         tableView.register(NFTDetailDescCell.self, forCellReuseIdentifier: NFTDetailDescCell.reuseIdentifier())
         tableView.register(NFTDetailAttributesCell.self, forCellReuseIdentifier: NFTDetailAttributesCell.reuseIdentifier())
         tableView.register(NFTDetailDetailsCell.self, forCellReuseIdentifier: NFTDetailDetailsCell.reuseIdentifier())
-
+        tableView.register(NFTNumberCell.self, forCellReuseIdentifier: NFTNumberCell.reuseIdentifier())
         return tableView
     }()
     
@@ -130,13 +130,20 @@ extension Go23NFTDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NFTNumberCell.reuseIdentifier(), for: indexPath) as? NFTNumberCell, let nftModel = nftDetailModel, nftModel.value > 1
+            else {
+                return UITableViewCell()
+            }
+            cell.filled(num: nftModel.value)
+            return cell
+        } else if indexPath.row == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NFTDetailDescCell.reuseIdentifier(), for: indexPath) as? NFTDetailDescCell
-        else {
+            else {
                 return UITableViewCell()
             }
             if let desc = self.nftDetailModel?.desc, desc.count > 0 {
@@ -146,18 +153,18 @@ extension Go23NFTDetailViewController: UITableViewDelegate, UITableViewDataSourc
             }
             
             return cell
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NFTDetailAttributesCell.reuseIdentifier(), for: indexPath) as? NFTDetailAttributesCell, let list = nftDetailModel?.attributes
-        else {
+            else {
                 return UITableViewCell()
             }
             if list.count > 0 {
                 cell.attributes = list
             }
             return cell
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 3 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NFTDetailDetailsCell.reuseIdentifier(), for: indexPath) as? NFTDetailDetailsCell
-        else {
+            else {
                 return UITableViewCell()
             }
             
@@ -166,11 +173,16 @@ extension Go23NFTDetailViewController: UITableViewDelegate, UITableViewDataSourc
         } else {
             return UITableViewCell()
         }
-            
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
+            guard let nftModel = nftDetailModel, nftModel.value > 1 else {
+                return 0
+            }
+            return NFTNumberCell.cellHeight
+        } else if indexPath.row == 1 {
             let cell = NFTDetailDescCell()
             if let desc = self.nftDetailModel?.desc, desc.count > 0 {
                 let height = cell.getRowHeight(desc: desc)
@@ -180,17 +192,17 @@ extension Go23NFTDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let height = cell.getRowHeight(desc: "none")
             print("height +++++ \(height)")
             return height
-        } else if indexPath.row == 1{
+        } else if indexPath.row == 2 {
             guard let list = self.nftDetailModel?.attributes, list.count > 0 else {
                 return 0
             }
             return NFTDetailAttributesCell.cellHeight
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 3 {
             return NFTDetailDetailsCell.cellHeight
         } else {
             return 0.01
         }
-
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -224,18 +236,13 @@ class NFTDetailHeaderView: UIView {
         addSubview(titleLabel)
         addSubview(descLabel)
         addSubview(lineV)
-        coverImgv.addSubview(numLabel)
         coverImgv.snp.makeConstraints { make in
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
             make.top.equalToSuperview()
             make.width.height.equalTo(ScreenWidth-40)
         }
-        numLabel.snp.makeConstraints { make in
-            make.right.equalTo(-20)
-            make.bottom.equalTo(-10)
-            make.height.equalTo(18)
-        }
+
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(coverImgv.snp.bottom).offset(20)
             make.leading.equalTo(20)
@@ -254,20 +261,15 @@ class NFTDetailHeaderView: UIView {
         }
     }
     
-    func filled(cover: String, title: String, desc: String, num: Int) {
+    func filled(cover: String, title: String, desc: String) {
         coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
         descLabel.text = desc
-        numLabel.text = "x\(num)"
-        if num <= 1 {
-            numLabel.isHidden = true
-        } else {
-            numLabel.isHidden = false
-        }
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: title)
     }
     
     private lazy var coverImgv: UIImageView = {
         let imgv = UIImageView()
+        imgv.layer.masksToBounds = true
         imgv.layer.cornerRadius = 8
         return imgv
     }()
@@ -292,13 +294,6 @@ class NFTDetailHeaderView: UIView {
         return view
     }()
     
-    private lazy var numLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.rdt_HexOfColor(hexString: "#ffffff")
-        label.textAlignment = .right
-        return label
-    }()
     
 }
 
@@ -422,6 +417,79 @@ class NFTDetailDescCell: UITableViewCell {
         return view
     }()
     
+}
+
+class NFTNumberCell: UITableViewCell {
+    
+    static var cellHeight: CGFloat {
+        return 60.0
+    }
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
+        initSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func initSubviews() {
+        contentView.backgroundColor = .white
+        contentView.addSubview(iconImgv)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(lineV)
+        iconImgv.snp.makeConstraints { make in
+            make.left.equalTo(20)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(15)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(iconImgv.snp.right).offset(4)
+            make.height.equalTo(24)
+        }
+        lineV.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.height.equalTo(1)
+        }
+    }
+    
+    func filled(num: Int) {
+        iconImgv.isHidden = false
+        titleLabel.isHidden = false
+        lineV.isHidden = false
+        titleLabel.text = "You own \(num)"
+    }
+    
+    
+    private lazy var iconImgv: UIImageView = {
+        let imgv = UIImageView()
+        imgv.image = UIImage.init(named: "own")
+        imgv.isHidden = true
+        return imgv
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+    
+    private lazy var lineV: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F5F5F5")
+        view.isHidden = true
+        return view
+    }()
 }
 
 class NFTDetailAttributesCell: UITableViewCell {
@@ -611,7 +679,7 @@ class NFTDetailAttributesCollectionCell: UICollectionViewCell {
 
 class NFTDetailDetailsCell: UITableViewCell {
     static var cellHeight: CGFloat {
-        return 220.0
+        return 320.0
     }
     
     private var address = ""
@@ -850,7 +918,7 @@ extension Go23NFTDetailViewController {
             Go23Loading.clear()
             self?.nftDetailModel = model
             if let obj = model {
-                self?.headerView.filled(cover: obj.image, title: obj.name, desc: obj.series, num: obj.value)
+                self?.headerView.filled(cover: obj.image, title: obj.name, desc: obj.series)
                 self?.tableView.reloadData()
             }
         }

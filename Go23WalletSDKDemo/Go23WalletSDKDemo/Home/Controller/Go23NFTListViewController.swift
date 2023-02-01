@@ -85,7 +85,7 @@ extension Go23NFTListViewController : UICollectionViewDelegate, UICollectionView
         }
 
         let model = nftList[indexPath.item]
-        cell.filled(cover: model.image, title: model.name)
+        cell.filled(cover: model.image, title: model.name,num: model.value)
         return cell
         
     }
