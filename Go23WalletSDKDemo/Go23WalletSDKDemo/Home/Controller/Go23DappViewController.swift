@@ -22,7 +22,7 @@ class Go23DappViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNav()
+//        setNav()
         initSubviews()
     }
     
@@ -40,18 +40,22 @@ class Go23DappViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(scrollContentView)
-        
+        scrollContentView.addSubview(contentImgv)
         scrollView.snp.makeConstraints { make in
 
-            make.top.equalTo(navgationBar!.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(44)
+            make.left.right.bottom.equalToSuperview()
         }
         scrollContentView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.edges.equalToSuperview()
             make.width.equalTo(ScreenWidth)
-            make.height.equalTo(ScreenHeight)
-            make.centerX.equalToSuperview()
         }
+        contentImgv.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.bottom.equalTo(scrollContentView.snp.bottom)
+        }
+        contentImgv.image = UIImage.init(named: "dappimg")
+        
     }
     
     
@@ -67,6 +71,12 @@ class Go23DappViewController: UIViewController {
     private lazy var scrollContentView: UIView = {
         let view = UIView()
         return view
+    }()
+    
+    private lazy var contentImgv: UIImageView = {
+        let imgv = UIImageView()
+        
+        return imgv
     }()
     
 
