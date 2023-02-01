@@ -32,7 +32,6 @@ class Go23SendNFTViewController: UIViewController {
             self.contract = model.contractAddress
             self.nftNum = model.value
             self.isShowNumView = model.tokenStandard == "ERC-1155"
-            
             guard let url = URL(string: Go23WalletMangager.shared.walletModel?.imageUrl ?? "") else {
                 return
             }
@@ -110,8 +109,10 @@ class Go23SendNFTViewController: UIViewController {
         scrollView.addSubview(scrollContentView)
         scrollContentView.addSubview(coverImgv)
         scrollContentView.addSubview(numTxt)
+        scrollContentView.addSubview(numLabel)
         scrollContentView.addSubview(numView)
         scrollContentView.addSubview(numMaxLabel)
+        scrollContentView.addSubview(allBtn)
         scrollContentView.addSubview(toTxt)
         scrollContentView.addSubview(scanBtn)
         scrollContentView.addSubview(addressTxtView)
@@ -148,9 +149,16 @@ class Go23SendNFTViewController: UIViewController {
         if isNum {
             numTxt.isHidden = false
             numView.isHidden = false
+            numLabel.isHidden = false
+            numLabel.text = "Amount Owned: \(self.nftNum)"
             numTxt.snp.makeConstraints { make in
                 make.top.equalTo(coverImgv.snp.bottom).offset(30)
                 make.leading.equalTo(20)
+                make.height.equalTo(22)
+            }
+            numLabel.snp.makeConstraints { make in
+                make.centerY.equalTo(numTxt.snp.centerY)
+                make.right.equalTo(-20)
                 make.height.equalTo(22)
             }
             numView.snp.makeConstraints { make in
@@ -165,6 +173,12 @@ class Go23SendNFTViewController: UIViewController {
                 make.trailing.equalTo(-20)
                 make.height.equalTo(20)
             }
+            allBtn.snp.makeConstraints { make in
+                make.centerY.equalTo(numTxtFiled.snp.centerY)
+                make.trailing.equalTo(-14)
+                make.width.equalTo(50)
+                make.height.equalTo(44)
+            }
             toTxt.snp.makeConstraints { make in
                 make.top.equalTo(numMaxLabel.snp.bottom).offset(4)
                 make.leading.equalTo(20)
@@ -173,6 +187,7 @@ class Go23SendNFTViewController: UIViewController {
         } else {
             numTxt.isHidden = true
             numView.isHidden = true
+            numLabel.isHidden = true
             numMaxLabel.isHidden = true
             toTxt.snp.makeConstraints { make in
                 make.top.equalTo(coverImgv.snp.bottom).offset(30)
@@ -307,6 +322,10 @@ class Go23SendNFTViewController: UIViewController {
         transactionSign()
     }
     
+    @objc private func allBtnClick() {
+        self.numTxtFiled.text = "\(self.nftNum)"
+    }
+    
     @objc private func cancelBtnClick() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -326,6 +345,7 @@ class Go23SendNFTViewController: UIViewController {
     
     private lazy var coverImgv: UIImageView = {
         let imgv = UIImageView()
+        imgv.layer.masksToBounds = true
         imgv.layer.cornerRadius = 8
         return imgv
     }()
@@ -467,6 +487,24 @@ class Go23SendNFTViewController: UIViewController {
         label.isHidden = true
         return label
     }()
+    private lazy var numLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        label.isHidden = true
+        label.textAlignment = .right
+        return label
+    }()
+    
+    private lazy var allBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("All", for: .normal)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#00D6E1"), for: .normal)
+        btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 16)
+        btn.addTarget(self, action: #selector(allBtnClick), for: .touchUpInside)
+        return btn
+    }()
+    
     private lazy var numView: UIView = {
         let view = UIView()
         view.isHidden = true
@@ -515,6 +553,8 @@ extension Go23SendNFTViewController : UITextViewDelegate {
             } else {
                 numMaxLabel.isHidden = true
             }
+        } else {
+            numMaxLabel.isHidden = true
         }
     }
     
