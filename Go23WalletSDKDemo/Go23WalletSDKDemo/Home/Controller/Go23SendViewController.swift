@@ -1023,15 +1023,15 @@ extension Go23SendViewController {
         
         
         var amoutStr = ""
-        if isAmountAll {
-            if self.contract.count > 0 {
-                amoutStr = obj.tokenBalanceSort
-            } else {
-                amoutStr = obj.platformBalanceSort
-            }
-        } else {
+//        if isAmountAll {
+//            if self.contract.count > 0 {
+//                amoutStr = obj.tokenBalanceSort
+//            } else {
+//                amoutStr = obj.platformBalanceSort
+//            }
+//        } else {
             amoutStr = amoutTxtFiled.text ?? ""
-        }
+//        }
         
         let sign = Go23SendTransactionModel(type: 1,
                                             rpc: Go23WalletMangager.shared.walletModel?.rpc ?? "",

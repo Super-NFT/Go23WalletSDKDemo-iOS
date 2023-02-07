@@ -11,11 +11,15 @@
 #include "Universe.objc.h"
 
 
+FOUNDATION_EXPORT NSData* _Nullable ClientGenToPk(NSString* _Nullable k1, NSString* _Nullable k2);
+
 /**
  * Keygen
 @Description: 生成私钥
  */
 FOUNDATION_EXPORT NSData* _Nullable ClientKeygen(void);
+
+FOUNDATION_EXPORT NSData* _Nullable ClientPkToGen(NSString* _Nullable privateKey);
 
 /**
  * ReShare
