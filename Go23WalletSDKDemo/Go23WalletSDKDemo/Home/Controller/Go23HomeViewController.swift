@@ -19,6 +19,7 @@ class Go23WalletMangager {
     var email = ""
     var balance = ""
     var balanceU = ""
+    var phone = ""
     
 }
 
@@ -132,10 +133,16 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     }
     
     private func popSettingEmail() {
+        
         if let kEmail = UserDefaults.standard.string(forKey: kEmailPrivateKey), kEmail.count > 0 {
             return
         }
-        let alert = Go23SettingEmailView(frame: CGRectMake(0, 0, ScreenWidth, 720))
+        
+        if  let kSMS = UserDefaults.standard.string(forKey: kPhonePrivateKey), kSMS.count > 0 {
+            return
+        }
+        
+        let alert = Go23SettingAccountView(frame: CGRectMake(0, 0, ScreenWidth, 720))
         let ovc = OverlayController(view: alert)
         ovc.maskStyle = .black(opacity: 0.4)
         ovc.layoutPosition = .bottom
@@ -403,16 +410,23 @@ extension Go23HomeViewController {
         }
         print("registerUser")
         
-        popSettingEmail()
-
-        guard let kEmail = UserDefaults.standard.string(forKey: kEmailPrivateKey), kEmail.count > 0 else  {
-            return
+        var uniqueId = ""
+        if let kEmail = UserDefaults.standard.string(forKey: kEmailPrivateKey), kEmail.count > 0 {
+            Go23WalletMangager.shared.email = kEmail
+            uniqueId = kEmail
         }
         
-        Go23WalletMangager.shared.email = kEmail
-
+        if let kSMS = UserDefaults.standard.string(forKey: kPhonePrivateKey), kSMS.count > 0 {
+            Go23WalletMangager.shared.phone = kSMS
+            uniqueId = kSMS
+        }
+        
+        popSettingEmail()
+        
+        
+        
         Go23Loading.loading()
-        shared.connect(with: Go23WalletMangager.shared.email, email: Go23WalletMangager.shared.email, delegate: self) { [weak self] result in
+        shared.connect(with: uniqueId, email: Go23WalletMangager.shared.email,phone: Go23WalletMangager.shared.phone, delegate: self) { [weak self] result in
             switch result {
             case .success(let successResult):
                 switch successResult {
@@ -443,7 +457,11 @@ extension Go23HomeViewController {
             }
         }
         
-        headerView.filled(cover: "go23", email: Go23WalletMangager.shared.email)
+        if Go23WalletMangager.shared.email.count > 0 {
+            headerView.filled(cover: "go23", email: Go23WalletMangager.shared.email)
+        } else {
+            headerView.filled(cover: "go23", email: Go23WalletMangager.shared.phone)
+        }
         
     }
     

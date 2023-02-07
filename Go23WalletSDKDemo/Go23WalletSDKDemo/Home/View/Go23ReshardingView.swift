@@ -142,7 +142,7 @@ extension Go23ReshardingView: JXSegmentedListContainerViewDataSource {
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         let vc = Go23EmailViewController()
         vc.settingType = settingType
-        vc.filled(email: Go23WalletMangager.shared.email)
+        vc.filled()
         return vc
         
     }

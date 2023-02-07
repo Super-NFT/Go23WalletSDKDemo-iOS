@@ -76,13 +76,24 @@ class Go23ForgetPwdView: UIView {
             make.centerX.equalToSuperview().offset(45)
         }
         
-        emailLabel.text = Go23WalletMangager.shared.email
+        if Go23WalletMangager.shared.email.count > 0 {
+            emailLabel.text = Go23WalletMangager.shared.email
+        } else {
+            emailLabel.text = Go23WalletMangager.shared.phone
+        }
 
 
     }
     
     func filled(email: String){
-        emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
+        if Go23WalletMangager.shared.email.count > 0 {
+            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.email)
+            emailTipsLabel.text = "Enter the 6-digit code sent to your email."
+        } else {
+            emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: Go23WalletMangager.shared.phone)
+            emailTipsLabel.text = "Enter the 6-digit code sent to your SMS."
+            
+        }
     }
     
     
@@ -196,9 +207,17 @@ class Go23ForgetPwdView: UIView {
             str = "reshare"
         }
         
-        shared.sendVerifyCode(for: .email(str)) { status in
-            
+        if Go23WalletMangager.shared.email.count > 0 {
+            shared.sendVerifyCode(for: .email(str)) { status in
+                
+            }
+        } else {
+//            shared.sendVerifyCode(for: .phone(str)) { status in
+//
+//            }
         }
+        
+        
         
     }
     
