@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MJRefresh
 import Go23SDK
 
 class Go23TokenListViewController: UIViewController {
@@ -23,15 +22,12 @@ class Go23TokenListViewController: UIViewController {
         }
         
         self.getUserTokens()
-        tableView.mj_header = Go23RefreshHeader(refreshingBlock: { [weak self] in
+        tableView.es.addPullToRefresh { [weak self] in
             NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
                                             object: nil,
                                             userInfo: nil)
-            
-            self?.tokenList?.removeAll()
             self?.getUserTokens()
-            
-        })
+        }
         
         tableView.addSubview(noDataV)
         noDataV.snp.makeConstraints { make in
@@ -132,7 +128,7 @@ extension Go23TokenListViewController {
         }
         
         shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) { [weak self]tokenList in
-            self?.tableView.mj_header?.endRefreshing()
+            self?.tableView.es.stopPullToRefresh()
             guard let list = tokenList?.listModel else {
                 return
             }
@@ -142,6 +138,7 @@ extension Go23TokenListViewController {
             } else {
                 self?.noDataV.isHidden = true
             }
+            self?.tokenList?.removeAll()
             self?.tokenList = list
             self?.tableView.reloadData()
         }
@@ -150,13 +147,3 @@ extension Go23TokenListViewController {
     }
 }
 
-
-class Go23RefreshHeader: MJRefreshNormalHeader {
-    override func prepare() {
-        super.prepare()
-        self.setTitle("Loading...", for: .refreshing)
-        self.setTitle("Release to refresh", for: .pulling)
-        self.setTitle("Pull down to refresh", for: .idle)
-        self.lastUpdatedTimeLabel?.isHidden = true
-    }
-}

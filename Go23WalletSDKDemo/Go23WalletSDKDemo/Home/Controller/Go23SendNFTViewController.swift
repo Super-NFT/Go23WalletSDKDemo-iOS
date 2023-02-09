@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MBProgressHUD
+import Kingfisher
 import Go23SDK
 
 class Go23SendNFTViewController: UIViewController {
@@ -587,7 +587,7 @@ extension Go23SendNFTViewController {
             guard let obj = model else {
                 return
             }
-            self?.coverImgv.sd_setImage(with: URL(string: self?.nftDetailModel?.image ?? ""), placeholderImage: nil)
+            self?.coverImgv.kf.setImage(with: URL(string: self?.nftDetailModel?.image ?? ""))
             self?.layout(isNum: self?.isShowNumView ?? false)
             
             if obj.gas.count > 0, let walletObj = Go23WalletMangager.shared.walletModel, let holdLabel = self?.addressHoldLabel {
@@ -619,6 +619,11 @@ extension Go23SendNFTViewController {
             return
         }
         
+        var value = ""//if nfc is ERC-721,the value is empty，nfc is ERC-1155, the value is the number of nft
+        if isShowNumView {
+            value = numTxtFiled.text ?? "1"
+        }
+        
         let sign = Go23SendTransactionModel(type: 1,
                                             rpc: Go23WalletMangager.shared.walletModel?.rpc ?? "",
                                             chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0,
@@ -627,7 +632,7 @@ extension Go23SendNFTViewController {
                                             transType: 3,
                                             contractAddress: self.contract,
                                             tokenId: self.tokenId,
-                                            value: numTxtFiled.text ?? "1",
+                                            value: value,
                                             middleContractAddress: Go23WalletMangager.shared.walletModel?.middleContractAddress ?? "",
                                             decimal: obj.decimal,
                                             nftName: self.nftDetailModel?.name ?? "",

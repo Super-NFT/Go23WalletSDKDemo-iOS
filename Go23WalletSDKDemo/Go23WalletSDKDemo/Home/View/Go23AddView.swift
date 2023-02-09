@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 import Go23SDK
 
 class Go23AddView: UIView {

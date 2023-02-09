@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class Go23NFTListCollectionViewCell: UICollectionViewCell {
     
@@ -38,7 +39,7 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
     
     
     func filled(cover: String, title: String, num: Int) {
-        coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: UIImage(named: "holder"))
+        coverImgv.kf.setImage(with: URL(string: cover), placeholder: UIImage(named: "holder"))
         titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 16), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#000000"),alignment: .left, title: title)
         
         if num > 1 {

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MBProgressHUD
+import Kingfisher
 import Go23SDK
 
 class Go23NFTDetailResultViewController: UIViewController {
@@ -14,7 +14,6 @@ class Go23NFTDetailResultViewController: UIViewController {
 
     var hashStr = ""
     var detailModel: Go23ActivityDetailModel?
-    var hud: MBProgressHUD?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -526,7 +525,7 @@ extension Go23NFTDetailResultViewController {
             }
             //obj.transaction_class = 3 is nft
             self?.timeLabel.isHidden = false
-            self?.coverImgv.sd_setImage(with: URL(string: obj.image), placeholderImage:nil)
+            self?.coverImgv.kf.setImage(with: URL(string: obj.image))
             self?.nameLabel.text = obj.imageName
             self?.tokenIdLabel.text = "TokenID: "+obj.token
             if obj.status == 2 {

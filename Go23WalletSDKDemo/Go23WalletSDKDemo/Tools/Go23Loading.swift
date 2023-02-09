@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
-import MBProgressHUD
+import Kingfisher
 
 class Go23Loading: UIView {
     static func loading() {
@@ -145,11 +144,12 @@ class Go23Loading: UIView {
 //            }
 //        }
 //        centerIcon.animationImages = images
-        if let gifUrlStr = Bundle.main.path(forResource: "loading", ofType: "gif"),
-           let gifData = try? NSData(contentsOfFile: gifUrlStr) {
-            let image = UIImage.sd_image(withGIFData: gifData as Data)
-            centerIcon.image = image
+        if let bundlePath = Bundle.main.path(forResource: "loading", ofType: "gif"), let bundle = Bundle(path: bundlePath), let gifUrlStr = bundle.path(forResource: "loading", ofType: "gif") {
+            let url = URL(fileURLWithPath: gifUrlStr)
+            let provider = LocalFileImageDataProvider(fileURL: url)
+            centerIcon.kf.setImage(with: provider)
         }
+
         centerIcon.animationDuration = 0.6
         centerIcon.animationRepeatCount = LONG_MAX
 //        centerIcon.startAnimating()
@@ -162,29 +162,14 @@ class Go23Loading: UIView {
     private lazy var centerIcon : UIImageView = {
 //        let iv = UIImageView(image: UIImage(named: "page_loading0"))
         let iv = UIImageView()
-        if let gifUrlStr = Bundle.main.path(forResource: "loading", ofType: "gif"),
-           let gifData = try? NSData(contentsOfFile: gifUrlStr) {
-            let image = UIImage.sd_image(withGIFData: gifData as Data)
-            iv.image = image
+        if let gifUrlStr = Bundle.main.path(forResource: "loading", ofType: "gif") {
+            let url = URL(fileURLWithPath: gifUrlStr)
+            let provider = LocalFileImageDataProvider(fileURL: url)
+            iv.kf.setImage(with: provider)
         }
         iv.frame = CGRect(x: 0, y: -60, width: 40, height: 40)
         return iv
     }()
 }
 
-
-extension MBProgressHUD {
-    class func showGifAdded(to view:UIView!,userInterface:Bool = true,animated:Bool = true){
-        if let gifUrlStr = Bundle.main.path(forResource: "loading", ofType: "gif"),
-           let gifData = try? NSData(contentsOfFile: gifUrlStr) {
-            let image = UIImage.sd_image(withGIFData: gifData as Data)
-            let giftImgView = UIImageView(image: image)
-            let hud = MBProgressHUD.showAdded(to: view, animated: animated)
-            hud.mode = .customView
-            hud.isUserInteractionEnabled = userInterface
-            hud.customView = giftImgView
-        }
-        
-    }
-}
 

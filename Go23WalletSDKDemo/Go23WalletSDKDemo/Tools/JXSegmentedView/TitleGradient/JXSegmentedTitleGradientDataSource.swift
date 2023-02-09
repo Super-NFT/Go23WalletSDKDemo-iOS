@@ -8,17 +8,17 @@
 
 import UIKit
 
-open class JXSegmentedTitleGradientDataSource: JXSegmentedTitleDataSource {
-    open var titleNormalGradientColors: [CGColor] = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
-    open var titleSelectedGradientColors: [CGColor] = [UIColor(red: 18/255.0, green: 194/255.0, blue: 233/255.0, alpha: 1).cgColor, UIColor(red: 196/255.0, green: 113/255.0, blue: 237/255.0, alpha: 1).cgColor, UIColor(red: 246/255.0, green: 79/255.0, blue: 89/255.0, alpha: 1).cgColor]
-    open var titleGradientStartPoint: CGPoint = CGPoint(x: 0, y: 0)
-    open var titleGradientEndPoint: CGPoint = CGPoint(x: 1, y: 0)
+class JXSegmentedTitleGradientDataSource: JXSegmentedTitleDataSource {
+    var titleNormalGradientColors: [CGColor] = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
+    var titleSelectedGradientColors: [CGColor] = [UIColor(red: 18/255.0, green: 194/255.0, blue: 233/255.0, alpha: 1).cgColor, UIColor(red: 196/255.0, green: 113/255.0, blue: 237/255.0, alpha: 1).cgColor, UIColor(red: 246/255.0, green: 79/255.0, blue: 89/255.0, alpha: 1).cgColor]
+    var titleGradientStartPoint: CGPoint = CGPoint(x: 0, y: 0)
+    var titleGradientEndPoint: CGPoint = CGPoint(x: 1, y: 0)
 
-    open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
+    override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedTitleGradientItemModel()
     }
 
-    open override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         super.preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
 
         guard let itemModel = itemModel as? JXSegmentedTitleGradientItemModel else {
@@ -36,17 +36,16 @@ open class JXSegmentedTitleGradientDataSource: JXSegmentedTitleDataSource {
         }
     }
 
-    //MARK: - JXSegmentedViewDataSource
-    open override func registerCellClass(in segmentedView: JXSegmentedView) {
+    override func registerCellClass(in segmentedView: JXSegmentedView) {
         segmentedView.collectionView.register(JXSegmentedTitleGradientCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    open override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
+    override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
         let cell = segmentedView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         return cell
     }
 
-    open override func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
+    override func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
         super.refreshItemModel(segmentedView, leftItemModel: leftItemModel, rightItemModel: rightItemModel, percent: percent)
 
         guard let leftModel = leftItemModel as? JXSegmentedTitleGradientItemModel, let rightModel = rightItemModel as? JXSegmentedTitleGradientItemModel else {
@@ -59,7 +58,7 @@ open class JXSegmentedTitleGradientDataSource: JXSegmentedTitleDataSource {
         }
     }
 
-    open override func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.refreshItemModel(segmentedView, currentSelectedItemModel: currentSelectedItemModel, willSelectedItemModel: willSelectedItemModel, selectedType: selectedType)
 
         guard let myCurrentSelectedItemModel = currentSelectedItemModel as? JXSegmentedTitleGradientItemModel, let myWillSelectedItemModel = willSelectedItemModel as? JXSegmentedTitleGradientItemModel else {

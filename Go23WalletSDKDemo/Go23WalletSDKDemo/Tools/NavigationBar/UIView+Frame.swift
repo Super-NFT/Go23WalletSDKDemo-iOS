@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public extension UIView{
+extension UIView{
     var hd_width :CGFloat{
         get { return frame.size.width }
         set {

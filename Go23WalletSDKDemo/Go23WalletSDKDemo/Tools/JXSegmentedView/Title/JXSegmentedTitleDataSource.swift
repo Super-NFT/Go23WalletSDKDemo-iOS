@@ -8,32 +8,32 @@
 
 import UIKit
 
-open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
-    open var titles = [String]()
-    open var widthForTitleClosure: ((String)->(CGFloat))?
-    open var titleNumberOfLines: Int = 1
-    open var titleNormalColor: UIColor = .black
-    open var titleSelectedColor: UIColor = .red
-    open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
-    open var titleSelectedFont: UIFont?
-    open var isTitleColorGradientEnabled: Bool = false
-    open var isTitleZoomEnabled: Bool = false
-    open var titleSelectedZoomScale: CGFloat = 1.2
-    open var isTitleStrokeWidthEnabled: Bool = false
-    open var titleSelectedStrokeWidth: CGFloat = -2
-    open var isTitleMaskEnabled: Bool = false
-    open var kern: CGFloat = 0
+class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
+    var titles = [String]()
+    var widthForTitleClosure: ((String)->(CGFloat))?
+    var titleNumberOfLines: Int = 1
+    var titleNormalColor: UIColor = .black
+    var titleSelectedColor: UIColor = .red
+    var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
+    var titleSelectedFont: UIFont?
+    var isTitleColorGradientEnabled: Bool = false
+    var isTitleZoomEnabled: Bool = false
+    var titleSelectedZoomScale: CGFloat = 1.2
+    var isTitleStrokeWidthEnabled: Bool = false
+    var titleSelectedStrokeWidth: CGFloat = -2
+    var isTitleMaskEnabled: Bool = false
+    var kern: CGFloat = 0
 
 
-    open override func preferredItemCount() -> Int {
+    override func preferredItemCount() -> Int {
         return titles.count
     }
 
-    open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
+    override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedTitleItemModel()
     }
 
-    open override func preferredRefreshItemModel( _ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    override func preferredRefreshItemModel( _ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         super.preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
 
         guard let myItemModel = itemModel as? JXSegmentedTitleItemModel else {
@@ -67,7 +67,7 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         }
     }
 
-    open func widthForTitle(_ title: String) -> CGFloat {
+    func widthForTitle(_ title: String) -> CGFloat {
         if widthForTitleClosure != nil {
             return widthForTitleClosure!(title)
         }else {
@@ -76,7 +76,7 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         }
     }
 
-    open override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
+    override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
         var width = super.preferredSegmentedView(segmentedView, widthForItemAt: index)
         if itemWidth == JXSegmentedViewAutomaticDimension {
             width += (dataSource[index] as! JXSegmentedTitleItemModel).textWidth
@@ -87,16 +87,16 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
     }
 
     //MARK: - JXSegmentedViewDataSource
-    open override func registerCellClass(in segmentedView: JXSegmentedView) {
+    override func registerCellClass(in segmentedView: JXSegmentedView) {
         segmentedView.collectionView.register(JXSegmentedTitleCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    open override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
+    override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
         let cell = segmentedView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         return cell
     }
 
-    public override func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat {
+    override func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat {
         let model = dataSource[index] as! JXSegmentedTitleItemModel
         if isTitleZoomEnabled {
             return model.textWidth*model.titleCurrentZoomScale
@@ -105,7 +105,7 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         }
     }
 
-    open override func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
+    override func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
         super.refreshItemModel(segmentedView, leftItemModel: leftItemModel, rightItemModel: rightItemModel, percent: percent)
         
         guard let leftModel = leftItemModel as? JXSegmentedTitleItemModel, let rightModel = rightItemModel as? JXSegmentedTitleItemModel else {
@@ -128,7 +128,7 @@ open class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
         }
     }
 
-    open override func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.refreshItemModel(segmentedView, currentSelectedItemModel: currentSelectedItemModel, willSelectedItemModel: willSelectedItemModel, selectedType: selectedType)
 
         guard let myCurrentSelectedItemModel = currentSelectedItemModel as? JXSegmentedTitleItemModel, let myWillSelectedItemModel = willSelectedItemModel as? JXSegmentedTitleItemModel else {

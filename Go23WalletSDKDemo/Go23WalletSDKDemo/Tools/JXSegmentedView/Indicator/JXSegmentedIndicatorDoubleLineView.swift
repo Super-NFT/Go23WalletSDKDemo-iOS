@@ -8,12 +8,12 @@
 
 import UIKit
 
-open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
-    open var minLineWidthPercent: CGFloat = 0.2
-    public let selectedLineView: UIView = UIView()
-    public let otherLineView: UIView = UIView()
+class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
+    var minLineWidthPercent: CGFloat = 0.2
+    let selectedLineView: UIView = UIView()
+    let otherLineView: UIView = UIView()
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         indicatorHeight = 3
@@ -24,7 +24,7 @@ open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
         addSubview(otherLineView)
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         selectedLineView.backgroundColor = indicatorColor
@@ -48,7 +48,7 @@ open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
         otherLineView.frame = selectedLineView.frame
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -90,7 +90,7 @@ open class JXSegmentedIndicatorDoubleLineView: JXSegmentedIndicatorBaseView {
         }
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

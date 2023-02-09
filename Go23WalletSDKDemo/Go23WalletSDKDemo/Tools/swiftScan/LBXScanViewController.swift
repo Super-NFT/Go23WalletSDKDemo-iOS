@@ -10,37 +10,37 @@ import UIKit
 import Foundation
 import AVFoundation
 
-public protocol LBXScanViewControllerDelegate: class {
+protocol LBXScanViewControllerDelegate: class {
      func scanFinished(scanResult: LBXScanResult, error: String?)
 }
 
-public protocol QRRectDelegate {
+protocol QRRectDelegate {
     func drawwed()
 }
 
-open class LBXScanViewController: UIViewController {
+class LBXScanViewController: UIViewController {
     
-    open weak var scanResultDelegate: LBXScanViewControllerDelegate?
+    weak var scanResultDelegate: LBXScanViewControllerDelegate?
 
-    open var delegate: QRRectDelegate?
+    var delegate: QRRectDelegate?
 
-    open var scanObj: LBXScanWrapper?
+    var scanObj: LBXScanWrapper?
 
-    open var scanStyle: LBXScanViewStyle? = LBXScanViewStyle()
+    var scanStyle: LBXScanViewStyle? = LBXScanViewStyle()
 
-    open var qRScanView: LBXScanView?
+    var qRScanView: LBXScanView?
 
-    open var isOpenInterestRect = false
+    var isOpenInterestRect = false
     
-    open var isSupportContinuous = false;
+    var isSupportContinuous = false;
 
-    public var arrayCodeType: [AVMetadataObject.ObjectType]?
+    var arrayCodeType: [AVMetadataObject.ObjectType]?
 
-    public var isNeedCodeImage = false
+    var isNeedCodeImage = false
 
-    public var readyString: String! = "loading"
+    var readyString: String! = "loading"
 
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -50,22 +50,22 @@ open class LBXScanViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge(rawValue: 0)
     }
 
-    open func setNeedCodeImage(needCodeImg: Bool) {
+    func setNeedCodeImage(needCodeImg: Bool) {
         isNeedCodeImage = needCodeImg
     }
 
 
-    open func setOpenInterestRect(isOpen: Bool) {
+    func setOpenInterestRect(isOpen: Bool) {
         isOpenInterestRect = isOpen
     }
 
-    open override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         drawScanView()
         perform(#selector(LBXScanViewController.startScan), with: nil, afterDelay: 0.3)
     }
 
-    @objc open func startScan() {
+    @objc func startScan() {
         if scanObj == nil {
             var cropRect = CGRect.zero
             if isOpenInterestRect {
@@ -102,7 +102,7 @@ open class LBXScanViewController: UIViewController {
         scanObj?.start()
     }
     
-    open func drawScanView() {
+    func drawScanView() {
         if qRScanView == nil {
             qRScanView = LBXScanView(frame: view.frame, vstyle: scanStyle!)
             view.addSubview(qRScanView!)
@@ -112,7 +112,7 @@ open class LBXScanViewController: UIViewController {
     }
    
 
-    open func handleCodeResult(arrayResult: [LBXScanResult]) {
+    func handleCodeResult(arrayResult: [LBXScanResult]) {
         guard let delegate = scanResultDelegate else {
             fatalError("you must set scanResultDelegate or override this method without super keyword")
         }
@@ -130,13 +130,13 @@ open class LBXScanViewController: UIViewController {
         }
     }
     
-    open override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         qRScanView?.stopScanAnimation()
         scanObj?.stop()
     }
     
-    @objc open func openPhotoAlbum() {
+    @objc func openPhotoAlbum() {
         LBXPermissions.authorizePhotoWith { [weak self] _ in
             let picker = UIImagePickerController()
             picker.sourceType = UIImagePickerController.SourceType.photoLibrary
@@ -149,7 +149,7 @@ open class LBXScanViewController: UIViewController {
 
 extension LBXScanViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true, completion: nil)
         
         let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage

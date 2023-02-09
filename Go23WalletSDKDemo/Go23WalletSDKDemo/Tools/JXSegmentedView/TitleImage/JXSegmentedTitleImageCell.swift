@@ -8,24 +8,24 @@
 
 import UIKit
 
-open class JXSegmentedTitleImageCell: JXSegmentedTitleCell {
-    public let imageView = UIImageView()
+class JXSegmentedTitleImageCell: JXSegmentedTitleCell {
+    let imageView = UIImageView()
     private var currentImageInfo: String?
 
-    open override func prepareForReuse() {
+    override func prepareForReuse() {
         super.prepareForReuse()
 
         currentImageInfo = nil
     }
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         imageView.contentMode = .scaleAspectFit
         contentView.addSubview(imageView)
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         guard let myItemModel = itemModel as? JXSegmentedTitleImageItemModel else {
@@ -57,7 +57,7 @@ open class JXSegmentedTitleImageCell: JXSegmentedTitleCell {
         }
     }
 
-    open override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.reloadData(itemModel: itemModel, selectedType: selectedType )
 
         guard let myItemModel = itemModel as? JXSegmentedTitleImageItemModel else {

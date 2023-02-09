@@ -8,17 +8,17 @@
 
 import UIKit
 
-open class JXSegmentedIndicatorDotLineView: JXSegmentedIndicatorBaseView {
-    open var lineMaxWidth: CGFloat = 50
+class JXSegmentedIndicatorDotLineView: JXSegmentedIndicatorBaseView {
+    var lineMaxWidth: CGFloat = 50
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         indicatorWidth = 10
         indicatorHeight = 10
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         backgroundColor = indicatorColor
@@ -39,7 +39,7 @@ open class JXSegmentedIndicatorDotLineView: JXSegmentedIndicatorBaseView {
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -71,7 +71,7 @@ open class JXSegmentedIndicatorDotLineView: JXSegmentedIndicatorBaseView {
         self.frame.size.width = targetWidth
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

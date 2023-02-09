@@ -8,27 +8,27 @@
 
 import UIKit
 
-open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
+class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
     @available(*, deprecated, renamed: "indicatorWidthIncrement")
-    open var gradientViewWidthIncrement: CGFloat = 20 {
+    var gradientViewWidthIncrement: CGFloat = 20 {
         didSet {
             indicatorWidthIncrement = gradientViewWidthIncrement
         }
     }
 
-    open var gradientColors = [CGColor]()
-    open var gradientLayer: CAGradientLayer {
+    var gradientColors = [CGColor]()
+    var gradientLayer: CAGradientLayer {
         return layer as! CAGradientLayer
     }
 
-    public let gradientMaskLayer: CAShapeLayer = CAShapeLayer()
-    open class override var layerClass: AnyClass {
+    let gradientMaskLayer: CAShapeLayer = CAShapeLayer()
+    class override var layerClass: AnyClass {
         return CAGradientLayer.self
     }
     
     private var gradientMaskLayerFrame = CGRect.zero
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         indicatorWidthIncrement = 20
@@ -43,7 +43,7 @@ open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
         layer.mask = gradientMaskLayer
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         gradientLayer.colors = gradientColors
@@ -71,7 +71,7 @@ open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
         }
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -101,7 +101,7 @@ open class JXSegmentedIndicatorGradientView: JXSegmentedIndicatorBaseView {
         CATransaction.commit()
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

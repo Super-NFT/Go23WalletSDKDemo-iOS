@@ -10,7 +10,7 @@ import UIKit
 
 
 
-public extension UIView {
+extension UIView {
     
     @discardableResult
     func make_superConstraint(fromAttribute:NSLayoutConstraint.Attribute,multiplier: CGFloat = 1.0, constant: CGFloat = 0) -> NSLayoutConstraint {

@@ -9,21 +9,21 @@
 import Foundation
 import UIKit
 
-open class JXSegmentedNumberDataSource: JXSegmentedTitleDataSource {
-    open var numbers = [Int]()
-    open var numberWidthIncrement: CGFloat = 10
-    open var numberBackgroundColor: UIColor = .red
-    open var numberTextColor: UIColor = .white
-    open var numberFont: UIFont = UIFont.systemFont(ofSize: 11)
-    open var numberOffset: CGPoint = CGPoint.zero
-    open var numberStringFormatterClosure: ((Int) -> String)?
-    open var numberHeight: CGFloat = 14
+class JXSegmentedNumberDataSource: JXSegmentedTitleDataSource {
+    var numbers = [Int]()
+    var numberWidthIncrement: CGFloat = 10
+    var numberBackgroundColor: UIColor = .red
+    var numberTextColor: UIColor = .white
+    var numberFont: UIFont = UIFont.systemFont(ofSize: 11)
+    var numberOffset: CGPoint = CGPoint.zero
+    var numberStringFormatterClosure: ((Int) -> String)?
+    var numberHeight: CGFloat = 14
 
-    open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
+    override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedNumberItemModel()
     }
 
-    open override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         super.preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
 
         guard let itemModel = itemModel as? JXSegmentedNumberItemModel else {
@@ -43,12 +43,11 @@ open class JXSegmentedNumberDataSource: JXSegmentedTitleDataSource {
         itemModel.numberHeight = numberHeight
     }
 
-    //MARK: - JXSegmentedViewDataSource
-    open override func registerCellClass(in segmentedView: JXSegmentedView) {
+    override func registerCellClass(in segmentedView: JXSegmentedView) {
         segmentedView.collectionView.register(JXSegmentedNumberCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    open override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
+    override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
         let cell = segmentedView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         return cell
     }

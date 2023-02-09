@@ -8,23 +8,23 @@
 
 import UIKit
 
-public enum JXSegmentedIndicatorLineStyle {
+enum JXSegmentedIndicatorLineStyle {
     case normal
     case lengthen
     case lengthenOffset
 }
 
-open class JXSegmentedIndicatorLineView: JXSegmentedIndicatorBaseView {
-    open var lineStyle: JXSegmentedIndicatorLineStyle = .normal
-    open var lineScrollOffsetX: CGFloat = 10
+class JXSegmentedIndicatorLineView: JXSegmentedIndicatorBaseView {
+    var lineStyle: JXSegmentedIndicatorLineStyle = .normal
+    var lineScrollOffsetX: CGFloat = 10
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         indicatorHeight = 3
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         backgroundColor = indicatorColor
@@ -45,7 +45,7 @@ open class JXSegmentedIndicatorLineView: JXSegmentedIndicatorBaseView {
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -93,7 +93,7 @@ open class JXSegmentedIndicatorLineView: JXSegmentedIndicatorBaseView {
         self.frame.size.width = targetWidth
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

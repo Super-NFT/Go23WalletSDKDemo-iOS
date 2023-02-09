@@ -8,10 +8,10 @@
 
 import UIKit
 
-open class JXSegmentedNumberCell: JXSegmentedTitleCell {
-    public let numberLabel = UILabel()
+class JXSegmentedNumberCell: JXSegmentedTitleCell {
+    let numberLabel = UILabel()
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         numberLabel.isHidden = true
@@ -20,7 +20,7 @@ open class JXSegmentedNumberCell: JXSegmentedTitleCell {
         contentView.addSubview(numberLabel)
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         guard let myItemModel = itemModel as? JXSegmentedNumberItemModel else {
@@ -34,7 +34,7 @@ open class JXSegmentedNumberCell: JXSegmentedTitleCell {
         numberLabel.center = CGPoint(x: titleLabel.frame.maxX + myItemModel.numberOffset.x, y: titleLabel.frame.minY + myItemModel.numberOffset.y)
     }
 
-    open override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.reloadData(itemModel: itemModel, selectedType: selectedType )
 
         guard let myItemModel = itemModel as? JXSegmentedNumberItemModel else {

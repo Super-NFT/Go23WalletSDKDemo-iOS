@@ -7,8 +7,7 @@
 
 import Foundation
 import UIKit
-import SnapKit
-import SDWebImage
+import Kingfisher
 import Go23SDK
 
 class Go23ChooseAlertView: UIView {
@@ -183,8 +182,7 @@ class Go23ChooseAlertViewCell: UITableViewCell {
     
     
     func filled(cover: String, title: String, isShow: Bool) {
-        coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil, completed: nil)
-
+        coverImgv.kf.setImage(with: URL(string: cover))
         titleLabel.text = title
         if isShow {
             arrowImgv.isHidden = false

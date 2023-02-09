@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class LBXScanView: UIView {
+class LBXScanView: UIView {
     
     var viewStyle = LBXScanViewStyle()
 
@@ -26,7 +26,7 @@ open class LBXScanView: UIView {
 
     var isAnimationing = false
     
-    public init(frame: CGRect, vstyle: LBXScanViewStyle) {
+    init(frame: CGRect, vstyle: LBXScanViewStyle) {
         viewStyle = vstyle
 
         switch viewStyle.anmiationStyle {
@@ -58,7 +58,7 @@ open class LBXScanView: UIView {
         backgroundColor = UIColor.clear
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.init()
     }
 
@@ -117,7 +117,7 @@ open class LBXScanView: UIView {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    open override func draw(_ rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         drawScanRect()
     }
     
@@ -327,7 +327,7 @@ open class LBXScanView: UIView {
 
 }
 
-public extension LBXScanView {
+extension LBXScanView {
     
     func getScanRectForAnimation() -> CGRect {
         let XRetangleLeft = viewStyle.xScanRetangleOffset

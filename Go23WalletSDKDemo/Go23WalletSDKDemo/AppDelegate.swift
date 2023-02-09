@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import IQKeyboardManager
-import SDWebImageWebPCoder
-import CoreTelephony
 import Go23SDK
 
 @main
@@ -18,16 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        let WebPCoder = SDImageWebPCoder.shared
-        SDImageCodersManager.shared.addCoder(WebPCoder) 
-        
-        IQKeyboardManager.shared().isEnabled = true
-        IQKeyboardManager.shared().isEnableAutoToolbar = false
-        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
-        IQKeyboardManager.shared().previousNextDisplayMode = .alwaysHide
-        IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
 
         // Replace yout appKey and secretKey here.
         Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",

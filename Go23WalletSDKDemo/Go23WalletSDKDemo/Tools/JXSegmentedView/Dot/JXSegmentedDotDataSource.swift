@@ -8,18 +8,18 @@
 
 import UIKit
 
-open class JXSegmentedDotDataSource: JXSegmentedTitleDataSource {
-    open var dotStates = [Bool]()
-    open var dotSize = CGSize(width: 10, height: 10)
-    open var dotCornerRadius: CGFloat = JXSegmentedViewAutomaticDimension
-    open var dotColor = UIColor.red
-    open var dotOffset: CGPoint = CGPoint.zero
+class JXSegmentedDotDataSource: JXSegmentedTitleDataSource {
+    var dotStates = [Bool]()
+    var dotSize = CGSize(width: 10, height: 10)
+    var dotCornerRadius: CGFloat = JXSegmentedViewAutomaticDimension
+    var dotColor = UIColor.red
+    var dotOffset: CGPoint = CGPoint.zero
 
-    open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
+    override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedDotItemModel()
     }
 
-    open override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         super.preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
 
         guard let itemModel = itemModel as? JXSegmentedDotItemModel else {
@@ -37,12 +37,11 @@ open class JXSegmentedDotDataSource: JXSegmentedTitleDataSource {
         }
     }
 
-    //MARK: - JXSegmentedViewDataSource
-    open override func registerCellClass(in segmentedView: JXSegmentedView) {
+    override func registerCellClass(in segmentedView: JXSegmentedView) {
         segmentedView.collectionView.register(JXSegmentedDotCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    open override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
+    override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
         let cell = segmentedView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         return cell
     }

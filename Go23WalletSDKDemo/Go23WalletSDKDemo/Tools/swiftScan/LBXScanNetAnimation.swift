@@ -13,7 +13,7 @@ class LBXScanNetAnimation: UIImageView {
     var isAnimationing = false
     var animationRect = CGRect.zero
 
-    public static func instance() -> LBXScanNetAnimation {
+    static func instance() -> LBXScanNetAnimation {
         return LBXScanNetAnimation()
     }
     

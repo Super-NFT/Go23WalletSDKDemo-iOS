@@ -9,17 +9,17 @@
 import UIKit
 import AVFoundation
 
-public struct LBXScanResult {
+struct LBXScanResult {
     
-    public var strScanned: String?
+    var strScanned: String?
     
-    public var imgScanned: UIImage?
+    var imgScanned: UIImage?
     
-    public var strBarCodeType: String?
+    var strBarCodeType: String?
 
-    public var arrayCorner: [AnyObject]?
+    var arrayCorner: [AnyObject]?
 
-    public init(str: String?, img: UIImage?, barCodeType: String?, corner: [AnyObject]?) {
+    init(str: String?, img: UIImage?, barCodeType: String?, corner: [AnyObject]?) {
         strScanned = str
         imgScanned = img
         strBarCodeType = barCodeType
@@ -29,7 +29,7 @@ public struct LBXScanResult {
 
 
 
-open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
+class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
     
     let device = AVCaptureDevice.default(for: AVMediaType.video)
     var input: AVCaptureDeviceInput?
@@ -122,7 +122,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         }
     }
 
-    public func metadataOutput(_ output: AVCaptureMetadataOutput,
+    func metadataOutput(_ output: AVCaptureMetadataOutput,
                                didOutput metadataObjects: [AVMetadataObject],
                                from connection: AVCaptureConnection) {
         captureOutput(output, didOutputMetadataObjects: metadataObjects, from: connection)
@@ -142,7 +142,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    open func captureOutput(_ captureOutput: AVCaptureOutput,
+    func captureOutput(_ captureOutput: AVCaptureOutput,
                             didOutputMetadataObjects metadataObjects: [Any],
                             from connection: AVCaptureConnection!) {
         guard isNeedScanResult else {
@@ -183,7 +183,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    open func captureImage() {
+    func captureImage() {
         guard let stillImageConnection = connectionWithMediaType(mediaType: AVMediaType.video as AVMediaType,
                                                                  connections: stillImageOutput.connections as [AnyObject]) else {
                                                                     return
@@ -202,7 +202,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         })
     }
     
-    open func connectionWithMediaType(mediaType: AVMediaType, connections: [AnyObject]) -> AVCaptureConnection? {
+    func connectionWithMediaType(mediaType: AVMediaType, connections: [AnyObject]) -> AVCaptureConnection? {
         for connection in connections {
             guard let connectionTmp = connection as? AVCaptureConnection else {
                 continue
@@ -216,21 +216,21 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
     
     
 
-    open func changeScanRect(cropRect: CGRect) {
+    func changeScanRect(cropRect: CGRect) {
         stop()
         output.rectOfInterest = cropRect
         start()
     }
 
-    open func changeScanType(objType: [AVMetadataObject.ObjectType]) {
+    func changeScanType(objType: [AVMetadataObject.ObjectType]) {
         output.metadataObjectTypes = objType
     }
     
-    open func isGetFlash() -> Bool {
+    func isGetFlash() -> Bool {
         return device != nil && device!.hasFlash && device!.hasTorch
     }
     
-    open func setTorch(torch: Bool) {
+    func setTorch(torch: Bool) {
         guard isGetFlash() else {
             return
         }
@@ -244,7 +244,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
     }
     
     
-    open func changeTorch() {
+    func changeTorch() {
         let torch = input?.device.torchMode == .off
         setTorch(torch: torch)
     }
@@ -271,7 +271,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         return types
     }
     
-    public static func recognizeQRImage(image: UIImage) -> [LBXScanResult] {
+    static func recognizeQRImage(image: UIImage) -> [LBXScanResult] {
         guard let cgImage = image.cgImage else {
             return []
         }
@@ -293,7 +293,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
     }
     
     
-    public static func createCode(codeType: String, codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
+    static func createCode(codeType: String, codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
         let stringData = codeString.data(using: .utf8)
 
         let qrFilter = CIFilter(name: codeType)
@@ -324,7 +324,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         return codeImage
     }
     
-    public static func createCode128(codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
+    static func createCode128(codeString: String, size: CGSize, qrColor: UIColor, bkColor: UIColor) -> UIImage? {
         let stringData = codeString.data(using: String.Encoding.utf8)
 
         let qrFilter = CIFilter(name: "CICode128BarcodeGenerator")
@@ -353,14 +353,14 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
         return imageRotation(image: img, orientation: UIImage.Orientation.right)
     }
     
-    public static func getConcreteCodeImage(srcCodeImage: UIImage, rect: CGRect) -> UIImage? {
+    static func getConcreteCodeImage(srcCodeImage: UIImage, rect: CGRect) -> UIImage? {
         guard !rect.isEmpty, let img = imageByCroppingWithStyle(srcImg: srcCodeImage, rect: rect) else {
             return nil
         }
         return imageRotation(image: img, orientation: UIImage.Orientation.right)
     }
     
-    public static func getConcreteCodeRectFromImage(srcCodeImage: UIImage, codeResult: LBXScanResult) -> CGRect {
+    static func getConcreteCodeRectFromImage(srcCodeImage: UIImage, codeResult: LBXScanResult) -> CGRect {
         guard let corner = codeResult.arrayCorner as? [[String: Float]], corner.count >= 4 else {
             return .zero
         }
@@ -397,7 +397,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
                       height: (yMaxBottom - yMinTop) * imgW)
     }
     
-    public static func addImageLogo(srcImg: UIImage, logoImg: UIImage, logoSize: CGSize) -> UIImage {
+    static func addImageLogo(srcImg: UIImage, logoImg: UIImage, logoSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContext(srcImg.size)
         srcImg.draw(in: CGRect(x: 0, y: 0, width: srcImg.size.width, height: srcImg.size.height))
         let rect = CGRect(x: srcImg.size.width / 2 - logoSize.width / 2,

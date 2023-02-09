@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol JXSegmentedIndicatorProtocol {
+protocol JXSegmentedIndicatorProtocol {
     var isIndicatorConvertToItemFrameEnabled: Bool { get }
     
 

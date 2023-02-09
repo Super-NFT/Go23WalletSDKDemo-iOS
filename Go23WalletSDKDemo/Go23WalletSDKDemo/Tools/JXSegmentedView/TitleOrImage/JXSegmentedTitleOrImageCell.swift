@@ -8,30 +8,30 @@
 
 import UIKit
 
-open class JXSegmentedTitleOrImageCell: JXSegmentedTitleCell {
-    public let imageView = UIImageView()
+class JXSegmentedTitleOrImageCell: JXSegmentedTitleCell {
+    let imageView = UIImageView()
     private var currentImageInfo: String?
 
-    open override func prepareForReuse() {
+    override func prepareForReuse() {
         super.prepareForReuse()
 
         currentImageInfo = nil
     }
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         imageView.contentMode = .scaleAspectFit
         contentView.addSubview(imageView)
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         imageView.center = contentView.center
     }
 
-    open override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.reloadData(itemModel: itemModel, selectedType: selectedType )
 
         guard let myItemModel = itemModel as? JXSegmentedTitleOrImageItemModel else {
@@ -62,7 +62,7 @@ open class JXSegmentedTitleOrImageCell: JXSegmentedTitleCell {
         setNeedsLayout()
     }
 
-    open override func preferredTitleZoomAnimateClosure(itemModel: JXSegmentedTitleItemModel, baseScale: CGFloat) -> JXSegmentedCellSelectedAnimationClosure {
+    override func preferredTitleZoomAnimateClosure(itemModel: JXSegmentedTitleItemModel, baseScale: CGFloat) -> JXSegmentedCellSelectedAnimationClosure {
         guard let myItemModel = itemModel as? JXSegmentedTitleOrImageItemModel else {
             return super.preferredTitleZoomAnimateClosure(itemModel: itemModel, baseScale: baseScale)
         }
@@ -84,7 +84,7 @@ open class JXSegmentedTitleOrImageCell: JXSegmentedTitleCell {
         }
     }
 
-    open override func preferredTitleStrokeWidthAnimateClosure(itemModel: JXSegmentedTitleItemModel, attriText: NSMutableAttributedString) -> JXSegmentedCellSelectedAnimationClosure {
+    override func preferredTitleStrokeWidthAnimateClosure(itemModel: JXSegmentedTitleItemModel, attriText: NSMutableAttributedString) -> JXSegmentedCellSelectedAnimationClosure {
         guard let myItemModel = itemModel as? JXSegmentedTitleOrImageItemModel else {
             return super.preferredTitleStrokeWidthAnimateClosure(itemModel: itemModel, attriText: attriText)
         }
@@ -107,7 +107,7 @@ open class JXSegmentedTitleOrImageCell: JXSegmentedTitleCell {
         }
     }
 
-    open override func preferredTitleColorAnimateClosure(itemModel: JXSegmentedTitleItemModel) -> JXSegmentedCellSelectedAnimationClosure {
+    override func preferredTitleColorAnimateClosure(itemModel: JXSegmentedTitleItemModel) -> JXSegmentedCellSelectedAnimationClosure {
         guard let myItemModel = itemModel as? JXSegmentedTitleOrImageItemModel else {
             return super.preferredTitleColorAnimateClosure(itemModel: itemModel)
         }

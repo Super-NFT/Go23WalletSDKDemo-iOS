@@ -8,24 +8,24 @@
 
 import UIKit
 
-public let JXSegmentedViewAutomaticDimension: CGFloat = -1
+let JXSegmentedViewAutomaticDimension: CGFloat = -1
 
 
-public enum JXSegmentedViewItemSelectedType {
+enum JXSegmentedViewItemSelectedType {
     case unknown
     case code
     case click
     case scroll
 }
 
-public protocol JXSegmentedViewListContainer {
+protocol JXSegmentedViewListContainer {
     var defaultSelectedIndex: Int { set get }
     func contentScrollView() -> UIScrollView
     func reloadData()
     func didClickSelectedItem(at index: Int)
 }
 
-public protocol JXSegmentedViewDataSource: AnyObject {
+protocol JXSegmentedViewDataSource: AnyObject {
     var isItemWidthZoomEnabled: Bool { get }
     var selectedAnimationDuration: TimeInterval { get }
     var itemSpacing: CGFloat { get }
@@ -39,7 +39,6 @@ public protocol JXSegmentedViewDataSource: AnyObject {
 
     func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat
 
-    ///
     func registerCellClass(in segmentedView: JXSegmentedView)
 
     func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell
@@ -52,7 +51,7 @@ public protocol JXSegmentedViewDataSource: AnyObject {
 }
 
 
-public protocol JXSegmentedViewDelegate: AnyObject {
+protocol JXSegmentedViewDelegate: AnyObject {
 
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int)
 
@@ -65,7 +64,7 @@ public protocol JXSegmentedViewDelegate: AnyObject {
     func segmentedView(_ segmentedView: JXSegmentedView, canClickItemAt index: Int) -> Bool
 }
 
-public extension JXSegmentedViewDelegate {
+extension JXSegmentedViewDelegate {
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) { }
     func segmentedView(_ segmentedView: JXSegmentedView, didClickSelectedItemAt index: Int) { }
     func segmentedView(_ segmentedView: JXSegmentedView, didScrollSelectedItemAt index: Int) { }
@@ -73,15 +72,15 @@ public extension JXSegmentedViewDelegate {
     func segmentedView(_ segmentedView: JXSegmentedView, canClickItemAt index: Int) -> Bool { return true }
 }
 
-open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
-    open weak var dataSource: JXSegmentedViewDataSource? {
+class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
+    weak var dataSource: JXSegmentedViewDataSource? {
         didSet {
             dataSource?.reloadData(selectedIndex: selectedIndex)
         }
     }
-    open weak var delegate: JXSegmentedViewDelegate?
-    open private(set) var collectionView: JXSegmentedCollectionView!
-    open var contentScrollView: UIScrollView? {
+    weak var delegate: JXSegmentedViewDelegate?
+    private(set) var collectionView: JXSegmentedCollectionView!
+    var contentScrollView: UIScrollView? {
         willSet {
             contentScrollView?.removeObserver(self, forKeyPath: "contentOffset")
         }
@@ -90,18 +89,18 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
             contentScrollView?.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
         }
     }
-    public var listContainer: JXSegmentedViewListContainer? = nil {
+    var listContainer: JXSegmentedViewListContainer? = nil {
         didSet {
             listContainer?.defaultSelectedIndex = defaultSelectedIndex
             contentScrollView = listContainer?.contentScrollView()
         }
     }
-    open var indicators = [JXSegmentedIndicatorProtocol & UIView]() {
+    var indicators = [JXSegmentedIndicatorProtocol & UIView]() {
         didSet {
             collectionView.indicators = indicators
         }
     }
-    open var defaultSelectedIndex: Int = 0 {
+    var defaultSelectedIndex: Int = 0 {
         didSet {
             selectedIndex = defaultSelectedIndex
             if listContainer != nil {
@@ -109,10 +108,10 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
             }
         }
     }
-    open private(set) var selectedIndex: Int = 0
-    open var contentEdgeInsetLeft: CGFloat = JXSegmentedViewAutomaticDimension
-    open var contentEdgeInsetRight: CGFloat = JXSegmentedViewAutomaticDimension
-    open var isContentScrollViewClickTransitionAnimationEnabled: Bool = true
+    private(set) var selectedIndex: Int = 0
+    var contentEdgeInsetLeft: CGFloat = JXSegmentedViewAutomaticDimension
+    var contentEdgeInsetRight: CGFloat = JXSegmentedViewAutomaticDimension
+    var isContentScrollViewClickTransitionAnimationEnabled: Bool = true
 
     private var itemDataSource = [JXSegmentedBaseItemModel]()
     private var innerItemSpacing: CGFloat = 0
@@ -124,13 +123,13 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         contentScrollView?.removeObserver(self, forKeyPath: "contentOffset")
     }
 
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
 
         commonInit()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         commonInit()
@@ -159,7 +158,7 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         addSubview(collectionView)
     }
 
-    open override func willMove(toSuperview newSuperview: UIView?) {
+    override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
 
         var nextResponder: UIResponder? = newSuperview
@@ -172,7 +171,7 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         }
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         let targetFrame = CGRect(x: 0, y: 0, width: bounds.size.width, height: floor(bounds.size.height))
@@ -189,8 +188,7 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         }
     }
 
-    //MARK: - Public
-    public final func dequeueReusableCell(withReuseIdentifier identifier: String, at index: Int) -> JXSegmentedBaseCell {
+    final func dequeueReusableCell(withReuseIdentifier identifier: String, at index: Int) -> JXSegmentedBaseCell {
         let indexPath = IndexPath(item: index, section: 0)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         guard cell.isKind(of: JXSegmentedBaseCell.self) else {
@@ -199,12 +197,12 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         return cell as! JXSegmentedBaseCell
     }
 
-    open func reloadData() {
+    func reloadData() {
         reloadDataWithoutListContainer()
         listContainer?.reloadData()
     }
 
-    open func reloadDataWithoutListContainer() {
+    func reloadDataWithoutListContainer() {
         dataSource?.reloadData(selectedIndex: selectedIndex)
         dataSource?.registerCellClass(in: self)
         if let itemSource = dataSource?.itemDataSource(in: self) {
@@ -311,7 +309,7 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         collectionView.collectionViewLayout.invalidateLayout()
     }
 
-    open func reloadItem(at index: Int) {
+    func reloadItem(at index: Int) {
         guard index >= 0 && index < itemDataSource.count else {
             return
         }
@@ -322,12 +320,11 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
     }
 
 
-    open func selectItemAt(index: Int) {
+    func selectItemAt(index: Int) {
         selectItemAt(index: index, selectedType: .code)
     }
 
-    //MARK: - KVO
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentOffset" {
             let contentOffset = change?[NSKeyValueChangeKey.newKey] as! CGPoint
             if contentScrollView?.isTracking == true || contentScrollView?.isDecelerating == true {
@@ -413,7 +410,6 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         }
     }
 
-    //MARK: - Private
     private func clickSelectItemAt(index: Int) {
         guard delegate?.segmentedView(self, canClickItemAt: index) != false else {
             return
@@ -576,15 +572,15 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
 }
 
 extension JXSegmentedView: UICollectionViewDataSource {
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemDataSource.count
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = dataSource?.segmentedView(self, cellForItemAt: indexPath.item) {
             cell.reloadData(itemModel: itemDataSource[indexPath.item], selectedType: .unknown)
             return cell
@@ -595,7 +591,7 @@ extension JXSegmentedView: UICollectionViewDataSource {
 }
 
 extension JXSegmentedView: UICollectionViewDelegate {
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var isTransitionAnimating = false
         for itemModel in itemDataSource {
             if itemModel.isTransitionAnimating {
@@ -610,18 +606,18 @@ extension JXSegmentedView: UICollectionViewDelegate {
 }
 
 extension JXSegmentedView: UICollectionViewDelegateFlowLayout {
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: getContentEdgeInsetLeft(), bottom: 0, right: getContentEdgeInsetRight())
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: itemDataSource[indexPath.item].itemWidth, height: collectionView.bounds.size.height)
     }
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return innerItemSpacing
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return innerItemSpacing
     }
 }

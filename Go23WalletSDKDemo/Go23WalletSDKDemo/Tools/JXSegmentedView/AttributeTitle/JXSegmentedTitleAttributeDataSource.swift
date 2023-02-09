@@ -8,21 +8,21 @@
 
 import UIKit
 
-open class JXSegmentedTitleAttributeDataSource: JXSegmentedBaseDataSource {
-    open var attributedTitles = [NSAttributedString]()
-    open var selectedAttributedTitles: [NSAttributedString]?
-    open var widthForTitleClosure: ((NSAttributedString)->(CGFloat))?
-    open var titleNumberOfLines: Int = 2
+class JXSegmentedTitleAttributeDataSource: JXSegmentedBaseDataSource {
+    var attributedTitles = [NSAttributedString]()
+    var selectedAttributedTitles: [NSAttributedString]?
+    var widthForTitleClosure: ((NSAttributedString)->(CGFloat))?
+    var titleNumberOfLines: Int = 2
 
-    open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
+    override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedTitleAttributeItemModel()
     }
 
-    open override func preferredItemCount() -> Int {
+    override func preferredItemCount() -> Int {
         return attributedTitles.count
     }
 
-    open override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         super.preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
 
         guard let myItemModel = itemModel as? JXSegmentedTitleAttributeItemModel else {
@@ -35,7 +35,7 @@ open class JXSegmentedTitleAttributeDataSource: JXSegmentedBaseDataSource {
         myItemModel.titleNumberOfLines = titleNumberOfLines
     }
 
-    open func widthForTitle(_ title: NSAttributedString?, selectedTitle: NSAttributedString?) -> CGFloat {
+    func widthForTitle(_ title: NSAttributedString?, selectedTitle: NSAttributedString?) -> CGFloat {
         let attriText = selectedTitle != nil ? selectedTitle : title
         guard let text = attriText else {
             return 0
@@ -49,7 +49,7 @@ open class JXSegmentedTitleAttributeDataSource: JXSegmentedBaseDataSource {
     }
 
 
-    open override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
+    override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
         var width: CGFloat = 0
         if itemWidth == JXSegmentedViewAutomaticDimension {
             let myItemModel = dataSource[index] as! JXSegmentedTitleAttributeItemModel
@@ -60,12 +60,11 @@ open class JXSegmentedTitleAttributeDataSource: JXSegmentedBaseDataSource {
         return width
     }
 
-    //MARK: - JXSegmentedViewDataSource
-    open override func registerCellClass(in segmentedView: JXSegmentedView) {
+    override func registerCellClass(in segmentedView: JXSegmentedView) {
         segmentedView.collectionView.register(JXSegmentedTitleAttributeCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    open override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
+    override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
         let cell = segmentedView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         return cell
     }

@@ -6,15 +6,10 @@
 //
 
 import UIKit
-import SnapKit
-import IQKeyboardManager
-import MBProgressHUD
 import Go23SDK
 
 class Go23AddNFTView: UIView {
-    
-    private var hud: MBProgressHUD?
-    
+        
     var closeBlock: (()->())?
 
     override init(frame: CGRect) {
@@ -22,7 +17,7 @@ class Go23AddNFTView: UIView {
         
         initSubviews()
         
-        IQKeyboardManager.shared().keyboardDistanceFromTextField = 100
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 100
         
     }
     

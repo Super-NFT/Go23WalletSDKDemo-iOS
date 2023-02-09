@@ -9,21 +9,21 @@
 import Foundation
 import  UIKit
 
-open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
-    open var dataSource = [JXSegmentedBaseItemModel]()
-    open var itemWidth: CGFloat = JXSegmentedViewAutomaticDimension
-    open var itemWidthIncrement: CGFloat = 0
+class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
+    var dataSource = [JXSegmentedBaseItemModel]()
+    var itemWidth: CGFloat = JXSegmentedViewAutomaticDimension
+    var itemWidthIncrement: CGFloat = 0
 
-    open var itemSpacing: CGFloat = 20
-    open var isItemSpacingAverageEnabled: Bool = true
-    open var isItemTransitionEnabled: Bool = true
-    open var isSelectedAnimable: Bool = false
-    open var selectedAnimationDuration: TimeInterval = 0.25
-    open var isItemWidthZoomEnabled: Bool = false
-    open var itemWidthSelectedZoomScale: CGFloat = 1.5
+    var itemSpacing: CGFloat = 20
+    var isItemSpacingAverageEnabled: Bool = true
+    var isItemTransitionEnabled: Bool = true
+    var isSelectedAnimable: Bool = false
+    var selectedAnimationDuration: TimeInterval = 0.25
+    var isItemWidthZoomEnabled: Bool = false
+    var itemWidthSelectedZoomScale: CGFloat = 1.5
 
     @available(*, deprecated, renamed: "itemWidth")
-    open var itemContentWidth: CGFloat = JXSegmentedViewAutomaticDimension {
+    var itemContentWidth: CGFloat = JXSegmentedViewAutomaticDimension {
         didSet {
             itemWidth = itemContentWidth
         }
@@ -35,11 +35,10 @@ open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
         animator?.stop()
     }
 
-    public init() {
+    init() {
     }
 
-    ///
-    open func reloadData(selectedIndex: Int) {
+    func reloadData(selectedIndex: Int) {
         dataSource.removeAll()
         for index in 0..<preferredItemCount() {
             let itemModel = preferredItemModelInstance()
@@ -48,19 +47,19 @@ open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
         }
     }
 
-    open func preferredItemCount() -> Int {
+    func preferredItemCount() -> Int {
         return 0
     }
 
-    open func preferredItemModelInstance() -> JXSegmentedBaseItemModel  {
+    func preferredItemModelInstance() -> JXSegmentedBaseItemModel  {
         return JXSegmentedBaseItemModel()
     }
 
-    open func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
+    func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
         return itemWidthIncrement
     }
 
-    open func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         itemModel.index = index
         itemModel.isItemTransitionEnabled = isItemTransitionEnabled
         itemModel.isSelectedAnimable = isSelectedAnimable
@@ -77,28 +76,27 @@ open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
         }
     }
 
-    //MARK: - JXSegmentedViewDataSource
-    open func itemDataSource(in segmentedView: JXSegmentedView) -> [JXSegmentedBaseItemModel] {
+    func itemDataSource(in segmentedView: JXSegmentedView) -> [JXSegmentedBaseItemModel] {
         return dataSource
     }
 
-    public final func segmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
+    final func segmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
         return preferredSegmentedView(segmentedView, widthForItemAt: index)
     }
 
-    public func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat {
+    func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat {
         return self.segmentedView(segmentedView, widthForItemAt: index)
     }
 
-    open func registerCellClass(in segmentedView: JXSegmentedView) {
+    func registerCellClass(in segmentedView: JXSegmentedView) {
 
     }
 
-    open func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
+    func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
         return JXSegmentedBaseCell()
     }
 
-    open func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         currentSelectedItemModel.isSelected = false
         willSelectedItemModel.isSelected = true
 
@@ -124,7 +122,7 @@ open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
         }
     }
 
-    open func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
+    func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
         animator?.stop()
         animator = nil
         if isItemWidthZoomEnabled && isItemTransitionEnabled {
@@ -136,7 +134,7 @@ open class JXSegmentedBaseDataSource: JXSegmentedViewDataSource {
         }
     }
 
-    public final func refreshItemModel(_ segmentedView: JXSegmentedView, _ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    final func refreshItemModel(_ segmentedView: JXSegmentedView, _ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
     }
 

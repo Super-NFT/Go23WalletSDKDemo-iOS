@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol TokenHeaderViewDelegate: AnyObject {
     func receiveBtnClick()
@@ -104,8 +105,8 @@ class Go23TokenHeaderView: UIView {
             make.left.equalToSuperview()
             make.width.height.equalTo(44)
         }
-        coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
-        sourceImgv.sd_setImage(with: URL(string: sourceImg), placeholderImage: nil)
+        coverImgv.kf.setImage(with: URL(string: cover))
+        sourceImgv.kf.setImage(with: URL(string: sourceImg))
         titleLabel.text = type
         nameLabel.text = name
 //        numLabel.text = "\(num)"

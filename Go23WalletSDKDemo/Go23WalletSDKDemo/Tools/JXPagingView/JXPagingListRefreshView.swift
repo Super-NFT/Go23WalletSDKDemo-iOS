@@ -8,16 +8,16 @@
 
 import UIKit
 
-open class JXPagingListRefreshView: JXPagingView {
+class JXPagingListRefreshView: JXPagingView {
     private var lastScrollingListViewContentOffsetY: CGFloat = 0
 
-    public override init(delegate: JXPagingViewDelegate, listContainerType: JXPagingListContainerType = .collectionView) {
+    override init(delegate: JXPagingViewDelegate, listContainerType: JXPagingListContainerType = .collectionView) {
         super.init(delegate: delegate, listContainerType: listContainerType)
 
         mainTableView.bounces = false
     }
 
-    override open func preferredProcessMainTableViewDidScroll(_ scrollView: UIScrollView) {
+    override func preferredProcessMainTableViewDidScroll(_ scrollView: UIScrollView) {
         if pinSectionHeaderVerticalOffset != 0 {
             if !(currentScrollingListView != nil && currentScrollingListView!.contentOffset.y > minContentOffsetYInListScrollView(currentScrollingListView!)) {
                 if scrollView.contentOffset.y <= 0 {
@@ -47,7 +47,7 @@ open class JXPagingListRefreshView: JXPagingView {
         }
     }
     
-    override open func preferredProcessListViewDidScroll(scrollView: UIScrollView) {
+    override func preferredProcessListViewDidScroll(scrollView: UIScrollView) {
         guard let currentScrollingListView = currentScrollingListView else { return }
         var shouldProcess = true
         if currentScrollingListView.contentOffset.y > lastScrollingListViewContentOffsetY {

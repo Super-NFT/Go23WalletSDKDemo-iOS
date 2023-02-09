@@ -8,13 +8,13 @@
 
 import UIKit
 
-open class JXSegmentedTitleCell: JXSegmentedBaseCell {
-    public let titleLabel = UILabel()
-    public let maskTitleLabel = UILabel()
-    public let titleMaskLayer = CALayer()
-    public let maskTitleMaskLayer = CALayer()
+class JXSegmentedTitleCell: JXSegmentedBaseCell {
+    let titleLabel = UILabel()
+    let maskTitleLabel = UILabel()
+    let titleMaskLayer = CALayer()
+    let maskTitleMaskLayer = CALayer()
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         titleLabel.textAlignment = .center
@@ -30,7 +30,7 @@ open class JXSegmentedTitleCell: JXSegmentedBaseCell {
         maskTitleLabel.layer.mask = maskTitleMaskLayer
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         let labelSize = titleLabel.sizeThatFits(self.contentView.bounds.size)
@@ -42,7 +42,7 @@ open class JXSegmentedTitleCell: JXSegmentedBaseCell {
         maskTitleLabel.center = contentView.center
     }
 
-    open override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.reloadData(itemModel: itemModel, selectedType: selectedType )
 
         guard let myItemModel = itemModel as? JXSegmentedTitleItemModel else {
@@ -136,7 +136,6 @@ open class JXSegmentedTitleCell: JXSegmentedBaseCell {
             maskTitleLabel.isHidden = true
             titleLabel.layer.mask = nil
             if myItemModel.isSelectedAnimable && canStartSelectedAnimation(itemModel: itemModel, selectedType: selectedType) {
-                //允许动画且当前是点击的
                 let titleColorClosure = preferredTitleColorAnimateClosure(itemModel: myItemModel)
                 appendSelectedAnimationClosure(closure: titleColorClosure)
             }else {
@@ -149,10 +148,9 @@ open class JXSegmentedTitleCell: JXSegmentedBaseCell {
         setNeedsLayout()
     }
 
-    open func preferredTitleZoomAnimateClosure(itemModel: JXSegmentedTitleItemModel, baseScale: CGFloat) -> JXSegmentedCellSelectedAnimationClosure {
+    func preferredTitleZoomAnimateClosure(itemModel: JXSegmentedTitleItemModel, baseScale: CGFloat) -> JXSegmentedCellSelectedAnimationClosure {
         return {[weak self] (percnet) in
             if itemModel.isSelected {
-                //将要选中，scale从小到大插值渐变
                 itemModel.titleCurrentZoomScale = JXSegmentedViewTool.interpolate(from: itemModel.titleNormalZoomScale, to: itemModel.titleSelectedZoomScale, percent: percnet)
             }else {
                 itemModel.titleCurrentZoomScale = JXSegmentedViewTool.interpolate(from: itemModel.titleSelectedZoomScale, to:itemModel.titleNormalZoomScale , percent: percnet)
@@ -163,7 +161,7 @@ open class JXSegmentedTitleCell: JXSegmentedBaseCell {
         }
     }
 
-    open func preferredTitleStrokeWidthAnimateClosure(itemModel: JXSegmentedTitleItemModel, attriText: NSMutableAttributedString) -> JXSegmentedCellSelectedAnimationClosure{
+    func preferredTitleStrokeWidthAnimateClosure(itemModel: JXSegmentedTitleItemModel, attriText: NSMutableAttributedString) -> JXSegmentedCellSelectedAnimationClosure{
         return {[weak self] (percent) in
             if itemModel.isSelected {
                 itemModel.titleCurrentStrokeWidth = JXSegmentedViewTool.interpolate(from: itemModel.titleNormalStrokeWidth, to: itemModel.titleSelectedStrokeWidth, percent: percent)
@@ -176,7 +174,7 @@ open class JXSegmentedTitleCell: JXSegmentedBaseCell {
         }
     }
 
-    open func preferredTitleColorAnimateClosure(itemModel: JXSegmentedTitleItemModel) -> JXSegmentedCellSelectedAnimationClosure {
+    func preferredTitleColorAnimateClosure(itemModel: JXSegmentedTitleItemModel) -> JXSegmentedCellSelectedAnimationClosure {
         return {[weak self] (percent) in
             if itemModel.isSelected {
                 itemModel.titleCurrentColor = JXSegmentedViewTool.interpolateColor(from: itemModel.titleNormalColor, to: itemModel.titleSelectedColor, percent: percent)

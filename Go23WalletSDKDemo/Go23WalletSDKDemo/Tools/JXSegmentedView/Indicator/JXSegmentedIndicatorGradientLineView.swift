@@ -8,21 +8,21 @@
 
 import UIKit
 
-open class JXSegmentedIndicatorGradientLineView: JXSegmentedIndicatorLineView {
-    open var colors = [UIColor]()
-    open var startPoint = CGPoint.zero
-    open var endPoint = CGPoint(x: 1, y: 0)
-    open var locations: [NSNumber]?
-    public let gradientLayer = CAGradientLayer()
+class JXSegmentedIndicatorGradientLineView: JXSegmentedIndicatorLineView {
+    var colors = [UIColor]()
+    var startPoint = CGPoint.zero
+    var endPoint = CGPoint(x: 1, y: 0)
+    var locations: [NSNumber]?
+    let gradientLayer = CAGradientLayer()
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         layer.masksToBounds = true
         layer.addSublayer(gradientLayer)
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         backgroundColor = .clear
@@ -36,7 +36,7 @@ open class JXSegmentedIndicatorGradientLineView: JXSegmentedIndicatorLineView {
         CATransaction.commit()
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -48,7 +48,7 @@ open class JXSegmentedIndicatorGradientLineView: JXSegmentedIndicatorLineView {
         CATransaction.commit()
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

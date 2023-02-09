@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public extension UIView {
+extension UIView {
     var viewController: UIViewController? {
         var responder = next
         repeat {

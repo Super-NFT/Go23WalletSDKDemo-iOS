@@ -8,23 +8,23 @@
 
 import UIKit
 
-open class JXSegmentedTitleItemModel: JXSegmentedBaseItemModel {
-    open var title: String?
-    open var titleNumberOfLines: Int = 0
-    open var titleNormalColor: UIColor = .black
-    open var titleCurrentColor: UIColor = .black
-    open var titleSelectedColor: UIColor = .red
-    open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
-    open var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
-    open var isTitleZoomEnabled: Bool = false
-    open var titleNormalZoomScale: CGFloat = 0
-    open var titleCurrentZoomScale: CGFloat = 0
-    open var titleSelectedZoomScale: CGFloat = 0
-    open var isTitleStrokeWidthEnabled: Bool = false
-    open var titleNormalStrokeWidth: CGFloat = 0
-    open var titleCurrentStrokeWidth: CGFloat = 0
-    open var titleSelectedStrokeWidth: CGFloat = 0
-    open var isTitleMaskEnabled: Bool = false
-    open var textWidth: CGFloat = 0
-    open var kern: CGFloat = 0
+class JXSegmentedTitleItemModel: JXSegmentedBaseItemModel {
+    var title: String?
+    var titleNumberOfLines: Int = 0
+    var titleNormalColor: UIColor = .black
+    var titleCurrentColor: UIColor = .black
+    var titleSelectedColor: UIColor = .red
+    var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
+    var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
+    var isTitleZoomEnabled: Bool = false
+    var titleNormalZoomScale: CGFloat = 0
+    var titleCurrentZoomScale: CGFloat = 0
+    var titleSelectedZoomScale: CGFloat = 0
+    var isTitleStrokeWidthEnabled: Bool = false
+    var titleNormalStrokeWidth: CGFloat = 0
+    var titleCurrentStrokeWidth: CGFloat = 0
+    var titleSelectedStrokeWidth: CGFloat = 0
+    var isTitleMaskEnabled: Bool = false
+    var textWidth: CGFloat = 0
+    var kern: CGFloat = 0
 }

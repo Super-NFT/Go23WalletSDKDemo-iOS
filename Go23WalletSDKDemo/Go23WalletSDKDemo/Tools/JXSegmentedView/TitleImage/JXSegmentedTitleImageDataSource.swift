@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum JXSegmentedTitleImageType {
+enum JXSegmentedTitleImageType {
     case topImage
     case leftImage
     case bottomImage
@@ -17,23 +17,23 @@ public enum JXSegmentedTitleImageType {
     case onlyTitle
 }
 
-public typealias LoadImageClosure = ((UIImageView, String) -> Void)
+typealias LoadImageClosure = ((UIImageView, String) -> Void)
 
-open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
-    open var titleImageType: JXSegmentedTitleImageType = .rightImage
-    open var normalImageInfos: [String]?
-    open var selectedImageInfos: [String]?
-    open var loadImageClosure: LoadImageClosure?
-    open var imageSize: CGSize = CGSize(width: 20, height: 20)
-    open var titleImageSpacing: CGFloat = 5
-    open var isImageZoomEnabled: Bool = false
-    open var imageSelectedZoomScale: CGFloat = 1.2
+class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
+    var titleImageType: JXSegmentedTitleImageType = .rightImage
+    var normalImageInfos: [String]?
+    var selectedImageInfos: [String]?
+    var loadImageClosure: LoadImageClosure?
+    var imageSize: CGSize = CGSize(width: 20, height: 20)
+    var titleImageSpacing: CGFloat = 5
+    var isImageZoomEnabled: Bool = false
+    var imageSelectedZoomScale: CGFloat = 1.2
 
-    open override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
+    override func preferredItemModelInstance() -> JXSegmentedBaseItemModel {
         return JXSegmentedTitleImageItemModel()
     }
 
-    open override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
+    override func preferredRefreshItemModel(_ itemModel: JXSegmentedBaseItemModel, at index: Int, selectedIndex: Int) {
         super.preferredRefreshItemModel(itemModel, at: index, selectedIndex: selectedIndex)
 
         guard let itemModel = itemModel as? JXSegmentedTitleImageItemModel else {
@@ -56,7 +56,7 @@ open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
         }
     }
 
-    open override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
+    override func preferredSegmentedView(_ segmentedView: JXSegmentedView, widthForItemAt index: Int) -> CGFloat {
         var width = super.preferredSegmentedView(segmentedView, widthForItemAt: index)
         if itemWidth == JXSegmentedViewAutomaticDimension {
             switch titleImageType {
@@ -73,7 +73,7 @@ open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
         return width
     }
 
-    public override func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat {
+    override func segmentedView(_ segmentedView: JXSegmentedView, widthForItemContentAt index: Int) -> CGFloat {
         var width = super.segmentedView(segmentedView, widthForItemContentAt: index)
         switch titleImageType {
         case .leftImage, .rightImage:
@@ -88,17 +88,16 @@ open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
         return width
     }
 
-    //MARK: - JXSegmentedViewDataSource
-    open override func registerCellClass(in segmentedView: JXSegmentedView) {
+    override func registerCellClass(in segmentedView: JXSegmentedView) {
         segmentedView.collectionView.register(JXSegmentedTitleImageCell.self, forCellWithReuseIdentifier: "cell")
     }
 
-    open override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
+    override func segmentedView(_ segmentedView: JXSegmentedView, cellForItemAt index: Int) -> JXSegmentedBaseCell {
         let cell = segmentedView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         return cell
     }
 
-    open override func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
+    override func refreshItemModel(_ segmentedView: JXSegmentedView, leftItemModel: JXSegmentedBaseItemModel, rightItemModel: JXSegmentedBaseItemModel, percent: CGFloat) {
         super.refreshItemModel(segmentedView, leftItemModel: leftItemModel, rightItemModel: rightItemModel, percent: percent)
 
         guard let leftModel = leftItemModel as? JXSegmentedTitleImageItemModel, let rightModel = rightItemModel as? JXSegmentedTitleImageItemModel else {
@@ -110,7 +109,7 @@ open class JXSegmentedTitleImageDataSource: JXSegmentedTitleDataSource {
         }
     }
 
-    open override func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func refreshItemModel(_ segmentedView: JXSegmentedView, currentSelectedItemModel: JXSegmentedBaseItemModel, willSelectedItemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.refreshItemModel(segmentedView, currentSelectedItemModel: currentSelectedItemModel, willSelectedItemModel: willSelectedItemModel, selectedType: selectedType)
 
         guard let myCurrentSelectedItemModel = currentSelectedItemModel as? JXSegmentedTitleImageItemModel, let myWillSelectedItemModel = willSelectedItemModel as? JXSegmentedTitleImageItemModel else {

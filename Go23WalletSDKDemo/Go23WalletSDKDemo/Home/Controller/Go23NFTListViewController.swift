@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import MJRefresh
-import MBProgressHUD
 import Go23SDK
 
 class Go23NFTListViewController: UIViewController {
@@ -23,13 +21,14 @@ class Go23NFTListViewController: UIViewController {
             make.top.leading.trailing.bottom.equalToSuperview()
         }
         self.getUserNFTs()
-        collectionView.mj_header = Go23RefreshHeader(refreshingBlock: { [weak self] in
-            NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
-                                            object: nil,
-                                            userInfo: nil)
-            self?.nftList.removeAll()
-            self?.getUserNFTs()
-        })
+        
+        collectionView.es.addPullToRefresh {
+            [weak self] in
+                NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
+                                                object: nil,
+                                                userInfo: nil)
+                self?.getUserNFTs()
+        }
         
         collectionView.addSubview(noDataV)
         noDataV.snp.makeConstraints { make in
@@ -51,6 +50,7 @@ class Go23NFTListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = true
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
         collectionView.register(Go23NFTListCollectionViewCell.self, forCellWithReuseIdentifier: Go23NFTListCollectionViewCell.reuseIdentifier())
         return collectionView
     }()
@@ -138,7 +138,7 @@ extension Go23NFTListViewController {
         }
         
         shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) {  [weak self]model in
-            self?.collectionView.mj_header?.endRefreshing()
+            self?.collectionView.es.stopPullToRefresh()
             guard let obj = model else {
                 return
             }
@@ -147,6 +147,7 @@ extension Go23NFTListViewController {
             } else {
                 self?.noDataV.isHidden = true
             }
+            self?.nftList.removeAll()
             self?.nftList = obj.listModel
             self?.collectionView.reloadData()
         }

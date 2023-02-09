@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import MBProgressHUD
-import MJRefresh
 import Go23SDK
 
 class Go23TokenDetailListViewController: UIViewController {
@@ -21,7 +19,6 @@ class Go23TokenDetailListViewController: UIViewController {
     }
      
     private var listModel = [Go23ActivityModel]()
-    private var hud: MBProgressHUD?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +27,14 @@ class Go23TokenDetailListViewController: UIViewController {
         
         getList()
         
-        tableView.mj_header = Go23RefreshHeader(refreshingBlock: { [weak self] in
-            NotificationCenter.default.post(name: NSNotification.Name(kRefreshTokenListDetailKey),
-                                            object: nil,
-                                            userInfo: nil)
-            self?.listModel.removeAll()
-            self?.getList(isLoading: false)
-        })
+        tableView.es.addPullToRefresh {
+            [weak self] in
+            self?.tableView.es.stopPullToRefresh()
+                NotificationCenter.default.post(name: NSNotification.Name(kRefreshTokenListDetailKey),
+                                                object: nil,
+                                                userInfo: nil)
+                self?.getList(isLoading: false)
+        }
 
     }
     
@@ -156,11 +154,12 @@ extension Go23TokenDetailListViewController {
             if isLoading {
                 Go23Loading.clear()
             }
-            self?.tableView.mj_header?.endRefreshing()
+            self?.tableView.es.stopPullToRefresh()
             guard let mm = model else {
                 self?.noDataV.isHidden = false
                 return
             }
+            self?.listModel.removeAll()
             self?.listModel = mm.listModel
             
              if let list = self?.listModel, list.count > 0 {

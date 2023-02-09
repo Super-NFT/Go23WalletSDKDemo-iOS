@@ -8,12 +8,12 @@
 
 import UIKit
 
-public enum JXPagingListContainerType {
+enum JXPagingListContainerType {
     case scrollView
     case collectionView
 }
 
-public protocol JXPagingViewListViewDelegate: NSObjectProtocol {
+protocol JXPagingViewListViewDelegate: NSObjectProtocol {
     func listView() -> UIView
     
     func listScrollView() -> UIScrollView
@@ -27,7 +27,7 @@ public protocol JXPagingViewListViewDelegate: NSObjectProtocol {
     func listDidDisappear()
 }
 
-public extension JXPagingViewListViewDelegate {
+extension JXPagingViewListViewDelegate {
     
     func listScrollViewWillResetContentOffset() {}
     func listWillAppear() {}
@@ -36,7 +36,7 @@ public extension JXPagingViewListViewDelegate {
     func listDidDisappear() {}
 }
 
-public protocol JXPagingListContainerViewDataSource: NSObjectProtocol {
+protocol JXPagingListContainerViewDataSource: NSObjectProtocol {
 
     func numberOfLists(in listContainerView: JXPagingListContainerView) -> Int
 
@@ -48,7 +48,7 @@ public protocol JXPagingListContainerViewDataSource: NSObjectProtocol {
     func scrollViewClass(in listContainerView: JXPagingListContainerView) -> AnyClass?
 }
 
-public extension JXPagingListContainerViewDataSource {
+extension JXPagingListContainerViewDataSource {
     func listContainerView(_ listContainerView: JXPagingListContainerView, canInitListAt index: Int) -> Bool { true }
     func scrollViewClass(in listContainerView: JXPagingListContainerView) -> AnyClass? { nil }
 }
@@ -68,11 +68,11 @@ extension JXPagingListContainerViewDelegate {
     func listContainerView(_ listContainerView: JXPagingListContainerView, listDidAppearAt index: Int) {}
 }
 
-open class JXPagingListContainerView: UIView {
-    public private(set) var type: JXPagingListContainerType
-    public private(set) weak var dataSource: JXPagingListContainerViewDataSource?
-    public private(set) var scrollView: UIScrollView!
-    public var isCategoryNestPagingEnabled = false {
+class JXPagingListContainerView: UIView {
+    private(set) var type: JXPagingListContainerType
+    private(set) weak var dataSource: JXPagingListContainerViewDataSource?
+    private(set) var scrollView: UIScrollView!
+    var isCategoryNestPagingEnabled = false {
         didSet {
             if let containerScrollView = scrollView as? JXPagingListContainerScrollView {
                 containerScrollView.isCategoryNestPagingEnabled = isCategoryNestPagingEnabled
@@ -81,30 +81,30 @@ open class JXPagingListContainerView: UIView {
             }
         }
     }
-    open var validListDict = [Int:JXPagingViewListViewDelegate]()
+    var validListDict = [Int:JXPagingViewListViewDelegate]()
     ///
-    open var initListPercent: CGFloat = 0.01 {
+    var initListPercent: CGFloat = 0.01 {
         didSet {
             if initListPercent <= 0 || initListPercent >= 1 {
                 assertionFailure("initListPercent in (0,1)")
             }
         }
     }
-    public var listCellBackgroundColor: UIColor = .white
+    var listCellBackgroundColor: UIColor = .white
  
-    public var defaultSelectedIndex: Int = 0 {
+    var defaultSelectedIndex: Int = 0 {
         didSet {
             currentIndex = defaultSelectedIndex
         }
     }
     weak var delegate: JXPagingListContainerViewDelegate?
-    public private(set) var currentIndex: Int = 0
+    private(set) var currentIndex: Int = 0
     private var collectionView: UICollectionView!
     private var containerVC: JXPagingListContainerViewController!
     private var willAppearIndex: Int = -1
     private var willDisappearIndex: Int = -1
 
-    public init(dataSource: JXPagingListContainerViewDataSource, type: JXPagingListContainerType = .collectionView) {
+    init(dataSource: JXPagingListContainerViewDataSource, type: JXPagingListContainerType = .collectionView) {
         self.dataSource = dataSource
         self.type = type
         super.init(frame: CGRect.zero)
@@ -112,11 +112,11 @@ open class JXPagingListContainerView: UIView {
         commonInit()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    open func commonInit() {
+    func commonInit() {
         guard let dataSource = dataSource else { return }
         containerVC = JXPagingListContainerViewController()
         containerVC.view.backgroundColor = .clear
@@ -181,7 +181,7 @@ open class JXPagingListContainerView: UIView {
         }
     }
 
-    open override func willMove(toSuperview newSuperview: UIView?) {
+    override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         var next: UIResponder? = newSuperview
         while next != nil {
@@ -193,7 +193,7 @@ open class JXPagingListContainerView: UIView {
         }
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         guard let dataSource = dataSource else { return }
@@ -224,14 +224,14 @@ open class JXPagingListContainerView: UIView {
 
     //MARK: - JXSegmentedViewListContainer
 
-    public func contentScrollView() -> UIScrollView {
+    func contentScrollView() -> UIScrollView {
            return scrollView
     }
 
-    public func scrolling(from leftIndex: Int, to rightIndex: Int, percent: CGFloat, selectedIndex: Int) {
+    func scrolling(from leftIndex: Int, to rightIndex: Int, percent: CGFloat, selectedIndex: Int) {
     }
 
-    public func didClickSelectedItem(at index: Int) {
+    func didClickSelectedItem(at index: Int) {
         guard checkIndexValid(index) else {
             return
         }
@@ -245,7 +245,7 @@ open class JXPagingListContainerView: UIView {
         }
     }
 
-    public func reloadData() {
+    func reloadData() {
         guard let dataSource = dataSource else { return }
         if currentIndex < 0 || currentIndex >= dataSource.numberOfLists(in: self) {
             defaultSelectedIndex = 0
@@ -415,12 +415,12 @@ open class JXPagingListContainerView: UIView {
 }
 
 extension JXPagingListContainerView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let dataSource = dataSource else { return 0 }
         return dataSource.numberOfLists(in: self)
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         cell.contentView.backgroundColor = listCellBackgroundColor
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
@@ -436,11 +436,11 @@ extension JXPagingListContainerView: UICollectionViewDataSource, UICollectionVie
         return cell
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return bounds.size
     }
 
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.listContainerViewDidScroll(self)
         guard scrollView.isTracking || scrollView.isDragging else {
             return
@@ -487,7 +487,7 @@ extension JXPagingListContainerView: UICollectionViewDataSource, UICollectionVie
         listDidAppearOrDisappear(scrollView: scrollView)
     }
 
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         if willAppearIndex != -1 || willDisappearIndex != -1 {
             listWillDisappear(at: willAppearIndex)
@@ -500,17 +500,17 @@ extension JXPagingListContainerView: UICollectionViewDataSource, UICollectionVie
         delegate?.listContainerViewDidEndScrolling(self)
     }
 
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         delegate?.listContainerViewWillBeginDragging(self)
     }
 
-    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             delegate?.listContainerViewDidEndScrolling(self)
         }
     }
 
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         delegate?.listContainerViewDidEndScrolling(self)
     }
 }

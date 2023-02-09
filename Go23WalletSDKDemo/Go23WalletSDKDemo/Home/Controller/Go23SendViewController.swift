@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MBProgressHUD
+import Kingfisher
 import Go23SDK
 
 class Go23SendViewController: UIViewController {
@@ -356,11 +356,17 @@ class Go23SendViewController: UIViewController {
 
         if self.contract.count == 0 {
             amout = platB-gas
-            if amout <= fee {
+            let decimalPlat = NSDecimalNumber(string: obj.platformBalanceSort)
+
+            let decimalGas = NSDecimalNumber(string: obj.gas)
+            let decimalFee = NSDecimalNumber(string: obj.tokenMinimum)
+            
+            if decimalPlat.subtracting(decimalGas).compare(decimalFee) != ComparisonResult.orderedDescending {
                 let toast = Go23Toast.init(frame: .zero)
                 toast.show("Insufficient balance", after: 1)
                 return
             }
+            
             if amout <= 0 {
                 changeSendBtnStatus(status: false)
                 let toast = Go23Toast.init(frame: .zero)
@@ -835,7 +841,7 @@ class SendHeaderView: UIView {
     }
     
     func filled(cover: String, name: String) {
-        self.coverImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
+        self.coverImgv.kf.setImage(with: URL(string: cover))
         self.titleLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 18), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: name)
     }
     
@@ -1023,15 +1029,19 @@ extension Go23SendViewController {
         
         
         var amoutStr = ""
-//        if isAmountAll {
-//            if self.contract.count > 0 {
-//                amoutStr = obj.tokenBalanceSort
-//            } else {
-//                amoutStr = obj.platformBalanceSort
-//            }
-//        } else {
+        if isAmountAll {
+            if self.contract.count > 0 {
+                amoutStr = obj.tokenBalanceSort
+            } else {
+                let decimalPlatform = NSDecimalNumber(string: obj.platformBalanceSort)
+                let decimalGas = NSDecimalNumber(string: obj.gas)
+                
+                let aa = decimalPlatform.subtracting(decimalGas)
+                amoutStr = "\(aa)"
+            }
+        } else {
             amoutStr = amoutTxtFiled.text ?? ""
-//        }
+        }
         
         let sign = Go23SendTransactionModel(type: 1,
                                             rpc: Go23WalletMangager.shared.walletModel?.rpc ?? "",
@@ -1060,7 +1070,6 @@ extension Go23SendViewController {
 //            value: "10",
 //            middleContract: "0x2185C155d00ca80F9bB09bb21B682D5fa6fF81c9")
     
-//        let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
         Go23Loading.loading()
         shared.sendTransaction(with: sign) { (status, hash) in
             Go23Loading.clear()
@@ -1188,6 +1197,23 @@ extension Go23SendViewController {
                 clearBtn.isHidden = true
             }
             
+            if contract.count == 0 {
+                let decimalTxt = NSDecimalNumber(string: txt)
+                let decimalGas = NSDecimalNumber(string: obj.gas)
+                let decimalFee = NSDecimalNumber(string: obj.tokenMinimum)
+                let decimalPlat = NSDecimalNumber(string: obj.platformBalanceSort)
+                
+                if let dTxt = Double(txt), let gas = Double(obj.gas) {
+                    if decimalTxt.compare(decimalPlat.subtracting(decimalGas)) == ComparisonResult.orderedDescending {
+                        changeSendBtnStatus(status: false)
+                        return
+                    }
+                 changeStatus(dTxt: dTxt, gas: gas)
+                }
+                return
+            }
+            
+            
             if let dTxt = Double(txt), let gas = Double(obj.gas), let fee = Double(obj.tokenMinimum) {
                 if dTxt <= fee {
                     changeSendBtnStatus(status: false)
@@ -1205,6 +1231,30 @@ extension Go23SendViewController {
             guard let obj = self.transactionModel else {
                 return
             }
+            
+            let decimalTxt = NSDecimalNumber(string: txt)
+            let decimalGas = NSDecimalNumber(string: obj.gas)
+            let decimalFee = NSDecimalNumber(string: obj.tokenMinimum)
+            
+            if contract.count == 0 {
+                let decimalPlat = NSDecimalNumber(string: obj.platformBalanceSort)
+                
+                if let dTxt = Double(txt), let gas = Double(obj.gas), let fee = Double(obj.tokenMinimum) {
+                    if (dTxt <= fee && !isShowBalance) && decimalTxt.compare(decimalPlat.subtracting(decimalGas)) == ComparisonResult.orderedDescending {
+                        isShowBalance = true
+                        let toast = Go23Toast.init(frame: .zero)
+                        toast.show("Insufficient balance", after: 1)
+                        changeSendBtnStatus(status: false)
+                        return
+                    }
+                    isShowBalance = false
+                 changeStatus(dTxt: dTxt, gas: gas)
+                }
+
+                return
+            }
+            
+            
             if let dTxt = Double(txt), let gas = Double(obj.gas), let fee = Double(obj.tokenMinimum) {
                 if dTxt <= fee, !isShowBalance {
                     isShowBalance = true

@@ -8,10 +8,10 @@
 
 import UIKit
 
-open class JXSegmentedDotItemModel: JXSegmentedTitleItemModel {
-    open var dotState = false
-    open var dotSize = CGSize.zero
-    open var dotCornerRadius: CGFloat = 0
-    open var dotColor = UIColor.red
-    open var dotOffset: CGPoint = CGPoint.zero
+class JXSegmentedDotItemModel: JXSegmentedTitleItemModel {
+    var dotState = false
+    var dotSize = CGSize.zero
+    var dotCornerRadius: CGFloat = 0
+    var dotColor = UIColor.red
+    var dotOffset: CGPoint = CGPoint.zero
 }

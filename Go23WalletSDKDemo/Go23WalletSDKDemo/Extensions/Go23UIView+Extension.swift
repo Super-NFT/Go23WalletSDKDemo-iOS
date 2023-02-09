@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import MBProgressHUD
 
 extension UIView {
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
@@ -66,9 +65,4 @@ func currentViewController(_ vc :UIViewController?) -> UIViewController? {
     }
  }
 
-extension MBProgressHUD {
-    func showGif(to: UIView) {
-        
-    }
-}
 

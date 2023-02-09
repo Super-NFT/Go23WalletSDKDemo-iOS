@@ -1,67 +1,16 @@
 PODS:
-  - Alamofire (4.9.1)
-  - BigInt (3.1.0):
-    - SipHash (~> 1.2)
-  - FDFullscreenPopGesture (1.1)
-  - IQKeyboardManager (6.5.10)
-  - libwebp (1.2.4):
-    - libwebp/demux (= 1.2.4)
-    - libwebp/mux (= 1.2.4)
-    - libwebp/webp (= 1.2.4)
-  - libwebp/demux (1.2.4):
-    - libwebp/webp
-  - libwebp/mux (1.2.4):
-    - libwebp/demux
-  - libwebp/webp (1.2.4)
-  - MBProgressHUD (1.2.0)
-  - MJRefresh (3.7.2)
-  - SDWebImage (5.14.2):
-    - SDWebImage/Core (= 5.14.2)
-  - SDWebImage/Core (5.14.2)
-  - SDWebImageWebPCoder (0.9.1):
-    - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.13)
-  - SipHash (1.2.2)
-  - SnapKit (5.6.0)
+  - Kingfisher (7.6.0)
 
 DEPENDENCIES:
-  - Alamofire (= 4.9.1)
-  - BigInt
-  - FDFullscreenPopGesture
-  - IQKeyboardManager
-  - MBProgressHUD
-  - MJRefresh (= 3.7.2)
-  - SDWebImage
-  - SDWebImageWebPCoder
-  - SnapKit
+  - Kingfisher
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Alamofire
-    - BigInt
-    - FDFullscreenPopGesture
-    - IQKeyboardManager
-    - libwebp
-    - MBProgressHUD
-    - MJRefresh
-    - SDWebImage
-    - SDWebImageWebPCoder
-    - SipHash
-    - SnapKit
+    - Kingfisher
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
-  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
-  libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
-  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
-  SDWebImage: b9a731e1d6307f44ca703b3976d18c24ca561e84
-  SDWebImageWebPCoder: 18503de6621dd2c420d680e33d46bf8e1d5169b0
-  SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Kingfisher: b9bb0cd6907813593db268be80ddb931423c33b2
 
-PODFILE CHECKSUM: f287413d5539f86ba07d82a05d9062d982bf356b
+PODFILE CHECKSUM: b5aebf74b3efa35964090f07c89c3ad4c5493233
 
 COCOAPODS: 1.11.3

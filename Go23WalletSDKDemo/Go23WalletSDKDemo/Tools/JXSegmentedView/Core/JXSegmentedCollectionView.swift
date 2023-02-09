@@ -8,9 +8,9 @@
 
 import UIKit
 
-open class JXSegmentedCollectionView: UICollectionView {
+class JXSegmentedCollectionView: UICollectionView {
 
-    open var indicators = [JXSegmentedIndicatorProtocol & UIView]() {
+    var indicators = [JXSegmentedIndicatorProtocol & UIView]() {
         willSet {
             for indicator in indicators {
                 indicator.removeFromSuperview()
@@ -23,7 +23,7 @@ open class JXSegmentedCollectionView: UICollectionView {
         }
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         for indicator in indicators {

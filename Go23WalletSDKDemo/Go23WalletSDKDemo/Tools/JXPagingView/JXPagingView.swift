@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol JXPagingViewDelegate: NSObjectProtocol {
+protocol JXPagingViewDelegate: NSObjectProtocol {
     func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int
     func tableHeaderView(in pagingView: JXPagingView) -> UIView
     func heightForPinSectionHeader(in pagingView: JXPagingView) -> Int
@@ -28,7 +28,7 @@ public protocol JXPagingViewDelegate: NSObjectProtocol {
     func scrollViewClassInListContainerView(in pagingView: JXPagingView) -> AnyClass?
 }
 
-public extension JXPagingViewDelegate {
+extension JXPagingViewDelegate {
     func pagingView(_ pagingView: JXPagingView, listIdentifierAtIndex index: Int) -> String? { nil }
 
     func mainTableViewDidScroll(_ scrollView: UIScrollView) {}
@@ -41,24 +41,24 @@ public extension JXPagingViewDelegate {
     func scrollViewClassInListContainerView(in pagingView: JXPagingView) -> AnyClass? { nil }
 }
 
-open class JXPagingView: UIView {
-    public var defaultSelectedIndex: Int = 0 {
+class JXPagingView: UIView {
+    var defaultSelectedIndex: Int = 0 {
         didSet {
             listContainerView.defaultSelectedIndex = defaultSelectedIndex
         }
     }
-    public private(set) lazy var mainTableView: JXPagingMainTableView = JXPagingMainTableView(frame: CGRect.zero, style: .plain)
-    public private(set) lazy var listContainerView: JXPagingListContainerView = JXPagingListContainerView(dataSource: self, type: listContainerType)
-    public private(set) var validListDict = [Int:JXPagingViewListViewDelegate]()
-    public var pinSectionHeaderVerticalOffset: Int = 0
-    public var isListHorizontalScrollEnabled = true {
+    private(set) lazy var mainTableView: JXPagingMainTableView = JXPagingMainTableView(frame: CGRect.zero, style: .plain)
+    private(set) lazy var listContainerView: JXPagingListContainerView = JXPagingListContainerView(dataSource: self, type: listContainerType)
+    private(set) var validListDict = [Int:JXPagingViewListViewDelegate]()
+    var pinSectionHeaderVerticalOffset: Int = 0
+    var isListHorizontalScrollEnabled = true {
         didSet {
             listContainerView.scrollView.isScrollEnabled = isListHorizontalScrollEnabled
         }
     }
-    public var automaticallyDisplayListVerticalScrollIndicator = true
-    public var allowsCacheList: Bool = false
-    public private(set) var currentScrollingListView: UIScrollView?
+    var automaticallyDisplayListVerticalScrollIndicator = true
+    var allowsCacheList: Bool = false
+    private(set) var currentScrollingListView: UIScrollView?
     internal var currentList: JXPagingViewListViewDelegate?
     private var currentIndex: Int = 0
     private weak var delegate: JXPagingViewDelegate?
@@ -67,7 +67,7 @@ open class JXPagingView: UIView {
     private let listContainerType: JXPagingListContainerType
     private var listCache = [String:JXPagingViewListViewDelegate]()
 
-    public init(delegate: JXPagingViewDelegate, listContainerType: JXPagingListContainerType = .collectionView) {
+    init(delegate: JXPagingViewDelegate, listContainerType: JXPagingListContainerType = .collectionView) {
         self.delegate = delegate
         self.listContainerType = listContainerType
         super.init(frame: CGRect.zero)
@@ -92,11 +92,11 @@ open class JXPagingView: UIView {
     }
 
     @available(*, unavailable)
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override open func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         if mainTableView.frame != bounds {
@@ -105,7 +105,7 @@ open class JXPagingView: UIView {
         }
     }
 
-    open func reloadData() {
+    func reloadData() {
         currentList = nil
         currentScrollingListView = nil
         validListDict.removeAll()
@@ -131,7 +131,7 @@ open class JXPagingView: UIView {
         listContainerView.reloadData()
     }
 
-    open func resizeTableHeaderViewHeight(animatable: Bool = false, duration: TimeInterval = 0.25, curve: UIView.AnimationCurve = .linear) {
+    func resizeTableHeaderViewHeight(animatable: Bool = false, duration: TimeInterval = 0.25, curve: UIView.AnimationCurve = .linear) {
         guard let delegate = delegate else { return }
         if animatable {
             var options: UIView.AnimationOptions = .curveLinear
@@ -157,7 +157,7 @@ open class JXPagingView: UIView {
         }
     }
 
-    open func preferredProcessListViewDidScroll(scrollView: UIScrollView) {
+    func preferredProcessListViewDidScroll(scrollView: UIScrollView) {
         if (mainTableView.contentOffset.y < mainTableViewMaxContentOffsetY()) {
             currentList?.listScrollViewWillResetContentOffset()
             setListScrollViewToMinContentOffsetY(scrollView)
@@ -172,7 +172,7 @@ open class JXPagingView: UIView {
         }
     }
 
-    open func preferredProcessMainTableViewDidScroll(_ scrollView: UIScrollView) {
+    func preferredProcessMainTableViewDidScroll(_ scrollView: UIScrollView) {
         guard let currentScrollingListView = currentScrollingListView else { return }
         if (currentScrollingListView.contentOffset.y > minContentOffsetYInListScrollView(currentScrollingListView)) {
             setMainTableViewToMaxContentOffsetY()
@@ -254,15 +254,15 @@ open class JXPagingView: UIView {
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
 extension JXPagingView: UITableViewDataSource, UITableViewDelegate {
-    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return max(bounds.height - pinSectionHeaderHeight() - CGFloat(pinSectionHeaderVerticalOffset), 0)
     }
 
-    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
@@ -275,26 +275,26 @@ extension JXPagingView: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return pinSectionHeaderHeight()
     }
 
-    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let delegate = delegate else { return nil }
         return delegate.viewForPinSectionHeader(in: self)
     }
 
-    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1
     }
 
-    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView(frame: CGRect.zero)
         footerView.backgroundColor = UIColor.clear
         return footerView
     }
 
-    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if pinSectionHeaderVerticalOffset != 0 {
             if !(currentScrollingListView != nil && currentScrollingListView!.contentOffset.y > minContentOffsetYInListScrollView(currentScrollingListView!)) {
                 if scrollView.contentOffset.y >= CGFloat(pinSectionHeaderVerticalOffset) {
@@ -311,19 +311,19 @@ extension JXPagingView: UITableViewDataSource, UITableViewDelegate {
         delegate?.pagingView(self, mainTableViewDidScroll: scrollView)
     }
 
-    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         listContainerView.scrollView.isScrollEnabled = false
         delegate?.pagingView(self, mainTableViewWillBeginDragging: scrollView)
     }
 
-    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if isListHorizontalScrollEnabled && !decelerate {
             listContainerView.scrollView.isScrollEnabled = true
         }
         delegate?.pagingView(self, mainTableViewDidEndDragging: scrollView, willDecelerate: decelerate)
     }
 
-    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if isListHorizontalScrollEnabled {
             listContainerView.scrollView.isScrollEnabled = true
         }
@@ -335,7 +335,7 @@ extension JXPagingView: UITableViewDataSource, UITableViewDelegate {
         delegate?.pagingView(self, mainTableViewDidEndDecelerating: scrollView)
     }
 
-    open func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         if isListHorizontalScrollEnabled {
             listContainerView.scrollView.isScrollEnabled = true
         }
@@ -344,12 +344,12 @@ extension JXPagingView: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension JXPagingView: JXPagingListContainerViewDataSource {
-    public func numberOfLists(in listContainerView: JXPagingListContainerView) -> Int {
+    func numberOfLists(in listContainerView: JXPagingListContainerView) -> Int {
         guard let delegate = delegate else { return 0 }
         return delegate.numberOfLists(in: self)
     }
 
-    public func listContainerView(_ listContainerView: JXPagingListContainerView, initListAt index: Int) -> JXPagingViewListViewDelegate {
+    func listContainerView(_ listContainerView: JXPagingListContainerView, initListAt index: Int) -> JXPagingViewListViewDelegate {
         guard let delegate = delegate else { fatalError("JXPaingView.delegate must not be nil") }
         var list = validListDict[index]
         if allowsCacheList, list == nil, let listIdentifier = delegate.pagingView(self, listIdentifierAtIndex: index) {
@@ -369,21 +369,21 @@ extension JXPagingView: JXPagingListContainerViewDataSource {
         return list!
     }
 
-    public func scrollViewClass(in listContainerView: JXPagingListContainerView) -> AnyClass? {
+    func scrollViewClass(in listContainerView: JXPagingListContainerView) -> AnyClass? {
         return delegate?.scrollViewClassInListContainerView(in: self) ?? UIView.self
     }
 }
 
 extension JXPagingView: JXPagingListContainerViewDelegate {
-    public func listContainerViewWillBeginDragging(_ listContainerView: JXPagingListContainerView) {
+    func listContainerViewWillBeginDragging(_ listContainerView: JXPagingListContainerView) {
         mainTableView.isScrollEnabled = false
     }
 
-    public func listContainerViewDidEndScrolling(_ listContainerView: JXPagingListContainerView) {
+    func listContainerViewDidEndScrolling(_ listContainerView: JXPagingListContainerView) {
         mainTableView.isScrollEnabled = true
     }
 
-    public func listContainerView(_ listContainerView: JXPagingListContainerView, listDidAppearAt index: Int) {
+    func listContainerView(_ listContainerView: JXPagingListContainerView, listDidAppearAt index: Int) {
         currentScrollingListView = validListDict[index]?.listScrollView()
         for listItem in validListDict.values {
             if listItem === validListDict[index] {

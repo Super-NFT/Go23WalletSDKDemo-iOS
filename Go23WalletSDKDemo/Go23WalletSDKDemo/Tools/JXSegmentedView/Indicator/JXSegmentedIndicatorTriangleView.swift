@@ -8,21 +8,21 @@
 
 import UIKit
 
-open class JXSegmentedIndicatorTriangleView: JXSegmentedIndicatorBaseView {
-    open override class var layerClass: AnyClass {
+class JXSegmentedIndicatorTriangleView: JXSegmentedIndicatorBaseView {
+    override class var layerClass: AnyClass {
         return CAShapeLayer.self
     }
 
     private var path = UIBezierPath()
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         indicatorWidth = 14
         indicatorHeight = 10
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         backgroundColor = nil
@@ -58,7 +58,7 @@ open class JXSegmentedIndicatorTriangleView: JXSegmentedIndicatorBaseView {
         shapeLayer.path = path.cgPath
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -77,7 +77,7 @@ open class JXSegmentedIndicatorTriangleView: JXSegmentedIndicatorBaseView {
         self.frame.origin.x = targetX
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

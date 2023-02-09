@@ -8,14 +8,14 @@
 
 import UIKit
 
-open class JXSegmentedIndicatorImageView: JXSegmentedIndicatorBaseView {
-    open var image: UIImage? {
+class JXSegmentedIndicatorImageView: JXSegmentedIndicatorBaseView {
+    var image: UIImage? {
         didSet {
             layer.contents = image?.cgImage
         }
     }
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         indicatorWidth = 20
@@ -23,7 +23,7 @@ open class JXSegmentedIndicatorImageView: JXSegmentedIndicatorBaseView {
         layer.contentsGravity = .resizeAspect
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         backgroundColor = nil
@@ -43,7 +43,7 @@ open class JXSegmentedIndicatorImageView: JXSegmentedIndicatorBaseView {
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -62,7 +62,7 @@ open class JXSegmentedIndicatorImageView: JXSegmentedIndicatorBaseView {
         self.frame.origin.x = targetX
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

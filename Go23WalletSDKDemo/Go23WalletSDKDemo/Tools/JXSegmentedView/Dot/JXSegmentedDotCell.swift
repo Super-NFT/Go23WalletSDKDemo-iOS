@@ -8,16 +8,16 @@
 
 import UIKit
 
-open class JXSegmentedDotCell: JXSegmentedTitleCell {
-    open var dotView = UIView()
+class JXSegmentedDotCell: JXSegmentedTitleCell {
+    var dotView = UIView()
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         contentView.addSubview(dotView)
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         guard let myItemModel = itemModel as? JXSegmentedDotItemModel else {
@@ -27,7 +27,7 @@ open class JXSegmentedDotCell: JXSegmentedTitleCell {
         dotView.center = CGPoint(x: titleLabel.frame.maxX + myItemModel.dotOffset.x, y: titleLabel.frame.minY + myItemModel.dotOffset.y)
     }
 
-    open override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.reloadData(itemModel: itemModel, selectedType: selectedType )
 
         guard let myItemModel = itemModel as? JXSegmentedDotItemModel else {

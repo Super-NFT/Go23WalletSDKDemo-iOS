@@ -8,15 +8,15 @@
 
 import UIKit
 
-open class JXSegmentedIndicatorBackgroundView: JXSegmentedIndicatorBaseView {
+class JXSegmentedIndicatorBackgroundView: JXSegmentedIndicatorBaseView {
     @available(*, deprecated, renamed: "indicatorWidthIncrement")
-    open var backgroundWidthIncrement: CGFloat = 20 {
+    var backgroundWidthIncrement: CGFloat = 20 {
         didSet {
             indicatorWidthIncrement = backgroundWidthIncrement
         }
     }
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         indicatorWidthIncrement = 20
@@ -26,7 +26,7 @@ open class JXSegmentedIndicatorBackgroundView: JXSegmentedIndicatorBaseView {
         verticalOffset = 0
     }
 
-    open override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
+    override func refreshIndicatorState(model: JXSegmentedIndicatorSelectedParams) {
         super.refreshIndicatorState(model: model)
 
         backgroundColor = indicatorColor
@@ -47,7 +47,7 @@ open class JXSegmentedIndicatorBackgroundView: JXSegmentedIndicatorBaseView {
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
 
-    open override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
+    override func contentScrollViewDidScroll(model: JXSegmentedIndicatorTransitionParams) {
         super.contentScrollViewDidScroll(model: model)
 
         guard canHandleTransition(model: model) else {
@@ -72,7 +72,7 @@ open class JXSegmentedIndicatorBackgroundView: JXSegmentedIndicatorBaseView {
         self.frame.size.width = targetWidth
     }
 
-    open override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
+    override func selectItem(model: JXSegmentedIndicatorSelectedParams) {
         super.selectItem(model: model)
 
         let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)

@@ -8,14 +8,14 @@
 
 import UIKit
 
-@objc public protocol JXPagingMainTableViewGestureDelegate {
+@objc protocol JXPagingMainTableViewGestureDelegate {
     func mainTableViewGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
 }
 
-open class JXPagingMainTableView: UITableView, UIGestureRecognizerDelegate {
-    public weak var gestureDelegate: JXPagingMainTableViewGestureDelegate?
+class JXPagingMainTableView: UITableView, UIGestureRecognizerDelegate {
+    weak var gestureDelegate: JXPagingMainTableViewGestureDelegate?
 
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureDelegate != nil {
             return gestureDelegate!.mainTableViewGestureRecognizer(gestureRecognizer, shouldRecognizeSimultaneouslyWith:otherGestureRecognizer)
         }else {

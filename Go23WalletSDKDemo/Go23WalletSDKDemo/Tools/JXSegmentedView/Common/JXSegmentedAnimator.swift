@@ -9,22 +9,22 @@
 import Foundation
 import UIKit
 
-open class JXSegmentedAnimator {
-    open var duration: TimeInterval = 0.25
-    open var progressClosure: ((CGFloat)->())?
-    open var completedClosure: (()->())?
+class JXSegmentedAnimator {
+    var duration: TimeInterval = 0.25
+    var progressClosure: ((CGFloat)->())?
+    var completedClosure: (()->())?
     private var displayLink: CADisplayLink!
     private var firstTimestamp: CFTimeInterval?
 
-    public init() {
+    init() {
         displayLink = CADisplayLink(target: self, selector: #selector(processDisplayLink(sender:)))
     }
 
-    open func start() {
+    func start() {
         displayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
     }
 
-    open func stop() {
+    func stop() {
         progressClosure?(1)
         displayLink.invalidate()
         completedClosure?()

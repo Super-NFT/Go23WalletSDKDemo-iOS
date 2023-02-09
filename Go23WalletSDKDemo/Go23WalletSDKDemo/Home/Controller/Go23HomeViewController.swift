@@ -6,10 +6,6 @@
 //
 
 import UIKit
-import SnapKit
-import MBProgressHUD
-import BigInt
-import Alamofire
 import Go23SDK
 
 class Go23WalletMangager {
@@ -37,7 +33,6 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     var tokenList: [Go23WalletTokenModel]?
     
-    var hud: MBProgressHUD?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -388,7 +383,6 @@ extension Go23HomeViewController: JXSegmentedListContainerViewDataSource {
 extension Go23HomeViewController {
        
     private func recover(walletlist: [Go23WalletInfoModel]) {
-        self.hud?.hide(animated: true)
         self.walletList = walletlist
         guard walletlist.count > 0 else {return}
         let wallet = walletlist[0]

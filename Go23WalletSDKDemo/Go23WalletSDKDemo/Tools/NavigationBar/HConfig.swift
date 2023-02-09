@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-public struct HD<Base>{
-    public let base: Base
-    public init(_ base:Base){
+struct HD<Base>{
+    let base: Base
+    init(_ base:Base){
         self.base = base
     }
 }
 
-public protocol HDCompatible{}
+protocol HDCompatible{}
 
-public extension HDCompatible{
+extension HDCompatible{
     static var hd: HD<Self>.Type {
         get { return HD<Self>.self }
         set { }
@@ -28,19 +28,19 @@ public extension HDCompatible{
     }
 }
 
-public var HDScreenWidth: CGFloat {
+var HDScreenWidth: CGFloat {
     get{
         return UIScreen.main.bounds.width
     }
 }
-public var HDScreenHeight: CGFloat {
+var HDScreenHeight: CGFloat {
     get{
         return UIScreen.main.bounds.height
     }
 }
 
 
-public var HDCurrentWindow: UIWindow? {
+var HDCurrentWindow: UIWindow? {
     var window: UIWindow?
     if #available(iOS 13.0, *) {
         window = HDCurrentScenes?.windows.first
@@ -50,7 +50,7 @@ public var HDCurrentWindow: UIWindow? {
 }
 
 @available(iOS 13.0, *)
-public var HDCurrentScenes: UIWindowScene? {
+var HDCurrentScenes: UIWindowScene? {
     for scene in UIApplication.shared.connectedScenes {
         if let windowScene = scene as? UIWindowScene , windowScene.activationState == .foregroundActive {
             return windowScene
@@ -61,9 +61,9 @@ public var HDCurrentScenes: UIWindowScene? {
 
 
 
-public struct HApp {
+struct HApp {
     /// 状态栏高度
-    public static var appStatusHeight: CGFloat{
+    static var appStatusHeight: CGFloat{
         if #available(iOS 13.0, *) {
             if let windowScene = HDCurrentScenes, let barManager = windowScene.statusBarManager {
                 return barManager.statusBarFrame.size.height
@@ -72,7 +72,7 @@ public struct HApp {
         return UIApplication.shared.statusBarFrame.size.height
     }
     
-    public static var appSafeInset: UIEdgeInsets{
+    static var appSafeInset: UIEdgeInsets{
         
         if let window = HDCurrentWindow  {
             if #available(iOS 11.0, *) {
@@ -103,20 +103,20 @@ public struct HApp {
         return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
     }
     
-    public static var appNavgationContentHeight:CGFloat{
+    static var appNavgationContentHeight:CGFloat{
         return 44;
     }
     
-    public static var appNavgationBarHeight:CGFloat{
+    static var appNavgationBarHeight:CGFloat{
         return appNavgationContentHeight + appStatusHeight;
     }
     
-    public static var appBottomHeight:CGFloat {
+    static var appBottomHeight:CGFloat {
         return appSafeInset.bottom + 49
     }
     
     
-    public static var appAPixel:CGFloat{
+    static var appAPixel:CGFloat{
         return 1.0 / UIScreen.main.scale;
     }
 }

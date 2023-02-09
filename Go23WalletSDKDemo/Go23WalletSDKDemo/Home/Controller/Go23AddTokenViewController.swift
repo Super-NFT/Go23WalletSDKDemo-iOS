@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import SnapKit
-import MBProgressHUD
+import Kingfisher
 import Go23SDK
 
 
@@ -309,7 +308,7 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         func filled(cover: String, type: String, num: String, money: String, isSelect: Bool, isHidden: Bool) {
-            iconImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
+            iconImgv.kf.setImage(with: URL(string: cover))
             titleLabel.text = type
             numLabel.text = "\(num)"
             moneyLabel.text = "$\(money)"

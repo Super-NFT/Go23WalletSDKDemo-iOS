@@ -8,11 +8,11 @@
 
 import UIKit
 
-open class JXSegmentedTitleGradientCell: JXSegmentedTitleCell {
-    public let gradientLayer = CAGradientLayer()
+class JXSegmentedTitleGradientCell: JXSegmentedTitleCell {
+    let gradientLayer = CAGradientLayer()
     private var canStartSelectedAnimation: Bool = false
 
-    open override func commonInit() {
+    override func commonInit() {
         super.commonInit()
 
         titleLabel.removeFromSuperview()
@@ -23,7 +23,7 @@ open class JXSegmentedTitleGradientCell: JXSegmentedTitleCell {
         gradientLayer.mask = titleLabel.layer
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         CATransaction.begin()
@@ -33,7 +33,7 @@ open class JXSegmentedTitleGradientCell: JXSegmentedTitleCell {
         titleLabel.frame = gradientLayer.bounds
     }
 
-    open override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         super.reloadData(itemModel: itemModel, selectedType: selectedType)
 
         guard let myItemModel = itemModel as? JXSegmentedTitleGradientItemModel else {
@@ -68,7 +68,7 @@ open class JXSegmentedTitleGradientCell: JXSegmentedTitleCell {
         }
     }
 
-    open override func startSelectedAnimationIfNeeded(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    override func startSelectedAnimationIfNeeded(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         if canStartSelectedAnimation {
             super.startSelectedAnimationIfNeeded(itemModel: itemModel, selectedType: selectedType)
         }

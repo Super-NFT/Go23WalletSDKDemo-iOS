@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-public struct JXSegmentedIndicatorSelectedParams {
-    public let currentSelectedIndex: Int
-    public let currentSelectedItemFrame: CGRect
-    public let selectedType: JXSegmentedViewItemSelectedType
-    public let currentItemContentWidth: CGFloat
-    public var collectionViewContentSize: CGSize?
+struct JXSegmentedIndicatorSelectedParams {
+    let currentSelectedIndex: Int
+    let currentSelectedItemFrame: CGRect
+    let selectedType: JXSegmentedViewItemSelectedType
+    let currentItemContentWidth: CGFloat
+    var collectionViewContentSize: CGSize?
 
-    public init(currentSelectedIndex: Int, currentSelectedItemFrame: CGRect, selectedType: JXSegmentedViewItemSelectedType, currentItemContentWidth: CGFloat, collectionViewContentSize: CGSize?) {
+    init(currentSelectedIndex: Int, currentSelectedItemFrame: CGRect, selectedType: JXSegmentedViewItemSelectedType, currentItemContentWidth: CGFloat, collectionViewContentSize: CGSize?) {
         self.currentSelectedIndex = currentSelectedIndex
         self.currentSelectedItemFrame = currentSelectedItemFrame
         self.selectedType = selectedType
@@ -25,17 +25,17 @@ public struct JXSegmentedIndicatorSelectedParams {
     }
 }
 
-public struct JXSegmentedIndicatorTransitionParams {
-    public let currentSelectedIndex: Int
-    public let leftIndex: Int
-    public let leftItemFrame: CGRect
-    public let rightIndex: Int
-    public let rightItemFrame: CGRect
-    public let leftItemContentWidth: CGFloat
-    public let rightItemContentWidth: CGFloat
-    public let percent: CGFloat
+struct JXSegmentedIndicatorTransitionParams {
+    let currentSelectedIndex: Int
+    let leftIndex: Int
+    let leftItemFrame: CGRect
+    let rightIndex: Int
+    let rightItemFrame: CGRect
+    let leftItemContentWidth: CGFloat
+    let rightItemContentWidth: CGFloat
+    let percent: CGFloat
 
-    public init(currentSelectedIndex: Int, leftIndex: Int, leftItemFrame: CGRect, leftItemContentWidth: CGFloat, rightIndex: Int, rightItemFrame: CGRect, rightItemContentWidth: CGFloat, percent: CGFloat) {
+    init(currentSelectedIndex: Int, leftIndex: Int, leftItemFrame: CGRect, leftItemContentWidth: CGFloat, rightIndex: Int, rightItemFrame: CGRect, rightItemContentWidth: CGFloat, percent: CGFloat) {
         self.currentSelectedIndex = currentSelectedIndex
         self.leftIndex = leftIndex
         self.leftItemFrame = leftItemFrame

@@ -8,12 +8,12 @@
 
 import UIKit
 
-public protocol JXSegmentedViewRTLCompatible: class {
+protocol JXSegmentedViewRTLCompatible: class {
     func segmentedViewShouldRTLLayout() -> Bool
     func segmentedView(horizontalFlipForView view: UIView?)
 }
 
-public extension JXSegmentedViewRTLCompatible {
+extension JXSegmentedViewRTLCompatible {
     
 
     func segmentedViewShouldRTLLayout() -> Bool {

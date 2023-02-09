@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public protocol JXPagingSmoothViewListViewDelegate {
+@objc protocol JXPagingSmoothViewListViewDelegate {
 
     func listView() -> UIView
     func listScrollView() -> UIScrollView
@@ -17,7 +17,7 @@ import UIKit
 }
 
 @objc
-public protocol JXPagingSmoothViewDataSource {
+protocol JXPagingSmoothViewDataSource {
     func heightForPagingHeader(in pagingView: JXPagingSmoothView) -> CGFloat
     func viewForPagingHeader(in pagingView: JXPagingSmoothView) -> UIView
     func heightForPinHeader(in pagingView: JXPagingSmoothView) -> CGFloat
@@ -27,16 +27,16 @@ public protocol JXPagingSmoothViewDataSource {
 }
 
 @objc
-public protocol JXPagingSmoothViewDelegate {
+protocol JXPagingSmoothViewDelegate {
     @objc optional func pagingSmoothViewDidScroll(_ scrollView: UIScrollView)
 }
 
 
-open class JXPagingSmoothView: UIView {
-    public private(set) var listDict = [Int : JXPagingSmoothViewListViewDelegate]()
-    public let listCollectionView: JXPagingSmoothCollectionView
-    public var defaultSelectedIndex: Int = 0
-    public weak var delegate: JXPagingSmoothViewDelegate?
+class JXPagingSmoothView: UIView {
+    private(set) var listDict = [Int : JXPagingSmoothViewListViewDelegate]()
+    let listCollectionView: JXPagingSmoothCollectionView
+    var defaultSelectedIndex: Int = 0
+    weak var delegate: JXPagingSmoothViewDelegate?
 
     weak var dataSource: JXPagingSmoothViewDataSource?
     var listHeaderDict = [Int : UIView]()
@@ -59,7 +59,7 @@ open class JXPagingSmoothView: UIView {
         }
     }
 
-    public init(dataSource: JXPagingSmoothViewDataSource) {
+    init(dataSource: JXPagingSmoothViewDataSource) {
         self.dataSource = dataSource
         pagingHeaderContainerView = UIView()
         let layout = UICollectionViewFlowLayout()
@@ -86,11 +86,11 @@ open class JXPagingSmoothView: UIView {
         addSubview(listCollectionView)
     }
 
-    required public init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func reloadData() {
+    func reloadData() {
         guard let dataSource = dataSource else { return }
         currentListScrollView = nil
         currentIndex = defaultSelectedIndex
@@ -131,7 +131,7 @@ open class JXPagingSmoothView: UIView {
         }
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         listCollectionView.frame = bounds
@@ -185,7 +185,7 @@ open class JXPagingSmoothView: UIView {
 
     //MARK: - KVO
 
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentOffset" {
             if let scrollView = object as? UIScrollView {
                 listDidScroll(scrollView: scrollView)
@@ -257,16 +257,16 @@ open class JXPagingSmoothView: UIView {
 }
 
 extension JXPagingSmoothView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return bounds.size
     }
 
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let dataSource = dataSource else { return 0 }
         return dataSource.numberOfLists(in: self)
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let dataSource = dataSource else { return UICollectionViewCell(frame: CGRect.zero) }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
         var list = listDict[indexPath.item]
@@ -304,15 +304,15 @@ extension JXPagingSmoothView: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
 
-    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         listDidAppear(at: indexPath.item)
     }
 
-    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         listDidDisappear(at: indexPath.item)
     }
 
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.pagingSmoothViewDidScroll?(scrollView)
         let indexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width
         let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
@@ -330,22 +330,22 @@ extension JXPagingSmoothView: UICollectionViewDataSource, UICollectionViewDelega
         }
     }
 
-    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
             horizontalScrollDidEnd(at: index)
         }
     }
 
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
         horizontalScrollDidEnd(at: index)
     }
 }
 
-public class JXPagingSmoothCollectionView: UICollectionView, UIGestureRecognizerDelegate {
+class JXPagingSmoothCollectionView: UICollectionView, UIGestureRecognizerDelegate {
     var pagingHeaderContainerView: UIView?
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let point = touch.location(in: pagingHeaderContainerView)
         if pagingHeaderContainerView?.bounds.contains(point) == true {
             return false

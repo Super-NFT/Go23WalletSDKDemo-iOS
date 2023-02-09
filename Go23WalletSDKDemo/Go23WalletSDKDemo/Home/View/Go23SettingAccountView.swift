@@ -5,7 +5,6 @@
 //  Created by luming on 2023/1/4.
 //
 import UIKit
-import MBProgressHUD
 
 class Go23SettingAccountView: UIView {
     

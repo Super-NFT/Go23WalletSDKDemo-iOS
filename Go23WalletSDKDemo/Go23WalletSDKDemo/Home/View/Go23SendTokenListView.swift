@@ -7,6 +7,7 @@
 
 import UIKit
 import Go23SDK
+import Kingfisher
 
 class Go23SendTokenListView: UIView {
     
@@ -188,7 +189,7 @@ class SendTokenListCell: UITableViewCell {
     }
     
     func filled(cover: String, type: String, num: String, money: String) {
-        iconImgv.sd_setImage(with: URL(string: cover), placeholderImage: nil)
+        iconImgv.kf.setImage(with: URL(string: cover))
         titleLabel.text = type
         numLabel.text = "\(num)"
         if let mon =  Double(money), mon == 0 {

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 
 protocol Go23NetStatusProtocol {

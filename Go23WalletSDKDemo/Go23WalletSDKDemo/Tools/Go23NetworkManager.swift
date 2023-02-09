@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 
 final class Go23NetworkManager: NSObject {
@@ -107,7 +106,7 @@ final class Go23NetworkLayer {
             urlString = Go23HostDemo + urlString
         }
         
-        Alamofire.request(urlString,
+        request(urlString,
                           method: method,
                           parameters: parameters,
                           encoding: urlencode,

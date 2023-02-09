@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 import Go23SDK
 
 class Go23TokenDetailResultViewController: UIViewController {
@@ -19,7 +18,6 @@ class Go23TokenDetailResultViewController: UIViewController {
     
     var isPopRoot = true
     
-    var hud: MBProgressHUD?
     
     deinit {
         removeTimer()

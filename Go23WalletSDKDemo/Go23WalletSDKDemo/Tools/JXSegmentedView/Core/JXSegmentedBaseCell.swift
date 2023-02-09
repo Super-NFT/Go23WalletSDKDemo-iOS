@@ -8,44 +8,44 @@
 
 import UIKit
 
-public typealias JXSegmentedCellSelectedAnimationClosure = (CGFloat)->()
+typealias JXSegmentedCellSelectedAnimationClosure = (CGFloat)->()
 
-open class JXSegmentedBaseCell: UICollectionViewCell, JXSegmentedViewRTLCompatible {
-    open var itemModel: JXSegmentedBaseItemModel?
-    open var animator: JXSegmentedAnimator?
+class JXSegmentedBaseCell: UICollectionViewCell, JXSegmentedViewRTLCompatible {
+    var itemModel: JXSegmentedBaseItemModel?
+    var animator: JXSegmentedAnimator?
     private var selectedAnimationClosureArray = [JXSegmentedCellSelectedAnimationClosure]()
 
     deinit {
         animator?.stop()
     }
 
-    open override func prepareForReuse() {
+    override func prepareForReuse() {
         super.prepareForReuse()
 
         animator?.stop()
         animator = nil
     }
 
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
 
         commonInit()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         commonInit()
     }
 
-    open func commonInit() {
+    func commonInit() {
         if segmentedViewShouldRTLLayout() {
             segmentedView(horizontalFlipForView: self)
             segmentedView(horizontalFlipForView: contentView)
         }
     }
 
-    open func canStartSelectedAnimation(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) -> Bool {
+    func canStartSelectedAnimation(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) -> Bool {
         var isSelectedAnimatable = false
         if itemModel.isSelectedAnimable {
             if selectedType == .scroll {
@@ -59,11 +59,11 @@ open class JXSegmentedBaseCell: UICollectionViewCell, JXSegmentedViewRTLCompatib
         return isSelectedAnimatable
     }
 
-    open func appendSelectedAnimationClosure(closure: @escaping JXSegmentedCellSelectedAnimationClosure) {
+    func appendSelectedAnimationClosure(closure: @escaping JXSegmentedCellSelectedAnimationClosure) {
         selectedAnimationClosureArray.append(closure)
     }
 
-    open func startSelectedAnimationIfNeeded(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    func startSelectedAnimationIfNeeded(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         if itemModel.isSelectedAnimable && canStartSelectedAnimation(itemModel: itemModel, selectedType: selectedType) {
             itemModel.isTransitionAnimating = true
             animator?.progressClosure = {[weak self] (percent) in
@@ -82,7 +82,7 @@ open class JXSegmentedBaseCell: UICollectionViewCell, JXSegmentedViewRTLCompatib
         }
     }
 
-    open func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
+    func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         self.itemModel = itemModel
 
         if itemModel.isSelectedAnimable {

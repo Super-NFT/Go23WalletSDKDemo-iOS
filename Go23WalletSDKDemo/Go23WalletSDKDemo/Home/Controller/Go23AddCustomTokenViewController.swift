@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import SnapKit
-import MBProgressHUD
 import Go23SDK
 
 class Go23AddCustomTokenViewController: UIViewController {

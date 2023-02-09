@@ -54,7 +54,7 @@ class LBXScanLineAnimation: UIImageView {
         isAnimationing = false
     }
     
-    public static func instance() -> LBXScanLineAnimation {
+    static func instance() -> LBXScanLineAnimation {
         return LBXScanLineAnimation()
     }
     
