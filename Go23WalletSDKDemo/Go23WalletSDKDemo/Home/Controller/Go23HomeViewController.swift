@@ -65,7 +65,13 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     private func initSubViews() {
         view.backgroundColor = .white
         view.addSubview(headerView)
-                
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
+
         headerView.snp.makeConstraints { make in
             make.top.equalTo(0)
             make.leading.trailing.equalToSuperview()
@@ -137,7 +143,7 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
             return
         }
         
-        let alert = Go23SettingAccountView(frame: CGRectMake(0, 0, ScreenWidth, 720))
+        let alert = Go23SettingAccountView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120))
         let ovc = OverlayController(view: alert)
         ovc.maskStyle = .black(opacity: 0.4)
         ovc.layoutPosition = .bottom
@@ -415,12 +421,21 @@ extension Go23HomeViewController {
             uniqueId = kSMS
         }
         
+        var phone = ""
+        var areaCode = ""
+        if Go23WalletMangager.shared.phone.count > 0, Go23WalletMangager.shared.phone.components(separatedBy: " ").count == 2 {
+            phone = Go23WalletMangager.shared.phone.components(separatedBy: " ")[1]
+            areaCode = Go23WalletMangager.shared.phone.components(separatedBy: " ")[0]
+        }
+        
         popSettingEmail()
         
-        
+        if Go23WalletMangager.shared.email.count == 0 && Go23WalletMangager.shared.phone.count == 0 {
+            return
+        }
         
         Go23Loading.loading()
-        shared.connect(with: uniqueId, email: Go23WalletMangager.shared.email,phone: Go23WalletMangager.shared.phone, delegate: self) { [weak self] result in
+        shared.connect(with: uniqueId, email: Go23WalletMangager.shared.email,phone: (areaCode, phone), delegate: self) { [weak self] result in
             switch result {
             case .success(let successResult):
                 switch successResult {

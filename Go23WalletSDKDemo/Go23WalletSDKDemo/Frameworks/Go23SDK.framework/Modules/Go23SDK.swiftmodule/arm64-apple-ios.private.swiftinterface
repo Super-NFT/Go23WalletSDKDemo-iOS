@@ -509,8 +509,8 @@ extension Go23SDK.Go23WalletSDK {
 }
 extension Go23SDK.Go23WalletSDK {
   public func reshardWallet(with address: Swift.String, shard: Swift.String, delegate: Go23SDK.Go23ReshardDelegate?, completion: @escaping ((Go23SDK.Go23ReshardResult) -> Swift.Void))
-  public func forgetShardPincode(with address: Swift.String, shard: Swift.String, verifyCode code: Swift.String, delegate: Go23SDK.Go23ReshardDelegate?, completion: @escaping ((Go23SDK.Go23ReshardResult) -> Swift.Void))
-  public func restoreWallet(with addr: Swift.String, verifyCode code: Swift.String, delegate: Go23SDK.Go23RestoreDelegate?, completion: @escaping ((Go23SDK.Go23RestoreResult) -> Swift.Void))
+  public func forgetShardPincode(with address: Swift.String, shard: Swift.String, verifyCode code: Go23SDK.Go23VerifyCode, delegate: Go23SDK.Go23ReshardDelegate?, completion: @escaping ((Go23SDK.Go23ReshardResult) -> Swift.Void))
+  public func restoreWallet(with addr: Swift.String, verifyCode code: Go23SDK.Go23VerifyCode, delegate: Go23SDK.Go23RestoreDelegate?, completion: @escaping ((Go23SDK.Go23RestoreResult) -> Swift.Void))
 }
 public struct Go23WalletChainListModel : Swift.Codable {
   @Go23SDK.DecodableDefault.EmptyList public var listModel: [Go23SDK.Go23WalletChainModel] {
@@ -533,6 +533,11 @@ public struct Go23WalletChainListModel : Swift.Codable {
 }
 public enum Go23VerifyCodeType {
   case email(Swift.String)
+  case phone(Swift.String)
+}
+public enum Go23VerifyCode {
+  case email(Swift.String)
+  case phone(Swift.String)
 }
 public struct Go23AccountModel : Swift.Codable {
   @Go23SDK.DecodableDefault.EmptyString public var uuid: Swift.String {
@@ -1088,7 +1093,7 @@ public struct Go23SendTransactionModel {
   public init(type: Swift.Int, rpc: Swift.String, chainId: Swift.Int, fromAddr: Swift.String, toAddr: Swift.String, transType: Swift.Int, contractAddress: Swift.String, tokenId: Swift.String, value: Swift.String, middleContractAddress: Swift.String, decimal: Swift.Int, nftName: Swift.String, tokenIcon: Foundation.Data? = nil, chainName: Swift.String)
 }
 extension Go23SDK.Go23WalletSDK {
-  public func connect(with uniqueId: Swift.String, email: Swift.String, phone: Swift.String = "", delegate: Go23SDK.Go23ConnectDelegate?, completion: @escaping ((Go23SDK.Go23AccountResult) -> Swift.Void))
+  public func connect(with uniqueId: Swift.String, email: Swift.String, phone: (Swift.String, Swift.String) = ("", ""), delegate: Go23SDK.Go23ConnectDelegate?, completion: @escaping ((Go23SDK.Go23AccountResult) -> Swift.Void))
 }
 public struct Go23NFTTransactionModel : Swift.Codable {
   @Go23SDK.DecodableDefault.False public var isOk: Swift.Bool {

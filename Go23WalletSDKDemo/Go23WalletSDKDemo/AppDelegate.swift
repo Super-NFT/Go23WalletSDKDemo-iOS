@@ -17,8 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Replace yout appKey and secretKey here.
-        Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
-                           secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
+        //release
+//        Go23WalletSDK.auth(appKey: "OcHB6Ix8bIWiOyE35ze6Ra9e",
+//                           secretKey: "KX6OquHkkKQmzLSncmnmNt2q") { result in
+//            if result {
+//                NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
+//                                                object: nil,
+//                                                userInfo: nil)
+//            }
+//            print("Go23WalletSDK.auth === \(result)")
+//        }
+        
+        //debug
+        Go23WalletSDK.auth(appKey: "j9ASxn5REHG8akytevRYZwCp",
+                           secretKey: "QHXFT28Nu1u4R7IiGBlFCVXF") { result in
             if result {
                 NotificationCenter.default.post(name: NSNotification.Name(kRegisterUser),
                                                 object: nil,

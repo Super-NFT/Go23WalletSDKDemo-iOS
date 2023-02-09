@@ -88,13 +88,13 @@ class Go23EmailViewController: UIViewController {
                 }
             }
         } else {
-//            shared.sendVerifyCode(for: .phone(str)) { [weak self]status in
-//                Go23Loading.clear()
-//                if status {
-//                    self?.forgetView.isHidden = false
-//                    self?.forgetView.codeView.startInput()
-//                }
-//            }
+            shared.sendVerifyCode(for: .phone(str)) { [weak self]status in
+                Go23Loading.clear()
+                if status {
+                    self?.forgetView.isHidden = false
+                    self?.forgetView.codeView.startInput()
+                }
+            }
         }
         
         

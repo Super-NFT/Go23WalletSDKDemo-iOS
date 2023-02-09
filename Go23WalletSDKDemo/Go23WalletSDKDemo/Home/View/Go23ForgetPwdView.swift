@@ -106,14 +106,19 @@ class Go23ForgetPwdView: UIView {
     }
     
     @objc private func verifyBtnClick() {
-        guard let shared = Go23WalletSDK.shared, pinCode.count == 6 else {
+        
+        guard let shared = Go23WalletSDK.shared else {
             return
         }
         
-
+        var codeType: Go23VerifyCode = .email(pinCode)
+        if Go23WalletMangager.shared.phone.count > 0 {
+            codeType = .phone(pinCode)
+        }
         if settingType == .resharding {
             
-            shared.forgetShardPincode(with: Go23WalletMangager.shared.address, shard: self.pk, verifyCode: self.pinCode, delegate: self) { [weak self] status in
+
+            shared.forgetShardPincode(with: Go23WalletMangager.shared.address, shard: self.pk, verifyCode: codeType, delegate: self) { [weak self] status in
 
                     switch status {
                     case .success(let str):
@@ -151,7 +156,8 @@ class Go23ForgetPwdView: UIView {
             }
 
         } else {
-            shared.restoreWallet(with: Go23WalletMangager.shared.address, verifyCode: self.pinCode, delegate: self) { [weak self]status in
+            
+            shared.restoreWallet(with: Go23WalletMangager.shared.address, verifyCode: codeType, delegate: self) { [weak self]status in
                     switch status {
                     case .success:
                         let alert = Go23PwdSuccessView(frame: CGRectMake(0, 0, ScreenWidth, 720))
@@ -211,9 +217,9 @@ class Go23ForgetPwdView: UIView {
                 
             }
         } else {
-//            shared.sendVerifyCode(for: .phone(str)) { status in
-//
-//            }
+            shared.sendVerifyCode(for: .phone(str)) { status in
+
+            }
         }
         
         
@@ -274,11 +280,18 @@ class Go23ForgetPwdView: UIView {
     lazy var codeView: PinCodeInputView = {
         let eachWidth = 44.0
         let config = PincodConfig(eachHeight: 48.0, eachWidth: eachWidth, margin: 12.0)
-        let view = PinCodeInputView(frame: CGRect(x: (UIScreen.main.bounds.size.width - 44*6 - 12*5)/2.0, y: 100.0, width: UIScreen.main.bounds.size.width, height: 60.0), with: 6, config: config)
+        if Go23WalletMangager.shared.email.count > 0 {
+            let view = PinCodeInputView(frame: CGRect(x: (UIScreen.main.bounds.size.width - 44*6 - 12*5)/2.0, y: 100.0, width: UIScreen.main.bounds.size.width, height: 60.0), with: 6, config: config)
+            view.inputCompleteBlock = { [weak self] (pincode) in
+                self?.pinCode = pincode
+            }
+            return view
+        }
+        let view = PinCodeInputView(frame: CGRect(x: (UIScreen.main.bounds.size.width - 44*4 - 12*3)/2.0, y: 100.0, width: UIScreen.main.bounds.size.width, height: 60.0), with: 4, config: config)
+        view.pincodeCount = 4
         view.inputCompleteBlock = { [weak self] (pincode) in
             self?.pinCode = pincode
         }
-        
         return view
     }()
     

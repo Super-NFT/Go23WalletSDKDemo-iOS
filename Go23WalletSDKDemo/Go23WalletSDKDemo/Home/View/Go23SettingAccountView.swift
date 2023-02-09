@@ -10,7 +10,7 @@ class Go23SettingAccountView: UIView {
     
     var confirmBlock:(()->())?
     var closeBlock: (()->())?
-    var areaCode = "+86"
+    var areaCode = "+63"
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
@@ -147,9 +147,9 @@ class Go23SettingAccountView: UIView {
         ovc.isPanGestureEnabled = true
         
         alert.chooseBlock = {[weak self]model in
-            
+            self?.areaCode = model
             let attri = NSMutableAttributedString()
-            attri.add(text: "+86") { attr in
+            attri.add(text: model) { attr in
                 attr.font(14)
                 attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
                 attr.kern(0.5)
@@ -232,7 +232,7 @@ class Go23SettingAccountView: UIView {
         let btn = UIButton(type: .custom)
 //        btn.setTitle("SMS", for: .normal)
         let attri = NSMutableAttributedString()
-        attri.add(text: "+86") { attr in
+        attri.add(text: "+63") { attr in
             attr.font(14)
             attr.color(UIColor.rdt_HexOfColor(hexString: "#262626"))
             attr.kern(0.5)

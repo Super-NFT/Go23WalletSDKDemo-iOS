@@ -10,7 +10,7 @@ import Go23SDK
 
 class Go23SettingView: UIView {
 
-    var dataArray: [String] = ["Reshard Private Key", "Remove Email"]
+    var dataArray: [String] = ["Reshard Private Key", "Remove Email", "Remove Phone"]
     var email = ""
     var pk = ""
     var cancelBlock: (()->())?
@@ -126,16 +126,20 @@ extension Go23SettingView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard let shared = Go23WalletSDK.shared, self.pk.count > 0 else {
+        if indexPath.row == 1 {
+            UserDefaults.standard.set("", forKey: kEmailPrivateKey)
+            let totast = Go23Toast.init(frame: .zero)
+            totast.show("Remove email success!", after: 1)
+        } else if indexPath.row == 2 {
+            UserDefaults.standard.set("", forKey: kPhonePrivateKey)
+            let totast = Go23Toast.init(frame: .zero)
+            totast.show("Remove Phone success!", after: 1)
+        }
+        guard self.pk.count > 0 else {
             return
         }
         if indexPath.row == 0 {
             self.reshardingBlock?(self.pk)
-        } else {
-            UserDefaults.standard.set("", forKey: kEmailPrivateKey)
-            let totast = Go23Toast.init(frame: .zero)
-            totast.show("Remove email success!", after: 1)
         }
          
     

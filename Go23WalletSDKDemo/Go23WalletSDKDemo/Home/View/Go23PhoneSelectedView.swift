@@ -10,21 +10,14 @@ import Go23SDK
 
 
 class Go23PhoneSelectedView: UIView {
-    var chainList: [Go23WalletChainModel]? {
-        didSet {
-            guard let chainList = chainList else {
-                return
-            }
-            self.tableView.reloadData()
-        }
-    }
+    var codeList: [Go23PhoneCodeModel]?
     
     var chooseBlock: ((_ str: String)->())?
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         initSubviews()
-         
+        getPhoneList()
     }
     
     required init?(coder: NSCoder) {
@@ -52,6 +45,18 @@ class Go23PhoneSelectedView: UIView {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(14)
             make.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    private func getPhoneList() {
+        Go23Loading.loading()
+        Go23Net.getPhoneCode {[weak self] model in
+            Go23Loading.clear()
+            guard let obj = model else {
+                return
+            }
+            self?.codeList = obj.data
+            self?.tableView.reloadData()
         }
     }
     
@@ -106,17 +111,17 @@ extension Go23PhoneSelectedView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.chainList?.count ?? 0
+        return self.codeList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Go23PhoneAlertViewCell.reuseIdentifier(), for: indexPath) as? Go23PhoneAlertViewCell, let count = self.chainList?.count, indexPath.row < count
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Go23PhoneAlertViewCell.reuseIdentifier(), for: indexPath) as? Go23PhoneAlertViewCell, let count = self.codeList?.count, indexPath.row < count
         else {
                 return UITableViewCell()
             }
             
-        if let model = self.chainList?[indexPath.row] {
-            cell.filled(title: "", desc: "")
+        if let model = self.codeList?[indexPath.row] {
+            cell.filled(title: model.name, desc: model.dialCode)
 
         }
         return cell
@@ -134,9 +139,9 @@ extension Go23PhoneSelectedView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
-//        if let list = self.chainList, indexPath.row < list.count {
-//            self.chooseBlock?(list[indexPath.row])
-//        }
+        if let list = self.codeList, indexPath.row < list.count {
+            self.chooseBlock?(list[indexPath.row].dialCode)
+        }
     }
 }
 

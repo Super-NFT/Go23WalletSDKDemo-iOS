@@ -14,15 +14,15 @@
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		s4mXmld6+PCtZLFZG5HyxhRX0qs=
+		sux42heNCYImmWc8N10OAblMpnA=
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		kjDZKKjG48M27g+LMrhvnl9LM1Q=
+		Nf0IGZjtepSTyR9k55Xwu3ejZLY=
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		L2Eo7NZJKFzACL48Xx8XHghu5QA=
+		Lc1ukVHRcB/Q/BRHt5+jwr6HHPA=
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		L2Eo7NZJKFzACL48Xx8XHghu5QA=
+		Lc1ukVHRcB/Q/BRHt5+jwr6HHPA=
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		Oa2rTv98EVgI34pYbU/POG4jP1E=
+		Uu4KrFmO5PHsskTSjrIL0YzyW0M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -58,33 +58,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s4mXmld6+PCtZLFZG5HyxhRX0qs=
+			sux42heNCYImmWc8N10OAblMpnA=
 			</data>
 			<key>hash2</key>
 			<data>
-			s9y/H4k1wggymRBjRzdIsJ/qOZBnYmjPaFbZKJQG67k=
+			fyO5An8SeHj5uKEHYuO07/HULv9p2gpSS4+NCXPO0KY=
 			</data>
 		</dict>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kjDZKKjG48M27g+LMrhvnl9LM1Q=
+			Nf0IGZjtepSTyR9k55Xwu3ejZLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			yB7FtZk0HPeqeXPsnPbtV50IL33/nHffIhYL/4F2/J0=
+			BiQSoOpaHoQS2W+4h0UU8KEGXkp8gqLZvpOMMkXetnY=
 			</data>
 		</dict>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L2Eo7NZJKFzACL48Xx8XHghu5QA=
+			Lc1ukVHRcB/Q/BRHt5+jwr6HHPA=
 			</data>
 			<key>hash2</key>
 			<data>
-			qB4EBGkkXAa9ZE/IpgvfrbqtSCXfBnKvDbEA5pmXwq8=
+			U6UTBqAf6d5EnmLiVoEHme2gN3/o0kJRAtSTUcNTc1U=
 			</data>
 		</dict>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -102,22 +102,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L2Eo7NZJKFzACL48Xx8XHghu5QA=
+			Lc1ukVHRcB/Q/BRHt5+jwr6HHPA=
 			</data>
 			<key>hash2</key>
 			<data>
-			qB4EBGkkXAa9ZE/IpgvfrbqtSCXfBnKvDbEA5pmXwq8=
+			U6UTBqAf6d5EnmLiVoEHme2gN3/o0kJRAtSTUcNTc1U=
 			</data>
 		</dict>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Oa2rTv98EVgI34pYbU/POG4jP1E=
+			Uu4KrFmO5PHsskTSjrIL0YzyW0M=
 			</data>
 			<key>hash2</key>
 			<data>
-			IhIWab1r3SOWKw6gnrZyG6m0GI89IvNrFwoDBLgvPOk=
+			5K4P/ZGWfJS/2gyN0uu/hR6Lojepn8ZsHPxh7W0eOWw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
