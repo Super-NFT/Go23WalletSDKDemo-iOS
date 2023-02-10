@@ -57,34 +57,35 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     }
     
     private func initSubViews() {
-        view.backgroundColor = .white
-        view.addSubview(headerView)
-        
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
+        
+        view.backgroundColor = .white
+        view.addSubview(tableView)
+        
 
-        headerView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(0)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(HomeHeaderView.cellHight)
+            make.leading.trailing.bottom.equalToSuperview()
         }
         
-        view.addSubview(segmentedView)
-        view.addSubview(listContainerView)
-        segmentedView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(60)
-        }
-        listContainerView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedView.snp.bottom)
-            make.left.right.bottom.equalToSuperview()
-        }
-        segmentedView.delegate = self
-        segmentedView.listContainer = listContainerView
+        
+//        view.addSubview(segmentedView)
+//        view.addSubview(listContainerView)
+//        segmentedView.snp.makeConstraints { make in
+//            make.top.equalTo(headerView.snp.bottom)
+//            make.left.right.equalToSuperview()
+//            make.height.equalTo(60)
+//        }
+//        listContainerView.snp.makeConstraints { make in
+//            make.top.equalTo(segmentedView.snp.bottom)
+//            make.left.right.bottom.equalToSuperview()
+//        }
+//        segmentedView.delegate = self
+//        segmentedView.listContainer = listContainerView
         
         
         dataSource.titles = ["Tokens", "NFTs"]
@@ -250,27 +251,27 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     }
     
     private lazy var headerView: HomeHeaderView = {
-        let view = HomeHeaderView()
+        let view = HomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: HomeHeaderView.cellHight))
         view.delegate = self
         return view
     }()
     
-//    private lazy var tableView: UITableView = {
-//        let tableView = UITableView(frame: .zero, style: .plain)
-//        tableView.backgroundColor = .white
-//        tableView.separatorStyle = .none
-//        tableView.estimatedRowHeight = 0
-//        tableView.estimatedSectionHeaderHeight = 0
-//        tableView.estimatedSectionFooterHeight = 0
-//
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//
-////        tableView.register(Go23TokenListTableViewCell.self, forCellReuseIdentifier: Go23TokenListTableViewCell.reuseIdentifier())
-//
-//
-//        return tableView
-//    }()
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.tableHeaderView = headerView
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        tableView.register(Go23TokenListTableViewCell.self, forCellReuseIdentifier: Go23TokenListTableViewCell.reuseIdentifier())
+
+
+        return tableView
+    }()
     
     let dataSource: JXSegmentedTitleDataSource = JXSegmentedTitleDataSource()
     
@@ -363,6 +364,50 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
         self.settingBtnDidClick()
     }
 
+}
+
+extension Go23HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tokenList?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Go23TokenListTableViewCell.reuseIdentifier(), for: indexPath) as? Go23TokenListTableViewCell,let count = self.tokenList?.count, indexPath.row < count
+        else {
+                return UITableViewCell()
+            }
+        
+        if let model = self.tokenList?[indexPath.row] {
+            cell.filled(cover: model.imageUrl, title: model.balance, type:model.symbol, money: model.balanceU, sourceImg: model.chainImageUrl)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Go23TokenListTableViewCell.cellHeight
+
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+       
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let list = self.tokenList, indexPath.row < list.count {
+            let model = list[indexPath.row]
+            let vc = Go23TokenDetailViewController()
+            vc.model = model
+
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
 }
 
 

@@ -9,12 +9,23 @@ import Foundation
 import UIKit
 import Kingfisher
 
-protocol HomeHeaderViewDelegate: AnyObject {
+protocol HomeTopViewDelegate: AnyObject {
     func chooseClick()
+    func settingBtnClick()
+
+}
+
+protocol HomeHeaderViewDelegate: AnyObject {
     func receiveBtnClick()
     func sendBtnClick()
-    func settingBtnClick()
     
+}
+
+class HomeTopView: UIView {
+    
+    static var cellHight = 420.0
+    private var email = ""
+    weak var delegate: HomeTopViewDelegate?
 }
 
 class HomeHeaderView: UIView {
@@ -50,7 +61,7 @@ class HomeHeaderView: UIView {
         addSubview(lineV)
         
         rightBtn.snp.makeConstraints { make in
-            make.top.equalTo(44)
+            make.top.equalTo(0)
             make.trailing.equalTo(0)
             make.width.height.equalTo(44)
         }
