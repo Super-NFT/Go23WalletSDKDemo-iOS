@@ -121,10 +121,10 @@ public struct Go23PhoneCodeModel: Codable {
     @DecodableDefault.EmptyString public var falgEmoji: String
     
     enum CodingKeys: String, CodingKey {
-        case code = "Code"
-        case dialCode = "DialCode"
-        case falgEmoji = "FlagEmoji"
-        case name = "Name"
+        case code
+        case dialCode = "dial_code"
+        case falgEmoji = "flag_emoji"
+        case name
     }
 }
 

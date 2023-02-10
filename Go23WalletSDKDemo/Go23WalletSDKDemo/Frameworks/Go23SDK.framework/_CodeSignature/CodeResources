@@ -14,11 +14,11 @@
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		8NmyKIrzT4ULW5dG2uXXMafghb0=
+		LQp7B6guU82SoKleMPfY72rr1D8=
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		SQM4Dcm54nJGYU3onIaLGiPuyno=
+		u7PZgqN68PZD47H83fz4QRnhBCI=
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		Ngixlv4HV0BHx6wIkoPjqeabmVA=
+		Wr66GwgjysELdO8RSNXOsJGpIh0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -58,22 +58,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8NmyKIrzT4ULW5dG2uXXMafghb0=
+			LQp7B6guU82SoKleMPfY72rr1D8=
 			</data>
 			<key>hash2</key>
 			<data>
-			DT+UI1D/EMK8WLwR3lsVoZbFiInvubPuG4aZGvYThpU=
+			Jgo5p97Ipi9u10apCSjecK7Di52fGLjPFQDQVXbpgDc=
 			</data>
 		</dict>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SQM4Dcm54nJGYU3onIaLGiPuyno=
+			u7PZgqN68PZD47H83fz4QRnhBCI=
 			</data>
 			<key>hash2</key>
 			<data>
-			f5xyA4x0IgSXq2doNPIw11ZFCLCGY90KqIoT9Idv128=
+			ZkZo87SucNvbzQnGpbkvOKlXew+4Ac+g2ia4npqH1L8=
 			</data>
 		</dict>
 		<key>Modules/Go23SDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -113,11 +113,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ngixlv4HV0BHx6wIkoPjqeabmVA=
+			Wr66GwgjysELdO8RSNXOsJGpIh0=
 			</data>
 			<key>hash2</key>
 			<data>
-			stH+A0fRW1Vq+u+stFogfrP8Ic8bRvyKa3aU0lxA6XU=
+			a5lo8O/TrNbwH1S1+1NF2eWe05yt20D6rz2BOUCGpM0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

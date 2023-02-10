@@ -137,6 +137,7 @@ class Go23SettingAccountView: UIView {
     }
     
     @objc private func smsCodeBtnClick() {
+        codeTxtFiled.resignFirstResponder()
         let alert = Go23PhoneSelectedView(frame: CGRectMake(0, 0, ScreenWidth, 720))
         
         let ovc = OverlayController(view: alert)
