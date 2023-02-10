@@ -17,6 +17,8 @@ class Go23AddView: UIView {
         
     }
     
+    var nftBlock: (()->())?
+    var closeBlock:(()->())?
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,8 +60,7 @@ class Go23AddView: UIView {
     
     
     @objc private func closeBtnClick() {
-        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
-        
+        self.closeBlock?()        
     }
     
     @objc private func tokenClick() {
@@ -72,19 +73,8 @@ class Go23AddView: UIView {
     
     @objc private func nftClick() {
         closeBtnClick()
-        let alert = Go23AddNFTView(frame: CGRectMake(0, 0, ScreenWidth, 365))
-        let ovc = OverlayController(view: alert)
-        ovc.maskStyle = .black(opacity: 0.4)
-        ovc.layoutPosition = .bottom
-        ovc.presentationStyle = .fromToBottom
-        ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
-        ovc.shouldKeyboardChangeFollow = true
-        ovc.keyboardRelativeOffset = -200
-        alert.closeBlock = {
-            UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
-        }
-        UIApplication.shared.keyWindow?.present(overlay: ovc)
+        self.nftBlock?()
+        
     }
     
     private lazy var closeBtn: UIButton = {

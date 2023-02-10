@@ -21,9 +21,6 @@ class Go23WalletMangager {
 
 class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
-
-    private var tokenListTimer: Timer?
-    private var timeInterval: Int = 15
     private var email = ""
     
     var userinfo: UserInfoModel?
@@ -50,16 +47,13 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
                 
         NotificationCenter.default.addObserver(self, selector: #selector(registerUser), name: NSNotification.Name(rawValue: kRegisterUser), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(registerUser), name: NSNotification.Name(rawValue: kRefreshWalletData), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(getChainBalance), name: Notification.Name(rawValue: kRefreshWalletBalance), object: nil)
-//        creatTimer()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(getChainBalance), name: Notification.Name(rawValue: kRefreshWalletBalance), object: nil)        
         
     }
     
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-//        removeTimer()
     }
     
     private func initSubViews() {
@@ -117,22 +111,6 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         
     
     // MARK: - Action
-    private func creatTimer() {
-        tokenListTimer = Timer(timeInterval: 20.0, repeats: true) { [weak self] timer in
-            self?.registerUser()
-        }
-        guard let timer = tokenListTimer else {
-            return
-        }
-        RunLoop.current.add(timer, forMode: .common)
-        
-    }
-    
-    private func removeTimer() {
-        self.tokenListTimer?.invalidate()
-        self.tokenListTimer = nil
-    }
-    
     private func popSettingEmail() {
         
         if let kEmail = UserDefaults.standard.string(forKey: kEmailPrivateKey), kEmail.count > 0 {
@@ -249,8 +227,26 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         ovc.presentationStyle = .fromToBottom
         ovc.isDismissOnMaskTouched = false
         ovc.isPanGestureEnabled = true
-         
-        UIApplication.shared.keyWindow?.present(overlay: ovc)
+        
+         alert.nftBlock = { [weak self] in
+             let aa = Go23AddNFTView(frame: CGRectMake(0, 0, ScreenWidth, 365))
+             let oo = OverlayController(view: aa)
+             oo.maskStyle = .black(opacity: 0.4)
+             oo.layoutPosition = .bottom
+             oo.presentationStyle = .fromToBottom
+             oo.isDismissOnMaskTouched = false
+             oo.isPanGestureEnabled = true
+             oo.shouldKeyboardChangeFollow = true
+             oo.keyboardRelativeOffset = -200
+             aa.closeBlock = {
+                 self?.view.dissmiss(overlay: .last)
+             }
+             self?.view.present(overlay: oo)
+         }
+         alert.closeBlock = { [weak self] in
+             self?.view.dissmiss(overlay: .last)
+         }
+         self.view.present(overlay: ovc)
     }
     
     private lazy var headerView: HomeHeaderView = {
@@ -258,6 +254,23 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         view.delegate = self
         return view
     }()
+    
+//    private lazy var tableView: UITableView = {
+//        let tableView = UITableView(frame: .zero, style: .plain)
+//        tableView.backgroundColor = .white
+//        tableView.separatorStyle = .none
+//        tableView.estimatedRowHeight = 0
+//        tableView.estimatedSectionHeaderHeight = 0
+//        tableView.estimatedSectionFooterHeight = 0
+//
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//
+////        tableView.register(Go23TokenListTableViewCell.self, forCellReuseIdentifier: Go23TokenListTableViewCell.reuseIdentifier())
+//
+//
+//        return tableView
+//    }()
     
     let dataSource: JXSegmentedTitleDataSource = JXSegmentedTitleDataSource()
     
@@ -351,6 +364,8 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
     }
 
 }
+
+
 
 // MARK: - pragma mark =========== JXSegmentedViewDelegate ===========
 

@@ -63,7 +63,7 @@ class Go23AddTokenViewController: UIViewController {
         backBtn.addTarget(self, action: #selector(backBtnDidClick), for: .touchUpInside)
         if self.navgationBar == nil {
             addBarView()
-            navgationBar?.title = "Send"
+            navgationBar?.title = "Add a Token"
             navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
             navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
         }
@@ -120,9 +120,7 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         if let model = self.tokenList?[indexPath.row] {
-            
-            
-            cell.filled(cover: model.imageUrl, type: model.symbol, num: "", money: "", isSelect: model.isSelected, isHidden: indexPath.row == 0)
+            cell.filled(model: model, isHidden: indexPath.row == 0)
         }
         return cell
     }
@@ -271,6 +269,7 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             contentView.backgroundColor = .white
             contentView.addSubview(iconImgv)
             contentView.addSubview(titleLabel)
+            contentView.addSubview(contractLabel)
             contentView.addSubview(numLabel)
             contentView.addSubview(moneyLabel)
             contentView.addSubview(arrowImgv)
@@ -282,9 +281,15 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             titleLabel.snp.makeConstraints { make in
-                make.centerY.equalToSuperview()
+                make.top.equalTo(9)
                 make.left.equalTo(iconImgv.snp.right).offset(12)
                 make.height.equalTo(24)
+            }
+            
+            contractLabel.snp.makeConstraints { make in
+                make.top.equalTo(titleLabel.snp.bottom).offset(0)
+                make.left.equalTo(iconImgv.snp.right).offset(12)
+                make.height.equalTo(18)
             }
             
             numLabel.snp.makeConstraints { make in
@@ -307,14 +312,12 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             }
         }
         
-        func filled(cover: String, type: String, num: String, money: String, isSelect: Bool, isHidden: Bool) {
-            iconImgv.kf.setImage(with: URL(string: cover))
-            titleLabel.text = type
-            numLabel.text = "\(num)"
-            moneyLabel.text = "$\(money)"
+        func filled(model: Go23ChainTokenModel, isHidden: Bool) {
+            iconImgv.kf.setImage(with: URL(string: model.imageUrl))
+            titleLabel.text = model.symbol
             numLabel.isHidden = true
             moneyLabel.isHidden = true
-            if isSelect {
+            if model.isSelected {
                 arrowImgv.image = UIImage.init(named: "blueSel")
             } else {
                 arrowImgv.image = UIImage.init(named: "graySel")
@@ -322,8 +325,10 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             
             if isHidden {
                 arrowImgv.isHidden = true
+                contractLabel.text = model.name
             } else {
                 arrowImgv.isHidden = false
+                contractLabel.text = String.getSubSecretString(8,string: model.contractAddress)
             }
         }
         
@@ -348,9 +353,16 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             return label
         }()
         
+        private lazy var contractLabel: UILabel = {
+            let label = UILabel()
+            label.font = UIFont(name: BarlowCondensed, size: 12)
+            label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
+            return label
+        }()
+        
         private lazy var moneyLabel: UILabel = {
             let label = UILabel()
-            label.font = UIFont(name: BarlowCondensed, size: 14)
+            label.font = UIFont(name: BarlowCondensed, size: 12)
             label.textAlignment = .right
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
             return label

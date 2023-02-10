@@ -29,7 +29,7 @@ class Go23TokenDetailListViewController: UIViewController {
         
         tableView.es.addPullToRefresh {
             [weak self] in
-            self?.tableView.es.stopPullToRefresh()
+//            self?.tableView.es.stopPullToRefresh()
                 NotificationCenter.default.post(name: NSNotification.Name(kRefreshTokenListDetailKey),
                                                 object: nil,
                                                 userInfo: nil)
