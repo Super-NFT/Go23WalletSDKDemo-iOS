@@ -44,7 +44,7 @@ class Go23NFTListViewController: UIViewController {
         flowLayout.minimumInteritemSpacing = 8
         return flowLayout
     }()
-    private lazy var collectionView: UICollectionView = {
+     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: self.flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -124,9 +124,24 @@ extension Go23NFTListViewController : UICollectionViewDelegate, UICollectionView
 }
 
 // MARK: - pragma mark =========== JXSegmentedListContainerViewListDelegate ===========
-extension Go23NFTListViewController: JXSegmentedListContainerViewListDelegate {
-    func listView() -> UIView {
-        return view
+//extension Go23NFTListViewController: JXSegmentedListContainerViewListDelegate {
+//    func listView() -> UIView {
+//        return view
+//    }
+//}
+
+extension Go23NFTListViewController: JXPagingViewListViewDelegate {
+    func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {
+        
+    }
+    
+    public func listView() -> UIView {
+        return self.view
+    }
+    
+
+    public func listScrollView() -> UIScrollView {
+        return self.collectionView
     }
 }
 

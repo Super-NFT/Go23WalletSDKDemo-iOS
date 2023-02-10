@@ -42,16 +42,16 @@ extension JXPagingViewDelegate {
 }
 
 class JXPagingView: UIView {
-    var defaultSelectedIndex: Int = 0 {
+    public var defaultSelectedIndex: Int = 0 {
         didSet {
             listContainerView.defaultSelectedIndex = defaultSelectedIndex
         }
     }
-    private(set) lazy var mainTableView: JXPagingMainTableView = JXPagingMainTableView(frame: CGRect.zero, style: .plain)
-    private(set) lazy var listContainerView: JXPagingListContainerView = JXPagingListContainerView(dataSource: self, type: listContainerType)
-    private(set) var validListDict = [Int:JXPagingViewListViewDelegate]()
-    var pinSectionHeaderVerticalOffset: Int = 0
-    var isListHorizontalScrollEnabled = true {
+    public private(set) lazy var mainTableView: JXPagingMainTableView = JXPagingMainTableView(frame: CGRect.zero, style: .plain)
+    public private(set) lazy var listContainerView: JXPagingListContainerView = JXPagingListContainerView(dataSource: self, type: listContainerType)
+    public private(set) var validListDict = [Int:JXPagingViewListViewDelegate]()
+    public var pinSectionHeaderVerticalOffset: Int = 0
+    public var isListHorizontalScrollEnabled = true {
         didSet {
             listContainerView.scrollView.isScrollEnabled = isListHorizontalScrollEnabled
         }

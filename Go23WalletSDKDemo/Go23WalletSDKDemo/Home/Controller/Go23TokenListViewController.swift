@@ -37,7 +37,7 @@ class Go23TokenListViewController: UIViewController {
     }
     
     
-    private lazy var tableView: UITableView = {
+     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
@@ -114,11 +114,27 @@ extension Go23TokenListViewController: UITableViewDelegate, UITableViewDataSourc
 }
 
 // MARK: - pragma mark =========== JXSegmentedListContainerViewListDelegate ===========
-extension Go23TokenListViewController: JXSegmentedListContainerViewListDelegate {
-    func listView() -> UIView {
-        return view
+//extension Go23TokenListViewController: JXSegmentedListContainerViewListDelegate {
+//    func listView() -> UIView {
+//        return view
+//    }
+//}
+
+extension Go23TokenListViewController: JXPagingViewListViewDelegate {
+    func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {
+        
+    }
+    
+    public func listView() -> UIView {
+        return self.view
+    }
+    
+
+    public func listScrollView() -> UIScrollView {
+        return self.tableView
     }
 }
+
 
 extension Go23TokenListViewController {
     private func getUserTokens() {

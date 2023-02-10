@@ -29,6 +29,10 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     
     var tokenList: [Go23WalletTokenModel]?
+    var tableHeaderViewHeight: Int = Int(HomeHeaderView.cellHight)
+    var headerInSectionHeight: Int = 60
+    private var list1: Go23TokenListViewController?
+    private var list2: Go23NFTListViewController?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,30 +67,33 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
         
-        view.backgroundColor = .white
-        view.addSubview(tableView)
-        
-
-        tableView.snp.makeConstraints { make in
+        view.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
+        view.addSubview(topView)
+        topView.snp.makeConstraints { make in
             make.top.equalTo(0)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(HomeTopView.cellHight)
+        }
+
+//        tableView.snp.makeConstraints { make in
+//            make.top.equalTo(topView.snp.bottom).offset(0)
+//            make.leading.trailing.bottom.equalToSuperview()
+//        }
+        
+        
+        view.addSubview(segmentedView)
+        view.addSubview(pagingView)
+
+        pagingView.mainTableView.gestureDelegate = self
+        segmentedView.snp.makeConstraints { make in
+            make.top.equalTo(topView.snp.bottom)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(60)
         }
         
-        
-//        view.addSubview(segmentedView)
-//        view.addSubview(listContainerView)
-//        segmentedView.snp.makeConstraints { make in
-//            make.top.equalTo(headerView.snp.bottom)
-//            make.left.right.equalToSuperview()
-//            make.height.equalTo(60)
-//        }
-//        listContainerView.snp.makeConstraints { make in
-//            make.top.equalTo(segmentedView.snp.bottom)
-//            make.left.right.bottom.equalToSuperview()
-//        }
-//        segmentedView.delegate = self
-//        segmentedView.listContainer = listContainerView
-        
+        segmentedView.delegate = self
+        segmentedView.listContainer = pagingView.listContainerView
+        pagingView.pinSectionHeaderVerticalOffset = 270
         
         dataSource.titles = ["Tokens", "NFTs"]
         dataSource.widthForTitleClosure = { name in
@@ -106,9 +113,22 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
             make.centerY.equalToSuperview()
             make.width.height.equalTo(44)
         }
+        
+        pagingView.listContainerView.scrollView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+        pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
 
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        pagingView.frame = CGRectMake(0, HomeTopView.cellHight, ScreenWidth, ScreenHeight-HomeTopView.cellHight)
+    }
+    
+    
+    func preferredPagingView() -> JXPagingView {
+        return JXPagingView(delegate: self)
+    }
         
     
     // MARK: - Action
@@ -250,34 +270,21 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
          self.view.present(overlay: ovc)
     }
     
+    
+    private lazy var topView: HomeTopView = {
+        let view = HomeTopView()
+        view.delegate = self
+        return view
+    }()
+    
     private lazy var headerView: HomeHeaderView = {
         let view = HomeHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: HomeHeaderView.cellHight))
         view.delegate = self
         return view
     }()
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.backgroundColor = .white
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 0
-        tableView.estimatedSectionHeaderHeight = 0
-        tableView.estimatedSectionFooterHeight = 0
-        tableView.tableHeaderView = headerView
-        tableView.delegate = self
-        tableView.dataSource = self
+    lazy var pagingView: JXPagingView = preferredPagingView()
 
-        tableView.register(Go23TokenListTableViewCell.self, forCellReuseIdentifier: Go23TokenListTableViewCell.reuseIdentifier())
-
-
-        return tableView
-    }()
-    
     let dataSource: JXSegmentedTitleDataSource = JXSegmentedTitleDataSource()
-    
-    private lazy var listContainerView: JXSegmentedListContainerView! = {
-        return JXSegmentedListContainerView(dataSource: self)
-    }()
     
     private lazy var segmentedView: JXSegmentedView = {
         
@@ -316,7 +323,7 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
 
 }
 
-extension Go23HomeViewController: HomeHeaderViewDelegate {
+extension Go23HomeViewController: HomeTopViewDelegate {
     func chooseClick() {
         
         let alert = Go23ChooseAlertView(frame: CGRectMake(0, 0, ScreenWidth, 700))
@@ -331,14 +338,22 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
         alert.chainList = self.chainList
         alert.chooseBlock = {[weak self]model in
             Go23WalletMangager.shared.walletModel = model
-            self?.headerView.filled(money: Go23WalletMangager.shared.balance, symbol: model.symbol, chainName: model.name,balanceU: Go23WalletMangager.shared.balanceU)
-            self?.headerView.chooseV.filled(title: model.name, img: model.imageUrl)
+            self?.self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
+            self?.topView.chooseV.filled(title: model.name, img: model.imageUrl)
             self?.registerUser()
             self?.setDefaultChain(with: model.walletAddress, and: model.chainId)
             
         }
         UIApplication.shared.keyWindow?.present(overlay: ovc)
     }
+    
+    func settingBtnClick() {
+        self.settingBtnDidClick()
+    }
+}
+
+extension Go23HomeViewController: HomeHeaderViewDelegate {
+    
     
     func receiveBtnClick() {
         let alert = Go23ReceiveView(frame: CGRectMake(0, 0, 332, Go23ReceiveView.cellHeight))
@@ -358,92 +373,77 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
         vc.filled(cover: Go23WalletMangager.shared.walletModel?.imageUrl ?? "", name: Go23WalletMangager.shared.walletModel?.name ?? "", chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, symbol: Go23WalletMangager.shared.walletModel?.symbol ?? "", contract: "")
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
-    func settingBtnClick() {
-        self.settingBtnDidClick()
-    }
 
 }
-
-extension Go23HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tokenList?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Go23TokenListTableViewCell.reuseIdentifier(), for: indexPath) as? Go23TokenListTableViewCell,let count = self.tokenList?.count, indexPath.row < count
-        else {
-                return UITableViewCell()
-            }
-        
-        if let model = self.tokenList?[indexPath.row] {
-            cell.filled(cover: model.imageUrl, title: model.balance, type:model.symbol, money: model.balanceU, sourceImg: model.chainImageUrl)
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Go23TokenListTableViewCell.cellHeight
-
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-       
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if let list = self.tokenList, indexPath.row < list.count {
-            let model = list[indexPath.row]
-            let vc = Go23TokenDetailViewController()
-            vc.model = model
-
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
-    }
-}
-
-
 
 // MARK: - pragma mark =========== JXSegmentedViewDelegate ===========
 
 extension Go23HomeViewController: JXSegmentedViewDelegate {
-    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (self.segmentedView.selectedIndex == 0)
-            segmentedView.dataSource = dataSource
-            segmentedView.reloadItem(at: index)
-    }
-}
+//    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (self.segmentedView.selectedIndex == 0)
+//            segmentedView.dataSource = dataSource
+//            segmentedView.reloadItem(at: index)
+//    }
 
-// MARK: - pragma mark =========== JXSegmentedListContainerViewDataSource ===========
-extension Go23HomeViewController: JXSegmentedListContainerViewDataSource {
-    func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
-        if let titleDataSource = segmentedView.dataSource as? JXSegmentedBaseDataSource {
-            return titleDataSource.dataSource.count
-        }
-        return 0
-    }
-
-    func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        if index == 0 {
-            let vc = Go23TokenListViewController()
-            return vc
-        } else {
-            let vc = Go23NFTListViewController()
-            return vc
-        }
-
+    
+    func pagingView(_ pagingView: JXPagingView, mainTableViewDidScroll scrollView: UIScrollView) {
+        headerView.scrollViewDidScroll(contentOffsetY: scrollView.contentOffset.y)
     }
     
+    func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
+        if index == 0 {
+            list1 = Go23TokenListViewController()
+            return list1!
+        } else {
+            list2 = Go23NFTListViewController()
+            return list2!
+        }
+        
+    }
+    
+
+    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (index == 0)
+        if index == 0 {
+            list1?.tableView.reloadData()
+        } else {
+            list2?.collectionView.reloadData()
+        }
+    }
 }
 
+extension Go23HomeViewController: JXPagingViewDelegate {
+
+    func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int {
+        return Int(HomeHeaderView.cellHight)
+    }
+
+    func tableHeaderView(in pagingView: JXPagingView) -> UIView {
+        return headerView
+    }
+
+    func heightForPinSectionHeader(in pagingView: JXPagingView) -> Int {
+        return 60
+    }
+
+    func viewForPinSectionHeader(in pagingView: JXPagingView) -> UIView {
+        return segmentedView
+    }
+
+    func numberOfLists(in pagingView: JXPagingView) -> Int {
+        return 2
+    }
+}
+
+extension Go23HomeViewController: JXPagingMainTableViewGestureDelegate {
+
+    func mainTableViewGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if otherGestureRecognizer == segmentedView.collectionView.panGestureRecognizer {
+            return false
+        }
+        return gestureRecognizer.isKind(of: UIPanGestureRecognizer.self) && otherGestureRecognizer.isKind(of: UIPanGestureRecognizer.self)
+    }
+}
 
 //SDK
 extension Go23HomeViewController {
@@ -526,11 +526,7 @@ extension Go23HomeViewController {
             }
         }
         
-        if Go23WalletMangager.shared.email.count > 0 {
-            headerView.filled(cover: "go23", email: Go23WalletMangager.shared.email)
-        } else {
-            headerView.filled(cover: "go23", email: Go23WalletMangager.shared.phone)
-        }
+
         
     }
     
@@ -568,7 +564,6 @@ extension Go23HomeViewController {
         Go23WalletMangager.shared.address = wallet.address
         self.uploadKeygen()
         print("Address ========   \(wallet.address)")
-        self.headerView.filled(address: wallet.address)
         self.getUserChains(with: wallet.address)
     }
     
@@ -593,7 +588,9 @@ extension Go23HomeViewController {
                 Go23WalletMangager.shared.walletModel = obj
                 self.getUserTokens(with: obj.chainId)
                 self.getChainBalance()
-                self.headerView.chooseV.filled(title: obj.name, img: obj.imageUrl)
+                self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
+                self.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
+
             }
         }
 
@@ -626,7 +623,7 @@ extension Go23HomeViewController {
                 return
             }
             
-            self?.headerView.filled(money: bal,symbol:  Go23WalletMangager.shared.walletModel?.symbol ?? "", chainName: Go23WalletMangager.shared.walletModel?.name ?? "",balanceU: balU)
+            self?.headerView.filled(money: bal,symbol:  Go23WalletMangager.shared.walletModel?.symbol ?? "",balanceU: balU,address: Go23WalletMangager.shared.address)
             Go23WalletMangager.shared.balance = bal
             Go23WalletMangager.shared.balanceU = balU
             print(balanceModel)

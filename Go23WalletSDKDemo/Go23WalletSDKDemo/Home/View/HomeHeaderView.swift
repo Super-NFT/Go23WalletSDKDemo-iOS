@@ -23,45 +23,27 @@ protocol HomeHeaderViewDelegate: AnyObject {
 
 class HomeTopView: UIView {
     
-    static var cellHight = 420.0
-    private var email = ""
+    static var cellHight = 160.0
     weak var delegate: HomeTopViewDelegate?
-}
-
-class HomeHeaderView: UIView {
     
-    static var cellHight = 420.0
-    private var email = ""
-    weak var delegate: HomeHeaderViewDelegate?
-    
-    var token = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
          
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func initSubviews() {
         backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
         addSubview(rightBtn)
         addSubview(chooseV)
         addSubview(iconImgv)
         addSubview(emailLabel)
-        addSubview(tokenLabel)
-        addSubview(tokenControl)
-        addSubview(numLabel)
-        addSubview(titleLabel)
-        addSubview(receiveBtn)
-        addSubview(sendBtn)
-        addSubview(lineV)
-        
         rightBtn.snp.makeConstraints { make in
-            make.top.equalTo(0)
+            make.top.equalTo(44)
             make.trailing.equalTo(0)
             make.width.height.equalTo(44)
         }
@@ -82,8 +64,148 @@ class HomeHeaderView: UIView {
             make.centerY.equalTo(iconImgv.snp.centerY)
         }
         emailLabel.isHidden = true
+        
+        iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
+        iconImgv.layer.cornerRadius = 14
+        
+    }
+    
+    func filled(chainName: String) {
+        var email = ""
+        if Go23WalletMangager.shared.email.count > 0 {
+            
+            email = Go23WalletMangager.shared.email
+        } else {
+            email = Go23WalletMangager.shared.phone
+        }
+        var ee = email
+        if email.count > 17 {
+            ee = email.substring(to: 15) + "..."
+        }
+        
+        let emailWidth = ScreenWidth-getRowWidth(desc: chainName)-20-52
+        if getStringWidth(email, lineHeight:  16.0, font: UIFont(name: BarlowCondensed, size: 14) ?? UIFont.systemFont(ofSize: 14)) <= emailWidth {
+            ee = email
+        }
+        emailLabel.isHidden = false
+        emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: ee)
+
+        chooseV.isHidden = false
+        chooseV.snp.remakeConstraints() { make in
+            make.trailing.equalTo(-20)
+            make.top.equalTo(rightBtn.snp.bottom).offset(10)
+            make.height.equalTo(40)
+            make.width.equalTo(getRowWidth(desc: chainName))
+        }
+        print("=========width=====\(getRowWidth(desc: chainName))")
+        emailLabel.snp.remakeConstraints() { make in
+            make.left.equalTo(iconImgv.snp.right).offset(4)
+            make.centerY.equalTo(iconImgv.snp.centerY)
+            make.width.equalTo(emailWidth)
+        }
+
+    }
+    
+    func getRowWidth(desc: String) -> CGFloat {
+        return getStringWidth(desc, lineHeight:  16.0, font: UIFont(name: BarlowCondensed, size: 14) ?? UIFont.systemFont(ofSize: 14))  + 66.0
+    }
+    
+    private func getStringWidth(_ content: String,
+                                 lineHeight:CGFloat = 27.0,
+                                 font: UIFont = UIFont.systemFont(ofSize: 14),
+                                 wordWidth: CGFloat = (ScreenWidth - 40.0)) -> CGFloat {
+        let paraph = NSMutableParagraphStyle()
+        paraph.maximumLineHeight = lineHeight
+        paraph.minimumLineHeight = lineHeight
+        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: font, NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
+
+        let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: wordWidth, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.width
+         return rowHeight
+     }
+    
+    
+    @objc private func settingBtnDidClick() {
+        self.delegate?.settingBtnClick()
+    }
+    
+    private lazy var rightBtn: UIButton = {
+        let rightBtn = UIButton()
+        rightBtn.frame = CGRectMake(0, 0, 44, 44)
+        let imgv = UIImageView()
+        rightBtn.addSubview(imgv)
+        imgv.image = UIImage.init(named: "rightDot")
+        imgv.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+        }
+        rightBtn.addTarget(self, action: #selector(settingBtnDidClick), for: .touchUpInside)
+        return rightBtn
+    }()
+
+    private lazy var iconImgv: UIImageView = {
+        let imgv = UIImageView()
+        
+        return imgv
+    }()
+
+    private lazy var emailLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: BarlowCondensed, size: 14)
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        return label
+    }()
+
+    lazy var chooseV: ChooseView = {
+        let view = ChooseView()
+        view.clickBlock = { [weak self] in
+            self?.delegate?.chooseClick()
+        }
+        return view
+    }()
+    
+     
+}
+
+
+
+class HomeHeaderView: UIView {
+    
+    static var cellHight = 270.0
+    private var email = ""
+    weak var delegate: HomeHeaderViewDelegate?
+    
+    var token = ""
+    var imageViewFrame: CGRect = CGRect.zero
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initSubviews()
+         
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        imageViewFrame = bounds
+    }
+    
+    private func initSubviews() {
+        backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
+        addSubview(tokenLabel)
+        addSubview(tokenControl)
+        addSubview(numLabel)
+        addSubview(titleLabel)
+        addSubview(receiveBtn)
+        addSubview(sendBtn)
+        addSubview(lineV)
+        
+        
         tokenLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconImgv.snp.bottom).offset(36)
+            make.top.equalTo(15)
             make.centerX.equalToSuperview()
             make.height.equalTo(35)
             make.width.equalTo(134)
@@ -126,69 +248,22 @@ class HomeHeaderView: UIView {
             make.bottom.equalToSuperview()
         }
         
+
+        
     }
     
-    func filled(cover: String, email: String) {
-        iconImgv.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
-        iconImgv.layer.cornerRadius = 14
-        self.email = email
-    }
-    
-    func filled(money: String, symbol: String, chainName: String, balanceU: String) {
-        var ee = email
-        if email.count > 17 {
-            ee = email.substring(to: 15) + "..."
-        }
-        
-        let emailWidth = ScreenWidth-getRowWidth(desc: chainName)-20-52
-        if getStringWidth(email, lineHeight:  16.0, font: UIFont(name: BarlowCondensed, size: 14) ?? UIFont.systemFont(ofSize: 14)) <= emailWidth {
-            ee = email
-        }
-        emailLabel.isHidden = false
-        
-        emailLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 14), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .left, title: ee)
+    func filled(money: String, symbol: String, balanceU: String, address: String) {
         var mon = money
         var bal = balanceU
         if let ss = Double(money), ss <= 0 {
             mon = "0.00"
         }
         numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
-        chooseV.isHidden = false
-        chooseV.snp.remakeConstraints() { make in
-            make.trailing.equalTo(-20)
-            make.top.equalTo(rightBtn.snp.bottom).offset(10)
-            make.height.equalTo(40)
-            make.width.equalTo(getRowWidth(desc: chainName))
-        }
-        emailLabel.snp.remakeConstraints() { make in
-            make.left.equalTo(iconImgv.snp.right).offset(4)
-            make.centerY.equalTo(iconImgv.snp.centerY)
-            make.width.equalTo(emailWidth)
-        }
         if let bb = Double(balanceU), bb <= 0 {
             bal = "0.00"
         }
         titleLabel.text = "$"+bal
-    }
-    
-    func getRowWidth(desc: String) -> CGFloat {
-        return getStringWidth(desc, lineHeight:  16.0, font: UIFont(name: BarlowCondensed, size: 14) ?? UIFont.systemFont(ofSize: 14))  + 66.0
-    }
-    
-    private func getStringWidth(_ content: String,
-                                 lineHeight:CGFloat = 27.0,
-                                 font: UIFont = UIFont.systemFont(ofSize: 14),
-                                 wordWidth: CGFloat = (ScreenWidth - 40.0)) -> CGFloat {
-        let paraph = NSMutableParagraphStyle()
-        paraph.maximumLineHeight = lineHeight
-        paraph.minimumLineHeight = lineHeight
-        let attributes = [NSAttributedString.Key.paragraphStyle: paraph, NSAttributedString.Key.font: font, NSAttributedString.Key.kern: 0.5] as [NSAttributedString.Key : Any]
-
-        let rowHeight = (content.trimmingCharacters(in: .newlines) as NSString).boundingRect(with: CGSize(width: wordWidth, height: 0), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: attributes, context: nil).size.width
-         return rowHeight
-     }
-    
-    func filled(address: String) {
+        
         self.token = address
         let str = String.getSecretString(token: token)
         
@@ -203,11 +278,6 @@ class HomeHeaderView: UIView {
         attri.addImage("copy", CGRectMake(0, 0, 12, 12))
         tokenLabel.attributedText = attri
         tokenLabel.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#EBF5F5")
-
-    }
-    
-    @objc private func settingBtnDidClick() {
-        self.delegate?.settingBtnClick()
     }
     
     @objc private func controlClick() {
@@ -225,41 +295,12 @@ class HomeHeaderView: UIView {
     }
     
     
-    private lazy var rightBtn: UIButton = {
-        let rightBtn = UIButton()
-        rightBtn.frame = CGRectMake(0, 0, 44, 44)
-        let imgv = UIImageView()
-        rightBtn.addSubview(imgv)
-        imgv.image = UIImage.init(named: "rightDot")
-        imgv.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.equalTo(20)
-            make.height.equalTo(20)
-        }
-        rightBtn.addTarget(self, action: #selector(settingBtnDidClick), for: .touchUpInside)
-        return rightBtn
-    }()
-    
-    private lazy var iconImgv: UIImageView = {
-        let imgv = UIImageView()
-        
-        return imgv
-    }()
-    
-    private lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: BarlowCondensed, size: 14)
-        label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
-        return label
-    }()
-    
-    lazy var chooseV: ChooseView = {
-        let view = ChooseView()
-        view.clickBlock = { [weak self] in
-            self?.delegate?.chooseClick()
-        }
-        return view
-    }()
+    func scrollViewDidScroll(contentOffsetY: CGFloat) {
+        var contentFrame = imageViewFrame
+        contentFrame.size.height -= contentOffsetY
+        contentFrame.origin.y = contentOffsetY
+        self.frame = frame
+    }
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()
