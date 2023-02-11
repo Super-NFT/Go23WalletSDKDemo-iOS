@@ -8,10 +8,23 @@
 import UIKit
 import Go23SDK
 
+
 class Go23TokenListViewController: UIViewController {
 
     
-    var tokenList: [Go23WalletTokenModel]?
+    var tokenList: [Go23WalletTokenModel]? {
+        didSet {
+            guard let list = tokenList else {
+                return
+            }
+            if list.count == 0 {
+                noDataV.isHidden = false
+            } else {
+                noDataV.isHidden = true
+            }
+            tableView.reloadData()
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +34,13 @@ class Go23TokenListViewController: UIViewController {
             make.leading.trailing.top.bottom.equalToSuperview()
         }
         
-        self.getUserTokens()
-        tableView.es.addPullToRefresh { [weak self] in
-            NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
-                                            object: nil,
-                                            userInfo: nil)
-            self?.getUserTokens()
-        }
+//        self.getUserTokens()
+//        tableView.es.addPullToRefresh { [weak self] in
+//            NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
+//                                            object: nil,
+//                                            userInfo: nil)
+//            self?.getUserTokens()
+//        }
         
         tableView.addSubview(noDataV)
         noDataV.snp.makeConstraints { make in
@@ -113,31 +126,26 @@ extension Go23TokenListViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
-// MARK: - pragma mark =========== JXSegmentedListContainerViewListDelegate ===========
-//extension Go23TokenListViewController: JXSegmentedListContainerViewListDelegate {
-//    func listView() -> UIView {
-//        return view
-//    }
-//}
 
 extension Go23TokenListViewController: JXPagingViewListViewDelegate {
+    func listView() -> UIView {
+        self.view
+    }
+    
+    func listScrollView() -> UIScrollView {
+        self.tableView
+    }
+    
     func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {
         
     }
     
-    public func listView() -> UIView {
-        return self.view
-    }
     
-
-    public func listScrollView() -> UIScrollView {
-        return self.tableView
-    }
 }
 
 
 extension Go23TokenListViewController {
-    private func getUserTokens() {
+     func getUserTokens() {
         guard let shared = Go23WalletSDK.shared
         else {
             return

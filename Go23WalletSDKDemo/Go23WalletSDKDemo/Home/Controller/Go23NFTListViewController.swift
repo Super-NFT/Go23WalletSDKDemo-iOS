@@ -10,7 +10,20 @@ import Go23SDK
 
 class Go23NFTListViewController: UIViewController {
 
-    var nftList: [Go23WalletNFTModel]  = [Go23WalletNFTModel]()
+    var nftList: [Go23WalletNFTModel]? {
+        didSet {
+            guard let list = nftList else {
+                return
+            }
+            if list.count == 0 {
+                noDataV.isHidden = false
+            } else {
+                noDataV.isHidden = true
+            }
+            collectionView.reloadData()
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +33,15 @@ class Go23NFTListViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
-        self.getUserNFTs()
-        
-        collectionView.es.addPullToRefresh {
-            [weak self] in
-                NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
-                                                object: nil,
-                                                userInfo: nil)
-                self?.getUserNFTs()
-        }
+//        self.getUserNFTs()
+//
+//        collectionView.es.addPullToRefresh {
+//            [weak self] in
+//                NotificationCenter.default.post(name: NSNotification.Name(kRefreshWalletBalance),
+//                                                object: nil,
+//                                                userInfo: nil)
+//                self?.getUserNFTs()
+//        }
         
         collectionView.addSubview(noDataV)
         noDataV.snp.makeConstraints { make in
@@ -76,16 +89,17 @@ class Go23NFTListViewController: UIViewController {
 extension Go23NFTListViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.nftList.count
+        return  self.nftList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Go23NFTListCollectionViewCell.reuseIdentifier(), for: indexPath) as? Go23NFTListCollectionViewCell, indexPath.item < nftList.count else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Go23NFTListCollectionViewCell.reuseIdentifier(), for: indexPath) as? Go23NFTListCollectionViewCell, let list = nftList, indexPath.item < list.count else {
             return UICollectionViewCell()
         }
 
-        let model = nftList[indexPath.item]
-        cell.filled(cover: model.image, title: model.name,num: model.value)
+        if let model = self.nftList?[indexPath.item] {
+            cell.filled(cover: model.image, title: model.name,num: model.value)
+        }
         return cell
         
     }
@@ -95,12 +109,12 @@ extension Go23NFTListViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath.item < nftList.count else {
+        guard let list = self.nftList, indexPath.item < list.count else {
             return
         }
         collectionView.deselectItem(at: indexPath, animated: true)
         let vc = Go23NFTDetailViewController()
-        vc.nftModel = nftList[indexPath.item]
+        vc.nftModel = list[indexPath.item]
         self.navigationController?.pushViewController(vc, animated: true)
         
         
@@ -146,7 +160,7 @@ extension Go23NFTListViewController: JXPagingViewListViewDelegate {
 }
 
 extension Go23NFTListViewController {
-    private func getUserNFTs() {
+     func getUserNFTs() {
         guard let shared = Go23WalletSDK.shared
         else {
             return
@@ -162,7 +176,7 @@ extension Go23NFTListViewController {
             } else {
                 self?.noDataV.isHidden = true
             }
-            self?.nftList.removeAll()
+            self?.nftList?.removeAll()
             self?.nftList = obj.listModel
             self?.collectionView.reloadData()
         }

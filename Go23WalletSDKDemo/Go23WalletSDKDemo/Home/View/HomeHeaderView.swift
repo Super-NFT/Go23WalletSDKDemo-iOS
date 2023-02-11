@@ -23,7 +23,7 @@ protocol HomeHeaderViewDelegate: AnyObject {
 
 class HomeTopView: UIView {
     
-    static var cellHight = 160.0
+    static var cellHight = 145.0
     weak var delegate: HomeTopViewDelegate?
     
     
@@ -97,7 +97,6 @@ class HomeTopView: UIView {
             make.height.equalTo(40)
             make.width.equalTo(getRowWidth(desc: chainName))
         }
-        print("=========width=====\(getRowWidth(desc: chainName))")
         emailLabel.snp.remakeConstraints() { make in
             make.left.equalTo(iconImgv.snp.right).offset(4)
             make.centerY.equalTo(iconImgv.snp.centerY)
@@ -171,7 +170,7 @@ class HomeTopView: UIView {
 
 class HomeHeaderView: UIView {
     
-    static var cellHight = 270.0
+    static var cellHight = 285.0
     private var email = ""
     weak var delegate: HomeHeaderViewDelegate?
     
@@ -195,17 +194,20 @@ class HomeHeaderView: UIView {
     
     private func initSubviews() {
         backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
-        addSubview(tokenLabel)
-        addSubview(tokenControl)
-        addSubview(numLabel)
-        addSubview(titleLabel)
-        addSubview(receiveBtn)
-        addSubview(sendBtn)
-        addSubview(lineV)
+        addSubview(contentV)
+        contentV.addSubview(tokenLabel)
+        contentV.addSubview(tokenControl)
+        contentV.addSubview(numLabel)
+        contentV.addSubview(titleLabel)
+        contentV.addSubview(receiveBtn)
+        contentV.addSubview(sendBtn)
+        contentV.addSubview(lineV)
         
-        
+        contentV.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         tokenLabel.snp.makeConstraints { make in
-            make.top.equalTo(15)
+            make.top.equalTo(30)
             make.centerX.equalToSuperview()
             make.height.equalTo(35)
             make.width.equalTo(134)
@@ -215,33 +217,33 @@ class HomeHeaderView: UIView {
             make.height.equalTo(35)
             make.width.equalTo(134)
         }
-        
+
         numLabel.snp.makeConstraints { make in
             make.top.equalTo(tokenLabel.snp.bottom).offset(25)
             make.centerX.equalToSuperview()
             make.height.equalTo(36)
         }
-        
+
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(numLabel.snp.bottom).offset(8)
             make.height.equalTo(20)
             make.centerX.equalToSuperview()
         }
-        
+
         receiveBtn.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(25)
             make.width.equalTo(82.5)
             make.height.equalTo(77)
             make.left.equalTo(numLabel.snp.centerX).offset(-100)
         }
-        
+
         sendBtn.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(25)
             make.width.equalTo(82.5)
             make.height.equalTo(77)
             make.right.equalTo(numLabel.snp.centerX).offset(100)
         }
-        
+
         lineV.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.trailing.leading.equalToSuperview()
@@ -294,13 +296,21 @@ class HomeHeaderView: UIView {
         self.delegate?.sendBtnClick()
     }
     
-    
     func scrollViewDidScroll(contentOffsetY: CGFloat) {
+        
         var contentFrame = imageViewFrame
         contentFrame.size.height -= contentOffsetY
         contentFrame.origin.y = contentOffsetY
-        self.frame = frame
+        print("contentOffet ========== \(contentOffsetY)")
+        self.contentV.frame = contentFrame
     }
+    
+    
+    private lazy var contentV: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
     
     private lazy var tokenLabel: UILabel = {
         let label = UILabel()

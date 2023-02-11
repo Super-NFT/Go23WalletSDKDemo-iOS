@@ -19,6 +19,8 @@ class Go23WalletMangager {
     
 }
 
+extension JXPagingListContainerView: JXSegmentedViewListContainer {}
+
 class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     private var email = ""
@@ -26,6 +28,7 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     var userinfo: UserInfoModel?
     var walletList: [Go23WalletInfoModel]?
     var chainList: [Go23WalletChainModel]?
+    private var nftList: [Go23WalletNFTModel]?
     
     
     var tokenList: [Go23WalletTokenModel]?
@@ -60,6 +63,13 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         NotificationCenter.default.removeObserver(self)
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        pagingView.frame = CGRectMake(0, CGFloat(HomeTopView.cellHight), ScreenWidth, ScreenHeight-CGFloat(HomeTopView.cellHight))
+    }
+    
     private func initSubViews() {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
@@ -74,27 +84,10 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(HomeTopView.cellHight)
         }
-
-//        tableView.snp.makeConstraints { make in
-//            make.top.equalTo(topView.snp.bottom).offset(0)
-//            make.leading.trailing.bottom.equalToSuperview()
-//        }
-        
-        
-        view.addSubview(segmentedView)
-        view.addSubview(pagingView)
-
-        pagingView.mainTableView.gestureDelegate = self
-        segmentedView.snp.makeConstraints { make in
-            make.top.equalTo(topView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(60)
-        }
-        
+        segmentedView.frame = CGRectMake(0, 0, ScreenWidth, CGFloat(headerInSectionHeight))
+        segmentedView.backgroundColor = .white
         segmentedView.delegate = self
-        segmentedView.listContainer = pagingView.listContainerView
-        pagingView.pinSectionHeaderVerticalOffset = 270
-        
+         
         dataSource.titles = ["Tokens", "NFTs"]
         dataSource.widthForTitleClosure = { name in
             return String.getStringWidth(name,font: UIFont(name: BarlowCondensed, size: 16)!)+24
@@ -105,31 +98,21 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         dataSource.titleNormalColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         dataSource.kern = 1
         segmentedView.dataSource = dataSource
-        segmentedView.reloadData()
-        
         segmentedView.addSubview(addBtn)
         addBtn.snp.makeConstraints { make in
             make.trailing.equalTo(-6)
             make.centerY.equalToSuperview()
             make.width.height.equalTo(44)
         }
-        
-        pagingView.listContainerView.scrollView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
-        pagingView.mainTableView.panGestureRecognizer.require(toFail: self.navigationController!.interactivePopGestureRecognizer!)
+        view.addSubview(pagingView)
+        pagingView.mainTableView.gestureDelegate = self
+        pagingView.mainTableView.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
+        segmentedView.listContainer = pagingView.listContainerView
+        pagingView.mainTableView.es.addPullToRefresh {[weak self] in
+            self?.getUserTokens()
+        }
 
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        pagingView.frame = CGRectMake(0, HomeTopView.cellHight, ScreenWidth, ScreenHeight-HomeTopView.cellHight)
-    }
-    
-    
-    func preferredPagingView() -> JXPagingView {
-        return JXPagingView(delegate: self)
-    }
-        
     
     // MARK: - Action
     private func popSettingEmail() {
@@ -288,11 +271,11 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     private lazy var segmentedView: JXSegmentedView = {
         
-        let segmentedView = JXSegmentedView()
-        segmentedView.contentEdgeInsetLeft = 30
-        segmentedView.contentEdgeInsetRight = ScreenWidth - 120
-        segmentedView.delegate = self
-        segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
+        let view = JXSegmentedView()
+        view.contentEdgeInsetLeft = 30
+        view.contentEdgeInsetRight = ScreenWidth - 120
+        view.delegate = self
+        view.isContentScrollViewClickTransitionAnimationEnabled = false
         
         let indicator = JXSegmentedIndicatorBackgroundView()
         indicator.indicatorHeight = 30
@@ -303,8 +286,8 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         indicator.layer.shadowOffset = CGSize(width:1, height:1)
         indicator.layer.shadowRadius = 6
         indicator.layer.shadowOpacity = 0.08
-        segmentedView.indicators = [indicator]
-        return segmentedView
+        view.indicators = [indicator]
+        return view
     }()
     
     private lazy var addBtn: UIButton = {
@@ -377,14 +360,11 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
 }
 
 // MARK: - pragma mark =========== JXSegmentedViewDelegate ===========
-
 extension Go23HomeViewController: JXSegmentedViewDelegate {
-//    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (self.segmentedView.selectedIndex == 0)
-//            segmentedView.dataSource = dataSource
-//            segmentedView.reloadItem(at: index)
-//    }
 
+    func preferredPagingView() -> JXPagingView {
+        return JXPagingView(delegate: self)
+    }
     
     func pagingView(_ pagingView: JXPagingView, mainTableViewDidScroll scrollView: UIScrollView) {
         headerView.scrollViewDidScroll(contentOffsetY: scrollView.contentOffset.y)
@@ -393,21 +373,22 @@ extension Go23HomeViewController: JXSegmentedViewDelegate {
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         if index == 0 {
             list1 = Go23TokenListViewController()
+            list1?.tokenList = tokenList
             return list1!
         } else {
             list2 = Go23NFTListViewController()
+            list2?.nftList = nftList
             return list2!
         }
         
     }
-    
 
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = (index == 0)
         if index == 0 {
-            list1?.tableView.reloadData()
+            list1?.tokenList = tokenList
         } else {
-            list2?.collectionView.reloadData()
+            list2?.nftList = nftList
         }
     }
 }
@@ -415,7 +396,7 @@ extension Go23HomeViewController: JXSegmentedViewDelegate {
 extension Go23HomeViewController: JXPagingViewDelegate {
 
     func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int {
-        return Int(HomeHeaderView.cellHight)
+        return tableHeaderViewHeight
     }
 
     func tableHeaderView(in pagingView: JXPagingView) -> UIView {
@@ -423,7 +404,7 @@ extension Go23HomeViewController: JXPagingViewDelegate {
     }
 
     func heightForPinSectionHeader(in pagingView: JXPagingView) -> Int {
-        return 60
+        return headerInSectionHeight
     }
 
     func viewForPinSectionHeader(in pagingView: JXPagingView) -> UIView {
@@ -562,6 +543,7 @@ extension Go23HomeViewController {
         guard walletlist.count > 0 else {return}
         let wallet = walletlist[0]
         Go23WalletMangager.shared.address = wallet.address
+        getChainBalance() 
         self.uploadKeygen()
         print("Address ========   \(wallet.address)")
         self.getUserChains(with: wallet.address)
@@ -586,7 +568,7 @@ extension Go23HomeViewController {
         for obj in list{
             if obj.hasDefault {
                 Go23WalletMangager.shared.walletModel = obj
-                self.getUserTokens(with: obj.chainId)
+                self.getUserTokens()
                 self.getChainBalance()
                 self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
                 self.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
@@ -595,22 +577,24 @@ extension Go23HomeViewController {
         }
 
     }
-    private func getUserTokens(with chainId: Int) {
+    private func getUserTokens() {
         guard let shared = Go23WalletSDK.shared
         else {
             return
         }
         
-        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: chainId, pageSize: 10, pageNumber: 1) { [weak self]model in
-            
+        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) { [weak self]model in
+            self?.pagingView.mainTableView.es.stopPullToRefresh()
             Go23Loading.clear()
             guard let list = model?.listModel else {
                 return
             }
+            self?.tokenList?.removeAll()
             self?.tokenList = list
-            self?.segmentedView.reloadData()
+            self?.pagingView.reloadData()
             
         }
+        getUserNFTs()
     }
     
     @objc private func getChainBalance() {
@@ -693,3 +677,24 @@ extension Go23HomeViewController: Go23SetPincodeDelegate {
     }
 }
 
+
+extension Go23HomeViewController {
+    
+    func getUserNFTs() {
+       guard let shared = Go23WalletSDK.shared
+       else {
+           return
+       }
+       
+       shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) {  [weak self]model in
+           guard let obj = model else {
+               return
+           }
+
+           self?.nftList?.removeAll()
+           self?.nftList = obj.listModel
+       }
+       
+   }
+    
+}
