@@ -27,8 +27,8 @@ import UIKit
 
 class ESRefreshFooterAnimator: UIView, ESRefreshProtocol, ESRefreshAnimatorProtocol {
 
-    var loadingMoreDescription: String = NSLocalizedString("Loading more", comment: "")
-    var noMoreDataDescription: String  = NSLocalizedString("No more data", comment: "")
+    var loadingMoreDescription: String = NSLocalizedString("", comment: "")
+    var noMoreDataDescription: String  = NSLocalizedString("", comment: "")
     var loadingDescription: String     = NSLocalizedString("Loading...", comment: "")
 
     var view: UIView { return self }

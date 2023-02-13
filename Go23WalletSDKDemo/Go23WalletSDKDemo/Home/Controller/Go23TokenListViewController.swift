@@ -25,6 +25,9 @@ class Go23TokenListViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
+    var moreDataBlock: ((_ list: [Go23WalletTokenModel]?)->())?
+    var tokenIndex = 1
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,11 @@ class Go23TokenListViewController: UIViewController {
         noDataV.snp.makeConstraints { make in
             make.top.equalTo(180 * Go23_Scale)
             make.centerX.equalToSuperview()
+        }
+        
+        tableView.es.addInfiniteScrolling { [weak self] in
+            self?.tokenIndex += 1
+            self?.getUserTokens()
         }
     }
     
@@ -159,8 +167,8 @@ extension Go23TokenListViewController {
             return
         }
         
-        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) { [weak self]tokenList in
-            self?.tableView.es.stopPullToRefresh()
+         shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: self.tokenIndex) { [weak self]tokenList in
+            self?.tableView.es.stopLoadingMore()
             guard let list = tokenList?.listModel else {
                 return
             }
@@ -170,8 +178,10 @@ extension Go23TokenListViewController {
             } else {
                 self?.noDataV.isHidden = true
             }
-            self?.tokenList?.removeAll()
-            self?.tokenList = list
+             if let _ = self?.tokenList {
+                 self?.tokenList! += list
+             }
+             self?.moreDataBlock?(self?.tokenList)
             self?.tableView.reloadData()
         }
         

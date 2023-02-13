@@ -25,6 +25,9 @@ class Go23NFTListViewController: UIViewController {
         
     }
     
+    var moreDataBlock: ((_ list: [Go23WalletNFTModel]?)->())?
+    var nftIndex = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -47,6 +50,11 @@ class Go23NFTListViewController: UIViewController {
         noDataV.snp.makeConstraints { make in
             make.top.equalTo(180 * Go23_Scale)
             make.centerX.equalToSuperview()
+        }
+        
+        collectionView.es.addInfiniteScrolling { [weak self] in
+            self?.nftIndex += 1
+            self?.getUserNFTs()
         }
     }
     
@@ -174,8 +182,8 @@ extension Go23NFTListViewController {
             return
         }
         
-        shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) {  [weak self]model in
-            self?.collectionView.es.stopPullToRefresh()
+         shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: self.nftIndex) {  [weak self]model in
+            self?.collectionView.es.stopLoadingMore()
             guard let obj = model else {
                 return
             }
@@ -184,8 +192,10 @@ extension Go23NFTListViewController {
             } else {
                 self?.noDataV.isHidden = true
             }
-            self?.nftList?.removeAll()
-            self?.nftList = obj.listModel
+             if let _ = self?.nftList {
+                 self?.nftList! += obj.listModel
+             }
+             self?.moreDataBlock?(self?.nftList)
             self?.collectionView.reloadData()
         }
         

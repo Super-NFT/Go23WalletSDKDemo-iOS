@@ -350,7 +350,7 @@ class HomeHeaderView: UIView {
         var contentFrame = imageViewFrame
         contentFrame.size.height -= contentOffsetY
         contentFrame.origin.y = contentOffsetY
-        print("contentOffet ========== \(contentOffsetY)")
+//        print("contentOffet ========== \(contentOffsetY)")
         self.contentV.frame = contentFrame
     }
     

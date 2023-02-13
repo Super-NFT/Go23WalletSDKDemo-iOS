@@ -362,14 +362,14 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         
         private lazy var contractLabel: UILabel = {
             let label = UILabel()
-            label.font = UIFont(name: BarlowCondensed, size: 12)
+            label.font = UIFont.systemFont(ofSize: 12)
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
             return label
         }()
         
         private lazy var moneyLabel: UILabel = {
             let label = UILabel()
-            label.font = UIFont(name: BarlowCondensed, size: 12)
+            label.font = UIFont.systemFont(ofSize: 12)
             label.textAlignment = .right
             label.text = "$0.00"
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")

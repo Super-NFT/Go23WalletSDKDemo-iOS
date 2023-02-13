@@ -109,6 +109,8 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         pagingView.mainTableView.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
         segmentedView.listContainer = pagingView.listContainerView
         pagingView.mainTableView.es.addPullToRefresh {[weak self] in
+            self?.list1?.tokenIndex = 1
+            self?.list2?.nftIndex = 1
             self?.getUserTokens()
         }
 
@@ -395,12 +397,18 @@ extension Go23HomeViewController: JXSegmentedViewDelegate {
         if index == 0 {
             if list1 == nil {
                 list1 = Go23TokenListViewController()
+                list1?.moreDataBlock = { [weak self] ll in
+                    self?.tokenList = ll
+                }
             }
             list1?.tokenList = tokenList
             return list1!
         } else {
             if list2 == nil {
                 list2 = Go23NFTListViewController()
+                list2?.moreDataBlock = { [weak self] ll in
+                    self?.nftList = ll
+                }
             }
             list2?.nftList = nftList
             return list2!

@@ -23,7 +23,6 @@ class Go23TokenDetailViewController: UIViewController {
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         self.navigationController?.navigationBar.isHidden = true
 
     }
