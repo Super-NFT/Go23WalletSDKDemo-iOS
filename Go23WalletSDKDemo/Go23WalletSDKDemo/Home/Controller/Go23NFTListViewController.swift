@@ -45,9 +45,9 @@ class Go23NFTListViewController: UIViewController {
         
         collectionView.addSubview(noDataV)
         noDataV.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.top.equalTo(180 * Go23_Scale)
+            make.centerX.equalToSuperview()
         }
-        noDataV.isHidden = true
     }
     
     private lazy var flowLayout: UICollectionViewFlowLayout = {
@@ -68,8 +68,15 @@ class Go23NFTListViewController: UIViewController {
         return collectionView
     }()
     
-    private lazy var noDataV: UIView = {
+    lazy var noDataV: UIView = {
         let view = UIView()
+        let imgv = UIImageView()
+        imgv.image = UIImage.init(named: "nodata")
+        view.addSubview(imgv)
+        imgv.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-50)
+        }
         let label = UILabel()
         label.text = "No records"
         label.font = UIFont.systemFont(ofSize: 14)
@@ -79,6 +86,7 @@ class Go23NFTListViewController: UIViewController {
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        view.isHidden = true
         return view
     }()
 

@@ -293,13 +293,13 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             numLabel.snp.makeConstraints { make in
-                make.trailing.equalTo(-60)
+                make.trailing.equalTo(-50)
                 make.top.equalTo(9)
                 make.height.equalTo(24)
             }
             
             moneyLabel.snp.makeConstraints { make in
-                make.trailing.equalTo(-60)
+                make.trailing.equalTo(-50)
                 make.top.equalTo(numLabel.snp.bottom).offset(0)
                 make.height.equalTo(18)
                 
@@ -315,17 +315,23 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
         func filled(model: Go23ChainTokenModel, isHidden: Bool) {
             iconImgv.kf.setImage(with: URL(string: model.imageUrl))
             titleLabel.text = model.symbol
-            numLabel.isHidden = true
-            moneyLabel.isHidden = true
             if model.isSelected {
                 arrowImgv.image = UIImage.init(named: "blueSel")
             } else {
                 arrowImgv.image = UIImage.init(named: "graySel")
             }
+            numLabel.text = "0.00"
+            moneyLabel.text = "$0.00"
+            if Float(model.balance) ?? 0.0 > 0 {
+                numLabel.text = model.balance
+            }
+            if Float(model.balanceU) ?? 0.0 > 0 {
+                moneyLabel.text = "$\(model.balanceU)"
+            }
             
             if isHidden {
                 arrowImgv.isHidden = true
-                contractLabel.text = model.name
+                contractLabel.text = model.chainName
             } else {
                 arrowImgv.isHidden = false
                 contractLabel.text = String.getSubSecretString(8,string: model.contractAddress)
@@ -349,6 +355,7 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 16)
             label.textAlignment = .right
+            label.text = "0.00"
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
             return label
         }()
@@ -364,6 +371,7 @@ extension Go23AddTokenViewController: UITableViewDelegate, UITableViewDataSource
             let label = UILabel()
             label.font = UIFont(name: BarlowCondensed, size: 12)
             label.textAlignment = .right
+            label.text = "$0.00"
             label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
             return label
         }()

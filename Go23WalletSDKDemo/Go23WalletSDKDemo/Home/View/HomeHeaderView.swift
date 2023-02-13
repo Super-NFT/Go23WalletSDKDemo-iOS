@@ -18,6 +18,7 @@ protocol HomeTopViewDelegate: AnyObject {
 protocol HomeHeaderViewDelegate: AnyObject {
     func receiveBtnClick()
     func sendBtnClick()
+    func eyeBtnClick()
     
 }
 
@@ -176,6 +177,9 @@ class HomeHeaderView: UIView {
     
     var token = ""
     var imageViewFrame: CGRect = CGRect.zero
+    private var money = ""
+    private var symbol = ""
+    private var balanceU = ""
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
@@ -198,6 +202,7 @@ class HomeHeaderView: UIView {
         contentV.addSubview(tokenLabel)
         contentV.addSubview(tokenControl)
         contentV.addSubview(numLabel)
+        contentV.addSubview(eyeBtn)
         contentV.addSubview(titleLabel)
         contentV.addSubview(receiveBtn)
         contentV.addSubview(sendBtn)
@@ -222,6 +227,12 @@ class HomeHeaderView: UIView {
             make.top.equalTo(tokenLabel.snp.bottom).offset(25)
             make.centerX.equalToSuperview()
             make.height.equalTo(36)
+        }
+        
+        eyeBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(numLabel.snp.centerY).offset(-10)
+            make.left.equalTo(numLabel.snp.right).offset(-20)
+            make.width.height.equalTo(44)
         }
 
         titleLabel.snp.makeConstraints { make in
@@ -250,17 +261,29 @@ class HomeHeaderView: UIView {
             make.bottom.equalToSuperview()
         }
         
-
+        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
+            eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
+        } else {
+            eyeBtn.setImage(UIImage.init(named: "eyeClose"), for: .normal)
+        }
         
     }
     
     func filled(money: String, symbol: String, balanceU: String, address: String) {
+        self.money = money
+        self.symbol = symbol
+        self.balanceU = balanceU
         var mon = money
         var bal = balanceU
         if let ss = Double(money), ss <= 0 {
             mon = "0.00"
         }
-        numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+        if Float(mon) ?? 0.0 > 0 {
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+        } else {
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00" + " " + symbol)
+        }
+        
         if let bb = Double(balanceU), bb <= 0 {
             bal = "0.00"
         }
@@ -280,6 +303,9 @@ class HomeHeaderView: UIView {
         attri.addImage("copy", CGRectMake(0, 0, 12, 12))
         tokenLabel.attributedText = attri
         tokenLabel.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#EBF5F5")
+        
+        eyeBtn.isHidden = false
+
     }
     
     @objc private func controlClick() {
@@ -294,6 +320,29 @@ class HomeHeaderView: UIView {
     
     @objc private func sendBtnClick() {
         self.delegate?.sendBtnClick()
+    }
+    
+    @objc private func eyeBtnClick() {
+        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
+            eyeBtn.setImage(UIImage.init(named: "eyeClose"), for: .normal)
+            UserDefaults.standard.set(false, forKey: kEyeBtnKey)
+            var mon = money
+            var bal = balanceU
+            if let ss = Double(money), ss <= 0 {
+                mon = "0.00"
+            }
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+            if let bb = Double(balanceU), bb <= 0 {
+                bal = "0.00"
+            }
+            titleLabel.text = "$"+bal
+        } else {
+            eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
+            UserDefaults.standard.set(true, forKey: kEyeBtnKey)
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "**** " )
+            titleLabel.text = "****"
+        }
+        self.delegate?.eyeBtnClick()
     }
     
     func scrollViewDidScroll(contentOffsetY: CGFloat) {
@@ -341,6 +390,14 @@ class HomeHeaderView: UIView {
         label.text = "0.00"
         label.adjustsFontSizeToFitWidth = true
         return label
+    }()
+    
+    private lazy var eyeBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
+        btn.isHidden = true
+        btn.addTarget(self, action: #selector(eyeBtnClick), for: .touchUpInside)
+        return btn
     }()
     
     private lazy var receiveBtn: UIButton = {

@@ -18,10 +18,11 @@ let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 let Go23_Scale = ScreenWidth/375.0
 
-let kRegisterUser = "kRegisterUser"
+public let kRegisterUser = "kRegisterUser"
 let kRefreshWalletData = "kRefreshWalletData"
 let kRefreshWalletBalance = "kRefreshWalletBalance"
 let kPrivateKeygenKey = "kPrivateKeygenKey"
 let kRefreshTokenListDetailKey = "kRefreshTokenListDetailKey"
 let kEmailPrivateKey = "kEmailPrivateKey"
 let kPhonePrivateKey = "kPhonePrivateKey"
+let kEyeBtnKey = "kEyeBtnKey"

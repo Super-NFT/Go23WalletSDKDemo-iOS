@@ -110,10 +110,15 @@ class Go23TokenHeaderView: UIView {
         titleLabel.text = type
         nameLabel.text = name
 //        numLabel.text = "\(num)"
-        numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "\(num)"+" "+type)
+        if Float(num) ?? 0.0 > 0 {
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "\(num)"+" "+type)
+        } else {
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 32), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00"+" "+type)
+        }
+        
         moneyLabel.text = "$\(money)"
         if let mm = Double(money), mm <= 0 {
-            moneyLabel.text = "$0.0"
+            moneyLabel.text = "$0.00"
         }
         
     }

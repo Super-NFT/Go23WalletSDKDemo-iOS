@@ -44,9 +44,9 @@ class Go23TokenListViewController: UIViewController {
         
         tableView.addSubview(noDataV)
         noDataV.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.top.equalTo(180 * Go23_Scale)
+            make.centerX.equalToSuperview()
         }
-        noDataV.isHidden = true
     }
     
     
@@ -67,8 +67,15 @@ class Go23TokenListViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var noDataV: UIView = {
+    lazy var noDataV: UIView = {
         let view = UIView()
+        let imgv = UIImageView()
+        imgv.image = UIImage.init(named: "nodata")
+        view.addSubview(imgv)
+        imgv.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-50)
+        }
         let label = UILabel()
         label.text = "No records"
         label.font = UIFont.systemFont(ofSize: 14)
@@ -78,6 +85,7 @@ class Go23TokenListViewController: UIViewController {
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        view.isHidden = true
         return view
     }()
 }
@@ -99,7 +107,7 @@ extension Go23TokenListViewController: UITableViewDelegate, UITableViewDataSourc
             }
         
         if let model = self.tokenList?[indexPath.row] {
-            cell.filled(cover: model.imageUrl, title: model.balance, type:model.symbol, money: model.balanceU, sourceImg: model.chainImageUrl)
+            cell.filled(cover: model.imageUrl, title: model.balance, type:model.symbol, money: model.balanceU, sourceImg: model.chainImageUrl, value: model.tokenValue)
         }
         return cell
     }

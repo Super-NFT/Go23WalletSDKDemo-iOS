@@ -11,41 +11,30 @@ class Go23ScanViewController: LBXScanViewController {
     
     
     var qrcodeBlock: ((_ qrcode: String) -> ())?
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNav()
-
-    }
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initSubviews()
-        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5,NSAttributedString.Key.foregroundColor: UIColor.black] as [NSAttributedString.Key : Any]
-        if #available(iOS 13.0, *) {
-            let style = UINavigationBarAppearance()
-            style.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5,NSAttributedString.Key.foregroundColor: UIColor.black] as [NSAttributedString.Key : Any]
-            navigationController?.navigationBar.scrollEdgeAppearance = style
-        }
+        self.navigationController?.navigationBar.isHidden = false
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setNav()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initSubviews()
+        
+    }
+    
     private func setNav() {
-        navigationItem.title = "Send"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5,NSAttributedString.Key.foregroundColor: UIColor.white] as [NSAttributedString.Key : Any]
-        if #available(iOS 13.0, *) {
-            let style = UINavigationBarAppearance()
-            style.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5,NSAttributedString.Key.foregroundColor: UIColor.white] as [NSAttributedString.Key : Any]
-            navigationController?.navigationBar.scrollEdgeAppearance = style
-        }
-        self.navigationController?.navigationBar.backgroundColor = .clear
         let backBtn = UIButton()
         backBtn.frame = CGRectMake(0, 0, 44, 44)
         let imgv = UIImageView()
@@ -53,33 +42,36 @@ class Go23ScanViewController: LBXScanViewController {
         imgv.image = UIImage.init(named: "whiteBack")
         imgv.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(24)
-            make.width.equalTo(24)
+            make.height.equalTo(20)
+            make.width.equalTo(20)
         }
         backBtn.addTarget(self, action: #selector(backBtnDidClick), for: .touchUpInside)
-        
         let rightBtn = UIButton()
-        rightBtn.frame = CGRectMake(0, 0, 44, 44)
+        rightBtn.frame = CGRectMake(0, 0, 60, 44)
         rightBtn.setTitle("Album", for: .normal)
         rightBtn.setTitleColor(.white, for: .normal)
         rightBtn.addTarget(self, action: #selector(btnDidClick), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightBtn)
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backBtn)
-
-
+        if self.navgationBar == nil {
+            addBarView()
+            navgationBar?.title = "QR code"
+            navgationBar?.barBgColor = .clear
+            navgationBar?.attributes = [NSAttributedString.Key.font: UIFont(name: BarlowCondensed, size: 20), NSAttributedString.Key.kern: 0.5, NSAttributedString.Key.foregroundColor: UIColor.white] as [NSAttributedString.Key : Any]
+            navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
+            navgationBar?.rightBarItem = HBarItem.init(customView: rightBtn)
+        }
     }
     
     private func initSubviews() {
-        let imgv = UIImageView()
-        imgv.image = UIImage.init(named: "scanBg")
-        view.addSubview(imgv)
-
-        imgv.snp.makeConstraints { make in
-            make.top.equalTo(ScreenHeight/2.0-(ScreenWidth-120.0)/2.0-88.0)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(ScreenWidth-120.0)
-            make.height.equalTo(ScreenWidth-120.0)
-        }
+//        let imgv = UIImageView()
+//        imgv.image = UIImage.init(named: "scanBg")
+//        view.addSubview(imgv)
+//
+//        imgv.snp.makeConstraints { make in
+//            make.top.equalTo(ScreenHeight/2.0-(ScreenWidth-120.0)/2.0-88.0)
+//            make.centerX.equalToSuperview()
+//            make.width.equalTo(ScreenWidth-120.0)
+//            make.height.equalTo(ScreenWidth-120.0)
+//        }
                 
         let qrCodelLabel = UILabel()
         qrCodelLabel.text = "Scan QR-CODE"
@@ -88,7 +80,7 @@ class Go23ScanViewController: LBXScanViewController {
         qrCodelLabel.font = UIFont(name: BarlowCondensed, size: 20)
         view.addSubview(qrCodelLabel)
         qrCodelLabel.snp.makeConstraints { make in
-            make.top.equalTo(imgv.snp.bottom).offset(20)
+            make.bottom.equalTo(-120)
             make.centerX.equalToSuperview()
             make.height.equalTo(35)
         }

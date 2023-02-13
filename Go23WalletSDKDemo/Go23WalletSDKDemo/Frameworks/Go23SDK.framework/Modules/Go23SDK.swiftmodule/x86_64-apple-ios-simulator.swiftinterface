@@ -808,6 +808,26 @@ public struct Go23ChainTokenModel : Swift.Codable {
     set
     _modify
   }
+  @Go23SDK.DecodableDefault.EmptyString public var chainName: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var tokenValue: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var balanceU: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var balance: Swift.String {
+    get
+    set
+    _modify
+  }
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -892,6 +912,11 @@ public struct Go23WalletTokenModel : Swift.Codable {
     _modify
   }
   @Go23SDK.DecodableDefault.EmptyString public var chainImageUrl: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var tokenValue: Swift.String {
     get
     set
     _modify

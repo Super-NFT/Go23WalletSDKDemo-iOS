@@ -21,7 +21,7 @@ class Go23WalletMangager {
 
 extension JXPagingListContainerView: JXSegmentedViewListContainer {}
 
-class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
+public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     
     private var email = ""
     
@@ -37,18 +37,18 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     private var list1: Go23TokenListViewController?
     private var list2: Go23NFTListViewController?
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         initSubViews()
                 
@@ -64,7 +64,7 @@ class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     }
     
     
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         pagingView.frame = CGRectMake(0, CGFloat(HomeTopView.cellHight), ScreenWidth, ScreenHeight-CGFloat(HomeTopView.cellHight))
@@ -356,6 +356,10 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
         vc.filled(cover: Go23WalletMangager.shared.walletModel?.imageUrl ?? "", name: Go23WalletMangager.shared.walletModel?.name ?? "", chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, symbol: Go23WalletMangager.shared.walletModel?.symbol ?? "", contract: "")
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func eyeBtnClick() {
+        list1?.tableView.reloadData()
+    }
 
 }
 
@@ -367,16 +371,37 @@ extension Go23HomeViewController: JXSegmentedViewDelegate {
     }
     
     func pagingView(_ pagingView: JXPagingView, mainTableViewDidScroll scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= HomeHeaderView.cellHight {
+            list1?.noDataV.snp.remakeConstraints({ make in
+                make.center.equalToSuperview()
+            })
+            list2?.noDataV.snp.remakeConstraints({ make in
+                make.center.equalToSuperview()
+            })
+        } else {
+            list1?.noDataV.snp.remakeConstraints { make in
+                make.top.equalTo(180 * Go23_Scale)
+                make.centerX.equalToSuperview()
+            }
+            list2?.noDataV.snp.remakeConstraints { make in
+                make.top.equalTo(180 * Go23_Scale)
+                make.centerX.equalToSuperview()
+            }
+        }
         headerView.scrollViewDidScroll(contentOffsetY: scrollView.contentOffset.y)
     }
     
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         if index == 0 {
-            list1 = Go23TokenListViewController()
+            if list1 == nil {
+                list1 = Go23TokenListViewController()
+            }
             list1?.tokenList = tokenList
             return list1!
         } else {
-            list2 = Go23NFTListViewController()
+            if list2 == nil {
+                list2 = Go23NFTListViewController()
+            }
             list2?.nftList = nftList
             return list2!
         }
@@ -543,7 +568,6 @@ extension Go23HomeViewController {
         guard walletlist.count > 0 else {return}
         let wallet = walletlist[0]
         Go23WalletMangager.shared.address = wallet.address
-        getChainBalance() 
         self.uploadKeygen()
         print("Address ========   \(wallet.address)")
         self.getUserChains(with: wallet.address)
@@ -641,12 +665,12 @@ extension Go23HomeViewController {
 }
 
 extension Go23HomeViewController: Go23ConnectDelegate {
-    func setPincodePageWillShow() {
+    public func setPincodePageWillShow() {
         print("=========setPincodePageWillShow")
         Go23Loading.loading()
     }
     
-    func setPincodePageWillDismiss() {
+    public func setPincodePageWillDismiss() {
         print("=========setPincodePageWillDismiss")
         Go23Loading.clear()
     }
@@ -654,24 +678,24 @@ extension Go23HomeViewController: Go23ConnectDelegate {
 }
 
 extension Go23HomeViewController: Go23ReshardDelegate {
-    func reshardWillStart() {
+    public func reshardWillStart() {
         print("=========reshardWillStart")
         Go23Loading.loading()
     }
     
-    func reshardDidEnd() {
+    public  func reshardDidEnd() {
         print("=========reshardDidEnd")
         Go23Loading.clear()
     }
 }
 
 extension Go23HomeViewController: Go23SetPincodeDelegate {
-    func verifyPincodePageWillShow() {
+   public func verifyPincodePageWillShow() {
         print("=========verifyPincodePageWillShow")
         Go23Loading.loading()
     }
     
-    func verifyPincodePageWillDismiss() {
+    public func verifyPincodePageWillDismiss() {
         print("=========verifyPincodePageWillDismiss")
         Go23Loading.clear()
     }
@@ -693,6 +717,7 @@ extension Go23HomeViewController {
 
            self?.nftList?.removeAll()
            self?.nftList = obj.listModel
+           self?.list2?.nftList = self?.nftList
        }
        
    }

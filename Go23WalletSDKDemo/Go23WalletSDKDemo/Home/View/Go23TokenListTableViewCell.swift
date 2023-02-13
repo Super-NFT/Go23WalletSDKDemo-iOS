@@ -37,7 +37,7 @@ class Go23TokenListTableViewCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(tokenTypeLabel)
         contentView.addSubview(moneyLabel)
-        contentView.addSubview(arrowImgv)
+        contentView.addSubview(titleMonLabel)
         contentView.addSubview(sourceImgv)
         
         iconImgv.snp.makeConstraints { make in
@@ -52,13 +52,13 @@ class Go23TokenListTableViewCell: UITableViewCell {
             make.height.width.equalTo(14)
         }
         titleLabel.snp.makeConstraints { make in
-            make.left.equalTo(iconImgv.snp.right).offset(14)
+            make.right.equalTo(-20)
             make.top.equalTo(8)
             make.height.equalTo(24)
         }
         
         tokenTypeLabel.snp.makeConstraints { make in
-            make.left.equalTo(titleLabel.snp.right).offset(4)
+            make.left.equalTo(iconImgv.snp.right).offset(14)
             make.top.equalTo(8)
             make.height.equalTo(24)
         }
@@ -69,44 +69,34 @@ class Go23TokenListTableViewCell: UITableViewCell {
             make.height.equalTo(18)
         }
         
-        arrowImgv.snp.makeConstraints { make in
-            make.trailing.equalTo(-20)
-            make.height.equalTo(13)
-            make.width.equalTo(13)
-            make.centerY.equalToSuperview()
+        titleMonLabel.snp.makeConstraints { make in
+            make.right.equalTo(-20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(1)
+            make.height.equalTo(18)
         }
+        
     }
     
-    func filled(cover: String, title: String, type: String, money: String, sourceImg: String) {
+    func filled(cover: String, title: String, type: String, money: String, sourceImg: String, value: String) {
         iconImgv.kf.setImage(with: URL(string: cover))
-        titleLabel.text = title
-        tokenTypeLabel.text = type
-         if let mon = Double(money), mon <= 0 {
-            moneyLabel.isHidden = true
-             titleLabel.snp.remakeConstraints { make in
-                 make.left.equalTo(iconImgv.snp.right).offset(14)
-                 make.centerY.equalToSuperview()
-                 make.height.equalTo(24)
-             }
-             tokenTypeLabel.snp.remakeConstraints { make in
-                 make.left.equalTo(titleLabel.snp.right).offset(4)
-                 make.centerY.equalToSuperview()
-                 make.height.equalTo(24)
-             }
+        if Float(title) ?? 0.0 > 0 {
+            titleLabel.text = title
         } else {
-            moneyLabel.isHidden = false
-            titleLabel.snp.remakeConstraints { make in
-                make.left.equalTo(iconImgv.snp.right).offset(14)
-                make.top.equalTo(8)
-                make.height.equalTo(24)
-            }
-            tokenTypeLabel.snp.remakeConstraints { make in
-                make.left.equalTo(titleLabel.snp.right).offset(4)
-                make.top.equalTo(8)
-                make.height.equalTo(24)
-            }
+            titleLabel.text = "0.00"
         }
-        moneyLabel.text = "$ \(money)"
+        tokenTypeLabel.text = type
+        moneyLabel.text = "$0.00"
+        if Float(value) ?? 0.0 > 0 {
+            moneyLabel.text = "$\(value)"
+        }
+        titleMonLabel.text = "$0.00"
+        if Float(money) ?? 0.0 > 0 {
+            titleMonLabel.text = "$\(money)"
+        }
+        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
+            titleLabel.text = "****"
+            titleMonLabel.text = "****"
+        }
         sourceImgv.kf.setImage(with: URL(string: sourceImg))
     }
     
@@ -119,7 +109,18 @@ class Go23TokenListTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .right
+        label.text = "0.00"
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+        return label
+    }()
+    
+    private lazy var titleMonLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textAlignment = .right
+        label.text = "$0.00"
+        label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
     }()
     
@@ -133,14 +134,9 @@ class Go23TokenListTableViewCell: UITableViewCell {
     private lazy var moneyLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
+        label.text = "$0.00"
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         return label
-    }()
-    
-    private lazy var arrowImgv: UIImageView = {
-        let imgv = UIImageView()
-        imgv.image = UIImage.init(named: "rightArrow")
-        return imgv
     }()
     
     private lazy var sourceImgv: UIImageView = {
