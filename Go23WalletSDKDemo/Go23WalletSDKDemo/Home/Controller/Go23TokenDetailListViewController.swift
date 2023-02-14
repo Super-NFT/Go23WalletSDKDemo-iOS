@@ -33,7 +33,7 @@ class Go23TokenDetailListViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalToSuperview()
+            make.left.right.top.bottom.equalToSuperview()
         }
         
         tableView.addSubview(noDataV)
@@ -42,7 +42,8 @@ class Go23TokenDetailListViewController: UIViewController {
         }
         noDataV.isHidden = true
         
-        tableView.es.addPullToRefresh {
+        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
+        tableView.es.addPullToRefresh(animator: header) {
             [weak self] in
             //            self?.tableView.es.stopPullToRefresh()
             NotificationCenter.default.post(name: NSNotification.Name(kRefreshTokenListDetailKey),

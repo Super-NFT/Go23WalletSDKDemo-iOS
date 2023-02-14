@@ -108,7 +108,8 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         pagingView.mainTableView.gestureDelegate = self
         pagingView.mainTableView.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
         segmentedView.listContainer = pagingView.listContainerView
-        pagingView.mainTableView.es.addPullToRefresh {[weak self] in
+        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
+        pagingView.mainTableView.es.addPullToRefresh(animator: header) {[weak self] in
             self?.list1?.tokenIndex = 1
             self?.list2?.nftIndex = 1
             self?.getUserTokens()

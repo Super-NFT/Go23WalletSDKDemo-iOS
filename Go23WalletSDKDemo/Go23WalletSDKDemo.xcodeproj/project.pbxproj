@@ -138,6 +138,7 @@
 		614F06312994946B007F0E48 /* ESRefreshProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614F06272994946B007F0E48 /* ESRefreshProtocol.swift */; };
 		614F06322994946B007F0E48 /* ES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614F06282994946B007F0E48 /* ES.swift */; };
 		614F06332994946B007F0E48 /* ESPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614F06292994946B007F0E48 /* ESPullToRefresh.swift */; };
+		614F0731299B21CD007F0E48 /* Go23RefreshHeaderAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614F0730299B21CD007F0E48 /* Go23RefreshHeaderAnimator.swift */; };
 		6187E1B1293D92A0002EE854 /* BarlowCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6187E1B0293D92A0002EE854 /* BarlowCondensed-Regular.ttf */; };
 		6187E1B7293DBA98002EE854 /* Go23String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1B6293DBA98002EE854 /* Go23String+Extension.swift */; };
 		6187E1B9293DC590002EE854 /* Go23ChooseAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187E1B8293DC590002EE854 /* Go23ChooseAlertView.swift */; };
@@ -374,6 +375,7 @@
 		614F06272994946B007F0E48 /* ESRefreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESRefreshProtocol.swift; sourceTree = "<group>"; };
 		614F06282994946B007F0E48 /* ES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ES.swift; sourceTree = "<group>"; };
 		614F06292994946B007F0E48 /* ESPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESPullToRefresh.swift; sourceTree = "<group>"; };
+		614F0730299B21CD007F0E48 /* Go23RefreshHeaderAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23RefreshHeaderAnimator.swift; sourceTree = "<group>"; };
 		6187E1B0293D92A0002EE854 /* BarlowCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		6187E1B6293DBA98002EE854 /* Go23String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Go23String+Extension.swift"; sourceTree = "<group>"; };
 		6187E1B8293DC590002EE854 /* Go23ChooseAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23ChooseAlertView.swift; sourceTree = "<group>"; };
@@ -945,6 +947,7 @@
 				61A20755296BF900006E10FA /* Go23Toast.swift */,
 				61A20757296C4404006E10FA /* Go23Loading.swift */,
 				61A20768296C5547006E10FA /* Go23NetStatus.swift */,
+				614F0730299B21CD007F0E48 /* Go23RefreshHeaderAnimator.swift */,
 				614F057829948CC1007F0E48 /* Alamofire */,
 			);
 			path = Tools;
@@ -1176,6 +1179,7 @@
 				61142EAC294041C4000E320E /* Go23SendViewController.swift in Sources */,
 				61E8B5C62990B83100118825 /* Go23PhoneSelectedView.swift in Sources */,
 				6187E2AF293F18C3002EE854 /* JXSegmentedTitleAttributeItemModel.swift in Sources */,
+				614F0731299B21CD007F0E48 /* Go23RefreshHeaderAnimator.swift in Sources */,
 				614F05FF29948E3F007F0E48 /* ConstraintPriority.swift in Sources */,
 				61142EA82940342E000E320E /* Go23PwdSuccessView.swift in Sources */,
 				6187E28D293F18C3002EE854 /* JXSegmentedView.swift in Sources */,
