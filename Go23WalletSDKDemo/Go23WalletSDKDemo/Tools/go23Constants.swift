@@ -10,7 +10,7 @@ import UIKit
 
 let BarlowCondensed = "BarlowCondensed-Medium"
 //let BarlowCondensedRegular = "BarlowCondensed-Regular"
-let BarlowCondensedBold = "BarlowCondensed-SemiBold"
+//let BarlowCondensedBold = "BarlowCondensed-SemiBold"
 //let NotoSans = "NotoSans"
 //let NotoSansBold = "NotoSans-Bold"
 

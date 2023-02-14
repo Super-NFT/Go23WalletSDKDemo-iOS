@@ -28302,581 +28302,581 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 2144,
+      "offset": 2237,
       "length": 8,
       "value": "\"FFFFFF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2188,
+      "offset": 2281,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2227,
+      "offset": 2320,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2263,
+      "offset": 2356,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2346,
+      "offset": 2439,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 2515,
+      "offset": 2608,
       "length": 6,
       "value": "\"Sign\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2563,
+      "offset": 2656,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2639,
+      "offset": 2732,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2648,
+      "offset": 2741,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2681,
+      "offset": 2774,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2695,
+      "offset": 2788,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 2848,
+      "offset": 2941,
       "length": 8,
       "value": "\"F5F5F5\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2889,
+      "offset": 2982,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2932,
+      "offset": 3025,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2965,
+      "offset": 3058,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2979,
+      "offset": 3072,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3132,
+      "offset": 3225,
       "length": 4,
       "value": "21.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3172,
+      "offset": 3265,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3229,
+      "offset": 3322,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3237,
+      "offset": 3330,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3276,
+      "offset": 3369,
       "length": 4,
       "value": "28.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3289,
+      "offset": 3382,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3303,
+      "offset": 3396,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 3456,
+      "offset": 3549,
       "length": 8,
       "value": "\"484848\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3507,
+      "offset": 3600,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3583,
+      "offset": 3676,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3625,
+      "offset": 3718,
       "length": 3,
       "value": "4.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3657,
+      "offset": 3750,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3671,
+      "offset": 3764,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 3838,
+      "offset": 3931,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 3899,
+      "offset": 3992,
       "length": 8,
       "value": "\"000000\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3959,
+      "offset": 4052,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3966,
+      "offset": 4059,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3975,
+      "offset": 4068,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3988,
+      "offset": 4081,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4002,
+      "offset": 4095,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 4246,
+      "offset": 4339,
       "length": 8,
       "value": "\"F7F7F7\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 4280,
+      "offset": 4373,
       "length": 8,
       "value": "\"Cancel\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4349,
+      "offset": 4442,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4415,
+      "offset": 4508,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 4463,
+      "offset": 4556,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4677,
+      "offset": 4770,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4759,
+      "offset": 4852,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4797,
+      "offset": 4890,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4827,
+      "offset": 4920,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4835,
+      "offset": 4928,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4842,
+      "offset": 4935,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4855,
+      "offset": 4948,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4870,
+      "offset": 4963,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5036,
+      "offset": 5129,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5070,
+      "offset": 5163,
       "length": 6,
       "value": "\"Sign\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5137,
+      "offset": 5230,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5203,
+      "offset": 5296,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5245,
+      "offset": 5338,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5286,
+      "offset": 5379,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5430,
+      "offset": 5523,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5438,
+      "offset": 5531,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5468,
+      "offset": 5561,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5476,
+      "offset": 5569,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5483,
+      "offset": 5576,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5496,
+      "offset": 5589,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5511,
+      "offset": 5604,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5621,
+      "offset": 5714,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5664,
+      "offset": 5757,
       "length": 4,
       "value": "70.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5697,
+      "offset": 5790,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5711,
+      "offset": 5804,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5725,
+      "offset": 5818,
       "length": 10,
       "value": "\"Contract\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5783,
+      "offset": 5876,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5796,
+      "offset": 5889,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5866,
+      "offset": 5959,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5915,
+      "offset": 6008,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5948,
+      "offset": 6041,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5962,
+      "offset": 6055,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5976,
+      "offset": 6069,
       "length": 6,
       "value": "\"From\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6023,
+      "offset": 6116,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6036,
+      "offset": 6129,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6105,
+      "offset": 6198,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6150,
+      "offset": 6243,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6183,
+      "offset": 6276,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6197,
+      "offset": 6290,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6211,
+      "offset": 6304,
       "length": 4,
       "value": "\"To\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6254,
+      "offset": 6347,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6267,
+      "offset": 6360,
       "length": 4,
       "value": "true"
     },
@@ -29044,644 +29044,644 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 2242,
+      "offset": 2344,
       "length": 8,
       "value": "\"FFFFFF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2286,
+      "offset": 2388,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2325,
+      "offset": 2427,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2361,
+      "offset": 2463,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2444,
+      "offset": 2546,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 2613,
+      "offset": 2715,
       "length": 6,
       "value": "\"Sign\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2661,
+      "offset": 2763,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2737,
+      "offset": 2839,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2746,
+      "offset": 2848,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2779,
+      "offset": 2881,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2793,
+      "offset": 2895,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 2946,
+      "offset": 3048,
       "length": 8,
       "value": "\"F5F5F5\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 2987,
+      "offset": 3089,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3030,
+      "offset": 3132,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3063,
+      "offset": 3165,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3077,
+      "offset": 3179,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3230,
+      "offset": 3332,
       "length": 4,
       "value": "21.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3270,
+      "offset": 3372,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3327,
+      "offset": 3429,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3335,
+      "offset": 3437,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3374,
+      "offset": 3476,
       "length": 4,
       "value": "28.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3387,
+      "offset": 3489,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3401,
+      "offset": 3503,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 3554,
+      "offset": 3656,
       "length": 8,
       "value": "\"484848\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3605,
+      "offset": 3707,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3681,
+      "offset": 3783,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3723,
+      "offset": 3825,
       "length": 3,
       "value": "4.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3755,
+      "offset": 3857,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 3769,
+      "offset": 3871,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 3936,
+      "offset": 4038,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 3997,
+      "offset": 4099,
       "length": 8,
       "value": "\"000000\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4057,
+      "offset": 4159,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4064,
+      "offset": 4166,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4073,
+      "offset": 4175,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4086,
+      "offset": 4188,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4100,
+      "offset": 4202,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 4344,
+      "offset": 4446,
       "length": 8,
       "value": "\"F7F7F7\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 4378,
+      "offset": 4480,
       "length": 8,
       "value": "\"Cancel\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4447,
+      "offset": 4549,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4513,
+      "offset": 4615,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 4561,
+      "offset": 4663,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4775,
+      "offset": 4877,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4857,
+      "offset": 4959,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4895,
+      "offset": 4997,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4925,
+      "offset": 5027,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4933,
+      "offset": 5035,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4940,
+      "offset": 5042,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4953,
+      "offset": 5055,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 4968,
+      "offset": 5070,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5134,
+      "offset": 5236,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5168,
+      "offset": 5270,
       "length": 6,
       "value": "\"Sign\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5235,
+      "offset": 5337,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5301,
+      "offset": 5403,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5343,
+      "offset": 5445,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5384,
+      "offset": 5486,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5528,
+      "offset": 5630,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5536,
+      "offset": 5638,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5566,
+      "offset": 5668,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5574,
+      "offset": 5676,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5581,
+      "offset": 5683,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5594,
+      "offset": 5696,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5609,
+      "offset": 5711,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5719,
+      "offset": 5821,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5762,
+      "offset": 5864,
       "length": 4,
       "value": "70.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5795,
+      "offset": 5897,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5809,
+      "offset": 5911,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5823,
+      "offset": 5925,
       "length": 10,
       "value": "\"Contract\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 5881,
+      "offset": 5983,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5894,
+      "offset": 5996,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 5964,
+      "offset": 6066,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6013,
+      "offset": 6115,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6046,
+      "offset": 6148,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6060,
+      "offset": 6162,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6074,
+      "offset": 6176,
       "length": 6,
       "value": "\"From\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6121,
+      "offset": 6223,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6134,
+      "offset": 6236,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6203,
+      "offset": 6305,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6248,
+      "offset": 6350,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6281,
+      "offset": 6383,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6295,
+      "offset": 6397,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6309,
+      "offset": 6411,
       "length": 4,
       "value": "\"To\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6352,
+      "offset": 6454,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6365,
+      "offset": 6467,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6435,
+      "offset": 6537,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6478,
+      "offset": 6580,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6511,
+      "offset": 6613,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "FloatLiteral",
-      "offset": 6525,
+      "offset": 6627,
       "length": 4,
       "value": "19.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6539,
+      "offset": 6641,
       "length": 9,
       "value": "\"TokenID\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6559,
+      "offset": 6661,
       "length": 37,
       "value": "\"#\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6592,
+      "offset": 6694,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "StringLiteral",
-      "offset": 6595,
+      "offset": 6697,
       "length": 18,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionNFTSignView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6607,
+      "offset": 6709,
       "length": 5,
       "value": "false"
     },
@@ -30087,49 +30087,49 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/Go23ToastView.swift",
       "kind": "StringLiteral",
-      "offset": 678,
+      "offset": 789,
       "length": 8,
       "value": "\"000000\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/Go23ToastView.swift",
       "kind": "FloatLiteral",
-      "offset": 707,
+      "offset": 818,
       "length": 3,
       "value": "0.7"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/Go23ToastView.swift",
       "kind": "FloatLiteral",
-      "offset": 746,
+      "offset": 857,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/Go23ToastView.swift",
       "kind": "BooleanLiteral",
-      "offset": 785,
+      "offset": 896,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/Go23ToastView.swift",
       "kind": "FloatLiteral",
-      "offset": 956,
+      "offset": 1067,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/Go23ToastView.swift",
       "kind": "StringLiteral",
-      "offset": 1001,
+      "offset": 1112,
       "length": 8,
       "value": "\"FFFFFF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/Go23ToastView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1041,
+      "offset": 1152,
       "length": 1,
       "value": "0"
     },
@@ -30164,469 +30164,469 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 3873,
+      "offset": 3966,
       "length": 8,
       "value": "\"FFFFFF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 3917,
+      "offset": 4010,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3956,
+      "offset": 4049,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 3992,
+      "offset": 4085,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4075,
+      "offset": 4168,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 4242,
+      "offset": 4335,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 4303,
+      "offset": 4396,
       "length": 8,
       "value": "\"000000\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4363,
+      "offset": 4456,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4370,
+      "offset": 4463,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4379,
+      "offset": 4472,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4392,
+      "offset": 4485,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4406,
+      "offset": 4499,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4691,
+      "offset": 4784,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4709,
+      "offset": 4802,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 4756,
+      "offset": 4849,
       "length": 15,
       "value": "\"Input Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4805,
+      "offset": 4898,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4814,
+      "offset": 4907,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4852,
+      "offset": 4945,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4866,
+      "offset": 4959,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5068,
+      "offset": 5161,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5086,
+      "offset": 5179,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5110,
+      "offset": 5203,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5146,
+      "offset": 5239,
       "length": 9,
       "value": "\"Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5189,
+      "offset": 5282,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5232,
+      "offset": 5325,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5245,
+      "offset": 5338,
       "length": 5,
       "value": "200.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5260,
+      "offset": 5353,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5492,
+      "offset": 5585,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5508,
+      "offset": 5601,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5532,
+      "offset": 5625,
       "length": 8,
       "value": "\"BFBFBF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5567,
+      "offset": 5660,
       "length": 47,
       "value": "\"8-bit letters, digits, and special characters\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5667,
+      "offset": 5760,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5716,
+      "offset": 5809,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5821,
+      "offset": 5914,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5824,
+      "offset": 5917,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5827,
+      "offset": 5920,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5831,
+      "offset": 5924,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5918,
+      "offset": 6011,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5960,
+      "offset": 6053,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 6014,
+      "offset": 6107,
       "length": 8,
       "value": "\"F5F5F5\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6060,
+      "offset": 6153,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6101,
+      "offset": 6194,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6138,
+      "offset": 6231,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6152,
+      "offset": 6245,
       "length": 4,
       "value": "46.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6354,
+      "offset": 6447,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6390,
+      "offset": 6483,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6452,
+      "offset": 6545,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6488,
+      "offset": 6581,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6532,
+      "offset": 6625,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6569,
+      "offset": 6662,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6583,
+      "offset": 6676,
       "length": 4,
       "value": "30.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6743,
+      "offset": 6836,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 6788,
+      "offset": 6881,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6887,
+      "offset": 6980,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6905,
+      "offset": 6998,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 6959,
+      "offset": 7052,
       "length": 8,
       "value": "\"Verify\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7098,
+      "offset": 7191,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7143,
+      "offset": 7236,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7181,
+      "offset": 7274,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7195,
+      "offset": 7288,
       "length": 4,
       "value": "48.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 7341,
+      "offset": 7434,
       "length": 16,
       "value": "\"Forget Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 7412,
+      "offset": 7505,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7494,
+      "offset": 7587,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7614,
+      "offset": 7707,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7656,
+      "offset": 7749,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7694,
+      "offset": 7787,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/VerifyPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7708,
+      "offset": 7801,
       "length": 4,
       "value": "40.0"
     },
@@ -31004,112 +31004,112 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "StringLiteral",
-      "offset": 2786,
+      "offset": 2888,
       "length": 8,
       "value": "\"8C8C8C\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "StringLiteral",
-      "offset": 2817,
+      "offset": 2919,
       "length": 6,
       "value": "\"From\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 2865,
+      "offset": 2967,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 2939,
+      "offset": 3041,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 2947,
+      "offset": 3049,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 2959,
+      "offset": 3061,
       "length": 4,
       "value": "82.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 2973,
+      "offset": 3075,
       "length": 4,
       "value": "19.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "StringLiteral",
-      "offset": 3129,
+      "offset": 3231,
       "length": 8,
       "value": "\"595959\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 3180,
+      "offset": 3282,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3252,
+      "offset": 3354,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 3352,
+      "offset": 3454,
       "length": 5,
       "value": "260.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 3362,
+      "offset": 3464,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 3374,
+      "offset": 3476,
       "length": 5,
       "value": "260.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 3661,
+      "offset": 3763,
       "length": 5,
       "value": "260.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 3671,
+      "offset": 3773,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "FloatLiteral",
-      "offset": 3683,
+      "offset": 3785,
       "length": 5,
       "value": "260.0"
     },
@@ -31886,749 +31886,749 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 4527,
+      "offset": 4629,
       "length": 8,
       "value": "\"FFFFFF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4571,
+      "offset": 4673,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4610,
+      "offset": 4712,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4646,
+      "offset": 4748,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4654,
+      "offset": 4756,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 4716,
+      "offset": 4818,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 4883,
+      "offset": 4985,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 4944,
+      "offset": 5046,
       "length": 8,
       "value": "\"000000\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5087,
+      "offset": 5189,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5094,
+      "offset": 5196,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5103,
+      "offset": 5205,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5116,
+      "offset": 5218,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5130,
+      "offset": 5232,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5332,
+      "offset": 5434,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5350,
+      "offset": 5452,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5397,
+      "offset": 5499,
       "length": 13,
       "value": "\"Set Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5444,
+      "offset": 5546,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5453,
+      "offset": 5555,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5489,
+      "offset": 5591,
       "length": 4,
       "value": "80.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5503,
+      "offset": 5605,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5708,
+      "offset": 5810,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5726,
+      "offset": 5828,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5750,
+      "offset": 5852,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 5786,
+      "offset": 5888,
       "length": 13,
       "value": "\"Set Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5833,
+      "offset": 5935,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5876,
+      "offset": 5978,
       "length": 4,
       "value": "30.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5889,
+      "offset": 5991,
       "length": 5,
       "value": "200.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 5904,
+      "offset": 6006,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6136,
+      "offset": 6238,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6152,
+      "offset": 6254,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 6176,
+      "offset": 6278,
       "length": 8,
       "value": "\"BFBFBF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 6211,
+      "offset": 6313,
       "length": 15,
       "value": "\"Input Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6279,
+      "offset": 6381,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 6327,
+      "offset": 6429,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6437,
+      "offset": 6539,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6440,
+      "offset": 6542,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6443,
+      "offset": 6545,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6447,
+      "offset": 6549,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6534,
+      "offset": 6636,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6574,
+      "offset": 6676,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 6627,
+      "offset": 6729,
       "length": 8,
       "value": "\"F5F5F5\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6673,
+      "offset": 6775,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6717,
+      "offset": 6819,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6755,
+      "offset": 6857,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 6769,
+      "offset": 6871,
       "length": 4,
       "value": "46.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7010,
+      "offset": 7112,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7028,
+      "offset": 7130,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 7052,
+      "offset": 7154,
       "length": 8,
       "value": "\"BFBFBF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 7087,
+      "offset": 7189,
       "length": 70,
       "value": "\"Enter a combination of 8-bit letters, digits, and special characters\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 7189,
+      "offset": 7291,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7223,
+      "offset": 7325,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7267,
+      "offset": 7369,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7304,
+      "offset": 7406,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7318,
+      "offset": 7420,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7524,
+      "offset": 7626,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7542,
+      "offset": 7644,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 7566,
+      "offset": 7668,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 7601,
+      "offset": 7703,
       "length": 17,
       "value": "\"Confirm Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7652,
+      "offset": 7754,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7694,
+      "offset": 7796,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7707,
+      "offset": 7809,
       "length": 5,
       "value": "200.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7722,
+      "offset": 7824,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 7958,
+      "offset": 8060,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 7974,
+      "offset": 8076,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 7998,
+      "offset": 8100,
       "length": 8,
       "value": "\"BFBFBF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 8033,
+      "offset": 8135,
       "length": 15,
       "value": "\"Input Pincode\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 8101,
+      "offset": 8203,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 8150,
+      "offset": 8252,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 8260,
+      "offset": 8362,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 8263,
+      "offset": 8365,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 8266,
+      "offset": 8368,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 8270,
+      "offset": 8372,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 8357,
+      "offset": 8459,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "BooleanLiteral",
-      "offset": 8397,
+      "offset": 8499,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 8451,
+      "offset": 8553,
       "length": 8,
       "value": "\"F5F5F5\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 8497,
+      "offset": 8599,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 8542,
+      "offset": 8644,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 8580,
+      "offset": 8682,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 8594,
+      "offset": 8696,
       "length": 4,
       "value": "46.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 8766,
+      "offset": 8868,
       "length": 111,
       "value": "\"Pincode can be used to restore your private key. Store them securely and ensure only you have access to them.\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 8925,
+      "offset": 9027,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 8970,
+      "offset": 9072,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9010,
+      "offset": 9112,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9080,
+      "offset": 9182,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9126,
+      "offset": 9228,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9163,
+      "offset": 9265,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9177,
+      "offset": 9279,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9341,
+      "offset": 9443,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9377,
+      "offset": 9479,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9439,
+      "offset": 9541,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9475,
+      "offset": 9577,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9516,
+      "offset": 9618,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9553,
+      "offset": 9655,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9567,
+      "offset": 9669,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9728,
+      "offset": 9830,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 9773,
+      "offset": 9875,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9957,
+      "offset": 10059,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 9975,
+      "offset": 10077,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "StringLiteral",
-      "offset": 10028,
+      "offset": 10130,
       "length": 9,
       "value": "\"Confirm\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10151,
+      "offset": 10253,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10199,
+      "offset": 10301,
       "length": 4,
       "value": "46.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10237,
+      "offset": 10339,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 10251,
+      "offset": 10353,
       "length": 4,
       "value": "46.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "BooleanLiteral",
-      "offset": 11052,
+      "offset": 11154,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 11095,
+      "offset": 11197,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "FloatLiteral",
-      "offset": 11147,
+      "offset": 11249,
       "length": 3,
       "value": "0.1"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/SetPincodePopView.swift",
       "kind": "IntegerLiteral",
-      "offset": 11193,
+      "offset": 11295,
       "length": 1,
       "value": "2"
     },
@@ -32733,581 +32733,581 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 2139,
+      "offset": 2241,
       "length": 8,
       "value": "\"FFFFFF\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2183,
+      "offset": 2285,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2222,
+      "offset": 2324,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2258,
+      "offset": 2360,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2341,
+      "offset": 2443,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 2510,
+      "offset": 2612,
       "length": 9,
       "value": "\"Approve\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2561,
+      "offset": 2663,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2637,
+      "offset": 2739,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2646,
+      "offset": 2748,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2679,
+      "offset": 2781,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2693,
+      "offset": 2795,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 2846,
+      "offset": 2948,
       "length": 8,
       "value": "\"F5F5F5\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2887,
+      "offset": 2989,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2930,
+      "offset": 3032,
       "length": 4,
       "value": "14.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2963,
+      "offset": 3065,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 2977,
+      "offset": 3079,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3130,
+      "offset": 3232,
       "length": 4,
       "value": "21.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3170,
+      "offset": 3272,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3227,
+      "offset": 3329,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3235,
+      "offset": 3337,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3274,
+      "offset": 3376,
       "length": 4,
       "value": "28.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3287,
+      "offset": 3389,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3301,
+      "offset": 3403,
       "length": 4,
       "value": "41.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 3454,
+      "offset": 3556,
       "length": 8,
       "value": "\"484848\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3505,
+      "offset": 3607,
       "length": 4,
       "value": "12.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3581,
+      "offset": 3683,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3623,
+      "offset": 3725,
       "length": 3,
       "value": "4.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3655,
+      "offset": 3757,
       "length": 4,
       "value": "32.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3669,
+      "offset": 3771,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 3836,
+      "offset": 3938,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 3897,
+      "offset": 3999,
       "length": 8,
       "value": "\"000000\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3957,
+      "offset": 4059,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3964,
+      "offset": 4066,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3973,
+      "offset": 4075,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 3986,
+      "offset": 4088,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4000,
+      "offset": 4102,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 4244,
+      "offset": 4346,
       "length": 8,
       "value": "\"F7F7F7\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 4278,
+      "offset": 4380,
       "length": 8,
       "value": "\"Cancel\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4347,
+      "offset": 4449,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4413,
+      "offset": 4515,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 4461,
+      "offset": 4563,
       "length": 8,
       "value": "\"262626\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4675,
+      "offset": 4777,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4757,
+      "offset": 4859,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4795,
+      "offset": 4897,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4825,
+      "offset": 4927,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4833,
+      "offset": 4935,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4840,
+      "offset": 4942,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4853,
+      "offset": 4955,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 4868,
+      "offset": 4970,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 5034,
+      "offset": 5136,
       "length": 8,
       "value": "\"00D6E1\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 5068,
+      "offset": 5170,
       "length": 9,
       "value": "\"Approve\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5138,
+      "offset": 5240,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5204,
+      "offset": 5306,
       "length": 4,
       "value": "18.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5246,
+      "offset": 5348,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5287,
+      "offset": 5389,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5431,
+      "offset": 5533,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5439,
+      "offset": 5541,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5469,
+      "offset": 5571,
       "length": 5,
       "value": "120.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5477,
+      "offset": 5579,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5484,
+      "offset": 5586,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5497,
+      "offset": 5599,
       "length": 5,
       "value": "157.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5512,
+      "offset": 5614,
       "length": 4,
       "value": "36.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5622,
+      "offset": 5724,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5665,
+      "offset": 5767,
       "length": 4,
       "value": "70.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5698,
+      "offset": 5800,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5712,
+      "offset": 5814,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 5726,
+      "offset": 5828,
       "length": 10,
       "value": "\"Contract\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 5784,
+      "offset": 5886,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5797,
+      "offset": 5899,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5867,
+      "offset": 5969,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5916,
+      "offset": 6018,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5949,
+      "offset": 6051,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 5963,
+      "offset": 6065,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 5977,
+      "offset": 6079,
       "length": 6,
       "value": "\"From\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 6024,
+      "offset": 6126,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6037,
+      "offset": 6139,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 6106,
+      "offset": 6208,
       "length": 4,
       "value": "22.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 6151,
+      "offset": 6253,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 6184,
+      "offset": 6286,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "FloatLiteral",
-      "offset": 6198,
+      "offset": 6300,
       "length": 4,
       "value": "40.0"
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 6212,
+      "offset": 6314,
       "length": 4,
       "value": "\"To\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "StringLiteral",
-      "offset": 6255,
+      "offset": 6357,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TransactionApproveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6268,
+      "offset": 6370,
       "length": 4,
       "value": "true"
     },

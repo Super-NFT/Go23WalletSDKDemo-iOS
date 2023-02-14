@@ -279,9 +279,9 @@ class HomeHeaderView: UIView {
             mon = "0.00"
         }
         if Float(mon) ?? 0.0 > 0 {
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
         } else {
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00" + " " + symbol)
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00" + " " + symbol)
         }
         
         if let bb = Double(balanceU), bb <= 0 {
@@ -331,7 +331,7 @@ class HomeHeaderView: UIView {
             if let ss = Double(money), ss <= 0 {
                 mon = "0.00"
             }
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
             if let bb = Double(balanceU), bb <= 0 {
                 bal = "0.00"
             }
@@ -339,7 +339,7 @@ class HomeHeaderView: UIView {
         } else {
             eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
             UserDefaults.standard.set(true, forKey: kEyeBtnKey)
-            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "**** " )
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "**** " )
             titleLabel.text = "****"
         }
         self.delegate?.eyeBtnClick()

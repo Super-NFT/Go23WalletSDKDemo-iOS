@@ -101,7 +101,7 @@ class Go23SendTokenListView: UIView {
         
     private lazy var titleLabel: UILabel = {
             let label = UILabel()
-        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Select a token to send")
+        label.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 20), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "Select a token to send")
             return label
         }()
     
@@ -109,7 +109,7 @@ class Go23SendTokenListView: UIView {
         let btn = UIButton()
         btn.layer.cornerRadius = 8
         btn.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
-        btn.setAttributedTitle(String.getAttributeString(font: UIFont(name: BarlowCondensedBold, size: 24), wordspace: 0.5, color: UIColor.white, alignment: .center, title: "Add a token"), for: .normal)
+        btn.setAttributedTitle(String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 24), wordspace: 0.5, color: UIColor.white, alignment: .center, title: "Add a token"), for: .normal)
         btn.addTarget(self, action: #selector(addBtnClick), for: .touchUpInside)
         return btn
     }()

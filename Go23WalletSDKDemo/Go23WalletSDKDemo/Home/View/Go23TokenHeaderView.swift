@@ -179,7 +179,7 @@ class Go23TokenHeaderView: UIView {
     
     private lazy var numLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: BarlowCondensedBold, size: 36)
+        label.font = UIFont(name: BarlowCondensed, size: 36)
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#262626")
         label.textAlignment = .center
         return label
