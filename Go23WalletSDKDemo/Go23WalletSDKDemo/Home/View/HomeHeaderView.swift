@@ -262,9 +262,9 @@ class HomeHeaderView: UIView {
         }
         
         if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
-            eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
-        } else {
             eyeBtn.setImage(UIImage.init(named: "eyeClose"), for: .normal)
+        } else {
+            eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
         }
         
     }
@@ -275,7 +275,11 @@ class HomeHeaderView: UIView {
         self.balanceU = balanceU
         var mon = money
         var bal = balanceU
-        if let ss = Double(money), ss <= 0 {
+        if let ss = Double(money) {
+            if ss <= 0 {
+                mon = "0.00"
+            }
+        } else {
             mon = "0.00"
         }
         if Float(mon) ?? 0.0 > 0 {
@@ -284,7 +288,11 @@ class HomeHeaderView: UIView {
             numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "0.00" + " " + symbol)
         }
         
-        if let bb = Double(balanceU), bb <= 0 {
+        if let bb = Double(balanceU){
+            if bb <= 0 {
+                bal = "0.00"
+            }
+        } else {
             bal = "0.00"
         }
         titleLabel.text = "$"+bal
@@ -324,20 +332,28 @@ class HomeHeaderView: UIView {
     
     @objc private func eyeBtnClick() {
         if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
-            eyeBtn.setImage(UIImage.init(named: "eyeClose"), for: .normal)
+            eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
             UserDefaults.standard.set(false, forKey: kEyeBtnKey)
             var mon = money
             var bal = balanceU
-            if let ss = Double(money), ss <= 0 {
+            if let ss = Double(money) {
+                if ss <= 0 {
+                    mon = "0.00"
+                }
+            } else {
                 mon = "0.00"
             }
             numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: mon + " " + symbol)
-            if let bb = Double(balanceU), bb <= 0 {
+            if let bb = Double(balanceU){
+                if bb <= 0 {
+                    bal = "0.00"
+                }
+            } else {
                 bal = "0.00"
             }
             titleLabel.text = "$"+bal
         } else {
-            eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
+            eyeBtn.setImage(UIImage.init(named: "eyeClose"), for: .normal)
             UserDefaults.standard.set(true, forKey: kEyeBtnKey)
             numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "**** " )
             titleLabel.text = "****"
