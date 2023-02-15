@@ -324,6 +324,7 @@ extension Go23HomeViewController: HomeTopViewDelegate {
         
         alert.chainList = self.chainList
         alert.chooseBlock = {[weak self]model in
+            self?.view.dissmiss(overlay: .last)
             Go23WalletMangager.shared.walletModel = model
             self?.self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
             self?.topView.chooseV.filled(title: model.name, img: model.imageUrl)
@@ -331,7 +332,11 @@ extension Go23HomeViewController: HomeTopViewDelegate {
             self?.setDefaultChain(with: model.walletAddress, and: model.chainId)
             
         }
-        UIApplication.shared.keyWindow?.present(overlay: ovc)
+        alert.closeBlock = { [weak self] in
+            self?.view.dissmiss(overlay: .last)
+        }
+        
+        self.view.present(overlay: ovc)
     }
     
     func settingBtnClick() {

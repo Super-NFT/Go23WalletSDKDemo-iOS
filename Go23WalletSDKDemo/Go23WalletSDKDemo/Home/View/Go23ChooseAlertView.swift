@@ -18,6 +18,8 @@ class Go23ChooseAlertView: UIView {
     var pageIndex = 1
     
     var chooseBlock: ((_ model: Go23WalletChainModel)->())?
+    
+    var closeBlock: (()->())?
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -68,7 +70,7 @@ class Go23ChooseAlertView: UIView {
     }
     
     @objc private func closeBtnClick() {
-        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
+        self.closeBlock?()
 
     }
     
@@ -143,7 +145,6 @@ extension Go23ChooseAlertView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         if let list = self.chainList, indexPath.row < list.count {
             self.chooseBlock?(list[indexPath.row])
         }
