@@ -58,6 +58,8 @@ class Go23NFTListCollectionViewCell: UICollectionViewCell {
         let imgv = UIImageView()
         imgv.layer.masksToBounds = true
         imgv.layer.cornerRadius = 8.0
+        imgv.layer.borderWidth = 1.0
+        imgv.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#f0f0f0").cgColor
         return imgv
     }()
     

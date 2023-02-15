@@ -46,6 +46,7 @@ class Go23TokenDetailViewController: UIViewController {
     }
     
     private func setNav() {
+        
         let backBtn = UIButton()
         backBtn.frame = CGRectMake(0, 0, 44, 44)
         let imgv = UIImageView()
@@ -58,7 +59,10 @@ class Go23TokenDetailViewController: UIViewController {
         }
         backBtn.addTarget(self, action: #selector(backBtnDidClick), for: .touchUpInside)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backBtn)
+        if self.navgationBar == nil {
+            addBarView()
+            navgationBar?.leftBarItem = HBarItem.init(customView: backBtn)
+        }
     }
     
     @objc private func backBtnDidClick() {

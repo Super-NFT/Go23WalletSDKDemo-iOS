@@ -14,6 +14,7 @@ class Go23AddTokenViewController: UIViewController {
 
     
     var tokenList: [Go23ChainTokenModel]?
+    var tokenIndex = 1
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,7 +39,16 @@ class Go23AddTokenViewController: UIViewController {
         
         getUserTokens()
         NotificationCenter.default.addObserver(self, selector: #selector(getUserTokens), name: NSNotification.Name(rawValue: kRefreshWalletData), object: nil)
-
+        
+        
+        tableView.es.addPullToRefresh {[weak self] in
+            self?.tokenIndex = 1
+            self?.getUserTokens()
+        }
+        tableView.es.addInfiniteScrolling { [weak self] in
+            self?.tokenIndex += 1
+            self?.getUserTokens()
+        }
 
     }
     
@@ -397,10 +407,19 @@ extension Go23AddTokenViewController {
        }
 
        Go23Loading.loading()
-       shared.getChainTokenList(with: walletObj.chainId, pageSize: 10, pageNumber: 1) { [weak self] model in
+       shared.getChainTokenList(with: walletObj.chainId, pageSize: 20, pageNumber: self.tokenIndex) { [weak self] model in
+           self?.tableView.es.stopPullToRefresh()
+           self?.tableView.es.stopLoadingMore()
            Go23Loading.clear()
-           self?.tokenList?.removeAll()
-           self?.tokenList = model?.listModel
+           if self?.tokenIndex ?? 1 > 1 {
+               if let _ = self?.tokenList, let _ = model?.listModel {
+                   self?.tokenList! += model!.listModel
+               }
+           } else {
+               self?.tokenList?.removeAll()
+               self?.tokenList = model?.listModel
+           }
+           
            self?.tableView.reloadData()
        }
         

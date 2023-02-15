@@ -182,7 +182,7 @@ extension Go23NFTListViewController {
             return
         }
         
-         shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: self.nftIndex) {  [weak self]model in
+         shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 20, pageNumber: self.nftIndex) {  [weak self]model in
             self?.collectionView.es.stopLoadingMore()
             guard let obj = model else {
                 return

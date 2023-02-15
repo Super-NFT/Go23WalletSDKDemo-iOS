@@ -97,6 +97,7 @@ class Go23AddNFTView: UIView {
         style.animationImage = UIImage(named: "scanLine")
         style.photoframeLineW = 0
         style.widthRetangleLine = 0
+        style.xScanRetangleOffset = 0
         vc.scanStyle = style
         vc.qrcodeBlock = { [weak self] code  in
             self?.addressTxtView.textContainerInset = UIEdgeInsets(top: (64-(self?.getHeight(content: code) ?? 0) )/2.0, left: 10, bottom: 8, right: 50)

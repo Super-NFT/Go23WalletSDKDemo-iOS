@@ -13,20 +13,29 @@ import Go23SDK
 class Go23ChooseAlertView: UIView {
     
     
-    var chainList: [Go23WalletChainModel]? {
-        didSet {
-            guard let chainList = chainList else {
-                return
-            }
-            self.tableView.reloadData()
-        }
-    }
+    var chainList: [Go23WalletChainModel]?
+    
+    var pageIndex = 1
     
     var chooseBlock: ((_ model: Go23WalletChainModel)->())?
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         initSubviews()
+        
+        getUserChains()
+        
+        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
+        
+        tableView.es.addPullToRefresh(animator: header) {[weak self] in
+            self?.pageIndex = 1
+            self?.getUserChains(isLoading: false)
+        }
+        
+        tableView.es.addInfiniteScrolling { [weak self] in
+            self?.pageIndex += 1
+            self?.getUserChains(isLoading: false)
+        }
          
     }
     
@@ -211,4 +220,36 @@ class Go23ChooseAlertViewCell: UITableViewCell {
         imgv.image = UIImage.init(named: "blueArrow")
         return imgv
     }()
+}
+
+
+extension Go23ChooseAlertView {
+    private func getUserChains(isLoading: Bool = true) {
+        guard let shared = Go23WalletSDK.shared
+        else {
+            return
+        }
+        if isLoading {
+            Go23Loading.loading()
+        }
+        shared.fetchWalletChainlist(with:  Go23WalletMangager.shared.address, pageSize: 20, pageNumber: self.pageIndex) { [weak self] chainModel in
+            self?.tableView.es.stopPullToRefresh()
+            self?.tableView.es.stopLoadingMore()
+            if isLoading {
+                Go23Loading.clear()
+            }
+            
+            if self?.pageIndex ?? 1 > 1, let _ = self?.chainList {
+                if let ll = chainModel?.listModel {
+                    self?.chainList! += ll
+                }
+            } else {
+                self?.chainList?.removeAll()
+                self?.chainList = chainModel?.listModel
+            }
+            
+            self?.tableView.reloadData()
+            
+        }
+    }
 }

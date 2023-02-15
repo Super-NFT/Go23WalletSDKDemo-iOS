@@ -12,8 +12,6 @@ import Go23SDK
 class Go23SendViewController: UIViewController {
     
     var isSupportSel = false
-    var tokenList: [Go23WalletTokenModel]?
-    
     
     var address = ""
     
@@ -44,9 +42,7 @@ class Go23SendViewController: UIViewController {
         super.viewDidLoad()
         setNav()
         initSubviews()
-        
-        getUserTokens()
-        
+                
     }
     
     
@@ -283,6 +279,7 @@ class Go23SendViewController: UIViewController {
         style.animationImage = UIImage(named: "scanLine")
         style.photoframeLineW = 0
         style.widthRetangleLine = 0
+        style.xScanRetangleOffset = 0
         vc.scanStyle = style
         vc.qrcodeBlock = { [weak self] code  in
             self?.address = code
@@ -492,7 +489,6 @@ class Go23SendViewController: UIViewController {
         let header = SendHeaderView()
         header.clickBlock = { [weak self] in
             let alert = Go23SendTokenListView(frame: CGRectMake(0, 0, ScreenWidth, 720))
-            alert.tokenList = self?.tokenList
             let ovc = OverlayController(view: alert)
             ovc.maskStyle = .black(opacity: 0.4)
             ovc.layoutPosition = .bottom
@@ -505,10 +501,23 @@ class Go23SendViewController: UIViewController {
 
             }
             alert.clickBlock = {[weak self]model in
+                self?.view.dissmiss(overlay: .last)
                 self?.headerView.filled(cover: model.imageUrl, name: model.name)
+                self?.chainName = model.name
+                self?.chainId = model.chainId
                 self?.symbol = model.symbol
                 self?.contract = model.contractAddr
                 self?.transactionInfo()
+                guard let url = URL(string: model.imageUrl) else {
+                    return
+                }
+                DispatchQueue.global().async {
+                    do {
+                        self?.imageData = try Data(contentsOf: url)
+                    }catch let error as NSError {
+                        print(error)
+                    }
+                }
                 
             }
             
@@ -909,7 +918,7 @@ extension Go23SendViewController {
             }
             self?.transactionModel = obj
             if !obj.isLendingGas {
-                self?.supportGasBtn.isHidden = false
+                self?.supportGasBtn.isHidden = true
                 self?.supportGasBtn.isUserInteractionEnabled = false
                 self?.noGasfeeLabel.isHidden = false
                 let attri = NSMutableAttributedString()
@@ -923,9 +932,10 @@ extension Go23SendViewController {
                     attribute.alignment(.center)
                 }
                 self?.noGasfeeLabel.attributedText = attri
-                
+                self?.minTokenLabel.isHidden = true
             } else {
                 self?.noGasfeeLabel.isHidden = true
+                self?.supportGasBtn.isHidden = false
                 self?.supportGasBtn.isUserInteractionEnabled = true
                 self?.isSupportSel = obj.isLendingGas
                 self?.supportClick(selected: self?.isSupportSel ?? false)
@@ -1055,7 +1065,7 @@ extension Go23SendViewController {
                                             decimal: obj.decimal,
                                             nftName: "",
                                             tokenIcon: self.imageData,
-                                            chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
+                                            chainName: self.chainName)
         
 //        let sign = Go23SendTransactionModel(
 //            type: 1,
@@ -1308,18 +1318,5 @@ extension Go23SendViewController {
         
     }
     
-    
-    private func getUserTokens() {
-        guard let shared = Go23WalletSDK.shared
-        else {
-            return
-        }
-        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) {  [weak self]list in
-            self?.tokenList = list?.listModel
-        }
-    }
-    
-   
-    
-   
+
 }

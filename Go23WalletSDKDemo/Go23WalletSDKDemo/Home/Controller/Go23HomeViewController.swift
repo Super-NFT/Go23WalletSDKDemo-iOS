@@ -112,6 +112,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         pagingView.mainTableView.es.addPullToRefresh(animator: header) {[weak self] in
             self?.list1?.tokenIndex = 1
             self?.list2?.nftIndex = 1
+            self?.getChainBalance()
             self?.getUserTokens()
         }
 
@@ -587,36 +588,48 @@ extension Go23HomeViewController {
         else {
             return
         }
-        shared.fetchWalletChainlist(with: walletAddress, pageSize: 10, pageNumber: 1) { [weak self] chainModel in
-            guard let list = chainModel?.listModel else {
+//        shared.fetchWalletChainlist(with: walletAddress, pageSize: 20, pageNumber: 1) { [weak self] chainModel in
+//            guard let list = chainModel?.listModel else {
+//                return
+//            }
+//            self?.chooseDefaultWallet(list: list)
+//        }
+          
+        shared.getCurrentChain(with: walletAddress) { [weak self] model in
+            guard let obj = model else {
                 return
             }
-            self?.chooseDefaultWallet(list: list)
+            Go23WalletMangager.shared.walletModel = obj
+            self?.getUserTokens()
+            self?.getChainBalance()
+            self?.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
+            self?.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
         }
+            
 
     }
     
-    private func chooseDefaultWallet(list: [Go23WalletChainModel]) {
-        self.chainList = list
-        for obj in list{
-            if obj.hasDefault {
-                Go23WalletMangager.shared.walletModel = obj
-                self.getUserTokens()
-                self.getChainBalance()
-                self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
-                self.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
-
-            }
-        }
-
-    }
+//    private func chooseDefaultWallet(list: [Go23WalletChainModel]) {
+//        self.chainList = list
+//        for obj in list{
+//            if obj.hasDefault {
+//                Go23WalletMangager.shared.walletModel = obj
+//                self.getUserTokens()
+//                self.getChainBalance()
+//                self.topView.filled(chainName: Go23WalletMangager.shared.walletModel?.name ?? "")
+//                self.topView.chooseV.filled(title: obj.name, img: obj.imageUrl)
+//
+//            }
+//        }
+//
+//    }
     private func getUserTokens() {
         guard let shared = Go23WalletSDK.shared
         else {
             return
         }
         
-        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) { [weak self]model in
+        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 20, pageNumber: 1) { [weak self]model in
             self?.pagingView.mainTableView.es.stopPullToRefresh()
             Go23Loading.clear()
             guard let list = model?.listModel else {
@@ -719,7 +732,7 @@ extension Go23HomeViewController {
            return
        }
        
-       shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 10, pageNumber: 1) {  [weak self]model in
+       shared.getNftList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 20, pageNumber: 1) {  [weak self]model in
            guard let obj = model else {
                return
            }

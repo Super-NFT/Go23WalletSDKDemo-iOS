@@ -12,11 +12,7 @@ class Go23TokenDetailListViewController: UIViewController {
     
     
     var model: Go23WalletTokenModel?
-    var activityType: Go23ActivityFilterType? {
-        didSet {
-            self.noDataV.isHidden = true
-        }
-    }
+    var activityType: Go23ActivityFilterType? 
      
     private var listModel = [Go23ActivityModel]()
     
@@ -40,7 +36,6 @@ class Go23TokenDetailListViewController: UIViewController {
         noDataV.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        noDataV.isHidden = true
         
         let header = Go23RefreshHeaderAnimator.init(frame: .zero)
         tableView.es.addPullToRefresh(animator: header) {
@@ -168,14 +163,12 @@ extension Go23TokenDetailListViewController {
         if isLoading {
             Go23Loading.loading()
         }
-        shared.getActivityList(with: Go23WalletMangager.shared.walletModel?.chainId ?? 0, contract: obj.contractAddr, walletAddress: Go23WalletMangager.shared.address, type: self.activityType ?? .all, pageNumber: self.pageIndex, pageSize: 10) {  [weak self]model in
+        shared.getActivityList(with: Go23WalletMangager.shared.walletModel?.chainId ?? 0, contract: obj.contractAddr, walletAddress: Go23WalletMangager.shared.address, type: self.activityType ?? .all, pageNumber: self.pageIndex, pageSize: 20) {  [weak self] model in
+            self?.tableView.es.stopPullToRefresh()
+            self?.tableView.es.stopLoadingMore()
+            
             if isLoading {
                 Go23Loading.clear()
-            }
-            if self?.pageIndex ?? 1 > 1 {
-                self?.tableView.es.stopLoadingMore()
-            } else {
-                self?.tableView.es.stopPullToRefresh()
             }
             guard let mm = model else {
                 self?.noDataV.isHidden = false

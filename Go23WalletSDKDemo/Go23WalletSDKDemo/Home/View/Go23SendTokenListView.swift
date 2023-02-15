@@ -11,14 +11,8 @@ import Kingfisher
 
 class Go23SendTokenListView: UIView {
     
-    var tokenList: [Go23WalletTokenModel]? {
-        didSet {
-            guard let tokenList = tokenList else {
-                return
-            }
-            tableView.reloadData()
-        }
-    }
+    var tokenList: [Go23WalletTokenModel]?
+    private var tokenIndex = 1
     
     var clickBlock: ((_ model: Go23WalletTokenModel)->())?
     
@@ -29,6 +23,18 @@ class Go23SendTokenListView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
+        getUserTokens()
+        let header = Go23RefreshHeaderAnimator.init(frame: .zero)
+        tableView.es.addPullToRefresh(animator: header) { [weak self] in
+            self?.tokenIndex = 1
+            self?.getUserTokens(isLoading: false)
+    
+        }
+        
+        tableView.es.addInfiniteScrolling {[weak self] in
+            self?.tokenIndex += 1
+            self?.getUserTokens(isLoading: false)
+        }
          
     }
     
@@ -168,7 +174,6 @@ extension Go23SendTokenListView: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         if let list = self.tokenList, indexPath.row < list.count {
             self.clickBlock?(list[indexPath.row])
-            UIApplication.shared.keyWindow?.dissmiss(overlay: .last)
         }
     }
 }
@@ -262,4 +267,35 @@ class SendTokenListCell: UITableViewCell {
         label.textAlignment = .right
         return label
     }()
+}
+
+
+extension Go23SendTokenListView {
+    private func getUserTokens(isLoading: Bool = true) {
+        guard let shared = Go23WalletSDK.shared
+        else {
+            return
+        }
+        
+        if isLoading {
+            Go23Loading.loading()
+        }
+        
+        shared.getWalletTokenList(with: Go23WalletMangager.shared.address, chainId: Go23WalletMangager.shared.walletModel?.chainId ?? 0, pageSize: 20, pageNumber: self.tokenIndex) {  [weak self]list in
+            if isLoading {
+                Go23Loading.clear()
+            }
+            self?.tableView.es.stopPullToRefresh()
+            self?.tableView.es.stopLoadingMore()
+            if self?.tokenIndex ?? 1 > 1 {
+                if let _ = self?.tokenList, let ll = list?.listModel {
+                    self?.tokenList! += ll
+                }
+            } else {
+                self?.tokenList?.removeAll()
+                self?.tokenList = list?.listModel
+            }
+            self?.tableView.reloadData()
+        }
+    }
 }

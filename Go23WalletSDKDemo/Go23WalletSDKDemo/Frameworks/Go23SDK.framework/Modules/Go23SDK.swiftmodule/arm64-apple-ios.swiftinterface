@@ -1023,6 +1023,7 @@ extension Go23SDK.Go23WalletSDK {
   public func addChain(with address: Swift.String, chainId: Swift.Int, completion: @escaping ((Go23SDK.Go23AddChainResult) -> Swift.Void))
   public func removeChain(with address: Swift.String, chainId: Swift.Int, completion: @escaping ((Go23SDK.Go23RemoveChainResult) -> Swift.Void))
   public func setCurrentChain(with address: Swift.String, chainId: Swift.Int, completion: @escaping ((Go23SDK.Go23SetCurrentChainResult) -> Swift.Void))
+  public func getCurrentChain(with address: Swift.String, completion: @escaping ((Go23SDK.Go23WalletChainModel?) -> Swift.Void))
   public func fetchWalletChainlist(with address: Swift.String, pageSize: Swift.Int, pageNumber: Swift.Int, completion: @escaping ((Go23SDK.Go23WalletChainListModel?) -> Swift.Void))
   public func getChainTokenBalance(with address: Swift.String, chainId: Swift.Int, completion: @escaping ((Go23SDK.Go23TokenBalanceModel?) -> Swift.Void))
 }

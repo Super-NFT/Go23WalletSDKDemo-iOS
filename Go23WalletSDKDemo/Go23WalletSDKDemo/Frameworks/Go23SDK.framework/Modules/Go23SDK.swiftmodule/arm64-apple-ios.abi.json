@@ -8274,6 +8274,59 @@
           },
           {
             "kind": "Function",
+            "name": "getCurrentChain",
+            "printedName": "getCurrentChain(with:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Go23SDK.Go23WalletChainModel?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Go23SDK.Go23WalletChainModel?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Go23WalletChainModel",
+                        "printedName": "Go23SDK.Go23WalletChainModel",
+                        "usr": "s:7Go23SDK0A16WalletChainModelV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Go23SDK0a6WalletB0C15getCurrentChain4with10completionySS_yAA0acF5ModelVSgctF",
+            "mangledName": "$s7Go23SDK0a6WalletB0C15getCurrentChain4with10completionySS_yAA0acF5ModelVSgctF",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "fetchWalletChainlist",
             "printedName": "fetchWalletChainlist(with:pageSize:pageNumber:completion:)",
             "children": [
