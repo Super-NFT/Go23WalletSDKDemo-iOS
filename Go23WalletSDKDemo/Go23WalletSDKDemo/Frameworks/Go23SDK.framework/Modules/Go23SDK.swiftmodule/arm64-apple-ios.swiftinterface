@@ -494,6 +494,7 @@ public struct Go23TokenDetailModel : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
+public let Go23SDKVersion: Swift.String
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Go23WalletSDK : ObjectiveC.NSObject {
   public static var shared: Go23SDK.Go23WalletSDK!
   @objc override dynamic public func copy() -> Any

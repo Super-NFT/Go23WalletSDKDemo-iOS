@@ -874,7 +874,7 @@ class SendHeaderView: UIView {
     private lazy var descLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Standard: ERC-20"
+        label.text = "Change Asset"
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
         label.textAlignment = .right
         return label

@@ -7306,6 +7306,51 @@
         ]
       },
       {
+        "kind": "Var",
+        "name": "Go23SDKVersion",
+        "printedName": "Go23SDKVersion",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:7Go23SDK0A10SDKVersionSSvp",
+        "mangledName": "$s7Go23SDK0A10SDKVersionSSvp",
+        "moduleName": "Go23SDK",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:7Go23SDK0A10SDKVersionSSvg",
+            "mangledName": "$s7Go23SDK0A10SDKVersionSSvg",
+            "moduleName": "Go23SDK",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Go23WalletSDK",
         "printedName": "Go23WalletSDK",
@@ -31055,6 +31100,13 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenSDK\/Go23WalletSDKMain.swift",
+      "kind": "StringLiteral",
+      "offset": 135,
+      "length": 7,
+      "value": "\"1.1.0\""
+    },
+    {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/TransactionAndPincode\/View\/TranactionItemView.swift",
       "kind": "StringLiteral",
       "offset": 2888,
@@ -34367,10 +34419,10 @@
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/HTTPManager\/WalletNetworkManager.swift",
-      "kind": "Dictionary",
-      "offset": 433,
-      "length": 36,
-      "value": "[(\"Content-Type\", \"application\/json\")]"
+      "kind": "StringLiteral",
+      "offset": 489,
+      "length": 9,
+      "value": "\"Version\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/PrivateModel\/AccessTokenModel.swift",
