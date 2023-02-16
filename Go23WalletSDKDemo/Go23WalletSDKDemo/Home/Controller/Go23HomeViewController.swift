@@ -758,7 +758,7 @@ extension Go23HomeViewController {
     func animationForHeaderRefresh(offset: CGFloat) {
         if offset <= -60.0 && !isAniLoading {
             self.isAniLoading = true
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
                 self.animationImgv.transform = CGAffineTransform(translationX: 0, y: 150)
                 self.startAnimating()
 
@@ -778,7 +778,7 @@ extension Go23HomeViewController {
 //            timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
 //            RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
         var images = [UIImage]()
-        for i in 1...30 {
+        for i in 1...16 {
             if let img = UIImage(named: "loading_\(i)") {
                 images.append(img)
             }
@@ -802,7 +802,7 @@ extension Go23HomeViewController {
 //                self.timer = nil
 //            }
             self.animationImgv.stopAnimating()
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
                 self.animationImgv.transform = .identity
 
             }, completion: { _ in
