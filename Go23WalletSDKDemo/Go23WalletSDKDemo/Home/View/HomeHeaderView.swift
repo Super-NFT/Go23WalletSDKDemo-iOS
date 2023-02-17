@@ -313,6 +313,13 @@ class HomeHeaderView: UIView {
         tokenLabel.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#EBF5F5")
         
         eyeBtn.isHidden = false
+        if UserDefaults.standard.bool(forKey: kEyeBtnKey) {
+            eyeBtn.setImage(UIImage.init(named: "eyeClose"), for: .normal)
+            numLabel.attributedText = String.getAttributeString(font: UIFont(name: BarlowCondensed, size: 36), wordspace: 0.5, color: UIColor.rdt_HexOfColor(hexString: "#262626"),alignment: .center, title: "**** " )
+            titleLabel.text = "****"
+        } else {
+            eyeBtn.setImage(UIImage.init(named: "eyeOpen"), for: .normal)
+        }
 
     }
     
