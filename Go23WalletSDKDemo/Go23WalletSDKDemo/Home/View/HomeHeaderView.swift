@@ -19,6 +19,7 @@ protocol HomeHeaderViewDelegate: AnyObject {
     func receiveBtnClick()
     func sendBtnClick()
     func eyeBtnClick()
+    func swapBtnClick()
     
 }
 
@@ -204,8 +205,9 @@ class HomeHeaderView: UIView {
         contentV.addSubview(numLabel)
         contentV.addSubview(eyeBtn)
         contentV.addSubview(titleLabel)
-        contentV.addSubview(receiveBtn)
         contentV.addSubview(sendBtn)
+        contentV.addSubview(receiveBtn)
+        contentV.addSubview(swapBtn)
         contentV.addSubview(lineV)
         
         contentV.snp.makeConstraints { make in
@@ -241,18 +243,25 @@ class HomeHeaderView: UIView {
             make.centerX.equalToSuperview()
         }
 
-        receiveBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(25)
-            make.width.equalTo(82.5)
-            make.height.equalTo(77)
-            make.left.equalTo(numLabel.snp.centerX).offset(-100)
-        }
-
         sendBtn.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(25)
-            make.width.equalTo(82.5)
+            make.width.equalTo(72)
             make.height.equalTo(77)
-            make.right.equalTo(numLabel.snp.centerX).offset(100)
+            make.centerX.equalToSuperview()
+        }
+        
+        receiveBtn.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(25)
+            make.width.equalTo(72)
+            make.height.equalTo(77)
+            make.right.equalTo(sendBtn.snp.left).offset(-36*Go23_Scale)
+        }
+
+        swapBtn.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(25)
+            make.width.equalTo(72)
+            make.height.equalTo(77)
+            make.left.equalTo(sendBtn.snp.right).offset(36*Go23_Scale)
         }
 
         lineV.snp.makeConstraints { make in
@@ -335,6 +344,10 @@ class HomeHeaderView: UIView {
     
     @objc private func sendBtnClick() {
         self.delegate?.sendBtnClick()
+    }
+    
+    @objc private func swapBtnClick() {
+        self.delegate?.swapBtnClick()
     }
     
     @objc private func eyeBtnClick() {
@@ -444,6 +457,18 @@ class HomeHeaderView: UIView {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
         btn.addTarget(self, action: #selector(sendBtnClick), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var swapBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Swap", for: .normal)
+        btn.setImage(UIImage.init(named: "swap"), for: .normal)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
+        btn.titleLabel?.textAlignment = .center
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
+        btn.addTarget(self, action: #selector(swapBtnClick), for: .touchUpInside)
         return btn
     }()
     

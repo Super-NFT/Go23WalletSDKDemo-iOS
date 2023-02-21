@@ -33629,9 +33629,9 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/FunctionManager\/MPCManager\/MPCManager.swift",
       "kind": "StringLiteral",
-      "offset": 177,
-      "length": 23,
-      "value": "\"wss:\/\/sdk.api.go23.us\""
+      "offset": 222,
+      "length": 38,
+      "value": "\"wss:\/\/api.go23.test.dbytothemoon.com\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/Internal\/FunctionManager\/MPCManager\/MPCManager.swift",
@@ -34441,9 +34441,9 @@
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/PrivateModule\/HTTPManager\/WalletNetworkLayer.swift",
       "kind": "StringLiteral",
-      "offset": 871,
-      "length": 25,
-      "value": "\"https:\/\/sdk.api.go23.us\""
+      "offset": 914,
+      "length": 40,
+      "value": "\"https:\/\/api.go23.test.dbytothemoon.com\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Token\/Go23TokenBalanceModel.swift",

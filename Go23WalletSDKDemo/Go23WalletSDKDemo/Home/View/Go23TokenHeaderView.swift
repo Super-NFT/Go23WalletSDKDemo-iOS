@@ -12,6 +12,7 @@ protocol TokenHeaderViewDelegate: AnyObject {
     func receiveBtnClick()
     func sendBtnClick()
     func leftBtnClick()
+    func swapBtnClick()
     
 }
 
@@ -42,8 +43,9 @@ class Go23TokenHeaderView: UIView {
         addSubview(nameLabel)
         addSubview(numLabel)
         addSubview(moneyLabel)
-        addSubview(receiveBtn)
         addSubview(sendBtn)
+        addSubview(receiveBtn)
+        addSubview(swapBtn)
 
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(86)
@@ -60,18 +62,25 @@ class Go23TokenHeaderView: UIView {
             make.centerX.equalToSuperview()
             make.height.equalTo(22)
         }
-        receiveBtn.snp.makeConstraints { make in
-            make.top.equalTo(moneyLabel.snp.bottom).offset(26)
-            make.width.equalTo(82.5)
-            make.height.equalTo(77)
-            make.left.equalTo(numLabel.snp.centerX).offset(-100)
-        }
-        
         sendBtn.snp.makeConstraints { make in
             make.top.equalTo(moneyLabel.snp.bottom).offset(26)
-            make.width.equalTo(82.5)
+            make.width.equalTo(72)
             make.height.equalTo(77)
-            make.right.equalTo(numLabel.snp.centerX).offset(100)
+            make.centerX.equalToSuperview()
+        }
+        
+        receiveBtn.snp.makeConstraints { make in
+            make.top.equalTo(moneyLabel.snp.bottom).offset(26)
+            make.width.equalTo(72)
+            make.height.equalTo(77)
+            make.right.equalTo(sendBtn.snp.left).offset(-36*Go23_Scale)
+        }
+
+        swapBtn.snp.makeConstraints { make in
+            make.top.equalTo(moneyLabel.snp.bottom).offset(26)
+            make.width.equalTo(72)
+            make.height.equalTo(77)
+            make.left.equalTo(sendBtn.snp.right).offset(36*Go23_Scale)
         }
         
     }
@@ -133,6 +142,10 @@ class Go23TokenHeaderView: UIView {
     
     @objc private func sendBtnClick() {
         self.delegate?.sendBtnClick()
+    }
+    
+    @objc private func swapBtnClick() {
+        self.delegate?.swapBtnClick()
     }
     
     private lazy var coverImgv: UIImageView = {
@@ -214,6 +227,18 @@ class Go23TokenHeaderView: UIView {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
         btn.addTarget(self, action: #selector(sendBtnClick), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var swapBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Swap", for: .normal)
+        btn.setImage(UIImage.init(named: "swap"), for: .normal)
+        btn.setTitleColor(UIColor.rdt_HexOfColor(hexString: "#8C8C8C"), for: .normal)
+        btn.titleLabel?.textAlignment = .center
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.layoutButtonEdgeInsets(style: .imageTop, margin: 20.0)
+        btn.addTarget(self, action: #selector(swapBtnClick), for: .touchUpInside)
         return btn
     }()
     

@@ -37,8 +37,6 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
     private var list1: Go23TokenListViewController?
     private var list2: Go23NFTListViewController?
     
-    private var timer: Timer?
-    private var timerProgress: Double = 0.0
     private var isAniLoading = false
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -209,7 +207,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
                     switch status {
                     case .forgetPincode:
                         self?.view.dissmiss(overlay: .last)
-                        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, 720),type: .resharding)
+                        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120),type: .resharding)
                         let ovc = OverlayController(view: alert)
                         ovc.maskStyle = .black(opacity: 0.4)
                         ovc.layoutPosition = .bottom
@@ -383,6 +381,12 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
     func eyeBtnClick() {
         list1?.tableView.reloadData()
     }
+    
+    func swapBtnClick() {
+        let vc = Go23SwapViewController()
+        vc.tokenModel = tokenList?.first
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
@@ -492,7 +496,7 @@ extension Go23HomeViewController {
         guard walletlist.count > 0 else {return}
         let wallet = walletlist[0]
         Go23WalletMangager.shared.address = wallet.address
-        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, 720),type: .recover, isShow: false)
+        let alert = Go23ReshardingView(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120),type: .recover, isShow: false)
         let ovc = OverlayController(view: alert)
         ovc.maskStyle = .black(opacity: 0.4)
         ovc.layoutPosition = .bottom
@@ -767,16 +771,7 @@ extension Go23HomeViewController {
         }
     }
     
-    @objc func timerAction() {
-//        timerProgress += 0.01
-//        self.animationImgv.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2).inverted().concatenating(self.animationImgv.transform)
-    }
-    
     func startAnimating() {
-        
-//        if timer == nil {
-//            timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-//            RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
         var images = [UIImage]()
         for i in 1...16 {
             if let img = UIImage(named: "loading_\(i)") {
@@ -791,16 +786,10 @@ extension Go23HomeViewController {
             list2?.nftIndex = 1
             getChainBalance()
             getUserTokens()
-//        }
     }
     
     func stopAnimating() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            if self.timer != nil {
-//                self.timerProgress = 0.0
-//                self.timer?.invalidate()
-//                self.timer = nil
-//            }
             self.animationImgv.stopAnimating()
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
                 self.animationImgv.transform = .identity

@@ -16,7 +16,7 @@ let BarlowCondensed = "BarlowCondensed-Medium"
 
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
-let Go23_Scale = ScreenWidth/375.0
+let Go23_Scale = ScreenWidth/390.0
 
 public let kRegisterUser = "kRegisterUser"
 let kRefreshWalletData = "kRefreshWalletData"

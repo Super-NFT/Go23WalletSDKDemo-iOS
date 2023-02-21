@@ -173,6 +173,12 @@ extension Go23TokenDetailViewController: TokenHeaderViewDelegate {
     func leftBtnClick() {
         backBtnDidClick()
     }
+    
+    func swapBtnClick() {
+        let vc = Go23SwapViewController()
+        vc.tokenModel = model
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - pragma mark =========== JXSegmentedViewDelegate ===========
