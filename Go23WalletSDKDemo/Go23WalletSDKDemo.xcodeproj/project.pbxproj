@@ -215,6 +215,7 @@
 		61AB285E29A469A4006490AC /* Go23SwapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB285D29A469A4006490AC /* Go23SwapViewController.swift */; };
 		61AB286029A496B6006490AC /* Go23CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB285F29A496B6006490AC /* Go23CircleView.swift */; };
 		61AB286229A4D2BD006490AC /* Go23SwipSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB286129A4D2BD006490AC /* Go23SwipSelectView.swift */; };
+		61AB286429A4E03D006490AC /* Go23SwapSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB286329A4E03D006490AC /* Go23SwapSelectViewController.swift */; };
 		61C12FCA294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */; };
 		61E786552987A03600919356 /* Go23SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E786542987A03600919356 /* Go23SDK.framework */; };
 		61E8B5C62990B83100118825 /* Go23PhoneSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E8B5C52990B83100118825 /* Go23PhoneSelectedView.swift */; };
@@ -456,6 +457,7 @@
 		61AB285D29A469A4006490AC /* Go23SwapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23SwapViewController.swift; sourceTree = "<group>"; };
 		61AB285F29A496B6006490AC /* Go23CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23CircleView.swift; sourceTree = "<group>"; };
 		61AB286129A4D2BD006490AC /* Go23SwipSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23SwipSelectView.swift; sourceTree = "<group>"; };
+		61AB286329A4E03D006490AC /* Go23SwapSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23SwapSelectViewController.swift; sourceTree = "<group>"; };
 		61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23NFTDetailResultViewController.swift; sourceTree = "<group>"; };
 		61E786542987A03600919356 /* Go23SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Go23SDK.framework; sourceTree = "<group>"; };
 		61E8B5C52990B83100118825 /* Go23PhoneSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Go23PhoneSelectedView.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 				61142EC82940AF5B000E320E /* Go23SendNFTViewController.swift */,
 				61C12FC9294B15A600BCC3D3 /* Go23NFTDetailResultViewController.swift */,
 				61AB285D29A469A4006490AC /* Go23SwapViewController.swift */,
+				61AB286329A4E03D006490AC /* Go23SwapSelectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1252,6 +1255,7 @@
 				614F05B729948D32007F0E48 /* IQTextView.swift in Sources */,
 				614F060929948E3F007F0E48 /* ConstraintConstantTarget.swift in Sources */,
 				6187E298293F18C3002EE854 /* JXSegmentedIndicatorProtocol.swift in Sources */,
+				61AB286429A4E03D006490AC /* Go23SwapSelectViewController.swift in Sources */,
 				614F059429948CC1007F0E48 /* Response.swift in Sources */,
 				6187E2AE293F18C3002EE854 /* JXSegmentedTitleAttributeDataSource.swift in Sources */,
 				6187E221293F182F002EE854 /* JXPagingListRefreshView.swift in Sources */,
