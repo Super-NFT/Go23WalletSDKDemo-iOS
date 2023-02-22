@@ -284,7 +284,17 @@ class Go23SwapViewController: UIViewController {
     private lazy var fromBtn: Go23SwapChangeBtn = {
         let btn = Go23SwapChangeBtn.init(frame: .zero)
         btn.clickBlock = { [weak self] in
-            
+            let alert = Go23SwipSelectView.init(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120))
+            let ovc = OverlayController(view: alert)
+            ovc.maskStyle = .black(opacity: 0.4)
+            ovc.layoutPosition = .bottom
+            ovc.presentationStyle = .fromToBottom
+            ovc.isDismissOnMaskTouched = false
+            ovc.isPanGestureEnabled = false
+            alert.closeBlock = { [weak self] in
+                self?.view.dissmiss(overlay: .last)
+            }
+            self?.view.present(overlay: ovc)
         }
         
         return btn
@@ -351,7 +361,19 @@ class Go23SwapViewController: UIViewController {
         let btn = Go23SwapChangeBtn.init(frame: .zero)
         btn.filled(img: "", block: "", name: "")
         btn.clickBlock = { [weak self] in
+            let alert = Go23SwipSelectView.init(frame: CGRectMake(0, 0, ScreenWidth, ScreenHeight-120))
+            let ovc = OverlayController(view: alert)
+            ovc.maskStyle = .black(opacity: 0.4)
+            ovc.layoutPosition = .bottom
+            ovc.presentationStyle = .fromToBottom
+            ovc.isDismissOnMaskTouched = false
+            ovc.isPanGestureEnabled = false
             
+            alert.closeBlock = { [weak self] in
+                self?.view.dissmiss(overlay: .last)
+            }
+            
+            self?.view.present(overlay: ovc)
         }
         return btn
     }()

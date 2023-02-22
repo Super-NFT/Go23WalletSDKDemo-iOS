@@ -150,7 +150,7 @@ class Go23ForgetPwdView: UIView {
                         ovc.layoutPosition = .bottom
                         ovc.presentationStyle = .fromToBottom
                         ovc.isDismissOnMaskTouched = false
-                        ovc.isPanGestureEnabled = true
+                        ovc.isPanGestureEnabled = false
                         UIApplication.shared.keyWindow?.present(overlay: ovc)
                     case .failure(let result):
                         switch result {
@@ -179,7 +179,7 @@ class Go23ForgetPwdView: UIView {
                         ovc.layoutPosition = .bottom
                         ovc.presentationStyle = .fromToBottom
                         ovc.isDismissOnMaskTouched = false
-                        ovc.isPanGestureEnabled = true
+                        ovc.isPanGestureEnabled = false
                         UIApplication.shared.keyWindow?.present(overlay: ovc)
                     case .failure(let result):
                         switch result {
@@ -190,7 +190,7 @@ class Go23ForgetPwdView: UIView {
                             ovc.layoutPosition = .bottom
                             ovc.presentationStyle = .fromToBottom
                             ovc.isDismissOnMaskTouched = false
-                            ovc.isPanGestureEnabled = true
+                            ovc.isPanGestureEnabled = false
                             
                             UIApplication.shared.keyWindow?.present(overlay: ovc)
                         case .errorPincode:

@@ -35,20 +35,20 @@ class Go23SwapSelectViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(navgationBar!.snp.bottom)
+            make.top.equalTo(0)
             make.leading.trailing.bottom.equalToSuperview()
         }
         
-        getUserTokens()
-        
-        tableView.es.addPullToRefresh {[weak self] in
-            self?.tokenIndex = 1
-            self?.getUserTokens(isLoading: false)
-        }
-        tableView.es.addInfiniteScrolling { [weak self] in
-            self?.tokenIndex += 1
-            self?.getUserTokens(isLoading: false)
-        }
+//        getUserTokens()
+//        
+//        tableView.es.addPullToRefresh {[weak self] in
+//            self?.tokenIndex = 1
+//            self?.getUserTokens(isLoading: false)
+//        }
+//        tableView.es.addInfiniteScrolling { [weak self] in
+//            self?.tokenIndex += 1
+//            self?.getUserTokens(isLoading: false)
+//        }
 
     }
     

@@ -159,7 +159,7 @@ extension Go23TokenDetailViewController: TokenHeaderViewDelegate {
         ovc.layoutPosition = .center
         ovc.presentationStyle = .fade
         ovc.isDismissOnMaskTouched = true
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
         alert.filled(title: self.model?.name ?? "", qrcode: Go23WalletMangager.shared.address)
         UIApplication.shared.keyWindow?.present(overlay: ovc)
         

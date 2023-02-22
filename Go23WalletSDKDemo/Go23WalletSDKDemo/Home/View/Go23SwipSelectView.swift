@@ -11,6 +11,7 @@ import Kingfisher
 
 class Go23SwipSelectView: UIView {
 
+    var chainList: [Go23WalletChainModel]?
     var tokenList: [Go23WalletTokenModel]?
     private var tokenIndex = 1
     
@@ -27,6 +28,7 @@ class Go23SwipSelectView: UIView {
         }
         initSubviews()
          
+        getUserChains()
     }
     
     required init?(coder: NSCoder) {
@@ -40,8 +42,7 @@ class Go23SwipSelectView: UIView {
         addSubview(titleLabel)
         addSubview(closeBtn)
         
-        
-
+        addSubview(segmentedView)
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(14)
@@ -54,18 +55,32 @@ class Go23SwipSelectView: UIView {
             make.centerY.equalTo(titleLabel.snp.centerY)
         }
         
+        addSubview(listContainerView)
+        segmentedView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
+        listContainerView.snp.makeConstraints { make in
+            make.top.equalTo(segmentedView.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
+        }
+        segmentedView.delegate = self
+        segmentedView.listContainer = listContainerView
+        
         
         //        addSubview(addBtn)
-//        addBtn.snp.makeConstraints { make in
-//            if #available(iOS 11.0, *) {
-//                make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(0)
-//             } else {
-//                 make.bottom.equalTo(0)
-//            }
-//            make.left.equalTo(20)
-//            make.right.equalTo(-20)
-//            make.height.equalTo(52)
-//        }
+        //        addBtn.snp.makeConstraints { make in
+        //            if #available(iOS 11.0, *) {
+        //                make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(0)
+        //             } else {
+        //                 make.bottom.equalTo(0)
+        //            }
+        //            make.left.equalTo(20)
+        //            make.right.equalTo(-20)
+        //            make.height.equalTo(52)
+        //        }
         
     }
    
@@ -116,18 +131,18 @@ class Go23SwipSelectView: UIView {
     private lazy var segmentedView: JXSegmentedView = {
         
         let segmentedView = JXSegmentedView()
-        segmentedView.backgroundColor = UIColor.rdt_HexOfColor(hexString: "#F9F9F9")
-
+        segmentedView.backgroundColor = UIColor.white
         segmentedView.delegate = self
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
         
-        let indicator = JXSegmentedIndicatorLineView()
-        indicator.indicatorWidth = 50
-        indicator.indicatorHeight = 3
+        let indicator = JXSegmentedIndicatorBackgroundView()
+        indicator.indicatorHeight = 30
+        indicator.indicatorCornerRadius = 6.0
         indicator.verticalOffset = 1
-        indicator.indicatorColor = UIColor.rdt_HexOfColor(hexString: "#00D6E1")
+        indicator.indicatorColor = .white
+        indicator.layer.borderColor = UIColor.rdt_HexOfColor(hexString: "#262626").cgColor
+        indicator.layer.borderWidth = 1
         segmentedView.indicators = [indicator]
-        
         return segmentedView
     }()
    
@@ -161,3 +176,37 @@ extension Go23SwipSelectView: JXSegmentedListContainerViewDataSource {
     
 }
     
+
+extension Go23SwipSelectView {
+    private func getUserChains() {
+        guard let shared = Go23WalletSDK.shared
+        else {
+            return
+        }
+        shared.fetchWalletChainlist(with:  Go23WalletMangager.shared.address, pageSize: 0, pageNumber: 1) { [weak self] chainModel in
+            self?.chainList?.removeAll()
+            self?.chainList = chainModel?.listModel
+            
+            var titles = [String]()
+            if let list = chainModel?.listModel {
+                for obj in list {
+                    titles.append(obj.symbol)
+                }
+            }
+
+            self?.dataSource.titles = titles
+            self?.dataSource.titleNormalFont = UIFont.systemFont(ofSize: 14)
+            self?.dataSource.titleSelectedFont = UIFont.systemFont(ofSize: 14)
+            self?.dataSource.titleSelectedColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+            self?.dataSource.titleNormalColor = UIColor.rdt_HexOfColor(hexString: "#262626")
+            self?.dataSource.widthForTitleClosure = { str in
+                return 10+String.getStringWidth(str,font: UIFont.systemFont(ofSize: 14))
+            }
+            self?.dataSource.normalBorderColor = UIColor.rdt_HexOfColor(hexString: "#f0f0f0")
+            self?.dataSource.normalBorderWidth = 1
+            self?.segmentedView.dataSource = self?.dataSource
+            self?.segmentedView.reloadData()
+        }
+    }
+}
+

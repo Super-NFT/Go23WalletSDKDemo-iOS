@@ -84,7 +84,7 @@ class JXSegmentedBaseCell: UICollectionViewCell, JXSegmentedViewRTLCompatible {
 
     func reloadData(itemModel: JXSegmentedBaseItemModel, selectedType: JXSegmentedViewItemSelectedType) {
         self.itemModel = itemModel
-
+        
         if itemModel.isSelectedAnimable {
             selectedAnimationClosureArray.removeAll()
             if canStartSelectedAnimation(itemModel: itemModel, selectedType: selectedType) {

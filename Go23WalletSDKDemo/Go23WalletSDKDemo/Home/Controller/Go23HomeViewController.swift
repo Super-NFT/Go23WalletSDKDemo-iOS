@@ -140,7 +140,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         ovc.layoutPosition = .bottom
         ovc.presentationStyle = .fromToBottom
         ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
         alert.confirmBlock = {[weak self] in
             self?.registerUser()
             if let view = self?.view {
@@ -166,7 +166,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         ovc.layoutPosition = .bottom
         ovc.presentationStyle = .fromToBottom
         ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
         
         alert.reshardingBlock = {[weak self] pk in
             self?.reshardWallet(pk: pk)
@@ -201,7 +201,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
                     ovc.layoutPosition = .bottom
                     ovc.presentationStyle = .fromToBottom
                     ovc.isDismissOnMaskTouched = false
-                    ovc.isPanGestureEnabled = true
+                    ovc.isPanGestureEnabled = false
                     UIApplication.shared.keyWindow?.present(overlay: ovc)
                 case .failure(let status):
                     switch status {
@@ -213,7 +213,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
                         ovc.layoutPosition = .bottom
                         ovc.presentationStyle = .fromToBottom
                         ovc.isDismissOnMaskTouched = false
-                        ovc.isPanGestureEnabled = true
+                        ovc.isPanGestureEnabled = false
                         
                         UIApplication.shared.keyWindow?.present(overlay: ovc)
                     case .errorPincode:
@@ -239,7 +239,7 @@ public class Go23HomeViewController: UIViewController, Go23NetStatusProtocol {
         ovc.layoutPosition = .bottom
         ovc.presentationStyle = .fromToBottom
         ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
         
          alert.nftBlock = { [weak self] in
              let aa = Go23AddNFTView(frame: CGRectMake(0, 0, ScreenWidth, 365))
@@ -332,7 +332,7 @@ extension Go23HomeViewController: HomeTopViewDelegate {
         ovc.layoutPosition = .bottom
         ovc.presentationStyle = .fromToBottom
         ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
         
         alert.chainList = self.chainList
         alert.chooseBlock = {[weak self]model in
@@ -367,7 +367,7 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
         ovc.layoutPosition = .center
         ovc.presentationStyle = .fade
         ovc.isDismissOnMaskTouched = true
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
 
         UIApplication.shared.keyWindow?.present(overlay: ovc)
         
@@ -502,7 +502,7 @@ extension Go23HomeViewController {
         ovc.layoutPosition = .bottom
         ovc.presentationStyle = .fromToBottom
         ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
 
         UIApplication.shared.keyWindow?.present(overlay: ovc)
     }

@@ -145,7 +145,7 @@ class Go23SettingAccountView: UIView {
         ovc.layoutPosition = .bottom
         ovc.presentationStyle = .fromToBottom
         ovc.isDismissOnMaskTouched = false
-        ovc.isPanGestureEnabled = true
+        ovc.isPanGestureEnabled = false
         
         alert.chooseBlock = {[weak self]model in
             self?.areaCode = model

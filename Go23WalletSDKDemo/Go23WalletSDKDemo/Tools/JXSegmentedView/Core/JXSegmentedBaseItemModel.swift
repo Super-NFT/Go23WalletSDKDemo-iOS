@@ -22,6 +22,9 @@ class JXSegmentedBaseItemModel {
     var itemWidthNormalZoomScale: CGFloat = 0
     var itemWidthCurrentZoomScale: CGFloat = 0
     var itemWidthSelectedZoomScale: CGFloat = 0
+    var normalCornerRadiu: CGFloat = 0
+    var normalBorderWidth: CGFloat = 0
+    var normalBorderColor: UIColor = .clear
 
     init() {
     }

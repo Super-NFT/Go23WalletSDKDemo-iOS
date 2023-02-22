@@ -23,6 +23,10 @@ class JXSegmentedTitleDataSource: JXSegmentedBaseDataSource{
     var titleSelectedStrokeWidth: CGFloat = -2
     var isTitleMaskEnabled: Bool = false
     var kern: CGFloat = 0
+    var normalCornerRadiu: CGFloat = 0
+    var normalBorderWidth: CGFloat = 0
+    var normalBorderColor: UIColor = .clear
+    
 
 
     override func preferredItemCount() -> Int {

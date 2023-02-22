@@ -674,7 +674,7 @@ extension Go23SendNFTViewController {
                 ovc.layoutPosition = .bottom
                 ovc.presentationStyle = .fromToBottom
                 ovc.isDismissOnMaskTouched = false
-                ovc.isPanGestureEnabled = true
+                ovc.isPanGestureEnabled = false
                 UIApplication.shared.keyWindow?.present(overlay: ovc)
             
         }

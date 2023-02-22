@@ -494,7 +494,7 @@ class Go23SendViewController: UIViewController {
             ovc.layoutPosition = .bottom
             ovc.presentationStyle = .fromToBottom
             ovc.isDismissOnMaskTouched = false
-            ovc.isPanGestureEnabled = true
+            ovc.isPanGestureEnabled = false
             alert.addBtnBlock = { [weak self] in
                 let vc = Go23AddTokenViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
@@ -1101,7 +1101,7 @@ extension Go23SendViewController {
                 ovc.layoutPosition = .bottom
                 ovc.presentationStyle = .fromToBottom
                 ovc.isDismissOnMaskTouched = false
-                ovc.isPanGestureEnabled = true
+                ovc.isPanGestureEnabled = false
                 UIApplication.shared.keyWindow?.present(overlay: ovc)
             
         }
