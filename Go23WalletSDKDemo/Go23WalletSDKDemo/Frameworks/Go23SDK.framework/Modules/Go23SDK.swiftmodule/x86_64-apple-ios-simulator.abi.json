@@ -7583,6 +7583,192 @@
           },
           {
             "kind": "Function",
+            "name": "getSwapInfo",
+            "printedName": "getSwapInfo(with:outChainId:inTokenAddress:outTokenAddress:userWalletAddress:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Go23SDK.Go23SwapInfoModel?, Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Go23SDK.Go23SwapInfoModel?, Swift.String)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Go23SDK.Go23SwapInfoModel?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Go23SwapInfoModel",
+                            "printedName": "Go23SDK.Go23SwapInfoModel",
+                            "usr": "s:7Go23SDK0A13SwapInfoModelV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Go23SDK0a6WalletB0C11getSwapInfo4with10outChainId14inTokenAddress0hlM004usercM010completionySi_SiS3SyAA0aeF5ModelVSg_SStctF",
+            "mangledName": "$s7Go23SDK0a6WalletB0C11getSwapInfo4with10outChainId14inTokenAddress0hlM004usercM010completionySi_SiS3SyAA0aeF5ModelVSg_SStctF",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "checkSwap",
+            "printedName": "checkSwap(with:outChainId:inTokenAddress:outTokenAddress:userWalletAddress:amount:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Go23SDK.Go23SwapResultModel?, Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Go23SDK.Go23SwapResultModel?, Swift.String)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Go23SDK.Go23SwapResultModel?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Go23SwapResultModel",
+                            "printedName": "Go23SDK.Go23SwapResultModel",
+                            "usr": "s:7Go23SDK0A15SwapResultModelV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Go23SDK0a6WalletB0C9checkSwap4with10outChainId14inTokenAddress0gkL004usercL06amount10completionySi_SiS4SyAA0aE11ResultModelVSg_SStctF",
+            "mangledName": "$s7Go23SDK0a6WalletB0C9checkSwap4with10outChainId14inTokenAddress0gkL004usercL06amount10completionySi_SiS4SyAA0aE11ResultModelVSg_SStctF",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "fetchUserWallets",
             "printedName": "fetchUserWallets(completion:)",
             "children": [
@@ -17379,6 +17565,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Go23SDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Go23NFTAttribute",
         "printedName": "Go23NFTAttribute",
@@ -18857,6 +19053,676 @@
         "declKind": "Struct",
         "usr": "s:7Go23SDK13UserInfoModelV",
         "mangledName": "$s7Go23SDK13UserInfoModelV",
+        "moduleName": "Go23SDK",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Go23SwapInfoModel",
+        "printedName": "Go23SwapInfoModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "allowance",
+            "printedName": "allowance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV9allowanceSSvp",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV9allowanceSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV9allowanceSSvg",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV9allowanceSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV9allowanceSSvs",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV9allowanceSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV9allowanceSSvM",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV9allowanceSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "swapPer",
+            "printedName": "swapPer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV7swapPerSSvp",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV7swapPerSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV7swapPerSSvg",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV7swapPerSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV7swapPerSSvs",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV7swapPerSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV7swapPerSSvM",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV7swapPerSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "swapFromPer",
+            "printedName": "swapFromPer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV11swapFromPerSSvp",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV11swapFromPerSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV11swapFromPerSSvg",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV11swapFromPerSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV11swapFromPerSSvs",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV11swapFromPerSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV11swapFromPerSSvM",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV11swapFromPerSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "swapToPer",
+            "printedName": "swapToPer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV9swapToPerSSvp",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV9swapToPerSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV9swapToPerSSvg",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV9swapToPerSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV9swapToPerSSvs",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV9swapToPerSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV9swapToPerSSvM",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV9swapToPerSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "slippage",
+            "printedName": "slippage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV8slippageSSvp",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV8slippageSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV8slippageSSvg",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV8slippageSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV8slippageSSvs",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV8slippageSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV8slippageSSvM",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV8slippageSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "receivingAddress",
+            "printedName": "receivingAddress",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV16receivingAddressSSvp",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV16receivingAddressSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV16receivingAddressSSvg",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV16receivingAddressSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV16receivingAddressSSvs",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV16receivingAddressSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV16receivingAddressSSvM",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV16receivingAddressSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "txFee",
+            "printedName": "txFee",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV5txFeeSSvp",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV5txFeeSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV5txFeeSSvg",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV5txFeeSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV5txFeeSSvs",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV5txFeeSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV5txFeeSSvM",
+                "mangledName": "$s7Go23SDK0A13SwapInfoModelV5txFeeSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Go23SwapInfoModel",
+                "printedName": "Go23SDK.Go23SwapInfoModel",
+                "usr": "s:7Go23SDK0A13SwapInfoModelV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "Go23SDK",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Go23SDK0A13SwapInfoModelV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s7Go23SDK0A13SwapInfoModelV6encode2toys7Encoder_p_tKF",
+            "moduleName": "Go23SDK",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:7Go23SDK0A13SwapInfoModelV",
+        "mangledName": "$s7Go23SDK0A13SwapInfoModelV",
         "moduleName": "Go23SDK",
         "declAttributes": [
           "AccessControl",
@@ -23544,6 +24410,256 @@
         "moduleName": "Go23SDK",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Go23SwapResultModel",
+        "printedName": "Go23SwapResultModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isApprove",
+            "printedName": "isApprove",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A15SwapResultModelV9isApproveSbvp",
+            "mangledName": "$s7Go23SDK0A15SwapResultModelV9isApproveSbvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A15SwapResultModelV9isApproveSbvg",
+                "mangledName": "$s7Go23SDK0A15SwapResultModelV9isApproveSbvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A15SwapResultModelV9isApproveSbvs",
+                "mangledName": "$s7Go23SDK0A15SwapResultModelV9isApproveSbvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A15SwapResultModelV9isApproveSbvM",
+                "mangledName": "$s7Go23SDK0A15SwapResultModelV9isApproveSbvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dataString",
+            "printedName": "dataString",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:7Go23SDK0A15SwapResultModelV10dataStringSSvp",
+            "mangledName": "$s7Go23SDK0A15SwapResultModelV10dataStringSSvp",
+            "moduleName": "Go23SDK",
+            "declAttributes": [
+              "AccessControl",
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A15SwapResultModelV10dataStringSSvg",
+                "mangledName": "$s7Go23SDK0A15SwapResultModelV10dataStringSSvg",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A15SwapResultModelV10dataStringSSvs",
+                "mangledName": "$s7Go23SDK0A15SwapResultModelV10dataStringSSvs",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:7Go23SDK0A15SwapResultModelV10dataStringSSvM",
+                "mangledName": "$s7Go23SDK0A15SwapResultModelV10dataStringSSvM",
+                "moduleName": "Go23SDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Go23SwapResultModel",
+                "printedName": "Go23SDK.Go23SwapResultModel",
+                "usr": "s:7Go23SDK0A15SwapResultModelV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:7Go23SDK0A15SwapResultModelV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s7Go23SDK0A15SwapResultModelV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "Go23SDK",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:7Go23SDK0A15SwapResultModelV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s7Go23SDK0A15SwapResultModelV6encode2toys7Encoder_p_tKF",
+            "moduleName": "Go23SDK",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:7Go23SDK0A15SwapResultModelV",
+        "mangledName": "$s7Go23SDK0A15SwapResultModelV",
+        "moduleName": "Go23SDK",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
         ],
         "conformances": [
           {
@@ -33697,6 +34813,76 @@
       "value": "\"client_md5\""
     },
     {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 673,
+      "length": 10,
+      "value": "\"swap_per\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 711,
+      "length": 15,
+      "value": "\"swap_from_per\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 752,
+      "length": 13,
+      "value": "\"swap_to_per\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 820,
+      "length": 19,
+      "value": "\"receiving_address\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 861,
+      "length": 8,
+      "value": "\"tx_fee\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 673,
+      "length": 10,
+      "value": "\"swap_per\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 711,
+      "length": 15,
+      "value": "\"swap_from_per\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 752,
+      "length": 13,
+      "value": "\"swap_to_per\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 820,
+      "length": 19,
+      "value": "\"receiving_address\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapInfoModel.swift",
+      "kind": "StringLiteral",
+      "offset": 861,
+      "length": 8,
+      "value": "\"tx_fee\""
+    },
+    {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Transaction\/Go23ActivityDetailModel.swift",
       "kind": "StringLiteral",
       "offset": 1214,
@@ -34276,6 +35462,34 @@
       "offset": 489,
       "length": 10,
       "value": "\"key_code\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapResultModel.swift",
+      "kind": "StringLiteral",
+      "offset": 338,
+      "length": 12,
+      "value": "\"is_approve\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapResultModel.swift",
+      "kind": "StringLiteral",
+      "offset": 377,
+      "length": 13,
+      "value": "\"data_string\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapResultModel.swift",
+      "kind": "StringLiteral",
+      "offset": 338,
+      "length": 12,
+      "value": "\"is_approve\""
+    },
+    {
+      "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/Swap\/Go23SwapResultModel.swift",
+      "kind": "StringLiteral",
+      "offset": 377,
+      "length": 13,
+      "value": "\"data_string\""
     },
     {
       "filePath": "\/Users\/luming\/Desktop\/go23SDK\/Go23SDK\/OpenModule\/OpenModel\/NFT\/Go23NFTDetailModel.swift",

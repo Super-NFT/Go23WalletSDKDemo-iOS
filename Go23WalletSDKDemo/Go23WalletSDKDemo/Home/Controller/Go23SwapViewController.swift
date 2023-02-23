@@ -11,19 +11,19 @@ import Go23SDK
 
 class Go23SwapViewController: UIViewController {
     
-    
-    var fromChainName = Go23WalletMangager.shared.walletModel?.name ?? ""
-    var tokenModel: Go23WalletTokenModel? {
+    var fromModel: Go23WalletTokenModel? {
         didSet {
-            guard let model = tokenModel else {
+            guard let model = fromModel else {
                 return
             }
             fromBtn.filled(img: model.imageUrl, block: model.symbol, name: fromChainName)
+            fromFill(balance: model.balance, amount: fromAmoutTxtFiled.text ?? "")
         }
     }
     
-    var toChainName = ""
-    var toModel: Go23WalletTokenModel? {
+    private var fromChainName = Go23WalletMangager.shared.walletModel?.name ?? ""
+    private var toChainName = Go23WalletMangager.shared.walletModel?.name ?? ""
+    private var toModel: Go23WalletTokenModel? {
         didSet {
             guard let model = toModel else {
                 return
@@ -34,6 +34,7 @@ class Go23SwapViewController: UIViewController {
     private var tenTimer: Timer?
     private var timer: Timer?
     private var timerProgress = 31.0
+    private var swapInfoModel: Go23SwapInfoModel?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -113,6 +114,7 @@ class Go23SwapViewController: UIViewController {
         feeV.addSubview(feeTxt)
         feeV.addSubview(feeLabel)
         
+        feeV.isHidden = true
         
         fromV.snp.makeConstraints { make in
             make.top.equalTo(navgationBar!.snp.bottom).offset(10)
@@ -255,7 +257,7 @@ class Go23SwapViewController: UIViewController {
             make.height.equalTo(20)
         }
         
-        
+        swapStartAnimate()
 //        tenTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(tenTimerAction), userInfo: nil, repeats: true)
 
     }
@@ -291,8 +293,19 @@ class Go23SwapViewController: UIViewController {
             ovc.presentationStyle = .fromToBottom
             ovc.isDismissOnMaskTouched = false
             ovc.isPanGestureEnabled = false
+            alert.chainName = self?.fromChainName ?? ""
+            alert.preName = self?.fromChainName ?? ""
+            alert.fromName = self?.fromModel?.name ?? ""
+            alert.toName = self?.toModel?.name ?? ""
             alert.closeBlock = { [weak self] in
                 self?.view.dissmiss(overlay: .last)
+            }
+            alert.clickBlock = { [weak self] (model, chainName) in
+                self?.view.dissmiss(overlay: .last)
+                self?.fromModel = model
+                self?.fromChainName = chainName
+                self?.fromBtn.filled(img: model.imageUrl, block: model.symbol, name: chainName)
+                self?.fromFill(balance: model.balance, amount: self?.fromAmoutTxtFiled.text ?? "")
             }
             self?.view.present(overlay: ovc)
         }
@@ -337,6 +350,7 @@ class Go23SwapViewController: UIViewController {
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         label.text = "$0.00"
+        label.isHidden = true
         return label
     }()
     
@@ -368,9 +382,20 @@ class Go23SwapViewController: UIViewController {
             ovc.presentationStyle = .fromToBottom
             ovc.isDismissOnMaskTouched = false
             ovc.isPanGestureEnabled = false
-            
+            alert.fromName = self?.fromModel?.name ?? ""
+            alert.toName = self?.toModel?.name ?? ""
+            alert.chainName = self?.toChainName ?? ""
+            alert.preName = self?.toChainName ?? ""
             alert.closeBlock = { [weak self] in
                 self?.view.dissmiss(overlay: .last)
+            }
+            
+            alert.clickBlock = { [weak self] (model, chainName) in
+                self?.view.dissmiss(overlay: .last)
+                self?.toModel = model
+                self?.toChainName = chainName
+                self?.toBtn.filled(img: model.imageUrl, block: model.symbol, name: chainName)
+                self?.toFill(balance: model.balance, amount: self?.toAmoutTxtFiled.text ?? "")
             }
             
             self?.view.present(overlay: ovc)
@@ -405,6 +430,7 @@ class Go23SwapViewController: UIViewController {
         label.textColor = UIColor.rdt_HexOfColor(hexString: "#8C8C8C")
         label.textAlignment = .right
         label.text = "$0.00"
+        label.isHidden = true
         return label
     }()
     
@@ -418,7 +444,7 @@ class Go23SwapViewController: UIViewController {
     
     private lazy var swapBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Swap", for: .normal)
+        btn.setTitle(" Swap", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.titleLabel?.textAlignment = .center
         btn.titleLabel?.font = UIFont(name: BarlowCondensed, size: 20)
@@ -519,8 +545,50 @@ class Go23SwapViewController: UIViewController {
 //Action
 extension Go23SwapViewController {
     
-    @objc private func maxBtnClick() {
+    private func fromFill(balance: String, amount: String) {
+        if let bb = Double(balance), bb > 0 {
+            fromBalanceLabel.text = "Balance: \(balance)"
+        } else {
+            fromBalanceLabel.text = "Balance: 0.00"
+        }
+        if let aa = Double(amount), aa > 0 {
+            fromAmoutTxtFiled.text = amount
+            fromMoneyLabel.isHidden = false
+            fromMoneyLabel.text = "$\(amount)"
+        } else {
+            fromAmoutTxtFiled.text = ""
+            fromMoneyLabel.isHidden = true
+        }
         
+    }
+    
+    private func toFill(balance: String, amount: String) {
+        if let bb = Double(balance), bb > 0 {
+            toBalanceLabel.text = "Balance: \(balance)"
+        } else {
+            toBalanceLabel.text = "Balance: 0.00"
+        }
+        
+        if let aa = Double(amount), aa > 0 {
+            toAmoutTxtFiled.text = amount
+            toMoneyLabel.isHidden = false
+            toMoneyLabel.text = "$\(amount)"
+        } else {
+            toAmoutTxtFiled.text = ""
+            toMoneyLabel.isHidden = true
+        }
+    }
+    
+    private func feeViewFilled() {
+        
+    }
+    
+    @objc private func maxBtnClick() {
+        if let balance = fromModel?.balance, let bb = Double(balance), bb > 0 {
+            fromAmoutTxtFiled.text = balance
+        } else {
+            fromAmoutTxtFiled.text = "0.00"
+        }
     }
     
     @objc private func addressBtnClick() {
@@ -534,6 +602,7 @@ extension Go23SwapViewController {
     }
     
     private func startAction() {
+        stopAnimating()
         if timer == nil {
             progressView.setProgress(1.0)
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
@@ -569,12 +638,44 @@ extension Go23SwapViewController {
         }
     }
     
+    func swapStartAnimate() {
+        let rotationAnimatioin = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimatioin.toValue = -Double.pi * 2.0
+        rotationAnimatioin.duration = 1.5
+        rotationAnimatioin.repeatCount = MAXFLOAT
+        self.swapBtn.setImage(UIImage.init(named: "swapLoading"), for: .normal)
+        self.swapBtn.imageView?.layer.add(rotationAnimatioin, forKey: "rotationAnimatioin")
+    }
+    func swapRemoveAnimate() {
+        self.swapBtn.imageView?.layer.removeAllAnimations()
+        self.swapBtn.setImage(nil, for: .normal)
+    }
+
+    
     @objc func textDidEnd(_ textField:UITextField) {
-        if let txt = textField.text {
+        guard let fromT = fromAmoutTxtFiled.text, let tT = toAmoutTxtFiled.text else {
+            return
+        }
+        //调用接口
+        if fromT.count > 0 || tT.count > 0 {
+            getSwapInfo()
         }
     }
     
     @objc private func swapBtnClick() {
+        
+        swapRemoveAnimate()
+        guard let fModel = fromModel, let tModel = toModel else {
+            let totast = Go23Toast.init(frame: .zero)
+            totast.show("Select token", after: 1)
+            return
+        }
+        
+        guard let fromT = fromAmoutTxtFiled.text, let tT = toAmoutTxtFiled.text,fromT.count > 0, tT.count > 0 else {
+            let totast = Go23Toast.init(frame: .zero)
+            totast.show("Amount can not be nil", after: 1)
+            return
+        }
         
     }
     
@@ -583,6 +684,16 @@ extension Go23SwapViewController {
             return
         }
         
+        let temp = fromModel
+        let tempName = fromChainName
+        fromModel = toModel
+        toModel = temp
+        fromChainName = toChainName
+        toChainName = tempName
+        fromBtn.filled(img: fromModel?.imageUrl ?? "", block: fromModel?.symbol ?? "", name: fromChainName)
+        toBtn.filled(img: toModel?.imageUrl ?? "", block: toModel?.symbol ?? "", name: toChainName)
+        fromFill(balance: fromModel?.balance ?? "0.00", amount: fromAmoutTxtFiled.text ?? "")
+        toFill(balance: toModel?.balance ?? "0.00", amount: toAmoutTxtFiled.text ?? "")
     }
     
     
@@ -590,6 +701,49 @@ extension Go23SwapViewController {
 
 
 
+extension Go23SwapViewController {
+    private func getSwapInfo() {
+        guard let shared = Go23WalletSDK.shared else {
+            return
+        }
+        guard let fModel = fromModel, let tModel = toModel else {
+            return
+        }
+        
+        guard let fromT = fromAmoutTxtFiled.text, let tT = toAmoutTxtFiled.text else {
+            return
+        }
+        
+        if fromT.count == 0, tT.count == 0 {
+            return
+        }
+                
+        shared.getSwapInfo(with: fModel.chainId, outChainId: tModel.chainId, inTokenAddress: fModel.contractAddr, outTokenAddress: tModel.contractAddr, userWalletAddress: Go23WalletMangager.shared.address) { [weak self] (model, err) in
+            if err.count > 0 {
+                let totast = Go23Toast.init(frame: .zero)
+                totast.show(err, after: 1)
+                return
+            }
+            guard let obj = model else {
+                return
+            }
+            self?.swapInfoModel = obj
+            
+            let swapDec = NSDecimalNumber(string: obj.swapPer)
+            if fromT.count > 0 {
+                let fromDecimal = NSDecimalNumber(string: fromT).multiplying(by: swapDec)
+                self?.toAmoutTxtFiled.text = fromDecimal.stringValue
+            } else {
+                let toDecimal = NSDecimalNumber(string: tT).dividing(by: swapDec)
+                self?.fromAmoutTxtFiled.text = toDecimal.stringValue
+            }
+            
+
+            
+        }
+        
+    }
+}
 
 
 
@@ -654,7 +808,7 @@ class Go23SwapChangeBtn: UIView {
                 make.left.equalTo(0)
             }
         } else {
-            blockLabel.snp.makeConstraints { make in
+            blockLabel.snp.remakeConstraints { make in
                 make.left.equalTo(iconImgv.snp.right).offset(10)
                 make.top.equalToSuperview().offset(-4)
                 make.height.equalTo(22)
@@ -665,7 +819,6 @@ class Go23SwapChangeBtn: UIView {
             blockLabel.text = block
             nameLabel.text = name
         }
-        
         
     }
     

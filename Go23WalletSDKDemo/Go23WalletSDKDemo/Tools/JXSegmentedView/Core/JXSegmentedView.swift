@@ -583,8 +583,6 @@ extension JXSegmentedView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = dataSource?.segmentedView(self, cellForItemAt: indexPath.item) {
             cell.reloadData(itemModel: itemDataSource[indexPath.item], selectedType: .unknown)
-            cell.layer.borderColor = UIColor.red.cgColor
-            cell.layer.borderWidth = 1
             return cell
         }else {
             return UICollectionViewCell(frame: CGRect.zero)

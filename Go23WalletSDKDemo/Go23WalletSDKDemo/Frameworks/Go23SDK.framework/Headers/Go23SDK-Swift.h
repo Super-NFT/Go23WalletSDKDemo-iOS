@@ -275,6 +275,7 @@ SWIFT_CLASS("_TtC7Go23SDK13Go23WalletSDK")
 
 
 
+
 #endif
 #if defined(__cplusplus)
 #endif

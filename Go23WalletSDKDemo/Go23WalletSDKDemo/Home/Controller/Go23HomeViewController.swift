@@ -384,7 +384,7 @@ extension Go23HomeViewController: HomeHeaderViewDelegate {
     
     func swapBtnClick() {
         let vc = Go23SwapViewController()
-        vc.tokenModel = tokenList?.first
+        vc.fromModel = tokenList?.first
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -917,9 +917,8 @@ extension Go23SendViewController {
                 return
             }
             self?.transactionModel = obj
-            if !obj.isLendingGas {
-                self?.supportGasBtn.isHidden = true
-                self?.supportGasBtn.isUserInteractionEnabled = false
+            
+            if obj.transType == 0 {
                 self?.noGasfeeLabel.isHidden = false
                 let attri = NSMutableAttributedString()
                 attri.add(text: symbol) { attribute in
@@ -932,9 +931,16 @@ extension Go23SendViewController {
                     attribute.alignment(.center)
                 }
                 self?.noGasfeeLabel.attributedText = attri
-                self?.minTokenLabel.isHidden = true
             } else {
                 self?.noGasfeeLabel.isHidden = true
+            }
+            
+            if !obj.isLendingGas {
+                self?.supportGasBtn.isHidden = true
+                self?.supportGasBtn.isUserInteractionEnabled = false
+                
+                self?.minTokenLabel.isHidden = true
+            } else {
                 self?.supportGasBtn.isHidden = false
                 self?.supportGasBtn.isUserInteractionEnabled = true
                 self?.isSupportSel = obj.isLendingGas

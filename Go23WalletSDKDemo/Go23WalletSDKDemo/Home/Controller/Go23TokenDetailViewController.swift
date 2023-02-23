@@ -176,7 +176,7 @@ extension Go23TokenDetailViewController: TokenHeaderViewDelegate {
     
     func swapBtnClick() {
         let vc = Go23SwapViewController()
-        vc.tokenModel = model
+        vc.fromModel = model
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

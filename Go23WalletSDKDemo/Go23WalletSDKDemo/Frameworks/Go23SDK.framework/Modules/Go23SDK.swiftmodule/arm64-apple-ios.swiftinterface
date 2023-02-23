@@ -13,6 +13,10 @@ import SystemConfiguration
 import UIKit
 import _Concurrency
 import _StringProcessing
+extension Go23SDK.Go23WalletSDK {
+  public func getSwapInfo(with inChainId: Swift.Int, outChainId: Swift.Int, inTokenAddress: Swift.String, outTokenAddress: Swift.String, userWalletAddress: Swift.String, completion: @escaping ((Go23SDK.Go23SwapInfoModel?, Swift.String) -> ()))
+  public func checkSwap(with inChainId: Swift.Int, outChainId: Swift.Int, inTokenAddress: Swift.String, outTokenAddress: Swift.String, userWalletAddress: Swift.String, amount: Swift.String, completion: @escaping ((Go23SDK.Go23SwapResultModel?, Swift.String) -> ()))
+}
 public protocol Go23RestoreDelegate : Go23SDK.Go23VerifyPincodeDelegate {
 }
 public struct Go23TransactionGasModel : Swift.Codable {
@@ -1032,6 +1036,45 @@ public struct UserInfoModel : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
+public struct Go23SwapInfoModel : Swift.Codable {
+  @Go23SDK.DecodableDefault.EmptyString public var allowance: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var swapPer: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var swapFromPer: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var swapToPer: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var slippage: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var receivingAddress: Swift.String {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var txFee: Swift.String {
+    get
+    set
+    _modify
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
 public struct Go23ActivityDetailModel : Swift.Codable {
   @Go23SDK.DecodableDefault.Zero public var status: Swift.Int {
     get
@@ -1323,6 +1366,20 @@ public enum JsonValue : Swift.Codable {
   public var boolValue: Swift.Bool {
     get
   }
+}
+public struct Go23SwapResultModel : Swift.Codable {
+  @Go23SDK.DecodableDefault.False public var isApprove: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  @Go23SDK.DecodableDefault.EmptyString public var dataString: Swift.String {
+    get
+    set
+    _modify
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct Go23NFTDetailModel : Swift.Codable {
   @Go23SDK.DecodableDefault.EmptyString public var tokenId: Swift.String {

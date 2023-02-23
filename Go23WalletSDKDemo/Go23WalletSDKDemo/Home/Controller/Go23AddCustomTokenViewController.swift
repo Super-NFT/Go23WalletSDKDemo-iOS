@@ -312,6 +312,8 @@ extension Go23AddCustomTokenViewController {
             return
         }
         guard let model = self.tokenInfo else {
+            let totast = Go23Toast.init(frame: .zero)
+            totast.show("Add failed!", after: 1)
             return
         }
         Go23Loading.loading()
